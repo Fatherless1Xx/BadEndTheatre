@@ -5993,53 +5993,10 @@
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
-<<<<<<< HEAD
-"Lm" = (
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/shoes/boots/leather,
-/obj/item/clothing/shoes/boots/leather,
-/obj/item/clothing/shoes/boots/leather,
-/obj/item/clothing/shoes/gladiator,
-/obj/item/clothing/shoes/gladiator,
-/obj/item/clothing/shoes/gladiator,
-/obj/item/clothing/shoes/rare/grenzelhoft,
-/obj/item/clothing/shoes/rare/grenzelhoft,
-/obj/item/clothing/shoes/rare/grenzelhoft,
-/obj/item/clothing/shoes/nobleboot,
-/obj/item/clothing/shoes/nobleboot,
-/obj/item/clothing/shoes/nobleboot,
-/obj/item/clothing/shoes/ridingboots,
-/obj/item/clothing/shoes/ridingboots,
-/obj/item/clothing/shoes/ridingboots,
-/obj/item/clothing/shoes/sandals,
-/obj/item/clothing/shoes/sandals,
-/obj/item/clothing/shoes/sandals,
-/obj/item/clothing/shoes/shalal,
-/obj/item/clothing/shoes/shalal,
-/obj/item/clothing/shoes/shalal,
-/obj/item/clothing/shoes/shortboots,
-/obj/item/clothing/shoes/shortboots,
-/obj/item/clothing/shoes/shortboots,
-/obj/item/clothing/shoes/shortboots,
-/obj/item/clothing/shoes/simpleshoes,
-/obj/item/clothing/shoes/simpleshoes,
-/obj/item/clothing/shoes/simpleshoes,
-/obj/item/clothing/shoes/simpleshoes/buckle,
-/obj/item/clothing/shoes/simpleshoes/buckle,
-/obj/item/clothing/shoes/simpleshoes/buckle,
-/obj/structure/closet/crate/crafted_closet/dark{
-	name = "Common Shoes"
-	},
-/turf/open/floor/wood,
-/area/rogue/indoors)
-=======
 "Ll" = (
 /obj/machinery/light/fueled/wallfire/candle/skull/r,
 /turf/open/floor/churchbrick,
 /area/overlord_lair)
->>>>>>> vanderlin/main
 "Lo" = (
 /obj/item/clothing/head/helmet/leather/inquisitor,
 /obj/structure/mannequin/male,
