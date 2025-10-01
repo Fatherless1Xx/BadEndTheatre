@@ -15,14 +15,13 @@
 	allowed_races = RACES_PLAYER_ALL
 
 
-	outfit = /datum/outfit/job/beastmaster
+	outfit = /datum/outfit/beastmaster
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/beastmaster
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/beastmaster/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	belt = /obj/item/storage/belt/leather

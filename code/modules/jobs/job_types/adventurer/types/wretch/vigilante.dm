@@ -1,15 +1,14 @@
-/datum/advclass/wretch/vigilante
-	name = "Renegade"
+/datum/job/advclass/wretch/vigilante
+	title = "Renegade"
 	tutorial = "A renegade, deserter and a gunslinger, Favoured by Matthios, You've turned your back on the black empire and psydon alike, Now? you wander around Faience, wielding black powder, grit, and a gambler's instinct."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_GRENZ
-	outfit = /datum/outfit/job/wretch/vigilante
+	outfit = /datum/outfit/wretch/vigilante
 	category_tags = list(CTAG_WRETCH)
-	maximum_possible_slots = 1 //There can be only one.
-	pickprob = 25
+	total_positions = 1 //There can be only one.
+	roll_chance = 25
 
-
-/datum/outfit/job/wretch/vigilante/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/vigilante/pre_equip(mob/living/carbon/human/H)
 	H.set_patron(/datum/patron/inhumen/matthios) //The idea is that they're a matthiosite with a boon from said god.
 	neck = /obj/item/clothing/neck/highcollier/iron/renegadecollar
 	mask = /obj/item/clothing/face/spectacles/inqglasses
@@ -52,7 +51,7 @@
 	H.add_spell(/datum/action/cooldown/spell/undirected/conjure_item/puffer)
 
 
-/datum/outfit/job/wretch/vigilante/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/wretch/vigilante/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()
 
 	if(alert("Do you wish for a random title? You will not receive one if you click No.", "", "Yes", "No") == "Yes")

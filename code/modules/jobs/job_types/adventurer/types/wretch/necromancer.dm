@@ -1,14 +1,14 @@
-/datum/advclass/wretch/necromancer
-	name = "Necromancer"
+/datum/job/advclass/wretch/necromancer
+	title = "Necromancer"
 	tutorial = "You have been ostracized and hunted by society for your dark magics and perversion of life."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/wretch/necromancer
+	outfit = /datum/outfit/wretch/necromancer
 	category_tags = list(CTAG_WRETCH)
 	cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
-	maximum_possible_slots = 1
+	total_positions = 1
 
-/datum/outfit/job/wretch/necromancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/necromancer/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(1))
 		H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
@@ -59,7 +59,7 @@
 	ADD_TRAIT(H, TRAIT_DEADNOSE, TRAIT_GENERIC)
 	wretch_select_bounty(H)
 
-/datum/outfit/job/wretch/necromancer/post_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/necromancer/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(
 		"Witch hat" = /obj/item/clothing/head/wizhat/witch,

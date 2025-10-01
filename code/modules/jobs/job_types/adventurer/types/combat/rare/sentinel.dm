@@ -1,25 +1,22 @@
 //elf spear mounted
 
-/datum/advclass/combat/rare/sentinel
-	name = "Sentinel"
+/datum/job/advclass/combat/rare/sentinel
+	title = "Sentinel"
 	tutorial = "Your overseers have sent you to this distant land as a scout. Your trusted steed, longbow, and spear will allow you to overcome any challenges on the road ahead."
 	allowed_races = RACES_PLAYER_ELF_ALL
-	outfit = /datum/outfit/job/adventurer/sentinel
-	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
-	outfit = /datum/outfit/job/adventurer/sentinel
-	maximum_possible_slots = 1
+	outfit = /datum/outfit/adventurer/sentinel
+	outfit = /datum/outfit/adventurer/sentinel
+	total_positions = 1
 	min_pq = 0
-	pickprob = 30
+	roll_chance = 30
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/advclass/combat/sentinel/equipme(mob/living/carbon/human/H)
-	if(H.gender == FEMALE)
-		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
-	return ..()
+/datum/job/advclass/combat/sentinel/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(spawned))
 
-
-/datum/outfit/job/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

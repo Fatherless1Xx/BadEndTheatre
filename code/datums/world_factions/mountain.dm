@@ -2,7 +2,7 @@
 	mob_species = /datum/species/dwarf/mountain
 
 /obj/effect/mob_spawn/human/dwarf/trader
-	outfit = /datum/outfit/job/miner
+	outfit = /datum/outfit/miner
 
 /datum/world_faction/mountain_clans
 	faction_name = "Dwarven Clans"

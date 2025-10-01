@@ -15,14 +15,13 @@
 	allowed_ages = list(AGE_CHILD)
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/innkeep_son
+	outfit = /datum/outfit/innkeep_son
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/innkeep_son
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/innkeep_son/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/innkeep_son/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)

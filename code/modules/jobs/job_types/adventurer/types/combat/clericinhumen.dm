@@ -1,20 +1,16 @@
 //shield
-/datum/advclass/combat/inhumencleric
-	name = "Inhumen Cleric"
+/datum/job/advclass/combat/inhumencleric
+	title = "Inhumen Cleric"
 	tutorial = "Clerics are wandering warriors of the Inhumen Gods, zealots whom demonstrated martial talent.\
 	Protected by stolen armor and unholy zeal, they are a force to be reckoned with."
 	allowed_races = RACES_PLAYER_ALL
-	vampcompat = FALSE
-	outfit = /datum/outfit/job/adventurer/inhumencleric
+	outfit = /datum/outfit/adventurer/inhumencleric
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
-	maximum_possible_slots = 4
+	total_positions = 4
 	allowed_patrons = ALL_PROFANE_PATRONS
 
-/datum/outfit/job/adventurer/inhumencleric
-	allowed_patrons = ALL_PROFANE_PATRONS
-
-/datum/outfit/job/adventurer/inhumencleric/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/inhumencleric/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/ironpot
 	armor = /obj/item/clothing/armor/cuirass/iron // Adventurers are not supposed to have fricking steel, at all

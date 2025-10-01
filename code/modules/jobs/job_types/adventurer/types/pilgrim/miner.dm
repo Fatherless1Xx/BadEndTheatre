@@ -1,15 +1,15 @@
-/datum/advclass/pilgrimminer
-	name = "Miner"
+/datum/job/advclass/pilgrimminer
+	title = "Miner"
 	tutorial = "Hardy people who ceaselessly toil at the mines for ores and salt, \
 				who will ever know what they'll find beneath?"
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/miner
+	outfit = /datum/outfit/adventurer/miner
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Miner Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/adventurer/miner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/miner/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/armingcap
 	pants = /obj/item/clothing/pants/trou

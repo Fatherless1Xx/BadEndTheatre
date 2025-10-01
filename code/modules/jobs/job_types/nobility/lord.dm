@@ -23,13 +23,15 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	)
 
 	allowed_races = RACES_PLAYER_ROYALTY
-	outfit = /datum/outfit/job/lord
+	outfit = /datum/outfit/lord
 	bypass_lastclass = TRUE
 	give_bank_account = 500
 	selection_color = "#7851A9"
 
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	can_have_apprentices = FALSE
+
+	job_bitflag = BITFLAG_ROYALTY
 
 /datum/job/lord/get_informed_title(mob/mob)
 	return "[ruler_title]"
@@ -51,10 +53,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 7 SECONDS)
 
-/datum/outfit/job/lord
-	job_bitflag = BITFLAG_ROYALTY
-
-/datum/outfit/job/lord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/lord/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/crown/serpcrown
 	backr = /obj/item/storage/backpack/satchel

@@ -1,22 +1,22 @@
 //master chef
 
-/datum/advclass/pilgrim/rare/masterchef
-	name = "Master Chef"
+/datum/job/advclass/pilgrim/rare/masterchef
+	title = "Master Chef"
 	tutorial = "A master chef is one of the best cooks to ever live. \
 	You received an early education from the guild of culinary arts and have traveled across Psydonia, cooking exotic masterpieces for wealthy merchants and nobility alike. \
 	Now you find yourself approaching Vanderlin... perhaps this will be a perfect location to prepare your next great feast?"
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/masterchef
+	outfit = /datum/outfit/adventurer/masterchef
 
-	maximum_possible_slots = 1
-	pickprob = 15
+	total_positions = 1
+	roll_chance = 15
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Chef Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)

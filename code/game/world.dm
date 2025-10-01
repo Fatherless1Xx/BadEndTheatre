@@ -112,8 +112,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 
 	load_nameban()
 
-	load_crownlist()
-
 	load_bypassage()
 
 //	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000

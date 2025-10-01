@@ -9,7 +9,7 @@
 
 	allowed_races = RACES_PLAYER_ALL
 	spawn_type = /mob/living/carbon/human/species/goblin/cave
-	outfit = /datum/outfit/job/npc/goblin
+	outfit = /datum/outfit/npc/goblin
 	give_bank_account = FALSE
 
 /datum/job/goblin/after_spawn(mob/living/spawned, client/player_client)

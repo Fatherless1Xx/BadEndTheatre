@@ -165,13 +165,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		var/male
 		if(selected_priest.gender == FEMALE)
 			selected_priest.job = "Vice Priestess"
-			selected_priest.advjob = "Vice Priestess"
 			male = FALSE
 		else
 			selected_priest.job = "Vice Priest"
-			selected_priest.advjob = "Vice Priest"
 			male = TRUE
-		selected_priest.migrant_type = null
+
 		var/datum/devotion/C = selected_priest.cleric
 		if(C)
 			C.passive_devotion_gain = 1

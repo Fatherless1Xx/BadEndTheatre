@@ -11,14 +11,13 @@
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-	outfit = /datum/outfit/job/alchemist
+	outfit = /datum/outfit/alchemist
 	give_bank_account = 12
 
-/datum/outfit/job/alchemist
+/datum/outfit/alchemist
 	name = "Alchemist"
-	jobtype = /datum/job/alchemist
 
-/datum/outfit/job/alchemist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/alchemist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, pick(2,5), TRUE)

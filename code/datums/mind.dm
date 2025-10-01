@@ -128,9 +128,6 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/has_studied = FALSE
 	/// Variable that lets the event picker see if someones getting chosen or not
 	var/picking = FALSE
-	///the bitflag our job applied
-	var/job_bitflag = NONE
-
 
 /datum/mind/New(key)
 	src.key = key

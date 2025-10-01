@@ -6,10 +6,10 @@
 	faction = FACTION_TOWN
 	allowed_races = RACES_PLAYER_ALL
 	allowed_ages = ALL_AGES_LIST
-	outfit = /datum/outfit/job/woodsman_p
+	outfit = /datum/outfit/woodsman_p
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/woodsman_p/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/woodsman_p/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(50))
 		H.cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'

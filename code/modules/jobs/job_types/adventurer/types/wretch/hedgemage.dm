@@ -1,18 +1,17 @@
-/datum/advclass/wretch/hedgemage
-	name = "Hedge Mage"
+/datum/job/advclass/wretch/hedgemage
+	title = "Hedge Mage"
 	tutorial = "They reject your genius, they cast you out, they call you unethical. They do not understand the SACRIFICES you must make. But it does not matter anymore, your power eclipse any of those fools, save for the Court Magos themselves. Show them true magic."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/wretch/hedgemage
+	outfit = /datum/outfit/wretch/hedgemage
 	category_tags = list(CTAG_WRETCH)
 
 	cmode_music = 'sound/music/cmode/antag/CombatRogueMage.ogg'
-	maximum_possible_slots = 2
+	total_positions = 2
 
-/datum/outfit/job/wretch/hedgemage
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
-/datum/outfit/job/wretch/hedgemage/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/hedgemage/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(1))
 		H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
@@ -52,7 +51,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INHUMENCAMP, TRAIT_GENERIC)
 
-/datum/outfit/job/wretch/hedgemage/post_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/hedgemage/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(
 		"Witch hat" = /obj/item/clothing/head/wizhat/witch,

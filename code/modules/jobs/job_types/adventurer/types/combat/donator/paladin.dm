@@ -1,15 +1,15 @@
-/datum/advclass/combat/paladin
-	name = "Paladin"
+/datum/job/advclass/combat/paladin
+	title = "Paladin"
 	tutorial = "Paladins are former noblemen and clerics who have dedicated themselves to great combat prowess. Often, they were promised redemption for past sins if they crusaded in the name of the gods."
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-	outfit = /datum/outfit/job/adventurer/paladin
+	outfit = /datum/outfit/adventurer/paladin
 	allowed_patrons = ALL_PALADIN_PATRONS
-	maximum_possible_slots = 1
+	total_positions = 1
 	min_pq = 2
-	pickprob = 15
+	roll_chance = 15
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/adventurer/paladin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/paladin/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	switch(H.patron?.type)

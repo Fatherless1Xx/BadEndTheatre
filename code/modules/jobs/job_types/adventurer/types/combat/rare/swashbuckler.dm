@@ -1,7 +1,7 @@
 //rapier/sabre
 
-/datum/advclass/combat/swashbuckler
-	name = "Swashbuckler"
+/datum/job/advclass/combat/swashbuckler
+	title = "Swashbuckler"
 	tutorial = "Woe the Sea King! You awake, dazed from a true festivity of revelry and feasting. The last thing you remember? Your mateys dumping you over the side of the boat as a joke. Now on some Gods foresaken rock, Abyssor will present you with booty and fun, no doubt."
 	allowed_races = list(\
 		SPEC_ID_HUMEN,\
@@ -12,13 +12,13 @@
 		SPEC_ID_HALF_ORC,\
 		SPEC_ID_RAKSHARI,\
 	)
-	outfit = /datum/outfit/job/adventurer/swashbuckler
-	maximum_possible_slots = 1
+	outfit = /datum/outfit/adventurer/swashbuckler
+	total_positions = 1
 	min_pq = 0
-	pickprob = 30
+	roll_chance = 30
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/adventurer/swashbuckler
+/datum/outfit/adventurer/swashbuckler
 	head = /obj/item/clothing/head/helmet/leather/headscarf
 	pants = /obj/item/clothing/pants/tights/sailor
 	belt = /obj/item/storage/belt/leather
@@ -31,7 +31,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	neck = /obj/item/clothing/neck/psycross/silver/abyssor
 
-/datum/outfit/job/adventurer/swashbuckler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/swashbuckler/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/abyssor)

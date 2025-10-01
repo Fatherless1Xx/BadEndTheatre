@@ -1,14 +1,14 @@
-/datum/advclass/combat/dranger
-	name = "Ranger"
+/datum/job/advclass/combat/dranger
+	title = "Ranger"
 	tutorial = "Dwarfish rangers, much like their humen counterparts, \
 	live outside of society and explore the far corners of the creation. They \
 	protect dwarfish settlements from wild beasts and sell their notes to the cartographers."
 	allowed_races = list(SPEC_ID_DWARF)
-	outfit = /datum/outfit/job/adventurer/dranger
+	outfit = /datum/outfit/adventurer/dranger
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/adventurer/dranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/dranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/colored/uncolored
 	pants = /obj/item/clothing/pants/trou/leather

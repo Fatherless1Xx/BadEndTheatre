@@ -14,14 +14,13 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_NONEXOTIC
-	outfit = /datum/outfit/job/apothecary
+	outfit = /datum/outfit/apothecary
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
-/datum/outfit/job/apothecary
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/apothecary/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/apothecary/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/gambeson/apothecary
 	shoes = /obj/item/clothing/shoes/apothboots

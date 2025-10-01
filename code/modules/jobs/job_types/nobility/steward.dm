@@ -15,15 +15,14 @@
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-	outfit = /datum/outfit/job/steward
+	outfit = /datum/outfit/steward
 	give_bank_account = 100
 	noble_income = 16
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
-/datum/outfit/job/steward
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/steward/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/steward/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	if(H.gender == FEMALE)

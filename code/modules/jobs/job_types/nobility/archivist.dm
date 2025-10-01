@@ -14,18 +14,17 @@
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-	outfit = /datum/outfit/job/archivist
+	outfit = /datum/outfit/archivist
 	spells = list(
 		/datum/action/cooldown/spell/undirected/learn,
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 	)
 	give_bank_account = 100
 
-/datum/outfit/job/archivist
 	job_bitflag = BITFLAG_ROYALTY
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
-/datum/outfit/job/archivist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	if(H.dna.species.id == SPEC_ID_DWARF)

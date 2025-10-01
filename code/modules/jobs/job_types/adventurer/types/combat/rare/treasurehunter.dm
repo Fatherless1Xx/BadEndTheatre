@@ -1,16 +1,16 @@
 //dagger and huntknife
-/datum/advclass/combat/gravedigger
-	name = "Treasure Hunter"
+/datum/job/advclass/combat/gravedigger
+	title = "Treasure Hunter"
 	tutorial = "Grave robbers sell themselves as treasure hunters, but be sure to wipe that \
 	necrotic flesh off of that trinket you found."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/gravedigger
+	outfit = /datum/outfit/adventurer/gravedigger
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
-/datum/outfit/job/adventurer/gravedigger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/gravedigger/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/colored/black
 	armor = /obj/item/clothing/armor/leather/vest/colored/black

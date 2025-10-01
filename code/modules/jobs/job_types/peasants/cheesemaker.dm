@@ -11,13 +11,12 @@
 	spawn_positions = 0
 
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/cheesemaker
+	outfit = /datum/outfit/cheesemaker
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/cheesemaker
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)

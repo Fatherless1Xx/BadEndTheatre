@@ -1,19 +1,19 @@
 //dwarf, master mason
 
-/datum/advclass/pilgrim/rare/grandmastermason
-	name = "Grandmaster Mason"
+/datum/job/advclass/pilgrim/rare/grandmastermason
+	title = "Grandmaster Mason"
 	tutorial = "A Grandmaster mason, you built castles and entire cities with your own hands. \
 	There is nothing in this world that you can't build, your creed and hardwork has revealed all the secrets of the stone."
 	allowed_races = list(SPEC_ID_DWARF)
-	outfit = /datum/outfit/job/adventurer/grandmastermason
+	outfit = /datum/outfit/adventurer/grandmastermason
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	maximum_possible_slots = 1
-	pickprob = 15
+	total_positions = 1
+	roll_chance = 15
 	apprentice_name = "Mason Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/grandmastermason/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/grandmastermason/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

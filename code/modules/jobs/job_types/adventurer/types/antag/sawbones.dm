@@ -1,11 +1,11 @@
-/datum/advclass/sawbones // doctor class. like the pilgrim, but more evil
-	name = "Sawbones"
+/datum/job/advclass/sawbones // doctor class. like the pilgrim, but more evil
+	title = "Sawbones"
 	tutorial = "It was an accident! Your patient wasn't using his second kidney, anyway. After an unfortunate 'misunderstanding' with the town and your medical practice, you know practice medicine on the run with your new associates. Business has never been better!"
-	outfit = /datum/outfit/job/bandit/sawbones
+	outfit = /datum/outfit/bandit/sawbones
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
-/datum/outfit/job/bandit/sawbones/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bandit/sawbones/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/facemask/steel
 	head = /obj/item/clothing/head/tophat

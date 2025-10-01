@@ -72,7 +72,7 @@
 	mob_overlay_icon = 'icons/roguetown/maniac/clothing_mob.dmi'
 	icon_state = "pants"
 
-/datum/outfit/job/treyliam
+/datum/outfit/treyliam
 	name = "Trey Liam"
 	head = /obj/item/clothing/head/maniac
 	shirt = /obj/item/clothing/shirt/maniac

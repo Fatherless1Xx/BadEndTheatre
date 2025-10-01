@@ -12,10 +12,10 @@
 	spawn_positions = 4
 
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/bard
+	outfit = /datum/outfit/bard
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
-/datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bard/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)

@@ -1,18 +1,18 @@
-/datum/advclass/pilgrim/physicker
-	name = "Physicker"
+/datum/job/advclass/pilgrim/physicker
+	title = "Physicker"
 	tutorial =  "Those who fail their studies, or are exiled from the towns they take \
 				residence as feldshers in, often end up becoming wandering physickers. \
 				Capable doctors nonetheless, they journey from place to place offering \
 				their services."
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/adventurer/physicker
+	outfit = /datum/outfit/adventurer/physicker
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	maximum_possible_slots = 2
+	total_positions = 2
 	apprentice_name = "Physicker Apprentice"
 
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
-/datum/outfit/job/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/phys
 	head = /obj/item/clothing/head/roguehood/phys

@@ -17,7 +17,7 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/vagrant
+	outfit = /datum/outfit/vagrant
 	can_random = FALSE
 
 	can_have_apprentices = FALSE
@@ -36,7 +36,7 @@
 		else
 			stinky_boy.set_hygiene(HYGIENE_LEVEL_DIRTY)
 
-/datum/outfit/job/vagrant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/vagrant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(20))
 		head = /obj/item/clothing/head/knitcap
@@ -68,6 +68,6 @@
 	H.change_stat(STATKEY_CON, -2)
 	H.change_stat(STATKEY_END, -2)
 
-/datum/outfit/job/vagrant
+/datum/outfit/vagrant
 	name = "Beggar"
 

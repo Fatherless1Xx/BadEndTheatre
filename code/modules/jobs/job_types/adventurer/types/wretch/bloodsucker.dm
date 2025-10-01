@@ -1,14 +1,14 @@
-/datum/advclass/wretch/bloodsucker
-	name = "Bloodsucker"
+/datum/job/advclass/wretch/bloodsucker
+	title = "Bloodsucker"
 	tutorial = "You have recently been embraced as a vampire. You do not know whom your sire is, strange urges, unnatural strength, a thirst you can barely control. You were outed as a monster and are now on the run"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED //noble options, I don't know if its even possible to implement a race lock on class choices.
 	category_tags = list(CTAG_WRETCH) // Due to vampire status: skilled weapon skill, no armor besides a gorget.
-	outfit = /datum/outfit/job/wretch/bloodsucker
-	maximum_possible_slots = 1
-	pickprob = 25
+	outfit = /datum/outfit/wretch/bloodsucker
+	total_positions = 1
+	roll_chance = 25
 
-/datum/outfit/job/wretch/bloodsucker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/bloodsucker/pre_equip(mob/living/carbon/human/H)
 
 	var/classes = list("The Noble", "The Count", "The Bum")
 	var/classchoice = browser_input_list(H, "Choose your archetypes", "Available archetypes", classes)
@@ -20,7 +20,7 @@
 		if("The Bum")
 			bum_equip(H)
 
-/datum/outfit/job/wretch/bloodsucker/proc/noble_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/bloodsucker/proc/noble_equip(mob/living/carbon/human/H)
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Lord"
@@ -77,7 +77,7 @@
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/golden = 1, /obj/item/storage/belt/pouch/coins/mid, /obj/item/weapon/knife/dagger/steel/special, /obj/item/clothing/face/shepherd/rag)
 
-/datum/outfit/job/wretch/bloodsucker/proc/grenzel_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/bloodsucker/proc/grenzel_equip(mob/living/carbon/human/H)
 	shoes = /obj/item/clothing/shoes/rare/grenzelhoft
 	gloves = /obj/item/clothing/gloves/angle/grenzel
 	head = /obj/item/clothing/head/helmet/skullcap/grenzelhoft
@@ -130,7 +130,7 @@
 			var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(new /datum/clan/caitiff, TRUE)
 			H.mind.add_antag_datum(new_antag)
 
-/datum/outfit/job/wretch/bloodsucker/proc/bum_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/bloodsucker/proc/bum_equip(mob/living/carbon/human/H)
 	cloak = /obj/item/clothing/cloak/tribal // yes, just a cloak
 	H.adjust_skillrank(/datum/skill/misc/sneaking, pick(4,5), TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, pick(4,5), TRUE)

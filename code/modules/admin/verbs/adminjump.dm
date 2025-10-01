@@ -222,7 +222,7 @@
 
 	var/mob/living/carbon/human/new_human = new (warp_place)
 
-	var/datum/outfit/outfit = new /datum/outfit/job/tailor
+	var/datum/outfit/outfit = new /datum/outfit/tailor
 	outfit.equip(new_human)
 
 	prefs.safe_transfer_prefs_to(new_human)

@@ -174,7 +174,7 @@ SUBSYSTEM_DEF(death_arena)
 		second_spawn = get_turf(movable)
 		return
 
-/datum/outfit/job/arena_skeleton/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/arena_skeleton/pre_equip(mob/living/carbon/human/H, visuals_only)
 	..()
 
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

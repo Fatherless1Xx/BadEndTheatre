@@ -1,13 +1,13 @@
-/datum/advclass/wretch/berserker
-	name = "Reaver"
+/datum/job/advclass/wretch/berserker
+	title = "Reaver"
 	tutorial = "You are a warrior feared for your brutality, dedicated to using your might for your own gain. Might equals right, and you are the reminder of such a saying."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/wretch/berserker
+	outfit = /datum/outfit/wretch/berserker
 	category_tags = list(CTAG_WRETCH)
-	maximum_possible_slots = 2
+	total_positions = 2
 
-/datum/outfit/job/wretch/berserker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/berserker/pre_equip(mob/living/carbon/human/H)
 	head = /obj/item/clothing/head/helmet/nasal
 	mask = /obj/item/clothing/face/skullmask
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/brown
@@ -54,7 +54,7 @@
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INHUMENCAMP, TRAIT_GENERIC)
 
-/datum/outfit/job/wretch/berserker/post_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/berserker/post_equip(mob/living/carbon/human/H)
 	var/static/list/selectableweapon = list( \
 		"MY BARE HANDS!!!" = /obj/item/weapon/knife/dagger/steel, \
 		"Great Axe" = /obj/item/weapon/greataxe/steel, \

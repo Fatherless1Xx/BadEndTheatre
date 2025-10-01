@@ -12,9 +12,9 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/tester
+	outfit = /datum/outfit/tester
 
-/datum/outfit/job/tester/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/tester/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wrists = /obj/item/clothing/wrists/bracers

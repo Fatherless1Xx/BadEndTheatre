@@ -111,7 +111,7 @@
 /area/rogue/under/tomb/indoors)
 "mI" = (
 /obj/effect/mapping_helpers/outfit_handler{
-	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
+	outfit_to_equip = /datum/outfit/adventurer/barbarian
 	},
 /mob/living/carbon/human/species/orc/npc,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -377,7 +377,7 @@
 /obj/structure/toilet,
 /mob/living/carbon/human/species/orc/npc,
 /obj/effect/mapping_helpers/outfit_handler{
-	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
+	outfit_to_equip = /datum/outfit/adventurer/barbarian
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)

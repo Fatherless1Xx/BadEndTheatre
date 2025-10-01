@@ -15,12 +15,12 @@ SUBSYSTEM_DEF(crediticons)
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
 
-	while (currentrun.len)
-		var/mob/living/carbon/human/thing = currentrun[currentrun.len]
+	while(length(currentrun))
+		var/mob/living/carbon/human/thing = currentrun[length(currentrun)]
 		currentrun.len--
-		if (!thing || QDELETED(thing))
+		if(QDELETED(thing))
 			processing -= thing
-			if (MC_TICK_CHECK)
+			if(MC_TICK_CHECK)
 				return
 			continue
 		add_credit(thing)

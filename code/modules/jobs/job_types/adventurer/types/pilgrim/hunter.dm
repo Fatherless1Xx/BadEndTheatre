@@ -1,16 +1,16 @@
-/datum/advclass/pilgrim/hunter
-	name = "Hunter"
+/datum/job/advclass/pilgrim/hunter
+	title = "Hunter"
 	tutorial = "Peasants that thrive on the woods, hunting creechers for pelt and hide, \
 				or the boons of Dendor for their meat to sell, or consume."
 	allowed_sexes = list(MALE)
 
-	outfit = /datum/outfit/job/adventurer/hunter
+	outfit = /datum/outfit/adventurer/hunter
 
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Hunter Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/colored/random
 	shirt = /obj/item/clothing/shirt/shortshirt/colored/random
@@ -52,12 +52,12 @@
 			H.change_stat(STATKEY_PER, 3)
 // Female variant below
 
-/datum/advclass/pilgrim/huntress
-	name = "Huntress"
+/datum/job/advclass/pilgrim/huntress
+	title = "Huntress"
 	tutorial = "Women that thrive on the woods, hunting creechers for pelt and hide, \
 				or the boons of Dendor for their meat to sell, or consume."
 	allowed_sexes = list(FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/adventurer/hunter // Everything is the same
+	outfit = /datum/outfit/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Hunteress Apprentice"

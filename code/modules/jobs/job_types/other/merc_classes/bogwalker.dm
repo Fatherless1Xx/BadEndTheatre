@@ -1,15 +1,15 @@
-/datum/advclass/mercenary/bogwalker
-	name = "Bogwalker"
+/datum/job/advclass/mercenary/bogwalker
+	title = "Bogwalker"
 	tutorial = "You've spent your years wandering the bogs of Psydonia, eking out a living a hunter of both men and beast. \
 	Your axe has claimed many a head and the bog has hardened your body and mind against all threats."
 	allowed_races = list(SPEC_ID_HALF_ORC)
-	outfit = /datum/outfit/job/mercenary/bogwalker
+	outfit = /datum/outfit/mercenary/bogwalker
 	category_tags = list(CTAG_MERCENARY)
 
-	maximum_possible_slots = 2
+	total_positions = 2
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/outfit/job/mercenary/bogwalker
+/datum/outfit/mercenary/bogwalker
 	head = /obj/item/clothing/head/helmet/kettle
 	armor = /obj/item/clothing/armor/leather/hide
 	shirt = /obj/item/clothing/shirt/tunic/colored/green
@@ -25,7 +25,7 @@
 	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 
-/datum/outfit/job/mercenary/bogwalker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/bogwalker/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)

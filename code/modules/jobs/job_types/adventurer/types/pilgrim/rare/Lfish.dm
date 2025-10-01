@@ -1,21 +1,21 @@
 //human, master fisher
 
-/datum/advclass/pilgrim/rare/fishermaster
-	name = "Master Fisher"
+/datum/job/advclass/pilgrim/rare/fishermaster
+	title = "Master Fisher"
 	tutorial = "Seafarers who have mastered the tides, and are able to catch any fish with ease \
 	no matter the body of water. They have learned to thrive off the gifts of Abyssor, not simply survive."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/fishermaster
+	outfit = /datum/outfit/adventurer/fishermaster
 
-	maximum_possible_slots = 1
-	pickprob = 15
+	total_positions = 1
+	roll_chance = 15
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Fisher Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/fishermaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/fishermaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou

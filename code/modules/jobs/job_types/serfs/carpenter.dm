@@ -12,13 +12,12 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/carpenter
+	outfit = /datum/outfit/carpenter
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/carpenter
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/carpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/carpenter/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

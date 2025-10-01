@@ -1,22 +1,20 @@
 
-/datum/advclass/combat/vaquero
-	name = "Vaquero"
+/datum/job/advclass/combat/vaquero
+	title = "Vaquero"
 	tutorial = "You have been taming beasts of burden all your life, and riding since you were old enough to walk. Perhaps these lands will have use for your skills?"
 	allowed_races = list(SPEC_ID_TIEFLING)
-	outfit = /datum/outfit/job/adventurer/vaquero
-	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
+	outfit = /datum/outfit/adventurer/vaquero
 	cmode_music = 'sound/music/cmode/adventurer/combat_vaquero.ogg'
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 1
-	pickprob = 30
-	maximum_possible_slots = 1
+	roll_chance = 30
+	total_positions = 1
 
-/datum/advclass/combat/vaquero/equipme(mob/living/carbon/human/H)
-	if(H.gender == FEMALE)
-		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
-	return ..()
+/datum/job/advclass/combat/vaquero/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(spawned))
 
-/datum/outfit/job/adventurer/vaquero/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/vaquero/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

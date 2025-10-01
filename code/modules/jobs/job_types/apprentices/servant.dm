@@ -16,12 +16,12 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/servant
+	outfit = /datum/outfit/servant
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/colored/uncolored
@@ -63,13 +63,13 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/tapster
+	outfit = /datum/outfit/tapster
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/tapster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/tapster/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/colored/uncolored
@@ -112,12 +112,12 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/matron_assistant
+	outfit = /datum/outfit/matron_assistant
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/matron_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/matron_assistant/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/colored/uncolored
@@ -159,10 +159,10 @@
 
 	allowed_races = RACES_PLAYER_ALL
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
-	outfit = /datum/outfit/job/gaffer_assistant
+	outfit = /datum/outfit/gaffer_assistant
 	give_bank_account = TRUE
 
-/datum/outfit/job/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/colored/uncolored

@@ -15,16 +15,16 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 
-	outfit = /datum/outfit/job/templar
+	outfit = /datum/outfit/templar
 	give_bank_account = 0
 
-/datum/outfit/job/templar
-	name = "Templar"
-	jobtype = /datum/job/templar
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/templar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/templar
+	name = "Templar"
+
+/datum/outfit/templar/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
@@ -138,7 +138,7 @@
 		if(H.dna.species.id == SPEC_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
-/datum/outfit/job/templar/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/templar/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()
 	switch(H.patron?.type) //this is a ridiculous way of doing it and it is annoying.
 		if(/datum/patron/divine/astrata)

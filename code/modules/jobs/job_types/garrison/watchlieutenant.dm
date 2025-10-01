@@ -21,12 +21,12 @@
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_GUARD
 
-	outfit = /datum/outfit/job/lieutenant	//Default outfit.
+	outfit = /datum/outfit/lieutenant	//Default outfit.
 	give_bank_account = 50
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
 //................. Base Gear .............. //
-/datum/outfit/job/lieutenant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/lieutenant/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	head = /obj/item/clothing/head/helmet/sargebarbute //veteran who won a nice helmet
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
@@ -74,7 +74,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
-/datum/outfit/job/lieutenant/post_equip(mob/living/carbon/human/H)
+/datum/outfit/lieutenant/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.cloak)
 		if(!findtext(H.cloak.name,"([H.real_name])"))

@@ -1,17 +1,17 @@
-/datum/advclass/mercenary/verderer
-	name = "Hollow Verderer"
+/datum/job/advclass/mercenary/verderer
+	title = "Hollow Verderer"
 	tutorial = "A halberd expert that has for one reason or another, forsaken Amber Hollow in favor of pursuing coin and glory in wider parts of Psydonia."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Hollow-Kin",
 		"Humen"
 	)
-	outfit = /datum/outfit/job/mercenary/verderer
+	outfit = /datum/outfit/mercenary/verderer
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 5
+	total_positions = 5
 
 
-/datum/outfit/job/mercenary/verderer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/verderer/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/armor/light/rust
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/brown

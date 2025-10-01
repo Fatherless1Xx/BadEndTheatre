@@ -16,10 +16,10 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/merchant
+	outfit = /datum/outfit/merchant
 	give_bank_account = 200
 
-/datum/outfit/job/merchant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	neck = /obj/item/clothing/neck/mercator

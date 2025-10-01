@@ -164,6 +164,17 @@
 				modified_fortune = new_total
 				UPDATE_FORTUNE()
 
+/mob/living/proc/set_stat_modifier_list(source, stat_keys_values)
+	if(!source || !length(stat_keys_values))
+		return
+	for(var/stat_key in stat_keys_values)
+		if(!(stat_key in MOBSTATS))
+			continue
+		var/amount = stat_keys_values[stat_key]
+		if(!amount)
+			continue
+		set_stat_modifier(source, stat_key, amount)
+
 /mob/living/proc/adjust_stat_modifier(source, stat_key, amount)
 	if(!source || !(stat_key in MOBSTATS) || !amount)
 		return
@@ -198,6 +209,17 @@
 		if(STATKEY_LCK)
 			modified_fortune = new_total
 			UPDATE_FORTUNE()
+
+/mob/living/proc/adjust_stat_modifier_list(source, stat_keys_values)
+	if(!source || !length(stat_keys_values))
+		return
+	for(var/stat_key in stat_keys_values)
+		if(!(stat_key in MOBSTATS))
+			continue
+		var/amount = stat_keys_values[stat_key]
+		if(!amount)
+			continue
+		adjust_stat_modifier(source, stat_key, amount)
 
 /mob/living/proc/remove_stat_modifier(source)
 	if(!source)

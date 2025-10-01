@@ -1,13 +1,13 @@
-/datum/advclass/roguemage //mage class - like the adventurer mage, but more evil.
-	name = "Rogue Mage"
+/datum/job/advclass/roguemage //mage class - like the adventurer mage, but more evil.
+	title = "Rogue Mage"
 	tutorial = "Those fools at the academy laughed at you and cast you from the ivory tower of higher learning and magickal practice. \
 	No matter - you will ascend to great power one day, but first you need wealth - vast amounts of it. \
 	Show those fools in the town what REAL magic looks like."
-	outfit = /datum/outfit/job/bandit/roguemage
+	outfit = /datum/outfit/bandit/roguemage
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatRogueMage.ogg'
 
-/datum/outfit/job/bandit/roguemage/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bandit/roguemage/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(1))
 		H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
@@ -54,7 +54,7 @@
 	H.adjust_spell_points(1)
 	H.add_spell(/datum/action/cooldown/spell/undirected/touch/prestidigitation)
 
-/datum/outfit/job/bandit/roguemage/post_equip(mob/living/carbon/human/H)
+/datum/outfit/bandit/roguemage/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(
 		"Witch hat" = /obj/item/clothing/head/wizhat/witch,

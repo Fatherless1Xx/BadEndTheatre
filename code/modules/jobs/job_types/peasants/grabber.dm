@@ -14,11 +14,11 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/grabber
+	outfit = /datum/outfit/grabber
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/grabber/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/grabber/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

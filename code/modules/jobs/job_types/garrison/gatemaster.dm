@@ -15,16 +15,15 @@
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-	outfit = /datum/outfit/job/gatemaster	//Default outfit.
+	outfit = /datum/outfit/gatemaster	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GATEMASTER = 20)	//Handles class selection.
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/garrison/CombatGatekeeper.ogg'
 	give_bank_account = 15
 
-/datum/outfit/job/gatemaster
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/gatemaster/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch/gatemaster
 	shirt = /obj/item/clothing/armor/chainmail
@@ -32,30 +31,23 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots
 
-/datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
+/datum/outfit/gatemaster/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.wear_armor)
 		if(!findtext(H.wear_armor.name,"([H.real_name])"))
 			H.wear_armor.name = "[H.wear_armor.name]"+" "+"([H.real_name])"
 
-/datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
-	..()
-	var/mob/living/carbon/human/H = spawned
-	H.advsetup = TRUE
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
-
-/datum/advclass/gatemaster/gatemaster_whip
-	name = "Chainguard Gatemaster"
+/datum/job/advclass/gatemaster/gatemaster_whip
+	title = "Chainguard Gatemaster"
 	tutorial = "Metal chimes in your hands, their skin rough from those heavy chains you pull. \
 	Day by day, chains pass through your palms. \
 	Day by day, the chains' coldness feels more familar. \
 	Day by day, trespassers hear your chain whip rattling."
-	outfit = /datum/outfit/job/gatemaster/whip
+	outfit = /datum/outfit/gatemaster/whip
 
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/whip/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/gatemaster/whip/pre_equip(mob/living/carbon/human/H)
 	..()
 	gloves = /obj/item/clothing/gloves/chain
 	neck = /obj/item/clothing/neck/gorget
@@ -84,16 +76,16 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
-/datum/advclass/gatemaster/gatemaster_mace
-	name = "Bruiser Gatemaster"
+/datum/job/advclass/gatemaster/gatemaster_mace
+	title = "Bruiser Gatemaster"
 	tutorial = "Years of work let your body grow acustome to the job. Growing large, fitting to your chair. \
 	Even if you may be slower, but you dont need to be fast. \
 	They are the ones that need to get past you after all. \
 	Let them try to break through your armor, and let them learn how easy skulls break under cold hard steel."
-	outfit = /datum/outfit/job/gatemaster/mace
+	outfit = /datum/outfit/gatemaster/mace
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/mace/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/gatemaster/mace/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	gloves = /obj/item/clothing/gloves/chain
@@ -120,16 +112,16 @@
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		H.verbs |= /mob/proc/haltyell
 
-/datum/advclass/gatemaster/gatemaster_bow
-	name = "Archer Gatemaster"
+/datum/job/advclass/gatemaster/gatemaster_bow
+	title = "Archer Gatemaster"
 	tutorial = "Many may try to sneak past your post, thinking you wont see them. \
 	But the years made your senses grow sharp, and your arrows sharper. \
 	There is yet to be an arrow fired from you, that did not put the fear of the ten into their eyes."
-	outfit = /datum/outfit/job/gatemaster/bow
+	outfit = /datum/outfit/gatemaster/bow
 
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/bow/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/gatemaster/bow/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/coif
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket

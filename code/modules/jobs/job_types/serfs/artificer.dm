@@ -14,14 +14,13 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/artificer
+	outfit = /datum/outfit/artificer
 	give_bank_account = 8
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/artificer
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/artificer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/artificer/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, rand(1,3), TRUE)

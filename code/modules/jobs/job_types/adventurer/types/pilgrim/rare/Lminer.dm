@@ -1,19 +1,19 @@
 //dwarf, master miner
 
-/datum/advclass/pilgrim/rare/minermaster
-	name = "Master Miner"
+/datum/job/advclass/pilgrim/rare/minermaster
+	title = "Master Miner"
 	tutorial = "Hardy dwarves who dedicated their entire life to a singular purpose: \
 	the acquisition of ore, precious stones, and anything deep below the mines."
 	allowed_races = list(SPEC_ID_DWARF)
-	outfit = /datum/outfit/job/adventurer/minermaster
-	maximum_possible_slots = 1
-	pickprob = 15
+	outfit = /datum/outfit/adventurer/minermaster
+	total_positions = 1
+	roll_chance = 15
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Miner Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/minermaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/minermaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/leather/minershelm
 	pants = /obj/item/clothing/pants/trou

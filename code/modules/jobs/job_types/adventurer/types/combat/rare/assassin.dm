@@ -1,16 +1,16 @@
-/datum/advclass/combat/assassin
-	name = "Assassin"
+/datum/job/advclass/combat/assassin
+	title = "Assassin"
 	tutorial = "From a young age you have been drawn to blood, to hurting others. Eventually you found others like you, and a god who would bless your actions. Your cursed dagger has never led you astray, and with every stab you feel a little less empty."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/assassin
+	outfit = /datum/outfit/adventurer/assassin
 	category_tags = list(CTAG_PILGRIM)
-	maximum_possible_slots = 2
-	pickprob = 100
-	displays_adv_job = FALSE //this prevents advjob from being set back to "Assassin" in equipme
+	total_positions = 2
+	roll_chance = 100
+	inherit_parent_title = TRUE //this prevents advjob from being set back to "Assassin" in equipme
 	min_pq = 6
 
-/datum/outfit/job/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
@@ -35,13 +35,12 @@
 		H.mind.add_antag_datum(new_antag)
 
 	H.become_blind("TRAIT_GENERIC")
-	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
 	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Faceless One")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
-		H.advjob = disguisechoice
+		H.job = disguisechoice
 
 	switch(disguisechoice)
 		if("Bard")
@@ -293,7 +292,7 @@
 		else
 			H.dna.species.soundpack_f = new /datum/voicepack/female/assassin()
 
-/datum/outfit/job/adventurer/assassin/proc/get_faceless_name(mob/living/carbon/human/H)
+/datum/outfit/adventurer/assassin/proc/get_faceless_name(mob/living/carbon/human/H)
 	if(is_species(H, /datum/species/rakshari) && prob(10))
 		return "Furless One"
 	else if(is_species(H, /datum/species/harpy) && prob(10))

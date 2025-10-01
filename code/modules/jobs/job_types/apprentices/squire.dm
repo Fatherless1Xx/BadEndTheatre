@@ -19,7 +19,7 @@
 	allowed_ages = list(AGE_ADULT)
 	/* Noctra edit END */
 
-	outfit = /datum/outfit/job/squire
+	outfit = /datum/outfit/squire
 	display_order = JDO_SQUIRE
 	give_bank_account = TRUE
 	min_pq = 0
@@ -29,24 +29,25 @@
 	can_have_apprentices = FALSE
 
 
-/datum/outfit/job/squire
+/datum/outfit/squire
 	shirt = /obj/item/clothing/shirt/undershirt/colored/guard
 	pants = /obj/item/clothing/pants/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
 
-/datum/job/squire/after_spawn(mob/living/carbon/spawned, client/player_client)
-	. = ..()
+/datum/job/advclass/squire
+	allowed_ages = list(AGE_CHILD, AGE_ADULT)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-/datum/advclass/squire/lancer
-	name = "Pikeman Squire"
+/datum/job/advclass/squire/lancer
+	title = "Pikeman Squire"
 	tutorial = "History with riding, and a bit of practice with a spear have landed you in a promising mounted position."
-	outfit = /datum/outfit/job/squire/lancer
+	outfit = /datum/outfit/squire/lancer
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/lancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/squire/lancer/pre_equip(mob/living/carbon/human/H)
 	r_hand = /obj/item/weapon/polearm/spear
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
@@ -75,14 +76,14 @@
 		H.dna.species.soundpack_m = new /datum/voicepack/male/squire()
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-/datum/advclass/squire/footman
-	name = "Footman Squire"
+/datum/job/advclass/squire/footman
+	title = "Footman Squire"
 	tutorial = "Years of hitting dummies with a sword and chasing your friends around have finally paid off."
-	outfit = /datum/outfit/job/squire/footman
+	outfit = /datum/outfit/squire/footman
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/squire/footman/pre_equip(mob/living/carbon/human/H)
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
@@ -110,14 +111,14 @@
 		H.dna.species.soundpack_m = new /datum/voicepack/male/squire()
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-/datum/advclass/squire/skirmisher
-	name = "Bowman Squire"
+/datum/job/advclass/squire/skirmisher
+	title = "Bowman Squire"
 	tutorial = "Coming from a background of hunters, your practice with a bow has proven useful for the keep."
-	outfit = /datum/outfit/job/squire/skirmisher
+	outfit = /datum/outfit/squire/skirmisher
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	armor = /obj/item/clothing/armor/chainmail
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/short

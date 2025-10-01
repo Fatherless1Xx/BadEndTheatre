@@ -1,15 +1,15 @@
-/datum/advclass/pilgrim/fisher
-	name = "Fisher"
+/datum/job/advclass/pilgrim/fisher
+	title = "Fisher"
 	tutorial = "Simple folk with an affinity for catching fish out of any body of water, \
 				they are decent cooks and swimmers, living off the gifts of Abyssor."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/fisher
+	outfit = /datum/outfit/adventurer/fisher
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Fisher Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/adventurer/fisher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/fisher/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

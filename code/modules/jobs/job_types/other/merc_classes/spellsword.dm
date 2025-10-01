@@ -1,15 +1,15 @@
-/datum/advclass/mercenary/spellsword
-	name = "Spellsword"
+/datum/job/advclass/mercenary/spellsword
+	title = "Spellsword"
 	tutorial = "A warrior who has dabbled in the arts of magic, you blend swordplay and spellcraft to earn your keep."
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/mercenary/spellsword
+	outfit = /datum/outfit/mercenary/spellsword
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 5
+	total_positions = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
-
-/datum/outfit/job/mercenary/spellsword
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
+
+/datum/outfit/mercenary/spellsword
 	armor = /obj/item/clothing/armor/cuirass/iron
 	neck = /obj/item/clothing/neck/gorget
 	wrists = /obj/item/clothing/wrists/bracers/leather
@@ -24,9 +24,8 @@
 	scabbards = list(/obj/item/weapon/scabbard/sword)
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor, /obj/item/weapon/knife/dagger, /obj/item/reagent_containers/glass/bottle/manapot, /obj/item/book/granter/spellbook/apprentice, /obj/item/chalk)
 
-
 // Just a better adventurer warrior
-/datum/outfit/job/mercenary/spellsword/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/spellsword/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

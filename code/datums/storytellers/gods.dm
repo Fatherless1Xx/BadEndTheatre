@@ -8,14 +8,14 @@
 
 	influence_sets = list(
 		"Set 1" = list(
-			STATS_LAWS_AND_DECREES_MADE = list("name" = "Laws and decrees:", "points" = 2.75, "capacity" = 45),
+			STATS_LAWS_AND_DECREES_MADE = list("name" = "Laws and decrees:", "points" = 2.75, "capacity" = 40),
 		),
 		"Set 2" = list(
 			STATS_ALIVE_NOBLES = list("name" = "Number of nobles:", "points" = 2.425, "capacity" = 60),
 		),
 		"Set 3" = list(
 			STATS_NOBLE_DEATHS = list("name" = "Noble deaths:", "points" = -3.25, "capacity" = -60),
-			STATS_PEOPLE_SMITTEN = list("name" = "People smitten:", "points" = 5, "capacity" = 40),
+			STATS_PEOPLE_SMITTEN = list("name" = "People smitten:", "points" = 5.5, "capacity" = 40),
 		),
 		"Set 4" = list(
 			STATS_ASTRATA_REVIVALS = list("name" = "Holy revivals:", "points" = 6.25, "capacity" = 75),
@@ -50,13 +50,13 @@
 			STATS_LITERACY_TAUGHT = list("name" = "Literacy taught:", "points" = 12.5, "capacity" = 70),
 		),
 		"Set 3" = list(
-			STATS_ILLITERATES = list("name" = "Number of illiterates:", "points" = -3, "capacity" = -50),
+			STATS_ILLITERATES = list("name" = "Number of illiterates:", "points" = -3.25, "capacity" = -50),
 		),
 		"Set 4" = list(
-			STATS_SKILLS_DREAMED = list("name" = "Skills dreamed:", "points" = 0.275, "capacity" = 80),
+			STATS_SKILLS_DREAMED = list("name" = "Skills dreamed:", "points" = 0.265, "capacity" = 80),
 		),
 		"Set 5" = list(
-			STATS_MANA_SPENT = list("name" = "Mana spent:", "points" = 0.011, "capacity" = 90),
+			STATS_MANA_SPENT = list("name" = "Mana spent:", "points" = 0.010, "capacity" = 90),
 		)
 	)
 
@@ -203,10 +203,10 @@
 		),
 		"Set 3" = list(
 			STATS_GRAVES_ROBBED = list("name" = "Graves robbed:", "points" = -3.5, "capacity" = -40),
-			STATS_ALIVE_SNOW_ELVES = list("name" = "Number of elves:", "points" = 4.5, "capacity" = 55),
+			STATS_ALIVE_SNOW_ELVES = list("name" = "Number of elves:", "points" = 4.25, "capacity" = 55),
 		),
 		"Set 4" = list(
-			STATS_DEADITES_KILLED = list("name" = "Deadites killed:", "points" = 6, "capacity" = 90),
+			STATS_DEADITES_KILLED = list("name" = "Deadites killed:", "points" = 5.75, "capacity" = 90),
 		),
 		"Set 5" = list(
 			STATS_VAMPIRES_KILLED = list("name" = "Vampires killed:", "points" = 10, "capacity" = 70),
@@ -355,7 +355,7 @@
 			STATS_WEREVOLVES = list("name" = "Number of werevolves:", "points" = 12.5, "capacity" = 65),
 		),
 		"Set 2" = list(
-			STATS_PLANTS_HARVESTED = list("name" = "Plants harvested:", "points" = 0.725, "capacity" = 100),
+			STATS_PLANTS_HARVESTED = list("name" = "Plants harvested:", "points" = 0.7, "capacity" = 100),
 		),
 		"Set 3" = list(
 			STATS_FOREST_DEATHS = list("name" = "Forest deaths:", "points" = 6.25, "capacity" = 90),
@@ -446,17 +446,17 @@
 			STATS_DRUGS_SNORTED = list("name" = "Drugs snorted:", "points" = 4, "capacity" = 85),
 		),
 		"Set 2" = list(
-			STATS_ALCOHOL_CONSUMED = list("name" = "Alcohol consumed:", "points" = 0.0425, "capacity" = 90),
+			STATS_ALCOHOL_CONSUMED = list("name" = "Alcohol consumed:", "points" = 0.04, "capacity" = 90),
 		),
 		"Set 3" = list(
-			STATS_ALCOHOLICS = list("name" = "Number of alcoholics:", "points" = 3, "capacity" = 60),
+			STATS_ALCOHOLICS = list("name" = "Number of alcoholics:", "points" = 2.8, "capacity" = 60),
 		),
 		"Set 4" = list(
 			STATS_JUNKIES = list("name" = "Number of junkies:", "points" = 9, "capacity" = 70),
 			STATS_ALIVE_TIEFLINGS = list("name" = "Number of tieflings:", "points" = 6, "capacity" = 60),
 		),
 		"Set 5" = list(
-			STATS_LUXURIOUS_FOOD_EATEN = list("name" = "Luxurious food eaten:", "points" = 0.825, "capacity" = 85),
+			STATS_LUXURIOUS_FOOD_EATEN = list("name" = "Luxurious food eaten:", "points" = 0.9, "capacity" = 85),
 		)
 	)
 

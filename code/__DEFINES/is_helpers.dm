@@ -183,9 +183,9 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_gaffer_job(job_type) (istype(job_type, /datum/job/gaffer))
 // Peasantry
 	#define is_jester_job(job_type) (istype(job_type, /datum/job/jester))
-	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/adventurer))
-	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary))
-	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/pilgrim))
+	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/advclass/adventurer))
+	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/advclass/mercenary))
+	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/advclass/pilgrim))
 	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant))
 //  Apprentices
 	#define is_gaffer_assistant_job(job_type) (istype(job_type, /datum/job/gaffer_assistant))

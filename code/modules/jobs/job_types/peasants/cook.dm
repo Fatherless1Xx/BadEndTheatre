@@ -23,15 +23,14 @@
 		SPEC_ID_HARPY,\
 	)
 
-	outfit = /datum/outfit/job/cook
+	outfit = /datum/outfit/cook
 	display_order = JDO_COOK
 	give_bank_account = 8
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/cook
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/cook/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)

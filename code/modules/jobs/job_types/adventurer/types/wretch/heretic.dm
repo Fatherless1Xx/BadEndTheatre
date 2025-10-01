@@ -1,13 +1,13 @@
-/datum/advclass/wretch/heretic
-	name = "Iconoclast"
+/datum/job/advclass/wretch/heretic
+	title = "Iconoclast"
 	tutorial = "You are either a heretic or a fanatic, spurned by the church, cast out from society - frowned upon by the tens for your type of faith."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/wretch/heretic
+	outfit = /datum/outfit/wretch/heretic
 	category_tags = list(CTAG_WRETCH)
-	maximum_possible_slots = 2
+	total_positions = 2
 
-/datum/outfit/job/wretch/heretic/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/heretic/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
@@ -178,7 +178,7 @@
 		if(H.dna.species.id == SPEC_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
-/datum/outfit/job/wretch/heretic/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/wretch/heretic/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()
 	switch(H.patron?.type) //this is a ridiculous way of doing it and it is annoying.
 		if(/datum/patron/divine/astrata)

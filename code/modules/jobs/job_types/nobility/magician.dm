@@ -18,7 +18,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 
 
-	outfit = /datum/outfit/job/magician
+	outfit = /datum/outfit/magician
 	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 	magic_user = TRUE
@@ -32,15 +32,16 @@
 	attunements_max = 6
 	attunements_min = 4
 
-/datum/job/magician/New()
+	job_bitflag = BITFLAG_ROYALTY
+
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo) //intentional. This means it's a gamble between Noc or Zizo if your not one already. Don't fucking change this.
+
+/datum/job/magician/adjust_values(mob/living/carbon/human/spawned)
+	. = ..()
 	if(prob(1)) //extremely rare
 		cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 
-/datum/outfit/job/magician
-	job_bitflag = BITFLAG_ROYALTY
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo) //intentional. This means it's a gamble between Noc or Zizo if your not one already. Don't fucking change this.
-
-/datum/outfit/job/magician/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/magician/pre_equip(mob/living/carbon/human/H)
 	..()
 	backr = /obj/item/storage/backpack/satchel
 	cloak = /obj/item/clothing/cloak/black_cloak
@@ -78,7 +79,7 @@
 	H.change_stat(STATKEY_CON, -2)
 	H.change_stat(STATKEY_SPD, -2)
 
-/datum/outfit/job/magician/post_equip(mob/living/carbon/human/H)
+/datum/outfit/magician/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(
 		"Witch hat" = /obj/item/clothing/head/wizhat/witch,

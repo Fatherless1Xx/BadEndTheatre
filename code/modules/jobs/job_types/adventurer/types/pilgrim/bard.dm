@@ -1,18 +1,18 @@
 
-/datum/advclass/pilgrim/bard
-	name = "Bard"
+/datum/job/advclass/pilgrim/bard
+	title = "Bard"
 	tutorial = "Bards make up one of the largest populations of \
 	registered adventurers in Vanderlin, mostly because they are \
 	the last ones in a party to die. Their wish is to experience \
 	the greatest adventures of the age and write amazing songs about them."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/bard
+	outfit = /datum/outfit/adventurer/bard
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
-/datum/outfit/job/adventurer/bard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/bard/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)

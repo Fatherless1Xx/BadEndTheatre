@@ -1,11 +1,11 @@
-/datum/advclass/brigand //Strength class, starts with axe or flails and medium armor training
-	name = "Brigand"
+/datum/job/advclass/brigand //Strength class, starts with axe or flails and medium armor training
+	title = "Brigand"
 	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
-	outfit = /datum/outfit/job/bandit/brigand
+	outfit = /datum/outfit/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit_brigand.ogg'
 
-/datum/outfit/job/bandit/brigand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bandit/brigand/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)

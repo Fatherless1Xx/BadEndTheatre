@@ -1,28 +1,26 @@
-/datum/advclass/combat/hoplite
-	name = "Immortal Bulwark"
+/datum/job/advclass/combat/hoplite
+	title = "Immortal Bulwark"
 	tutorial = "You have marched and fought in formations since the ancient war that nearly destroyed Psydonia. There are few in the world who can match your expertise in a shield wall, but all you have ever known is battle and obedience..."
 	allowed_races = list(SPEC_ID_AASIMAR)
-	outfit = /datum/outfit/job/adventurer/hoplite
-	maximum_possible_slots = 1
-	pickprob = 15 // Same as the other very rare classes
+	outfit = /datum/outfit/adventurer/hoplite
+	total_positions = 1
+	roll_chance = 15 // Same as the other very rare classes
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 2 // Same as Bladesinger
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
-
-/datum/outfit/job/adventurer/hoplite/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/hoplite/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_SPD, -1)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -1)
 
 	// Despite extensive combat experience, this class is exceptionally destitute. The only luxury besides combat gear that it possesses is a lantern for a source of light
 	// Beneath the arms and armor is a simple loincloth, and it doesn't start with any money. This should encourage them to find someone to serve or work alongside with very quickly

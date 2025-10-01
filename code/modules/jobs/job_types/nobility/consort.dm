@@ -14,12 +14,14 @@
 
 	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/servant)
 	allowed_races = RACES_PLAYER_ROYALTY
-	outfit = /datum/outfit/job/consort
+	outfit = /datum/outfit/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
 	give_bank_account = 500
 	apprentice_name = "Servant"
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	noble_income = 22
+
+	job_bitflag = BITFLAG_ROYALTY
 
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
@@ -29,10 +31,7 @@
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 5 SECONDS)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
-/datum/outfit/job/consort
-	job_bitflag = BITFLAG_ROYALTY
-
-/datum/outfit/job/consort // Default equipment regardless of class.
+/datum/outfit/consort // Default equipment regardless of class.
 	head = /obj/item/clothing/head/crown/nyle/consortcrown
 	shoes = /obj/item/clothing/shoes/boots
 	ring = /obj/item/clothing/ring/silver
@@ -45,17 +44,17 @@
 - Courtesan: Ex-classy or not-so-classy prostitute. Concerningly good with that knife and sneaking around. A little dumb.
 - Lowborn: A good wholesome peasant spouse. Can cook and swing a pitchfork good. Not so smart or perceptive.
 */
-/datum/advclass/consort
-	displays_adv_job = FALSE
+/datum/job/advclass/consort
+	inherit_parent_title = TRUE
 
-/datum/advclass/consort/highborn
-	name = "Highborn Consort"
+/datum/job/advclass/consort/highborn
+	title = "Highborn Consort"
 	tutorial = "Of a minor noble house, yours is a rather typical tale; you were trained in manners, literature, and intrigue, all to be married off to the next ruler of this damned peninsula."
-	outfit = /datum/outfit/job/consort/highborn
+	outfit = /datum/outfit/consort/highborn
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/highborn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/consort/highborn/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/colored/black
@@ -92,14 +91,14 @@
 		if(/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
-/datum/advclass/consort/courtesan
-	name = "Courtesan Consort"
+/datum/job/advclass/consort/courtesan
+	title = "Courtesan Consort"
 	tutorial = "Though initially none envied your lot in life, it's certain that your midnight talents haven't gone to waste. Your honeyed words and charm have brought you right to being a ruler's beloved consort."
-	outfit = /datum/outfit/job/consort/courtesan
+	outfit = /datum/outfit/consort/courtesan
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/courtesan/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/consort/courtesan/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/colored/black
@@ -136,14 +135,14 @@
 		if(/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
-/datum/advclass/consort/lowborn
-	name = "Lowborn Consort"
+/datum/job/advclass/consort/lowborn
+	title = "Lowborn Consort"
 	tutorial = "You never could have dreamed your life would be like this. Though your origins are humble, something special about you - whether it was your good looks, your kind heart, or your bravery - has brought you into Vanderlin Keep."
-	outfit = /datum/outfit/job/consort/lowborn
+	outfit = /datum/outfit/consort/lowborn
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/lowborn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/consort/lowborn/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/colored/green
@@ -179,10 +178,10 @@
 		if(/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
-/datum/advclass/consort/courtesan/night_spy
-	name = "Night-Mother's Spy Consort"
+/datum/job/advclass/consort/courtesan/night_spy
+	title = "Night-Mother's Spy Consort"
 	tutorial = "Raised by the guild to report on all the Monarch's action. Using your honeyed words and charm have brought you right to being a ruler's beloved consort."
-	outfit = /datum/outfit/job/consort/courtesan/spy
+	outfit = /datum/outfit/consort/courtesan/spy
 
 	category_tags = list(CTAG_CONSORT)
 
@@ -194,7 +193,7 @@
 	spawn_positions = 0
 	display_order = JDO_CONSORT
 
-/datum/outfit/job/consort/courtesan/spy/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/consort/courtesan/spy/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")

@@ -14,14 +14,13 @@
 
 	allowed_races = RACES_PLAYER_NONEXOTIC
 
-	outfit = /datum/outfit/job/innkeep
+	outfit = /datum/outfit/innkeep
 	give_bank_account = 60
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/innkeep
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/innkeep/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/innkeep/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)

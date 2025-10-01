@@ -103,10 +103,10 @@
 	L.dna.species.species_traits |= NOBLOOD
 	L.grant_undead_eyes()
 	L.skeletonize(FALSE)
-	L.equipOutfit(/datum/outfit/job/lich)
+	L.equipOutfit(/datum/outfit/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
 
-/datum/outfit/job/lich/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/lich/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/skullcap/cult
 	pants = /obj/item/clothing/pants/chainlegs
@@ -152,7 +152,7 @@
 
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "LICH"), 5 SECONDS)
 
-/datum/outfit/job/lich/post_equip(mob/living/carbon/human/H)
+/datum/outfit/lich/post_equip(mob/living/carbon/human/H)
 	..()
 	var/datum/antagonist/lich/lichman = H.mind.has_antag_datum(/datum/antagonist/lich)
 	for(var/i in 1 to 3)

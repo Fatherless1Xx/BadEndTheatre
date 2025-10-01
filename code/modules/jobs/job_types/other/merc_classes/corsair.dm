@@ -1,13 +1,13 @@
-/datum/advclass/mercenary/corsair
-	name = "Corsair"
+/datum/job/advclass/mercenary/corsair
+	title = "Corsair"
 	tutorial = "Driven away from a typical life, you once found kin with privateers, working adjacent to a royal navy. After the Red Flag battered itself in the wind one last time, your purse was still not satisfied... And yet he complained that his belly was not full."
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/adventurer/corsair
+	outfit = /datum/outfit/adventurer/corsair
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
-	maximum_possible_slots = 5
+	total_positions = 5
 
-/datum/outfit/job/adventurer/corsair
+/datum/outfit/adventurer/corsair
 	head = /obj/item/clothing/head/helmet/leather/headscarf
 	pants = /obj/item/clothing/pants/tights/sailor
 	belt = /obj/item/storage/belt/leather/mercenary
@@ -20,7 +20,7 @@
 	scabbards = list(/obj/item/weapon/scabbard/sword, /obj/item/weapon/scabbard/knife)
 	shoes = /obj/item/clothing/shoes/boots
 
-/datum/outfit/job/adventurer/corsair/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/corsair/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 

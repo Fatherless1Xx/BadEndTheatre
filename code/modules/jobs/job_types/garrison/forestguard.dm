@@ -24,14 +24,12 @@
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
-	outfit = /datum/outfit/job/forestguard
+	outfit = /datum/outfit/forestguard
 	advclass_cat_rolls = list(CTAG_FORGARRISON = 20)
 
-
-/datum/outfit/job/forestguard
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/forestguard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/forestguard/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(SSmapping.config.map_name == "Rosewood")
 		cloak = /obj/item/clothing/cloak/forrestercloak/snow
@@ -49,14 +47,14 @@
 	..()
 
 // Ravager, whips, flails, axes and swords and shields.
-/datum/advclass/forestguard/infantry
-	name = "Forest Ravager"
+/datum/job/advclass/forestguard/infantry
+	title = "Forest Ravager"
 	tutorial = "In the goblin wars- you alone were deployed to the front lines, caving skulls and chopping legs - saving your family-at-arms through your reckless diversions. \ With your bloodied axe and flail, every swing and crack was another hatch on your tally. Now that the War's over, even with your indomitable spirit and tireless zeal - let's see if that still rings true."
-	outfit = /datum/outfit/job/forestguard/infantry
+	outfit = /datum/outfit/forestguard/infantry
 	category_tags = list(CTAG_FORGARRISON)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 
-/datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/gorget
@@ -95,14 +93,14 @@
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Ranger, bows and knives
-/datum/advclass/forestguard/ranger
-	name = "Forest Ranger"
+/datum/job/advclass/forestguard/ranger
+	title = "Forest Ranger"
 	tutorial = "In the Wars you were always one of the fastest, aswell as one of the frailest in the platoon. \ Your trusty bow has served you well- of course, none you've set your sights on have found the tongue to disagree."
-	outfit = /datum/outfit/job/forestguard/ranger
+	outfit = /datum/outfit/forestguard/ranger
 	category_tags = list(CTAG_FORGARRISON)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 
-/datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/gorget
@@ -137,14 +135,14 @@
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Reaver, Axes and Maces
-/datum/advclass/forestguard/reaver
-	name = "Forest Reaver"
+/datum/job/advclass/forestguard/reaver
+	title = "Forest Reaver"
 	tutorial = "In the Wars you took an oath to never shy from a hit. Axe in hand, thirsting for blood, you simply enjoy the <i>chaos of battle...</i>"
-	outfit = /datum/outfit/job/forestguard/reaver
+	outfit = /datum/outfit/forestguard/reaver
 	category_tags = list(CTAG_FORGARRISON)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 
-/datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/gorget
@@ -180,14 +178,14 @@
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Ruffian, knives, bows and a lot of cooking.
-/datum/advclass/forestguard/ruffian
-	name = "Forest Ruffian"
+/datum/job/advclass/forestguard/ruffian
+	title = "Forest Ruffian"
 	tutorial = "For your terrible orphan pranks and antics in the city, you were rounded up by the city's Watch and put to work in the infamous forest garrison. \n\n A ruffian by circumstance, a proven listener of war stories - you might just become more than a troublemaker."
-	outfit = /datum/outfit/job/forestguard/ruffian
+	outfit = /datum/outfit/forestguard/ruffian
 	category_tags = list(CTAG_FORGARRISON)
 	allowed_ages = list(AGE_CHILD)
 
-/datum/outfit/job/forestguard/ruffian/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/forestguard/ruffian/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet //placeholder, I have to sprite something new for the Brats, like a gator skull
 	neck = /obj/item/clothing/neck/gorget

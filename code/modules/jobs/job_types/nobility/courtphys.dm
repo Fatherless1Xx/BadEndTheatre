@@ -13,7 +13,7 @@
 
 	allowed_races = RACES_PLAYER_COURT_PHYSICIAN
 
-	outfit = /datum/outfit/job/courtphys
+	outfit = /datum/outfit/courtphys
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
@@ -21,10 +21,9 @@
 		/datum/action/cooldown/spell/diagnose,
 	)
 
-/datum/outfit/job/courtphys
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/courtphys/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/courtphys/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/shortboots

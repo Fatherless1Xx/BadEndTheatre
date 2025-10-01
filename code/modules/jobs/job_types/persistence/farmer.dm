@@ -4,10 +4,10 @@
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
-	outfit = /datum/outfit/job/farmer_p
+	outfit = /datum/outfit/farmer_p
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/farmer_p/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/farmer_p/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(50))
 		H.cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'

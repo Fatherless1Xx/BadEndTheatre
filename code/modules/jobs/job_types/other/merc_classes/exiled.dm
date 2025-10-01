@@ -1,14 +1,14 @@
-/datum/advclass/mercenary/exiled
-	name = "Exiled Warrior"
+/datum/job/advclass/mercenary/exiled
+	title = "Exiled Warrior"
 	tutorial = "A barbarian - you're a brute, and you're a long way from home. You took more of a liking to the blade than your elders wanted - in truth, they did not have to even deliberate to banish you. You will drown in ale, and your enemies in blood."
 	allowed_races = list(SPEC_ID_HALF_ORC)
-	outfit = /datum/outfit/job/mercenary/exiled
+	outfit = /datum/outfit/mercenary/exiled
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 5
+	total_positions = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/mercenary/exiled/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/exiled/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)

@@ -16,15 +16,14 @@
 
 	allowed_races = RACES_PLAYER_NONEXOTIC
 
-	outfit = /datum/outfit/job/dungeoneer
+	outfit = /datum/outfit/dungeoneer
 	give_bank_account = 50
 
 	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 
-/datum/outfit/job/dungeoneer
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/dungeoneer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/dungeoneer
 	neck = /obj/item/storage/belt/pouch/coins/poor	// Small storage. N.

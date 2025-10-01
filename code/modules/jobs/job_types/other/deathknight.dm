@@ -1,7 +1,7 @@
 /datum/job/skeleton/knight
 	title = "Death Knight"
 
-	outfit = /datum/outfit/job/deathknight
+	outfit = /datum/outfit/deathknight
 	cmode_music = 'sound/music/cmode/combat_weird.ogg'
 
 /datum/job/skeleton/knight/after_spawn(mob/living/carbon/spawned, client/player_client)
@@ -14,7 +14,7 @@
 	ADD_TRAIT(spawned, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(spawned, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 
-/datum/outfit/job/deathknight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/deathknight/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(!(H.patron == /datum/patron/inhumen/zizo))	//Magic MUST be Noc or Zizo. Probably unneeded here, but better to be sure.
 		H.set_patron(/datum/patron/divine/noc)

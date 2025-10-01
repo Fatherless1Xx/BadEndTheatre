@@ -1,5 +1,5 @@
 
-/datum/outfit/job/harlequin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/harlequin/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	neck = /obj/item/clothing/neck/gorget

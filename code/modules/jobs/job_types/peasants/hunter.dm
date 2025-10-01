@@ -15,15 +15,14 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/hunter
+	outfit = /datum/outfit/hunter
 	give_bank_account = 15
 	apprentice_name = "Hunter"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/hunter
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/hunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/colored/random
 	shirt = /obj/item/clothing/shirt/shortshirt/colored/random

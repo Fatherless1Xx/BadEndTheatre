@@ -28,7 +28,7 @@
 		SPEC_ID_HARPY,\
 	)
 
-	outfit = /datum/outfit/job/butler
+	outfit = /datum/outfit/butler
 	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
@@ -38,7 +38,7 @@
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 
 
-/datum/outfit/job/butler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/butler/pre_equip(mob/living/carbon/human/H)
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
 	mask = /obj/item/clothing/face/spectacles

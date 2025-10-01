@@ -12,9 +12,6 @@
 	min_pq = 4
 	antag_job = TRUE
 
-	outfit = null
-	outfit_female = null
-
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)
 
 	is_foreigner = TRUE
@@ -24,11 +21,6 @@
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/antag/combat_bandit2.ogg'
 
-/datum/job/bandit/after_spawn(mob/living/spawned, client/player_client)
-	..()
-	var/mob/living/carbon/human/H = spawned
-	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
-	H.mind.add_antag_datum(new_antag)
-	if(!H.mind)
-		return
-	H.ambushable = FALSE
+	traits = list(TRAIT_NOAMBUSH)
+
+	antag_role = /datum/antagonist/bandit

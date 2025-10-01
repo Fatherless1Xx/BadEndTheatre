@@ -864,7 +864,7 @@
 /datum/anvil_recipe/armor/steel/rare/zaladin_plate_helm
 	name = "Zaladin Bastion Plate Helm (+Bar)"
 	additional_items = list(/obj/item/ingot/steel)
-	created_item = /obj/item/clothing/head/rare/zybanplate
+	created_item = /obj/item/clothing/head/rare/zaladplate
 
 /datum/anvil_recipe/armor/steel/rare/hoplite_plate_helm
 	name = "Hoplite Plate Helm (+Bronze Bar, +Steel Bar)"
@@ -873,12 +873,12 @@
 
 /datum/anvil_recipe/armor/steel/rare/zaladin_plate_gauntlets
 	name = "Zaladin Claw Plate Gauntlets"
-	created_item = /obj/item/clothing/gloves/rare/zybanplate
+	created_item = /obj/item/clothing/gloves/rare/zaladplate
 
 /datum/anvil_recipe/armor/steel/rare/zaladin_plate
 	name = "Zaladin Kataphractoe Scaleskin (+Bar X3)"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/ingot/steel)
-	created_item = /obj/item/clothing/armor/rare/zybanplate
+	created_item = /obj/item/clothing/armor/rare/zaladplate
 
 /datum/anvil_recipe/armor/steel/rare/hoplite_plate
 	name = "Hoplite Plate (+Bar x2 +Bronze Bar x2)"
@@ -887,7 +887,7 @@
 
 /datum/anvil_recipe/armor/steel/rare/zaladin_plate_boots
 	name = "Zaladin Boots"
-	created_item = /obj/item/clothing/shoes/boots/rare/zybanplate
+	created_item = /obj/item/clothing/shoes/boots/rare/zaladplate
 
 /datum/anvil_recipe/armor/steel/rare/hoplite_plate_bracers
 	name = "Hoplite Bracers (+Bronze Bar)"

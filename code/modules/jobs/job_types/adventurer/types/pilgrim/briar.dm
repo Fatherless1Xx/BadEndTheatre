@@ -1,15 +1,15 @@
-/datum/advclass/pilgrim/briar
-	name = "Briar"
+/datum/job/advclass/pilgrim/briar
+	title = "Briar"
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/briar
+	outfit = /datum/outfit/adventurer/briar
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendors path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
 //	allowed_patrons = list(/datum/patron/divine/dendor)		this doesn't work so long its a subclass type. Besides its preferable to forceswitch as it does to make selection less clunky.
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
-	maximum_possible_slots = 4	// to be lowered to 2? once testing is done
+	total_positions = 4	// to be lowered to 2? once testing is done
 
-/datum/outfit/job/adventurer/briar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/briar/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 
@@ -68,10 +68,10 @@
 		devotion.make_acolyte()
 		devotion.grant_to(H)
 
-/datum/outfit/job/adventurer/briar
+/datum/outfit/adventurer/briar
 	var/tutorial = "<br><br><font color='#44720e'><span class='bold'>You know well how to make a shrine to Dendor, wood, thorns, and the head of a favored animal.<br><br>Choose a path stinging, devouring or growing, and make your sacrifices...<br><br>Remember - Dendor will only grant special powers from Blessing the first time you do recieve it, and only those mastering all his Miracles can unlock their full potential.  </span></font><br><br>"
 
-/datum/outfit/job/adventurer/briar/post_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/briar/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)
 

@@ -1,5 +1,5 @@
-/datum/advclass/combat/barbarian
-	name = "Barbarian"
+/datum/job/advclass/combat/barbarian
+	title = "Barbarian"
 	tutorial = "Wildmen and warriors all, Barbarians forego the intricacies of modern warfare in favour of raw strength and brutal cunning. Few of them can truly adjust to the civilized, docile lands of lords and ladies."
 	allowed_races = list(\
 		SPEC_ID_HUMEN,\
@@ -8,15 +8,14 @@
 		SPEC_ID_HALF_ORC,\
 		SPEC_ID_TIEFLING,\
 	)
-	outfit = /datum/outfit/job/adventurer/barbarian
+	outfit = /datum/outfit/adventurer/barbarian
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/adventurer/barbarian
 	allowed_patrons = list(/datum/patron/divine/ravox, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/dendor, /datum/patron/godless, /datum/patron/inhumen/graggar)
 
-/datum/outfit/job/adventurer/barbarian/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/barbarian/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

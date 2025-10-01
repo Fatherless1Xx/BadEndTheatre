@@ -1,15 +1,15 @@
-/datum/advclass/mercenary/ironmaiden
-	name = "Iron Maiden"
+/datum/job/advclass/mercenary/ironmaiden
+	title = "Iron Maiden"
 	tutorial = "You're a battlefield medic and have forsaken the blade for the scalpel. \
 	Your vile apperance has been hidden under layers of steel, allowing you to ply your trade to all those who have the coin."
 	allowed_races = list(SPEC_ID_MEDICATOR)
-	outfit = /datum/outfit/job/mercenary/ironmaiden
+	outfit = /datum/outfit/mercenary/ironmaiden
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 5
+	total_positions = 5
 
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
-/datum/outfit/job/mercenary/ironmaiden
+/datum/outfit/mercenary/ironmaiden
 	head = /obj/item/clothing/head/helmet/sallet
 	mask = /obj/item/clothing/face/facemask/steel
 	neck = /obj/item/clothing/neck/gorget
@@ -28,7 +28,7 @@
 		/obj/item/storage/belt/pouch/coins/poor
 	)
 
-/datum/outfit/job/mercenary/ironmaiden/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/ironmaiden/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)

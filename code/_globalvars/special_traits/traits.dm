@@ -14,8 +14,6 @@
 	var/list/allowed_ages
 	var/list/allowed_patrons
 	var/list/allowed_jobs
-	var/list/allowed_migrants
-	var/list/restricted_migrants
 	var/list/restricted_traits
 	var/list/restricted_races
 	var/list/restricted_jobs

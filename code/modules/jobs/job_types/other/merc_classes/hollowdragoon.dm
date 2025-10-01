@@ -1,18 +1,18 @@
-/datum/advclass/mercenary/hollowdragoon
-	name = "Hollow Dragoon"
+/datum/job/advclass/mercenary/hollowdragoon
+	title = "Hollow Dragoon"
 	tutorial = "You rode out from Amber Hollow on your loyal steed, seeking coin from the wider reaches of Psydonia. \
 	With armour salvaged from fallen knights and a spear in hand, you will fight for anyone, for a price."
 	allowed_races = list(\
 		SPEC_ID_HOLLOWKIN,\
 		SPEC_ID_HARPY,\
 	) // Technically should be humens too, but hollow's deserve something special too
-	outfit = /datum/outfit/job/mercenary/dragoon
+	outfit = /datum/outfit/mercenary/dragoon
 	category_tags = list(CTAG_MERCENARY)
 
-	maximum_possible_slots = 5
+	total_positions = 5
 	cmode_music = 'sound/music/cmode/Combat_Dwarf.ogg'
 
-/datum/outfit/job/mercenary/dragoon
+/datum/outfit/mercenary/dragoon
 	head = /obj/item/clothing/head/helmet/heavy/rust
 	armor = /obj/item/clothing/armor/plate/rust
 	neck = /obj/item/clothing/neck/gorget
@@ -29,7 +29,7 @@
 	scabbards = list(/obj/item/weapon/scabbard/sword)
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor, /obj/item/weapon/knife/dagger)
 
-/datum/outfit/job/mercenary/dragoon/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/dragoon/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)

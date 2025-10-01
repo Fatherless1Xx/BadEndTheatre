@@ -24,9 +24,9 @@
 	is_foreigner = TRUE
 	is_recognized = TRUE
 
-/datum/outfit/job/mercenary // Reminder message
+/datum/outfit/mercenary // Reminder message
 	var/tutorial = "<br><br><font color='#855b14'><span class='bold'>The Gaffer, who feeds and houses you may have work for you todae, go see him at the office outside your lodgings.</span></font><br><br>"
 
-/datum/outfit/job/mercenary/post_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)

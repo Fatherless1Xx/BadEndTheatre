@@ -1,15 +1,15 @@
-/datum/advclass/combat/amazon
-	name = "Amazon"
+/datum/job/advclass/combat/amazon
+	title = "Amazon"
 	tutorial = "A savage and deft warrior-women, you hail from the mysterious isle of Issa. In your youth you learned to partake in the hunts amid the treetops and proved your worth through countless bouts."
 	allowed_sexes = list(FEMALE)
 	allowed_races = list(SPEC_ID_HUMEN, SPEC_ID_DROW, SPEC_ID_HALF_DROW, SPEC_ID_TRITON)
-	outfit = /datum/outfit/job/adventurer/amazon
+	outfit = /datum/outfit/adventurer/amazon
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/outfit/job/adventurer/amazon/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/amazon/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

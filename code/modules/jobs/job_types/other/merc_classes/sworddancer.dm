@@ -1,15 +1,15 @@
-/datum/advclass/mercenary/sworddancer
-	name = "Sword Dancer"
+/datum/job/advclass/mercenary/sworddancer
+	title = "Sword Dancer"
 	tutorial = "You were a former bard, but when times got tough you picked up a blade to defend yourself. \
 	Now you travel the lands of Psydonia, selling your sword and your songs to the highest bidder."
 	allowed_races = list(SPEC_ID_TIEFLING)
-	outfit = /datum/outfit/job/mercenary/sworddancer
+	outfit = /datum/outfit/mercenary/sworddancer
 	category_tags = list(CTAG_MERCENARY)
 
-	maximum_possible_slots = 2
+	total_positions = 2
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg' // Not a noble, but it fits really well
 
-/datum/outfit/job/mercenary/sworddancer
+/datum/outfit/mercenary/sworddancer
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/tights/colored/random
@@ -23,7 +23,7 @@
 	beltl = /obj/item/weapon/sword/rapier
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 
-/datum/outfit/job/mercenary/sworddancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/sworddancer/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -67,7 +67,7 @@
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 
-/datum/outfit/job/mercenary/sworddancer/post_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/sworddancer/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/cloak/cape/C = H.get_item_by_slot(ITEM_SLOT_CLOAK)
 	if(C)

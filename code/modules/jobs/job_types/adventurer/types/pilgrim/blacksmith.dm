@@ -1,15 +1,15 @@
-/datum/advclass/pilgrim/blacksmith
-	name = "Blacksmith"
+/datum/job/advclass/pilgrim/blacksmith
+	title = "Blacksmith"
 	tutorial = "Hardy worksmen that are at home in the forge, dedicating their lives \
 	to ceaselessly toil in dedication to Malum."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/blacksmith
+	outfit = /datum/outfit/adventurer/blacksmith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/leather
 

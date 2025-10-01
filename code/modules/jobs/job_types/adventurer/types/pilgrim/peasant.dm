@@ -1,15 +1,15 @@
-/datum/advclass/pilgrim/peasant
-	name = "Peasant"
+/datum/job/advclass/pilgrim/peasant
+	title = "Peasant"
 	tutorial = "A serf with no particular proficiency of their own, born poor \
 				and more likely to die poor. Farm workers, carriers, handymen."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/peasant
+	outfit = /datum/outfit/adventurer/peasant
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Handyman"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/adventurer/peasant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)

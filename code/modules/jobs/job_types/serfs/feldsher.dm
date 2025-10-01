@@ -15,7 +15,7 @@
 	//Reason all species allowed is you are basically a very talented court physician; even 'lower species' would find this to be one of the only ways to obtain a sort of nobility.
 	allowed_races = RACES_PLAYER_NONEXOTIC
 
-	outfit = /datum/outfit/job/feldsher
+	outfit = /datum/outfit/feldsher
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
@@ -23,10 +23,9 @@
 		/datum/action/cooldown/spell/diagnose,
 	)
 
-/datum/outfit/job/feldsher
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/feldsher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt/colored/red

@@ -1,18 +1,18 @@
-/datum/advclass/pilgrim/rare/preacher
-	name = "Preacher"
+/datum/job/advclass/pilgrim/rare/preacher
+	title = "Preacher"
 	tutorial = "A devout follower of Psydon, you came to this land with nothing more than \
 	the clothes on your back and the faith in your heart. \n\
 	Sway these nonbelievers to the right path!"
 	allowed_races = RACES_PLAYER_GRENZ
-	outfit = /datum/outfit/job/adventurer/preacher
+	outfit = /datum/outfit/adventurer/preacher
 	category_tags = list(CTAG_PILGRIM)
-	maximum_possible_slots = 1
-	pickprob = 30
+	total_positions = 1
+	roll_chance = 30
 	min_pq = 0
 
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/outfit/job/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	belt = /obj/item/storage/belt/leather/rope

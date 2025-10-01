@@ -1,15 +1,14 @@
-/datum/advclass/combat/lakkariancleric // terra was here! <3
-	name = "Lakkarian Cleric"
+/datum/job/advclass/combat/lakkariancleric // terra was here! <3
+	title = "Lakkarian Cleric"
 	tutorial = "A follower of the Order of the Southern Sun. Acolytes who underwent years of martial training, they seek to root out the corruption caused by the Four in Faience and spread the word of the Sun Queen."
 	allowed_races = RACES_PLAYER_ELF
-	outfit = /datum/outfit/job/adventurer/lakkariancleric
-	vampcompat = FALSE
+	outfit = /datum/outfit/adventurer/lakkariancleric
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
-	pickprob = 25
-	maximum_possible_slots = 2
+	roll_chance = 25
+	total_positions = 2
 
-/datum/outfit/job/adventurer/lakkariancleric/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/lakkariancleric/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	H.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'

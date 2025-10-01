@@ -1,21 +1,17 @@
 //shield
-/datum/advclass/combat/cleric
-	name = "Cleric"
+/datum/job/advclass/combat/cleric
+	title = "Cleric"
 	tutorial = "Clerics are wandering warriors of the Gods, \
 	drawn from the ranks of temple acolytes who demonstrated martial talent. \
 	Protected by armor and zeal, they are a force to be reckoned with."
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	vampcompat = FALSE
-	outfit = /datum/outfit/job/adventurer/cleric
+	outfit = /datum/outfit/adventurer/cleric
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
-	maximum_possible_slots = 4
+	total_positions = 4
 	allowed_patrons = ALL_CLERIC_PATRONS
 
-/datum/outfit/job/adventurer/cleric
-	allowed_patrons = ALL_CLERIC_PATRONS
-
-/datum/outfit/job/adventurer/cleric/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/cleric/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'

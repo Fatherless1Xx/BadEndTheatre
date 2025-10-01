@@ -13,7 +13,7 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
 
-	outfit = /datum/outfit/job/bapprentice
+	outfit = /datum/outfit/bapprentice
 	display_order = JDO_BAPP
 	give_bank_account = TRUE
 	min_pq = -10
@@ -21,10 +21,9 @@
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/bapprentice
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/bapprentice/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bapprentice/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)

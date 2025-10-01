@@ -16,14 +16,13 @@
 
 	allowed_races = RACES_PLAYER_NONHERETICAL
 
-	outfit = /datum/outfit/job/undertaker
+	outfit = /datum/outfit/undertaker
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
-/datum/outfit/job/undertaker
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/undertaker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/undertaker/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/padded/deathshroud
 	neck = /obj/item/clothing/neck/psycross/silver/necra

@@ -1,13 +1,12 @@
-/datum/advclass/pilgrim/weaver
-	name = "Weaver"
+/datum/job/advclass/pilgrim/weaver
+	title = "Weaver"
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/seamstress
-	category_tags = list(CTAG_DISABLED)
+	outfit = /datum/outfit/adventurer/seamstress
 	apprentice_name = "Weaver"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/outfit/job/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

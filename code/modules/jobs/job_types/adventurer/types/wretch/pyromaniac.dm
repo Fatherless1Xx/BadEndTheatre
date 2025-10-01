@@ -1,13 +1,13 @@
-/datum/advclass/wretch/pyromaniac
-	name = "Pyromaniac"
+/datum/job/advclass/wretch/pyromaniac
+	title = "Pyromaniac"
 	tutorial = "A notorious arsonist with a penchant for fire, you wield your own personal vendetta against the chaotic forces within Faience. Bring mayhem and destruction with flame and misfortune! Just... try not to hit yourself with your explosives - you aren't fireproof, after all."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/wretch/pyromaniac
+	outfit = /datum/outfit/wretch/pyromaniac
 	category_tags = list(CTAG_WRETCH)
-	maximum_possible_slots = 2
+	total_positions = 2
 
-/datum/outfit/job/wretch/pyromaniac/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/pyromaniac/pre_equip(mob/living/carbon/human/H)
 	head = /obj/item/clothing/head/roguehood/colored/red
 	mask = /obj/item/clothing/face/facemask
 	neck = /obj/item/clothing/neck/chaincoif/iron
@@ -50,7 +50,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
-/datum/outfit/job/wretch/pyromaniac/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/wretch/pyromaniac/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()
 	var/static/list/selectableweapon = list(
 		"Bow" = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/short,

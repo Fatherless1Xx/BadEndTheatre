@@ -22,6 +22,7 @@
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 	give_bank_account = 35
 	can_have_apprentices = FALSE
+	job_bitflag = BITFLAG_GARRISON
 
 /datum/job/veteran/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
@@ -36,19 +37,16 @@
 		S.name = "veteran cloak ([index])"
 	ADD_TRAIT(spawned, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
-/datum/advclass/veteran/battlemaster
-	name = "Veteran Battlemaster"
+/datum/job/advclass/veteran/battlemaster
+	title = "Veteran Battlemaster"
 	tutorial = "You have served under a hundred masters, some good, some bad. You were a general once. A marshal, a captain. To some a hero, others a monster. Something of the sorts. You made strategies, tactics, new innovations of war. A thousand new ways for one man to kill another. It still keeps you up at night."
-	outfit = /datum/outfit/job/vet/battlemaster
+	outfit = /datum/outfit/vet/battlemaster
 
 	category_tags = list(CTAG_VETERAN)
 
 // Normal veteran start, from the olden days.
 
-/datum/outfit/job/vet
-	job_bitflag = BITFLAG_GARRISON
-
-/datum/outfit/job/vet/battlemaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/vet/battlemaster/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/bevor
 	armor = /obj/item/clothing/armor/plate
 	shirt = /obj/item/clothing/armor/chainmail
@@ -95,16 +93,16 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
-/datum/advclass/veteran/footman
-	name = "Retired Footman"
+/datum/job/advclass/veteran/footman
+	title = "Retired Footman"
 	tutorial = "You served on the fields of battle as no heroic knight steadfast in shining armor, but a mere mortal clad in whatever cheap armor coin could buy. You fought in formation as a member of a unit, and through discipline, have won numerous battles. Maybe one day you even served as the captain of your unit. You specialize in polearms and bows."
-	outfit = /datum/outfit/job/vet/footman
+	outfit = /datum/outfit/vet/footman
 
 	category_tags = list(CTAG_VETERAN)
 
 // No hero, just a normal guy who happened to survive war.
 
-/datum/outfit/job/vet/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/vet/footman/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/plate // Meant to be better than man-at-arms, but worse than knight. No heavy armor!! This is a cuirass, not half-plate.
 	shirt = /obj/item/clothing/armor/gambeson/heavy
@@ -153,16 +151,16 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
-/datum/advclass/veteran/calvaryman
-	name = "Tarnished Knight"
+/datum/job/advclass/veteran/calvaryman
+	title = "Tarnished Knight"
 	tutorial = "You were once a member of a knightly calvary regiment, a prestigious title. You were ontop of the world, the townspeople rejoiced when you rode through their streets. Now, all you can hear is the screams of your brothers-in-arms as they fell. You specialize in mounted warfare."
-	outfit = /datum/outfit/job/vet/calvaryman
+	outfit = /datum/outfit/vet/calvaryman
 
 	category_tags = list(CTAG_VETERAN)
 
 // You get a SAIGA. Saigas are pretty good, you lose out on your legendary weapon skills and you suck more on foot though.
 
-/datum/outfit/job/vet/calvaryman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/vet/calvaryman/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/chaincoif
 	armor = /obj/item/clothing/armor/plate/	////Former knights should have knightly armour.
 	shirt = /obj/item/clothing/armor/chainmail
@@ -232,16 +230,16 @@
 			r_hand = /obj/item/weapon/polearm/spear
 			backl = /obj/item/weapon/shield/tower/metal
 
-/datum/advclass/veteran/merc
-	name = "Retired Mercenary"
+/datum/job/advclass/veteran/merc
+	title = "Retired Mercenary"
 	tutorial = "You were a sell-sword, a warrior of coin. Your pockets were never light, you always had a warm place to stay and food in your belly, but you knew that every battle could be your last. You're the last of your unit, and you can't help but regret it. You specialize in swords and polearms, or axes and polearms."
-	outfit = /datum/outfit/job/vet/merc
+	outfit = /datum/outfit/vet/merc
 	allowed_races = RACES_PLAYER_GRENZ
 	category_tags = list(CTAG_VETERAN)
 
 // Normal veteran start, from the olden days
 
-/datum/outfit/job/vet/merc/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/vet/merc/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/gorget
 	wrists = /obj/item/clothing/wrists/bracers
 	shirt = /obj/item/clothing/shirt/grenzelhoft // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.

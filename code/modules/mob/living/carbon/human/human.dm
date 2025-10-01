@@ -695,7 +695,6 @@
 	updateappearance(mutcolor_update = TRUE)
 
 	job = target.job // NOT assigned_role
-	migrant_type = target.migrant_type
 	faction = target.faction
 	deathsound = target.deathsound
 	gender = target.gender
@@ -712,7 +711,6 @@
 	undershirt = target.undershirt
 	shavelevel = target.shavelevel
 	socks = target.socks
-	advjob = target.advjob
 	spouse_mob = target.spouse_mob
 	spouse_indicator = target.spouse_indicator
 	has_stubble = target.has_stubble

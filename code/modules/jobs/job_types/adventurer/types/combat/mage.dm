@@ -1,17 +1,16 @@
-/datum/advclass/combat/mage
-	name = "Mage"
+/datum/job/advclass/combat/mage
+	title = "Mage"
 	tutorial = "A wandering graduate of the many colleges of magick across Psydonia, you search for a job to put your degree to use. And they say school was hard..."
 
-	outfit = /datum/outfit/job/adventurer/mage
+	outfit = /datum/outfit/adventurer/mage
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
-	maximum_possible_slots = 4
+	total_positions = 4
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
-/datum/outfit/job/adventurer/mage
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
-/datum/outfit/job/adventurer/mage/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shoes = /obj/item/clothing/shoes/simpleshoes
@@ -40,7 +39,7 @@
 	H.adjust_spell_points(5)
 	H.add_spell(/datum/action/cooldown/spell/undirected/touch/prestidigitation)
 
-/datum/outfit/job/adventurer/mage/post_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/mage/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(
 		"Witch hat" = /obj/item/clothing/head/wizhat/witch,

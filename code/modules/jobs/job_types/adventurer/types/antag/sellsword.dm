@@ -1,13 +1,13 @@
-/datum/advclass/sellsword //Strength class, starts with axe or flails and medium armor training
-	name = "Sellsword"
+/datum/job/advclass/sellsword //Strength class, starts with axe or flails and medium armor training
+	title = "Sellsword"
 	tutorial = "Perhaps a mercenary, perhaps a deserter - at one time, you killed for a master in return for gold. Now you live with no such master over your head - and take what you please."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/bandit/sellsword
+	outfit = /datum/outfit/bandit/sellsword
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit2.ogg'
 
-/datum/outfit/job/bandit/sellsword/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/bandit/sellsword/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

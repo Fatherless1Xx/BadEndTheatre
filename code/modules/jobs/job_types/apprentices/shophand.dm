@@ -13,14 +13,14 @@
 	allowed_races = RACES_PLAYER_ALL
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
-	outfit = /datum/outfit/job/shophand
+	outfit = /datum/outfit/shophand
 	display_order = JDO_SHOPHAND
 	give_bank_account = 10
 	min_pq = -10
 	bypass_lastclass = TRUE
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/shophand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/shophand/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	if(H.gender == FEMALE)

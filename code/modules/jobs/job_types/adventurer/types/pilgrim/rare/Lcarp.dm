@@ -1,21 +1,21 @@
 //master carpenter
 
-/datum/advclass/pilgrim/rare/mastercarpenter
-	name = "Master Carpenter"
+/datum/job/advclass/pilgrim/rare/mastercarpenter
+	title = "Master Carpenter"
 	tutorial = "A true artisan in the field of woodcrafting, your skills honed by years in a formal guild. \
 	As a master carpenter, you transform trees into anything from furniture to entire fortifications."
 
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/mastercarpenter
+	outfit = /datum/outfit/adventurer/mastercarpenter
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	maximum_possible_slots = 1
-	pickprob = 15
+	total_positions = 1
+	roll_chance = 15
 	apprentice_name = "Carpenter Apprentice"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/mastercarpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/mastercarpenter/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

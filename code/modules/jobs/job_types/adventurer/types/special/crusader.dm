@@ -1,22 +1,21 @@
-/datum/advclass/pilgrim/rare/crusader
-	name = "Totod Order Emissary"
+/datum/job/advclass/pilgrim/rare/crusader
+	title = "Totod Order Emissary"
 	tutorial = "The Crusaders are knights who have pledged their wealth and lands to the Church, \
 	taking up the banner of the Totod Order dedicated to retaking Valoria. \
 	Three cults provide knights for the Order: Astrata, Necra and Ravox. \
 	You were sent to Vanderlin by the Order to get any and all assistance from the faithful for the Crusade."
 	allowed_races = RACES_PLAYER_NONHERETICAL
 	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
-	outfit = /datum/outfit/job/adventurer/crusader
+	outfit = /datum/outfit/adventurer/crusader
 	category_tags = list(CTAG_ADVENTURER)
-	maximum_possible_slots = 1
-	pickprob = 30
+	total_positions = 1
+	roll_chance = 30
 	min_pq = 0
 	is_recognized = TRUE
 
-/datum/outfit/job/adventurer/crusader
 	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
 
-/datum/outfit/job/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	head = /obj/item/clothing/head/helmet/heavy/crusader
@@ -88,16 +87,10 @@
 		H.grant_language(/datum/language/oldpsydonic)
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
-	var/job = H.get_role_title()
-	if(job == "Crusader") // If they come through the crusader_wave, they are from Grenzelhoft.
-		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Psydonic"
-			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
-
-/datum/outfit/job/adventurer/crusader // Reminder message
+/datum/outfit/adventurer/crusader // Reminder message
 	var/tutorial = "<br><br><font color='#bdc34a'><span class='bold'>You have been sent from the Totod Order on a mission to aid your struggle against the Blood Barons somehow. The details of your mission may vary, perhaps to find allies, funding, or a agent of the enemy...</span></font><br><br>"
 
-/datum/outfit/job/adventurer/crusader/post_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/crusader/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)
 

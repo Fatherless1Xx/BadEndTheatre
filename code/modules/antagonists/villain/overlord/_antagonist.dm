@@ -121,7 +121,7 @@
 	L.dna.species.species_traits |= NOBLOOD
 	L.grant_undead_eyes()
 	L.skeletonize(FALSE)
-	L.equipOutfit(/datum/outfit/job/overlord)
+	L.equipOutfit(/datum/outfit/overlord)
 	L.set_patron(/datum/patron/inhumen/zizo)
 
 /datum/antagonist/overlord/proc/on_death(datum/source)

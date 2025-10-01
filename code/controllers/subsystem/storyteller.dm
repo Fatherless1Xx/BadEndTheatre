@@ -706,14 +706,15 @@ SUBSYSTEM_DEF(gamemode)
 		if(!ishuman(player_mob))
 			continue
 		active_players++
-		if(player_mob.mind?.assigned_role)
-			if(player_mob.mind.job_bitflag & BITFLAG_ROYALTY)
+		var/datum/job/assigned = player_mob.mind?.assigned_role
+		if(assigned)
+			if(assigned.job_bitflag & BITFLAG_ROYALTY)
 				royalty++
-			if(player_mob.mind.job_bitflag & BITFLAG_CONSTRUCTOR)
+			if(assigned.job_bitflag & BITFLAG_CONSTRUCTOR)
 				constructor++
-			if(player_mob.mind.job_bitflag & BITFLAG_CHURCH)
+			if(assigned.job_bitflag & BITFLAG_CHURCH)
 				church++
-			if(player_mob.mind.job_bitflag & BITFLAG_GARRISON)
+			if(assigned.job_bitflag & BITFLAG_GARRISON)
 				garrison++
 	update_pop_scaling()
 
@@ -755,13 +756,7 @@ SUBSYSTEM_DEF(gamemode)
 		for(var/type in subtypesof(/datum/storyteller))
 			storytellers[type] = new type()
 
-	for(var/storyteller_name in storytellers)
-		var/datum/storyteller/initialized_storyteller = storytellers[storyteller_name]
-		if(initialized_storyteller?.ascendant)
-			to_chat(world, "<br>")
-			to_chat(world, span_reallybig("[initialized_storyteller.name] is ascendant!"))
-			to_chat(world, "<br>")
-
+	handle_god_ascensions()
 	pick_most_influential(TRUE)
 	calculate_ready_players()
 	roll_pre_setup_points()

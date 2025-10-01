@@ -13,15 +13,14 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/armorsmith
+	outfit = /datum/outfit/armorsmith
 	display_order = JDO_ARMORER
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/armorsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
@@ -83,16 +82,15 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/weaponsmith
+	outfit = /datum/outfit/weaponsmith
 	display_order = JDO_WSMITH
 	give_bank_account = 30
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/weaponsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/weaponsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/weaponsmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur

@@ -1,14 +1,14 @@
-/datum/advclass/combat/rogue
-	name = "Thief"
+/datum/job/advclass/combat/rogue
+	title = "Thief"
 	tutorial = "A wandering thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
 	allowed_sexes = list(MALE, FEMALE)
 
-	outfit = /datum/outfit/job/adventurer/rogue
+	outfit = /datum/outfit/adventurer/rogue
 	min_pq = 5
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/datum/outfit/job/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/swords, pick(0,0,1), TRUE)
@@ -45,7 +45,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/adventurer/rogue/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/adventurer/rogue/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	..()
 	// Give them their cloak- as well as the ability to choose what color they want.
 	var/list/thiefcloak_colors = list(\

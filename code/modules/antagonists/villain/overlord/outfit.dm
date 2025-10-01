@@ -1,7 +1,7 @@
-/datum/outfit/job/overlord
+/datum/outfit/overlord
 	name = "Overlord"
 
-/datum/outfit/job/overlord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/overlord/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/skullcap/cult
 	pants = /obj/item/clothing/pants/chainlegs

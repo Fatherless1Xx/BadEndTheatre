@@ -1,5 +1,5 @@
-/datum/advclass/mercenary/zalad
-	name = "Red Sands"
+/datum/job/advclass/mercenary/zalad
+	title = "Red Sands"
 	tutorial = "A cutthroat from the western countries, you've headed into foreign lands to make even greater coin than you had prior."
 	allowed_races = list(\
 		SPEC_ID_HUMEN,\
@@ -12,13 +12,13 @@
 		SPEC_ID_AASIMAR,\
 		SPEC_ID_HALF_ORC,\
 	)
-	outfit = /datum/outfit/job/mercenary/zalad
+	outfit = /datum/outfit/mercenary/zalad
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 5
+	total_positions = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg' //Forgive me, Combat_DesertRider, I'm sorry, I'll miss you.
 
-/datum/outfit/job/mercenary/zalad/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/mercenary/zalad/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	head = /obj/item/clothing/head/helmet/sallet/zalad

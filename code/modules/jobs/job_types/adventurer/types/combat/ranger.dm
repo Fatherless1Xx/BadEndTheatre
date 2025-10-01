@@ -1,5 +1,5 @@
-/datum/advclass/combat/ranger
-	name = "Ranger"
+/datum/job/advclass/combat/ranger
+	title = "Ranger"
 	tutorial = "Humen and elf rangers often live among each other, as these bow-wielding \
 	adventurers are often scouting the lands for the same purpose."
 	allowed_races = list(\
@@ -12,12 +12,12 @@
 		SPEC_ID_HALF_ORC,\
 		SPEC_ID_RAKSHARI,\
 	)
-	outfit = /datum/outfit/job/adventurer/ranger
+	outfit = /datum/outfit/adventurer/ranger
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 
-/datum/outfit/job/adventurer/ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)

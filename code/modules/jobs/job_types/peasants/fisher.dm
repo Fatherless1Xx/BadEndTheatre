@@ -13,14 +13,13 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/fisher
+	outfit = /datum/outfit/fisher
 	give_bank_account = 8
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/fisher
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/fisher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/fisher/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)

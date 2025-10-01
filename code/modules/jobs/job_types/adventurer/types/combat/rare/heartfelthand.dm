@@ -1,16 +1,15 @@
-/datum/advclass/combat/heartfelthand
-	name = "Hand of Heartfelt"
+/datum/job/advclass/combat/heartfelthand
+	title = "Hand of Heartfelt"
 	tutorial = "You serve your lord as hand, taking care of diplomatic actions within your realm, \
 	but why have you come to Vanderlin?"
 	allowed_sexes = list(MALE)
 	allowed_races = list(SPEC_ID_HUMEN)
-	outfit = /datum/outfit/job/adventurer/heartfelthand
-	maximum_possible_slots = 1
+	outfit = /datum/outfit/adventurer/heartfelthand
+	total_positions = 1
 	min_pq = 1
-	pickprob = 50
-	category_tags = list(CTAG_DISABLED)
+	roll_chance = 50
 
-/datum/outfit/job/adventurer/heartfelthand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/heartfelthand/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt
 	belt = /obj/item/storage/belt/leather/black
