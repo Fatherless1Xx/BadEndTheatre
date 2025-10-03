@@ -3,11 +3,6 @@ on:
   schedule:
     - cron: "0 3 * * *"   # runs daily at 3am UTC
   workflow_dispatch:       # allow manual trigger
-
-permissions:
-  contents: write
-  pull-requests: write
-  workflows: write
   
 jobs:
   sync:
@@ -41,7 +36,7 @@ jobs:
             git checkout -b sync-from-vander origin/main
           fi
           
-      - name: Smart merge with conflict detection
+            - name: Smart merge with conflict detection
         id: merge_step
         run: |
           echo "=== Checking for new changes ==="
@@ -51,7 +46,6 @@ jobs:
           
           if [ ! -z "$last_vanderlin_commit" ]; then
             echo "Last synced Vanderlin commit: $last_vanderlin_commit"
-            # Check if there are new commits
             new_commits=$(git rev-list --count ${last_vanderlin_commit}..vanderlin/main 2>/dev/null || echo "unknown")
             echo "New commits to sync: $new_commits"
             
@@ -62,32 +56,41 @@ jobs:
             fi
           fi
           
-          # Attempt to merge only new changes
           vanderlin_head=$(git rev-parse vanderlin/main)
           echo "Merging up to vanderlin commit: $vanderlin_head"
           
           if git merge vanderlin/main --no-ff -m "Sync from Vanderlin: vanderlin/$vanderlin_head $(date)"; then
-            echo "merge_status=success" >> $GITHUB_OUTPUT
             echo "Merge completed successfully with no conflicts"
+            
+            git restore --staged .github || true
+            git checkout -- .github || true
+
+            git commit --amend --no-edit
+
+            echo "merge_status=success" >> $GITHUB_OUTPUT
           else
             echo "Conflicts detected, analyzing..."
             
-            # Get list of conflicted files
             conflicted_files=$(git diff --name-only --diff-filter=U)
             echo "Conflicted files: $conflicted_files"
             
-            # Analyze conflicts
             real_conflicts=""
             false_conflicts=""
             
             for file in $conflicted_files; do
               echo "Analyzing conflict in: $file"
               
-              # Get the content from both sides
+              # Skip all .github conflicts (keep ours)
+              if [[ "$file" == .github/* ]]; then
+                echo "  -> SKIPPING: Keeping our version of $file"
+                git checkout --ours "$file"
+                git add "$file"
+                continue
+              fi
+              
               git show HEAD:"$file" > /tmp/ours 2>/dev/null || echo "" > /tmp/ours
               git show vanderlin/main:"$file" > /tmp/theirs 2>/dev/null || echo "" > /tmp/theirs
               
-              # Compare the actual file contents
               if cmp -s /tmp/ours /tmp/theirs; then
                 echo "  -> FALSE CONFLICT: Files are identical"
                 false_conflicts="$false_conflicts$file\n"
@@ -99,9 +102,8 @@ jobs:
               fi
             done
             
-            # Commit resolution
             if [ -z "$(git diff --name-only --diff-filter=U)" ]; then
-              git commit -m "Sync from Vanderlin: vanderlin/$vanderlin_head $(date) - auto-resolved false conflicts"
+              git commit -m "Sync from Vanderlin: vanderlin/$vanderlin_head $(date) - auto-resolved (skipped .github)"
               echo "merge_status=auto_resolved" >> $GITHUB_OUTPUT
               echo "auto_resolved_files<<EOF" >> $GITHUB_OUTPUT
               echo -e "$false_conflicts" >> $GITHUB_OUTPUT
@@ -113,7 +115,7 @@ jobs:
               echo "EOF" >> $GITHUB_OUTPUT
               
               git add -A
-              git commit -m "WIP: Sync from Vanderlin: vanderlin/$vanderlin_head - needs manual resolution"
+              git commit -m "WIP: Sync from Vanderlin: vanderlin/$vanderlin_head - needs manual resolution (skipped .github)"
             fi
           fi
           
