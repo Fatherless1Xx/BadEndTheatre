@@ -610,6 +610,20 @@
 	skillcraft = /datum/skill/craft/carpentry
 	craftdiff = 1
 
+/datum/blueprint_recipe/floor/woodfloortwo
+	name = "Alternative Wooden Floor"
+	desc = "A ruined wooden floor."
+	result_type = /turf/open/floor/ruinedwood/two
+	required_materials = list(
+		/obj/item/grown/log/tree/small = 1
+	)
+	construct_tool = /obj/item/weapon/hammer
+	category = "Floors"
+	floor_object = TRUE
+
+	skillcraft = /datum/skill/craft/carpentry
+	craftdiff = 1
+
 /datum/blueprint_recipe/floor/woodfloorturned
 	name = "Rotated Wooden Floor"
 	desc = "A ruined wooden floor."

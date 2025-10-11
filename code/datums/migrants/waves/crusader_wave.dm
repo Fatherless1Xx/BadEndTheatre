@@ -52,6 +52,7 @@
 	spawned.verbs |= /mob/living/carbon/human/proc/torture_victim
 	spawned.verbs |= /mob/living/carbon/human/proc/faith_test
 	spawned.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
+	spawned.add_spell(/datum/action/cooldown/spell/undirected/call_bird/inquisitor)
 
 	var/datum/species/species = spawned.dna?.species
 	if(!species)

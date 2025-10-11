@@ -1,4 +1,5 @@
 /datum/surgery/healing
+	name = "Basic Tending"
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/clamp,

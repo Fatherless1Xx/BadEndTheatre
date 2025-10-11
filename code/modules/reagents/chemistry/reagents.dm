@@ -118,6 +118,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	return TRUE
 
 /datum/reagent/proc/on_transfer(atom/A, method=TOUCH, trans_volume) //Called after a reagent is transfered
+	if(iscarbon(A))
+		SEND_SIGNAL(A, COMSIG_CARBON_REAGENT_ADD, src, trans_volume, method)
 	return
 
 /datum/reagent/proc/set_quality(new_quality)

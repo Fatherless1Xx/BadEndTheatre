@@ -262,3 +262,9 @@
 	output = /obj/item/reagent_containers/food/snacks/griddlecake/berry_poison
 	cooked_smell = /datum/pollutant/food/griddlecake
 	hides_from_books = TRUE
+
+/datum/container_craft/pan/fried_messenger
+	name = "Fried Messenger"
+	wildcard_requirements = list(/obj/item/reagent_containers/food/snacks/messenger_bird = 1)
+	output = /obj/item/reagent_containers/food/snacks/friedmessenger
+	cooked_smell = /datum/pollutant/food/fried_messenger

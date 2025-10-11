@@ -1715,7 +1715,7 @@
 "xF" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/candle/yellow,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
+/obj/item/clothing/neck/psycross/silver/malum/steel,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
 "xJ" = (
@@ -3602,7 +3602,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Zq" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
+/obj/item/clothing/neck/psycross/silver/malum/steel,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)

@@ -374,6 +374,7 @@
 /datum/pet_command/aggressive
 	command_name = "Aggressive"
 	command_desc = "Makes the pet aggressive"
+	radial_icon_state = "aggro"
 	speech_commands = list("aggressive")
 
 /datum/pet_command/aggressive/execute_action(datum/ai_controller/controller)
@@ -387,6 +388,7 @@
 /datum/pet_command/calm
 	command_name = "Calm"
 	command_desc = "Makes the pet calm"
+	radial_icon_state = "calm"
 	speech_commands = list("calm")
 
 /datum/pet_command/calm/execute_action(datum/ai_controller/controller)

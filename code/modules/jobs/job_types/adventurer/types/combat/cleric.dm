@@ -79,7 +79,7 @@
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		if(/datum/patron/divine/noc)
-			wrists = /obj/item/clothing/neck/psycross/noc
+			wrists = /obj/item/clothing/neck/psycross/silver/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			backr = /obj/item/weapon/shield/heater

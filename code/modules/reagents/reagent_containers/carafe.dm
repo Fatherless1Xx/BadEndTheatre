@@ -70,6 +70,70 @@
 	smeltresult = /obj/item/ingot/silver
 	sellprice = 35
 
+/obj/item/reagent_containers/glass/carafe/teapotjade
+	name = "joapstone teapot"
+	desc = "A dainty teapot carved out of joapstone."
+	icon_state = "teapot_jade"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 60
+
+/obj/item/reagent_containers/glass/carafe/teapotamber
+	name = "petriamber teapot"
+	desc = "A dainty teapot carved out of petriamber."
+	icon_state = "teapot_amber"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 60
+
+/obj/item/reagent_containers/glass/carafe/teapotshell
+	name = "shell teapot"
+	desc = "A dainty teapot carved out of shell."
+	icon_state = "teapot_shell"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 20
+
+/obj/item/reagent_containers/glass/carafe/teapotrose
+	name = "rosellusk teapot"
+	desc = "A dainty teapot carved out of rosellusk."
+	icon_state = "teapot_rose"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 25
+
+/obj/item/reagent_containers/glass/carafe/teapotopal
+	name = "opaloise teapot"
+	desc = "A dainty teapot carved out of opaloise."
+	icon_state = "teapot_opal"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 90
+
+/obj/item/reagent_containers/glass/carafe/teapotonyxa
+	name = "onyxa teapot"
+	desc = "A dainty teapot carved out of onyxa."
+	icon_state = "teapot_onyxa"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 40
+
+/obj/item/reagent_containers/glass/carafe/teapotcoral
+	name = "aoetal teapot"
+	desc = "A dainty teapot carved out of aoetal."
+	icon_state = "teapot_coral"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 70
+
+/obj/item/reagent_containers/glass/carafe/teapotturq
+	name = "ceruleabaster teapot"
+	desc = "A dainty teapot carved out of ceruleabaster."
+	icon_state = "teapot_turq"
+	fill_icon_thresholds = null
+	dropshrink = 1.0
+	sellprice = 85
+
 /* Spawning full */
 
 /obj/item/reagent_containers/glass/carafe/water

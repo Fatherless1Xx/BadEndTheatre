@@ -7,12 +7,12 @@
 	color = "#1f8016"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //0.5u/second
 
-/datum/reagent/eldritch/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
-	drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-	drinker.adjustToxLoss(2 * REM * seconds_per_tick, FALSE)
-	drinker.adjustFireLoss(2 * REM * seconds_per_tick, FALSE)
-	drinker.adjustOxyLoss(2 * REM * seconds_per_tick, FALSE)
-	drinker.adjustBruteLoss(2 * REM * seconds_per_tick, FALSE)
+/datum/reagent/eldritch/on_mob_life(mob/living/carbon/drinker)
+	drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM, 150)
+	drinker.adjustToxLoss(2 * REM, FALSE)
+	drinker.adjustFireLoss(2 * REM, FALSE)
+	drinker.adjustOxyLoss(2 * REM, FALSE)
+	drinker.adjustBruteLoss(2 * REM, FALSE)
 	..()
 	return TRUE
 

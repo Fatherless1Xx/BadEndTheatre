@@ -77,6 +77,7 @@
 		var/boon = get_learning_boon(/datum/skill/misc/athletics)
 		adjust_experience(/datum/skill/misc/athletics, (STAINT*0.1) * boon)
 	stamina = CLAMP(stamina+added, 0, maximum_stamina)
+	SEND_SIGNAL(src, COMSIG_LIVING_ADJUSTED, -added, STAMINA)
 	if(internal_regen && added < 0)
 		adjust_energy(added)
 	if(added >= 5)

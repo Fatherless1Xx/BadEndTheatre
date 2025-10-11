@@ -53,6 +53,7 @@
 	H.add_spell(/datum/action/cooldown/spell/projectile/sickness)
 	H.add_spell(/datum/action/cooldown/spell/conjure/raise_lesser_undead/necromancer)
 	H.add_spell(/datum/action/cooldown/spell/gravemark)
+	H.add_spell(/datum/action/cooldown/spell/control_undead)
 	ADD_TRAIT(H, TRAIT_CABAL, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INHUMENCAMP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)

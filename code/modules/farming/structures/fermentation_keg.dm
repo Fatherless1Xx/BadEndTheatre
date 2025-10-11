@@ -756,3 +756,8 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer,900)
 	update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/fermentation_keg/hagwoodbitter/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/hagwoodbitter,900)
+	update_appearance(UPDATE_OVERLAYS)

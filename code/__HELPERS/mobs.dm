@@ -1,13 +1,6 @@
 /proc/random_human_blood_type()
 	var/static/list/human_blood_type_weights = list(
-		/datum/blood_type/human/o_minus = 4,
-		/datum/blood_type/human/o_plus = 36,
-		/datum/blood_type/human/a_minus = 28,
-		/datum/blood_type/human/a_plus = 3,
-		/datum/blood_type/human/b_minus = 20,
-		/datum/blood_type/human/b_plus = 1,
-		/datum/blood_type/human/ab_minus = 5,
-		/datum/blood_type/human/ab_plus = 1
+		/datum/blood_type/human = 10, //bloodtypes aren't real
 	)
 
 	return pickweight(human_blood_type_weights)

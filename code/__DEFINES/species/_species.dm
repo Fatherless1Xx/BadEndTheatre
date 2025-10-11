@@ -142,6 +142,9 @@
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_RAKSHARI,\
 	SPEC_ID_HUMAN_SPACE,\
+	SPEC_ID_ROUSMAN,\
+	SPEC_ID_GOBLIN,\
+	SPEC_ID_ORC,\
 )
 
 /// Species who are affiliated with Grenzelhoft or Psydon specifically.

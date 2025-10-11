@@ -27,20 +27,20 @@
 		)
 		target.playsound_local(target, pick(funnies), vol = 100, vary = FALSE)
 
-/proc/handle_maniac_hallucinations(mob/living/target)
+/proc/handle_maniac_hallucinations(mob/living/target, modifier = 1)
 	//Chasing mob
-	if(prob(1) && prob(2))
+	if(prob(1 * modifier) && prob(2 * modifier))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), target)
 	//Talking objects
-	else if(prob(4))
+	else if(prob(4 * modifier))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
 	//Inner Thoughts..Or is it?
-	if(prob(5))
+	if(prob(5 * modifier))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_blurbs_hallucination), target)
 	//Meta hallucinations
-	else if(prob(1) && prob(5))
+	else if(prob(1 * modifier) && prob(modifier * 5))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_bwoink_hallucination), target)
-	else if(prob(1) && prob(2))
+	else if(prob(1 * modifier) && prob(2 * modifier))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_ban_hallucination), target)
 
 /proc/handle_maniac_object_hallucination(mob/living/target)

@@ -44,7 +44,7 @@
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	var/datum/objective/take_pain/new_objective = new(owner = chosen_one.mind)
+	var/datum/objective/personal/take_pain/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	chosen_one.add_spell(/datum/action/cooldown/spell/transfer_pain)

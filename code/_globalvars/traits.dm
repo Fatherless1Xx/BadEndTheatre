@@ -137,6 +137,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Shock Immunity" = TRAIT_SHOCKIMMUNE,
 		"Expert Herb Finder" = TRAIT_LEGENDARY_ALCHEMIST,
 		"Secret Officiant" = TRAIT_SECRET_OFFICIANT,
+		"Addict Recognition" = TRAIT_RECOGNIZE_ADDICTS,
 		"Deceiving Meekness" = TRAIT_DECEIVING_MEEKNESS,
 		"Thieves Guild Member" = TRAIT_THIEVESGUILD,
 		"Engineering Goggles" = TRAIT_ENGINEERING_GOGGLES,
@@ -163,6 +164,8 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Boundless Energy" = TRAIT_NOENERGY,
 		"Keen Ears"	= TRAIT_KEENEARS,
 		"Poison Resilience" = TRAIT_POISON_RESILIENCE,
+		"Expert Forager" = TRAIT_FORAGER,
+		"Seed Finder" = TRAIT_SEED_FINDER,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS
@@ -274,10 +277,13 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_FACELESS = span_danger("I am faceless. I am shunned. The others will recognise me for what I am. If I give them the chance."),
 	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
 	TRAIT_SECRET_OFFICIANT = span_love("I am able to conduct secret wedding ceremonies outside of the church. Love cannot be stopped!"),
+	TRAIT_RECOGNIZE_ADDICTS = "I can recognize alcoholics and junkies just by looking at them.",
 	TRAIT_DUALWIELDER = span_info("I am trained in the art of dual wielding."),
 	TRAIT_NOENERGY = span_info("I don't need rest; I won't ever feel fatigue."),
 	TRAIT_KEENEARS = span_info("I've a good pair of ears, and can tell who is speaking, even when they're out of sight. I can also hear whispers from further away."),
 	TRAIT_POISON_RESILIENCE	= span_info("I'm more resilient to poisons."),
+	TRAIT_FORAGER = span_info("I can tell which jackberries are poisonous."),
+	TRAIT_SEED_FINDER = span_info("I find seeds more easily."),
 ))
 
 /// value -> trait name, generated on use from trait_by_type global

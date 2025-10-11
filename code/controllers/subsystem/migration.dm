@@ -283,6 +283,7 @@ SUBSYSTEM_DEF(migrants)
 	new_player.transfer_character()
 
 	SSjob.EquipRank(character, migrant_job, character.client)
+	apply_loadouts(character, character.client)
 	SSticker.minds += character.mind
 
 	GLOB.joined_player_list += character.ckey
@@ -310,11 +311,12 @@ SUBSYSTEM_DEF(migrants)
 	log_character("[human_character.ckey] ([fakekey]) - [human_character.real_name] - [migrant_job.title]")
 
 	var/datum/migrant_role/advclass/adv_migrant = role_instance
-	if(adv_migrant.advclass_cat_rolls)
-		SSrole_class_handler.setup_class_handler(human_character, adv_migrant.advclass_cat_rolls)
-		human_character.hugboxify_for_class_selection()
-	else if(GLOB.adventurer_hugbox_duration)
-		addtimer(CALLBACK(human_character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
+	if(istype(adv_migrant))
+		if(adv_migrant.advclass_cat_rolls)
+			SSrole_class_handler.setup_class_handler(human_character, adv_migrant.advclass_cat_rolls)
+			human_character.hugboxify_for_class_selection()
+		else if(GLOB.adventurer_hugbox_duration)
+			addtimer(CALLBACK(human_character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
 
 /datum/controller/subsystem/migrants/proc/get_priority_players(list/players, role_type, wave_type)
 	var/list/priority = list()

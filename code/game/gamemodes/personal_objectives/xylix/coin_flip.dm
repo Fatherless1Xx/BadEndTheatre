@@ -1,22 +1,24 @@
-/datum/objective/coin_flip
+/datum/objective/personal/coin_flip
 	name = "Flip Coin"
+	category = "Xylix's Chosen"
 	triumph_count = 2
+	rewards = list("2 Triumphs", "Xylix grows stronger", "Xylix blesses you (+1 Fortune)")
 	var/obj/item/coin/required_coin_type = /obj/item/coin/gold
 	var/winning_side
 
-/datum/objective/coin_flip/on_creation()
+/datum/objective/personal/coin_flip/on_creation()
 	. = ..()
 	winning_side = prob(50) ? "heads" : "tails"
 	if(owner?.current)
 		RegisterSignal(owner.current, COMSIG_COIN_FLIPPED, PROC_REF(handle_coin_flip))
 	update_explanation_text()
 
-/datum/objective/coin_flip/Destroy()
+/datum/objective/personal/coin_flip/Destroy()
 	if(owner?.current)
 		UnregisterSignal(owner.current, COMSIG_COIN_FLIPPED)
 	return ..()
 
-/datum/objective/coin_flip/proc/handle_coin_flip(datum/source, mob/user, obj/item/coin/our_coin, outcome)
+/datum/objective/personal/coin_flip/proc/handle_coin_flip(datum/source, mob/user, obj/item/coin/our_coin, outcome)
 	SIGNAL_HANDLER
 
 	if(completed || !owner?.current || !istype(our_coin, required_coin_type))
@@ -27,7 +29,7 @@
 	else
 		complete_objective(FALSE, our_coin)
 
-/datum/objective/coin_flip/proc/complete_objective(success, obj/item/coin/our_coin)
+/datum/objective/personal/coin_flip/proc/complete_objective(success, obj/item/coin/our_coin)
 	if(completed)
 		return
 
@@ -49,13 +51,14 @@
 		return
 
 	completed = TRUE
+	owner.current.set_stat_modifier("xylix_blessing", STATKEY_LCK, 1)
 	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_COIN_FLIPPED)
 
-/datum/objective/coin_flip/update_explanation_text()
+/datum/objective/personal/coin_flip/update_explanation_text()
 	explanation_text = "Xylix wants to play a game! Simply flip a [initial(required_coin_type.name)] and see if you win! Only Xylix knows the rules! Or do they?"
 
-/datum/objective/coin_flip/proc/change_rules(obj/item/coin/our_coin)
+/datum/objective/personal/coin_flip/proc/change_rules(obj/item/coin/our_coin)
 	var/list/coin_types = list(/obj/item/coin/copper, /obj/item/coin/silver, /obj/item/coin/gold) - required_coin_type
 	var/obj/item/coin/new_coin_type = pick(coin_types)
 

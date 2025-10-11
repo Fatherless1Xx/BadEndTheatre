@@ -344,7 +344,7 @@
 /area/rogue/outdoors/bog)
 "Wo" = (
 /obj/structure/closet/crate/coffin,
-/obj/item/clothing/neck/psycross/noc,
+/obj/item/clothing/neck/psycross/silver/noc,
 /turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "WF" = (

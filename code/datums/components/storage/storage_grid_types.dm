@@ -331,3 +331,43 @@
 	max_w_class = WEIGHT_CLASS_HUGE
 	not_while_equipped = TRUE
 	allow_big_nesting = TRUE
+
+/datum/component/storage/concrete/grid/pilltin
+	max_w_class = WEIGHT_CLASS_TINY
+	screen_max_rows = 1
+	screen_max_columns = 3
+	max_items = 3
+
+/datum/component/storage/concrete/grid/pilltin/New(datum/P, ...)
+	. = ..()
+	set_holdable(
+		typecacheof(
+			list(
+				/obj/item/reagent_containers/pill
+				)
+			)
+		)
+
+/datum/component/storage/concrete/grid/ifak
+	screen_max_rows = 2
+	screen_max_columns = 5
+	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/grid/ifak/New(datum/P, ...)
+	. = ..()
+	set_holdable(
+		typecacheof(
+			list(
+			/obj/item/weapon/surgery,
+			/obj/item/needle,
+			/obj/item/natural/worms/leech,
+			/obj/item/reagent_containers/lux,
+			/obj/item/natural/bundle/cloth,
+			/obj/item/natural/cloth,
+			/obj/item/reagent_containers/syringe,
+			/obj/item/reagent_containers/pill,
+			/obj/item/storage/fancy/pilltin,
+			/obj/item/candle/yellow
+			)
+		)
+	)

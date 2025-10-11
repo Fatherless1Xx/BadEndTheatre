@@ -27,6 +27,8 @@
 	if((method == INGEST) && L.clan)
 		L.adjust_bloodpool(reac_volume)
 		L.clan.handle_bloodsuck(BLOOD_PREFERENCE_FANCY)
+	if(method == INJECT)
+		SEND_SIGNAL(L, COMSIG_HANDLE_INFUSION, data["blood_type"], reac_volume)
 
 
 /datum/reagent/blood/on_merge(list/mix_data)
@@ -306,3 +308,29 @@
 	. = ..()
 	var/datum/component/slipComp = remover.GetComponent(/datum/component/slippery)
 	slipComp?.Destroy()
+
+/datum/reagent/sate
+	name = "SATE"
+	color = "#e46363"
+	glows = TRUE
+
+/datum/reagent/sate/on_mob_add(mob/living/L)
+	. = ..()
+	ADD_TRAIT(L, TRAIT_SATE, type)
+
+/datum/reagent/sate/on_mob_delete(mob/living/L)
+	. = ..()
+	REMOVE_TRAIT(L, TRAIT_SATE, type)
+
+/datum/reagent/devour
+	name = "DEVOUR"
+	color = "#61e639"
+	glows = TRUE
+	overdose_threshold = 11
+
+/datum/reagent/devour/on_mob_life(mob/living/carbon/M)
+	. = ..()
+	SEND_SIGNAL(M, COMSIG_DEVOUR_OVERDRIVE)
+
+/datum/reagent/devour/overdose_process(mob/living/M)
+	. = ..()

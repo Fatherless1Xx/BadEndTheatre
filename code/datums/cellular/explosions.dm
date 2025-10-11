@@ -143,7 +143,7 @@
 // If you need to set vars on the new cell other than the basic ones
 /datum/automata_cell/explosion/proc/setup_new_cell(datum/automata_cell/explosion/E)
 	if(E.shockwave)
-		E.shockwave.alpha = E.power
+		E.shockwave.alpha = max(60, E.power * 6)
 	return
 
 /datum/automata_cell/explosion/proc/power_to_ranges(power_val)

@@ -226,16 +226,20 @@ GLOBAL_LIST_INIT(astral_projections, list())
 	INVOKE_ASYNC(src, PROC_REF(destroy_projection))
 
 /mob/living/simple_animal/hostile/retaliate/astral_projection/examine(mob/living/user)
-	if (!tangibility)
-		if ((user == src) && anchor)
-			to_chat(user, span_notice("You check yourself to see how others would see you were you tangible:") )
-			anchor.examine(user)
-		else if (user?.clan)
-			to_chat(user, span_notice("It's an astral projection.") )
-		else
-			to_chat(user, span_cult("Wait something's not right here.") )//it's a g-g-g-g-ghost!
-	else if (anchor)
-		anchor.examine(user)//examining the astral projection alone won't be enough to see through it, although the user might want to make sure they cannot be identified first.
+	. = ..()
+	if(isliving(user))
+		if (!tangibility)
+			if ((user == src) && anchor)
+				. += span_notice("You check yourself to see how others would see you were you tangible:")
+				anchor.examine(user)
+			else if (user?.clan)
+				. += span_notice("It's an astral projection.")
+			else
+				. += span_cult("Wait something's not right here.")
+		else if (anchor)
+			. += anchor.examine(user)//examining the astral projection alone won't be enough to see through it, although the user might want to make sure they cannot be identified first.
+	else
+		. +=  span_cult("Wait something's not right here.")
 
 //no pulling stuff around
 /mob/living/simple_animal/hostile/retaliate/astral_projection/start_pulling(atom/movable/AM, state, force = pull_force, suppress_message = FALSE, obj/item/item_override, accurate = FALSE)

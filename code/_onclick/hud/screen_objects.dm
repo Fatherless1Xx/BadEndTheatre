@@ -1825,6 +1825,11 @@
 	var/atom/movable/screen/readtext/textleft
 	var/reading
 
+/atom/movable/screen/read/Destroy()
+	. = ..()
+	textleft = null
+	textright = null
+
 /atom/movable/screen/read/Click(location, control, params)
 	. = ..()
 	destroy_read()

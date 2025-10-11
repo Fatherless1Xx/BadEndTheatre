@@ -1,0 +1,4 @@
+#define GENERATION_STATUS_PENDING "pending"
+#define GENERATION_STATUS_ACTIVE "active"
+#define GENERATION_STATUS_COMPLETE "complete"
+#define GENERATION_STATUS_FAILED "failed"

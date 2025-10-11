@@ -35,6 +35,7 @@
 	flags_inv = HIDEEARS
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_CHEAP_IRON_HELMET
+	block2add = FOV_BEHIND
 
 	armor = ARMOR_PLATE_BAD
 	max_integrity = INTEGRITY_STRONG //isn't the same as a steel helmet but is better than a skullcap, costs 2 bars and protects the mouth

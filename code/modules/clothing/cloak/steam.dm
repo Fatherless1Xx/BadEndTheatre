@@ -82,7 +82,7 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(try_steam_usage), override = TRUE)
 	return
 
-/obj/item/clothing/cloak/boiler/proc/power_off(mob/living/carbon/user, var/disable = FALSE, var/broken = FALSE)
+/obj/item/clothing/cloak/boiler/proc/power_off(mob/living/carbon/user, disable = FALSE, broken = FALSE)
 	var/obj/item/clothing/shoes/boots/armor/steam/boots = locate() in list(user.shoes)
 
 	if(boots)

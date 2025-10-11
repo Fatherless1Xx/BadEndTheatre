@@ -3,6 +3,8 @@
 	var/enabled = TRUE
 	/// The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
 	var/title = "NOPE"
+	/// Visual title override
+	var/title_override = null
 	/// The title of this job given to female mobs. Fluff, not as important as [var/title].
 	var/f_title = null
 	/// When joining the round, this text will be shown to the player.
@@ -485,6 +487,9 @@
 	equipped_human.remove_spells(source = src)
 
 /datum/job/proc/get_informed_title(mob/mob)
+	if(title_override)
+		return title_override
+
 	if(mob.gender == FEMALE && f_title)
 		return f_title
 

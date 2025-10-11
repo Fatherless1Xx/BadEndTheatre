@@ -84,6 +84,7 @@
 	H.change_stat(STATKEY_PER, 3)
 	H.change_stat(STATKEY_SPD, 1)
 	H.change_stat(STATKEY_LCK, 5)
+	H.add_spell(/datum/action/cooldown/spell/undirected/call_bird)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)

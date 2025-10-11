@@ -18,6 +18,9 @@
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
+/turf/open/floor/ruinedwood/two
+	icon_state = "wooden_floor2"
+
 /turf/open/floor/ruinedwood/alt
 	icon_state = "horzw"
 
@@ -980,6 +983,7 @@
 	icon = 'icons/delver/desert_objects.dmi'
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_FLOOR_DIRT_ROAD
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.ogg'
@@ -1031,7 +1035,7 @@
 
 
 /turf/open/floor/sand/bloodied
-	 icon_state = "bloody"
+	icon_state = "bloody"
 
 /turf/open/floor/sand/bloodied/Initialize(mapload)
 	. = ..()
@@ -1055,3 +1059,11 @@
 
 /turf/open/floor/sandstone_tile/six
 	icon_state = "sandstonefloor-6"
+
+/turf/open/floor/cracked_earth
+	icon = 'icons/delver/desert_objects.dmi'
+	icon_state = "cracked_earth"
+
+/turf/open/floor/cracked_earth/Initialize(mapload)
+	. = ..()
+	dir = pick(GLOB.cardinals)

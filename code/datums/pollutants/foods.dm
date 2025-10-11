@@ -243,3 +243,7 @@
 /datum/pollutant/food/mint
 	name = "minty smell"
 	scent = "minty smell"
+
+/datum/pollutant/food/fried_messenger
+	name = "fried messenger"
+	scent = "fried messenger"

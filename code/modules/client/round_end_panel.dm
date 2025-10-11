@@ -544,7 +544,7 @@
 					data += "</div>"
 
 					var/obj_count = 1
-					for(var/datum/objective/objective as anything in mind.personal_objectives)
+					for(var/datum/objective/personal/objective as anything in mind.personal_objectives)
 						var/completed = objective.check_completion()
 						data += "<div style='margin-bottom: 6px; padding-left: 8px; border-left: 2px solid #555;'>"
 						data += "<b>Quest #[obj_count]:</b> [objective.explanation_text] "

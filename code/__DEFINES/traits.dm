@@ -377,7 +377,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
 #define TRAIT_SEE_LEYLINES				"Magical Visions"
 #define TRAIT_POISONBITE				"Poison Bite"
-#define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
+#define TRAIT_FORAGER					"Expert Forager"
 #define TRAIT_TINY 						"Tiny"
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
 #define TRAIT_HOLLOWBONES				"Hollow Bones"
@@ -387,9 +387,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
 #define TRAIT_FLOWERFIELD_IMMUNITY		"Flower Strider"
 #define TRAIT_SECRET_OFFICIANT			"Secret Officiant"
+#define TRAIT_RECOGNIZE_ADDICTS			"Addict Recognition"
 #define TRAIT_NOENERGY 					"Boundless Energy" //Specifically, You don't lose fatigue, but you do continue losing stamina.
 #define TRAIT_KEENEARS					"Keen Ears"
 #define TRAIT_POISON_RESILIENCE			"Poison Resilience"
+#define TRAIT_SEED_FINDER				"Seed Finder"
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
 #define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
@@ -440,6 +442,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_SCHIZO_FLAW "Schizophrenic"
 #define TRAIT_VIOLATOR					"Violator of the Coven"
 #define TRAIT_TORPOR					"Endless Slumber"
+#define TRAIT_SATE "SATE"
+#define TRAIT_NODE_EXTRACTED "Chimeric Node Extracted"
 
 // JOB RELATED TRAITS
 
@@ -560,3 +564,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ECHOLOCATION_TRAIT "echolocation"
 /// trait that makes you bounce when speaking
 #define TRAIT_SHAKY_SPEECH "Shaky Speech"
+
+/// Dendor Path Traits
+#define TRAIT_DENDOR_GROWING "trait_dendor_growing"
+#define TRAIT_DENDOR_STINGING "trait_dendor_stinging"
+#define TRAIT_DENDOR_DEVOURING "trait_dendor_devouring"
+#define TRAIT_DENDOR_LORDING "trait_dendor_lording"
+

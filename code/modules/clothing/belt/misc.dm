@@ -460,6 +460,13 @@
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 
+/obj/item/storage/belt/leather/knifebelt/black/rous/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/weapon/knife/throwingknife/rous/A = new(loc)
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
+
 ///////////////////////////////////////////////
 
 /obj/item/storage/hip/headhook

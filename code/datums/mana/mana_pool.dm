@@ -390,6 +390,8 @@
 				return
 			filled = clamp(filled, 0, 120)
 			hud_used.mana.icon_state = "mana[filled]"
+	if(parent)
+		SEND_SIGNAL(parent, COMSIG_MANA_POOL_ADJUSTED, result - src.amount)
 
 ///this takes a string and adds it to our halters creates the list if it doesn't exist
 /datum/mana_pool/proc/halt_mana_disperse(string)

@@ -38,7 +38,7 @@
 		if(!do_after(worker, work_time_left, target = work_target))
 			worker.controller_mind.paused = FALSE
 			if(!can_continue)
-				stop_work()
+				stop_work("interrupted")
 				return FALSE
 			work_time_left = world.time - world_start_time
 			return FALSE
@@ -52,7 +52,7 @@
 		if(!do_after(worker, work_time_left, target = work_target))
 			worker.controller_mind.paused = FALSE
 			if(!can_continue)
-				stop_work()
+				stop_work("interrupted")
 				return FALSE
 			work_time_left = world.time - world_start_time
 			return FALSE

@@ -272,6 +272,51 @@
 	END SNOW
 				*/
 
+/obj/structure/flora/newtree/palm
+	icon_state = "treepalm"
+	underlay_base = "center-leaf-palm"
+	num_underlay_icons = 1
+
+/obj/structure/flora/newtree/palm/build_trees()
+	var/turf/target = get_step_multiz(src, UP)
+	if(istype(target, /turf/open/transparent/openspace))
+		var/obj/structure/flora/newtree/palm/T = new(target)
+		T.icon_state = icon_state
+		T.update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/flora/newtree/palm/build_leafs()
+	for(var/D in GLOB.diagonals)
+		var/turf/NT = get_step(src, D)
+		if(istype(NT, /turf/open/transparent/openspace))
+			if(!locate(/obj/structure) in NT)
+				var/obj/structure/flora/newleaf/corner/palm/T = new(NT)
+				T.dir = D
+
+/obj/structure/flora/newtree/palm/build_branches()
+	for(var/D in GLOB.cardinals)
+		var/turf/NT = get_step(src, D)
+		if(istype(NT, /turf/open/transparent/openspace))
+			var/turf/NB = get_step(NT, D)
+			if(istype(NB, /turf/open/transparent/openspace) && prob(50))
+				if(!locate(/obj/structure) in NT)
+					var/obj/structure/flora/newbranch/palm/TC = new(NT)
+					TC.dir = D
+			else
+				if(!locate(/obj/structure) in NT)
+					var/obj/structure/flora/newbranch/palm/TC = new(NT)
+					TC.dir = D
+
+
+/obj/structure/flora/newbranch/palm
+	icon_state = "branchpalm_end1"
+	base_icon_state = "branchpalm_end"
+	underlay_base = "center-leaf-palm"
+	num_underlay_icons = 1
+
+/obj/structure/flora/newleaf/corner/palm
+	icon_state = "edge-leaf-palm"
+	num_random_icons = 0
+
 /*
 	START BURNT
 				*/

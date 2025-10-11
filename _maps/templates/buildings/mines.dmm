@@ -9,7 +9,7 @@
 /area/template_noop)
 "p" = (
 /obj/machinery/light/fueled/wallfire/candle/skull/l,
-/obj/structure/lootable_structure/mining_cache{
+/obj/structure/lootable_structure/stockpile/mining_cache{
 	pixel_y = 2;
 	pixel_x = -7
 	},
@@ -53,7 +53,7 @@
 /area/template_noop)
 "Z" = (
 /obj/structure/lever,
-/obj/structure/lootable_structure/mining_cache{
+/obj/structure/lootable_structure/stockpile/mining_cache{
 	pixel_y = 15;
 	pixel_x = -3
 	},

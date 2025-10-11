@@ -275,6 +275,10 @@
 	if(water_overlay)
 		var/image/overlay = image(icon, water_overlay, add, ABOVE_MOB_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
 		overlay.color = water_reagent.color
+		if("[dir]" in water_overlay.neighborlay_list)
+			water_overlay.cut_overlay(water_overlay.neighborlay_list["[dir]"])
+			qdel(water_overlay.neighborlay_list["[dir]"])
+			LAZYREMOVE(water_overlay.neighborlay_list, "[dir]")
 		LAZYADDASSOC(water_overlay.neighborlay_list, "[dir]", overlay)
 		water_overlay.add_overlay(overlay)
 
@@ -678,7 +682,6 @@
 /turf/open/water/river
 	name = "water"
 	desc = "Crystal clear water! Flowing swiflty along the river."
-	icon = 'icons/turf/newwater.dmi'
 	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
 	water_level = 3
 	slowdown = 20
@@ -758,3 +761,41 @@
 /turf/open/water/acid/mapped
 	desc = "You know how this got here. You think."
 	notake = TRUE
+
+/turf/open/water/ocean
+	name = "salt water"
+	desc = "The waves lap at the coast, hungry to swallow the land. Doesn't look too deep."
+	icon_state = "water"
+	icon = 'icons/turf/floors.dmi'
+	neighborlay_self = null
+	water_level = 2
+	slowdown = 4
+	swim_skill = TRUE
+	wash_in = TRUE
+	water_reagent = /datum/reagent/water/salty
+
+/turf/open/water/ocean/deep
+	name = "salt water"
+	desc = "Deceptively deep, be careful not to find yourself this far out."
+	icon_state = "ash"
+	icon = 'icons/turf/floors.dmi'
+	water_level = 3
+	slowdown = 8
+	swim_skill = TRUE
+	wash_in = TRUE
+
+/datum/reagent/water/salty
+	taste_description = "salt"
+	color = "#3e7459"
+
+/datum/reagent/water/salty/reaction_mob(mob/living/L, method=TOUCH, reac_volume)
+	if(method == INGEST) // Make sure you DRANK the salty water before losing hydration
+		..()
+
+/datum/reagent/water/salty/on_mob_life(mob/living/carbon/M)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.adjust_hydration(-hydration)  //saltwater dehydrates more than it hydrates
+		M.adjustToxLoss(0.25) // Slightly toxic
+		M.add_nausea(2)
+	..()

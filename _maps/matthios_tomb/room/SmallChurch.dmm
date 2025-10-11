@@ -636,7 +636,7 @@
 /area/rogue/under/tomb/indoors/church)
 "xM" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/item/clothing/neck/psycross/noc,
+/obj/item/clothing/neck/psycross/silver/noc,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "yc" = (

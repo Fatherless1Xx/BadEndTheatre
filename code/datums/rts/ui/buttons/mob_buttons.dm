@@ -9,6 +9,7 @@
 	// Close the current mob UI
 	if(controller.displayed_mob_ui)
 		controller.displayed_mob_ui.remove_ui(controller.client)
+		controller.close_inventory_ui()
 
 	// Reopen the base UI
 	if(controller.displayed_base_ui)

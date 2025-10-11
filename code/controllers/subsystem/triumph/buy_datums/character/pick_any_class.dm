@@ -37,13 +37,26 @@
 	. = ..()
 	var/list/possible_classes = list()
 	for(var/datum/job/advclass/CHECKS in SSrole_class_handler.sorted_class_categories[CTAG_ALLCLASS])
-		if(!length(category_tags))
+		if(!length(CHECKS.category_tags))
 			continue
 		if(CTAG_WRETCH in CHECKS.category_tags)
 			continue
 		possible_classes += CHECKS
 
-	var/datum/job/advclass/class = browser_input_list(spawned, "What is my class?", "Adventure", possible_classes)
-	if(!class)
+	var/list/class_titles = list()
+	for(var/datum/job/advclass/C in possible_classes)
+		class_titles += C.title
+
+	var/chosen_title = browser_input_list(spawned, "What is my class?", "Adventure", class_titles)
+
+	var/datum/job/advclass/class
+	if(chosen_title)
+		for(var/datum/job/advclass/C in possible_classes)
+			if(C.title == chosen_title)
+				class = C
+				break
+	else
 		class = pick(possible_classes)
+
 	SSjob.EquipRank(spawned, class, player_client)
+	SSrole_class_handler.special_session_queue[spawned.ckey].Remove(TRIUMPH_BUY_ANY_CLASS)

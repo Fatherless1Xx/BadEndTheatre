@@ -177,11 +177,13 @@
 				// Refresh the existing type, then early return
 				if(STATUS_EFFECT_REFRESH)
 					existing_effect.refresh(arglist(arguments))
+					SEND_SIGNAL(src, COMSIG_MOB_APPLIED_STATUS_EFFECT, existing_effect)
 					return
 
 	// Create the status effect with our mob + our arguments
 	var/datum/status_effect/new_instance = new new_effect(arguments)
 	if(!QDELETED(new_instance))
+		SEND_SIGNAL(src, COMSIG_MOB_APPLIED_STATUS_EFFECT, new_instance)
 		return new_instance
 
 /**

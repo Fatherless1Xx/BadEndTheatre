@@ -37,6 +37,9 @@
 		S.name = "veteran cloak ([index])"
 	ADD_TRAIT(spawned, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
+/datum/job/advclass/veteran
+	inherit_parent_title = TRUE
+
 /datum/job/advclass/veteran/battlemaster
 	title = "Veteran Battlemaster"
 	tutorial = "You have served under a hundred masters, some good, some bad. You were a general once. A marshal, a captain. To some a hero, others a monster. Something of the sorts. You made strategies, tactics, new innovations of war. A thousand new ways for one man to kill another. It still keeps you up at night."

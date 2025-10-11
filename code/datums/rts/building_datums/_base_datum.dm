@@ -45,6 +45,8 @@ GLOBAL_LIST_INIT(cached_building_images, list())
 	var/building_node_path
 	var/building_right_now = FALSE
 
+	var/stockpile_needed = TRUE
+
 	var/ui_icon
 	var/ui_icon_state
 

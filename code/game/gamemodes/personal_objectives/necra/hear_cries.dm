@@ -1,6 +1,9 @@
-/datum/objective/listen_whispers
+/datum/objective/personal/listen_whispers
 	name = "Listen to Dead's Whispers"
+	category = "Necra's Chosen"
 	triumph_count = 2
+	immediate_effects = list("Gained a temporary ability to listen to the cries of the dead")
+	rewards = list("2 Triumphs", "Necra grows stronger", "Deaths won't disturb you anymore")
 	var/time_required = 3 MINUTES
 	var/time_spent = 0
 	var/last_check = 0
@@ -8,23 +11,23 @@
 	var/area/church_area = /area/rogue/indoors/town/church
 	var/list/heard_messages = list()
 
-/datum/objective/listen_whispers/on_creation()
+/datum/objective/personal/listen_whispers/on_creation()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	update_explanation_text()
 
-/datum/objective/listen_whispers/Destroy()
+/datum/objective/personal/listen_whispers/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/datum/objective/listen_whispers/process()
+/datum/objective/personal/listen_whispers/process()
 	if(world.time < last_check + check_interval || completed || !owner?.current)
 		return
 
 	last_check = world.time
 	check_location()
 
-/datum/objective/listen_whispers/proc/check_location()
+/datum/objective/personal/listen_whispers/proc/check_location()
 	var/mob/living/user = owner.current
 	if(!istype(user) || user.stat == DEAD)
 		return
@@ -52,13 +55,14 @@
 	if(time_spent >= time_required && !completed)
 		complete_objective()
 
-/datum/objective/listen_whispers/proc/complete_objective()
+/datum/objective/personal/listen_whispers/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have listened to the whispers of the dead long enough to satisfy Necra!"))
 	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence(NECRA, 20)
+	ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	escalate_objective()
 	STOP_PROCESSING(SSprocessing, src)
 
-/datum/objective/listen_whispers/update_explanation_text()
+/datum/objective/personal/listen_whispers/update_explanation_text()
 	explanation_text = "Necra wants you to understand death better. Spend at least [time_required / (1 MINUTES)] minutes in the church listening to the whispers of the dead while wearing an amulet of Necra."

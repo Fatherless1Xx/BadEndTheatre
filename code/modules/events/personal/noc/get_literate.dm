@@ -35,7 +35,7 @@
 		return
 
 	var/mob/living/carbon/human/chosen_illiterate = pick(illiterate_noc_followers)
-	var/datum/objective/literacy/new_objective = new(owner = chosen_illiterate.mind)
+	var/datum/objective/personal/literacy/new_objective = new(owner = chosen_illiterate.mind)
 	chosen_illiterate.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_illiterate, span_userdanger("YOU ARE NOC'S CHOSEN!"))

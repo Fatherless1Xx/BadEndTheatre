@@ -825,6 +825,10 @@
 				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
 			else
 				dat += "Remove | "
+			if(job.enabled)
+				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];disablejob=[job.title]'>Disable</A> | "
+			else
+				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];enablejob=[job.title]'>Enable</A> | "
 			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
 		else
 			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"

@@ -921,23 +921,25 @@
 	var/list/outputs = list()
 
 	for(var/spawn_count = 1 to output_amount)
-		var/obj/item/new_item = new output(get_turf(user))
+		var/list/items = islist(output) ? output : list(output)
+		for(var/obj/item/to_make as anything in items)
+			var/obj/item/new_item = new to_make(get_turf(user))
 
-		if(isnum(sellprice)) // if the item has no price override we make it take its original price. in the future we could add "labor" price increase but for now this should allow people to sell crafted items.
-			new_item.sellprice = sellprice
-			new_item.randomize_price()
+			if(isnum(sellprice)) // if the item has no price override we make it take its original price. in the future we could add "labor" price increase but for now this should allow people to sell crafted items.
+				new_item.sellprice = sellprice
+				new_item.randomize_price()
 
-		if(length(pass_types_in_end))
-			var/list/parts = list()
-			for(var/obj/item/listed as anything in to_delete)
-				if(!item_in_requirements(listed, pass_types_in_end))
-					continue
-				parts += listed
-			new_item.CheckParts(parts)
+			if(length(pass_types_in_end))
+				var/list/parts = list()
+				for(var/obj/item/listed as anything in to_delete)
+					if(!item_in_requirements(listed, pass_types_in_end))
+						continue
+					parts += listed
+				new_item.CheckParts(parts)
 
-		new_item.OnCrafted(user.dir, user)
+			new_item.OnCrafted(user.dir, user)
 
-		outputs += new_item
+			outputs += new_item
 
 	return outputs
 

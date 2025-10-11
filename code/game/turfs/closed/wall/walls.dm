@@ -406,6 +406,14 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "shroud1"
 
+/turf/closed/sea_fog
+	name = "thick sea fog"
+	icon = 'icons/effects/effects.dmi'
+	density = TRUE
+	opacity = TRUE
+	icon_state = "mfoam"
+	plane = FLOOR_PLANE
+
 /turf/closed/wall/mineral/pipe
 	name = "metal wall"
 	icon = 'icons/turf/smooth/walls/pipe_used.dmi'

@@ -1,16 +1,19 @@
-/datum/objective/ravox_duel
+/datum/objective/personal/ravox_duel
 	name = "Honor Duels"
-	triumph_count = 2
+	category = "Ravox's Chosen"
+	triumph_count = 3
+	immediate_effects = list("Gained an ability to challenge others")
+	rewards = list("3 Triumphs", "Ravox grows stronger")
 	var/duels_won = 0
 	var/duels_required = 1
 
-/datum/objective/ravox_duel/on_creation()
+/datum/objective/personal/ravox_duel/on_creation()
 	. = ..()
 	var/datum/action/innate/ravox_challenge/challenge = new(src)
 	challenge.Grant(owner.current)
 	update_explanation_text()
 
-/datum/objective/ravox_duel/proc/on_duel_won()
+/datum/objective/personal/ravox_duel/proc/on_duel_won()
 	duels_won++
 	if(duels_won >= duels_required && !completed)
 		to_chat(owner.current, span_greentext("You have proven your worth in combat! Ravox is pleased!"))
@@ -19,7 +22,7 @@
 		adjust_storyteller_influence(RAVOX, duels_required * 20)
 		escalate_objective()
 
-/datum/objective/ravox_duel/update_explanation_text()
+/datum/objective/personal/ravox_duel/update_explanation_text()
 	explanation_text = "Win [duels_required] duel\s with honor against other warriors to prove your might!"
 
 /datum/action/innate/ravox_challenge
@@ -28,7 +31,7 @@
 
 /datum/action/innate/ravox_challenge/Activate()
 	var/list/duelists = list()
-	for(var/mob/living/carbon/human/H in oview(5, owner))
+	for(var/mob/living/carbon/human/H in oview(7, owner))
 		if(H.stat != CONSCIOUS)
 			continue
 		if(!H.mind || !H.client)
@@ -67,10 +70,10 @@
 	var/datum/weakref/challenged
 	var/datum/weakref/objective
 
-/datum/duel/New(mob/living/carbon/human/challenger, mob/living/carbon/human/challenged, /datum/objective/listener)
+/datum/duel/New(mob/living/carbon/human/challenger, mob/living/carbon/human/challenged, datum/objective/personal/ravox_duel/listener)
 	src.challenger = WEAKREF(challenger)
 	src.challenged = WEAKREF(challenged)
-	src.objective = WEAKREF(objective)
+	objective = WEAKREF(listener)
 
 	addtimer(CALLBACK(src, PROC_REF(end_duel)), 8 MINUTES, TIMER_DELETE_ME)
 	addtimer(CALLBACK(src, PROC_REF(check_duel)), 4 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
@@ -92,9 +95,10 @@
 		challenged_mob.visible_message(span_notice("[challenged_mob] defeats [challenged_mob] in the honor duel!"))
 		finish_duel(challenger_mob, challenged_mob)
 		return
-	if(challenged_mob.surrendering || challenged_mob.incapacitated(IGNORE_GRAB))
+	else if(challenged_mob.surrendering || challenged_mob.incapacitated(IGNORE_GRAB))
 		challenger_mob.visible_message(span_notice("[challenger_mob] defeats [challenged_mob] in the honor duel!"))
 		finish_duel(challenged_mob, challenger_mob)
+		return
 
 	addtimer(CALLBACK(src, PROC_REF(check_duel)), 4 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
 
@@ -120,7 +124,7 @@
 	to_chat(winner, span_green("You have won the duel of honor!"))
 
 	if(objective)
-		var/datum/objective/ravox_duel/ravox = objective.resolve()
+		var/datum/objective/personal/ravox_duel/ravox = objective.resolve()
 		if(ravox?.owner == winner)
 			ravox.on_duel_won()
 

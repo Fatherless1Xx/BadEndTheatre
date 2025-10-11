@@ -10,6 +10,7 @@
 	spell_type = NONE
 	cooldown_time = 30 SECONDS
 	invocation_type = INVOCATION_SHOUT
+	has_visual_effects = FALSE
 
 /datum/action/cooldown/spell/vicious_mockery/is_valid_target(atom/cast_on)
 	return isliving(cast_on)

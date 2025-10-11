@@ -42,6 +42,7 @@
 	gloves = /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather/fgarrison
 	backl = /obj/item/storage/backpack/satchel
+	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
 /datum/job/forestguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
@@ -185,11 +186,12 @@
 	category_tags = list(CTAG_FORGARRISON)
 	allowed_ages = list(AGE_CHILD)
 
+
 /datum/outfit/forestguard/ruffian/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet //placeholder, I have to sprite something new for the Brats, like a gator skull
-	neck = /obj/item/clothing/neck/gorget
-	beltl = /obj/item/weapon/knife/cleaver/combat
+	neck = /obj/item/clothing/neck/highcollier
+	beltl = /obj/item/weapon/knife/dagger //just a normal iron dagger
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow //placeholder, going to give them a slingshot in another PR later
 	armor = /obj/item/clothing/armor/leather
@@ -212,10 +214,14 @@
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
-		H.change_stat(STATKEY_STR, rand(-2,1)) //broadly conscripted street urchins, randomization keeps them from being too powerful/consistent
+		H.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+		H.change_stat(STATKEY_STR, rand(-1,1)) //broadly conscripted street urchins, randomization keeps them from being too powerful/consistent. Moved to -1 so they can actually cut wood
 		H.change_stat(STATKEY_INT, round(rand(-2,2)))
-		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_PER, 1)
+		H.change_stat(STATKEY_CON, rand(-1,1))
+		H.change_stat(STATKEY_END, rand(-1,1))
+		H.change_stat(STATKEY_LCK, rand(-4,4))//either really lucky or unlucky, like orphans
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_ORPHAN, TRAIT_GENERIC) //someone please abuse this
 

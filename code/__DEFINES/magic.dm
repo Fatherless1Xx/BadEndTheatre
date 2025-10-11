@@ -89,6 +89,7 @@
 
 #define COMSIG_MANA_POOL_INTRINSIC_RECHARGE_UPDATE "mana_pool_intrinsic_recharge_update"
 #define COMSIG_ATOM_MANA_POOL_CHANGED "atom_mana_pool_changed"
+#define COMSIG_MANA_POOL_ADJUSTED "mana_pool_adjusted"
 
 // Mana source flags
 /// Absorb from leylines

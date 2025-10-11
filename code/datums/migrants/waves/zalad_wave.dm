@@ -32,6 +32,10 @@
 		/datum/skill/labor/mathematics = 3,
 	)
 
+	spells = list(
+		/datum/action/cooldown/spell/undirected/call_bird/zalad
+	)
+
 	traits = list(
 		TRAIT_MEDIUMARMOR,
 		TRAIT_NOBLE,
@@ -111,6 +115,10 @@
 		/datum/skill/combat/swords = 3,
 		/datum/skill/combat/knives = 2,
 		/datum/skill/labor/mathematics = 3,
+	)
+
+	spells = list(
+		/datum/action/cooldown/spell/undirected/call_bird/zalad
 	)
 
 	traits = list(

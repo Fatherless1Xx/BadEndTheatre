@@ -294,7 +294,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 // PROCS //
 ///////////
 
-/datum/species/proc/get_accent(var/language, var/variant = 0)
+/datum/species/proc/get_accent(language, variant = 0)
 	if(language == "Old Psydonic")
 		return strings("accents/grenz_replacement.json", "grenz")
 	if(language == "Zalad")

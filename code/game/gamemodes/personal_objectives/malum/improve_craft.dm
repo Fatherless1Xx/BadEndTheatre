@@ -1,21 +1,23 @@
-/datum/objective/improve_craft
+/datum/objective/personal/improve_craft
 	name = "Improve Craft Skills"
+	category = "Malum's Chosen"
 	triumph_count = 2
+	rewards = list("2 Triumphs", "Malum grows stronger", "Malum blesses you (+1 Intelligence)")
 	var/levels_gained = 0
 	var/required_levels = 2
 
-/datum/objective/improve_craft/on_creation()
+/datum/objective/personal/improve_craft/on_creation()
 	. = ..()
 	if(owner?.current)
 		RegisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED, PROC_REF(on_skill_improved))
 	update_explanation_text()
 
-/datum/objective/improve_craft/Destroy()
+/datum/objective/personal/improve_craft/Destroy()
 	if(owner?.current)
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
 	return ..()
 
-/datum/objective/improve_craft/proc/on_skill_improved(datum/source, datum/skill/skill_ref, new_level, old_level)
+/datum/objective/personal/improve_craft/proc/on_skill_improved(datum/source, datum/skill/skill_ref, new_level, old_level)
 	SIGNAL_HANDLER
 	if(completed)
 		return
@@ -36,11 +38,12 @@
 		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence(MALUM, 20)
+		owner.current.set_stat_modifier("malum_blessing", STATKEY_INT, 1)
 		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
 	else
 		var/remaining = required_levels - levels_gained
 		to_chat(owner.current, span_notice("Craft skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill Malum's task!"))
 
-/datum/objective/improve_craft/update_explanation_text()
+/datum/objective/personal/improve_craft/update_explanation_text()
 	explanation_text = "Improve your craft skills by gaining [required_levels] new skill levels through practice or dreams. For Malum!"

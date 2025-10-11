@@ -84,6 +84,7 @@
 	if(!wound.apply_to_mob(src, silent, crit_message))
 		qdel(wound)
 		return
+	SEND_SIGNAL(src, COMSIG_LIVING_WOUND_GAINED, wound)
 	return wound
 
 /// Simple version for removing a wound - DO NOT CALL THIS ON CARBON MOBS!

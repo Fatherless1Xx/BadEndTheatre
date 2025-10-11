@@ -182,6 +182,8 @@ F
 #define BB_SHROOM_COOLDOWN "shroom_cd"
 #define BB_DRUG_COOLDOWN "drug_cd"
 
+#define BB_AGRIOPYLON_BLESS_COOLDOWN "agriopylon_bless_cooldown"
+
 #define BB_QUAKE_COOLDOWN "quake_cooldown"
 #define BB_EARTHQUAKE_COOLDOWN "earthquake_cooldown"
 

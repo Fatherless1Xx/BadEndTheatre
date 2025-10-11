@@ -1,20 +1,23 @@
-/datum/objective/take_pain
+/datum/objective/personal/take_pain
 	name = "Take Pain"
+	category = "Pestra's Chosen"
 	triumph_count = 3
+	immediate_effects = list("Gained an ability to take pain of others upon yourself")
+	rewards = list("3 Triumphs", "Pestra grows stronger", "Pestra blesses you (+1 Constitution)")
 	var/total_pain_taken = 0
 	var/target_pain = 750
 
-/datum/objective/take_pain/on_creation()
+/datum/objective/personal/take_pain/on_creation()
 	. = ..()
 	if(owner?.current)
 		RegisterSignal(owner.current, COMSIG_PAIN_TRANSFERRED, PROC_REF(on_pain_transferred))
 	update_explanation_text()
 
-/datum/objective/take_pain/Destroy()
+/datum/objective/personal/take_pain/Destroy()
 	UnregisterSignal(owner.current, COMSIG_PAIN_TRANSFERRED)
 	return ..()
 
-/datum/objective/take_pain/proc/on_pain_transferred(datum/source, amount)
+/datum/objective/personal/take_pain/proc/on_pain_transferred(datum/source, amount)
 	SIGNAL_HANDLER
 	if(completed)
 		return
@@ -36,8 +39,9 @@
 		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence(PESTRA, 20)
+		owner.current.set_stat_modifier("pestra_blessing", STATKEY_CON, 1)
 		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_PAIN_TRANSFERRED)
 
-/datum/objective/take_pain/update_explanation_text()
+/datum/objective/personal/take_pain/update_explanation_text()
 	explanation_text = "Take enough pain from others upon yourself as an act of mercy and devotion to Pestra."

@@ -21,22 +21,12 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	on_creation()
 
 /datum/objective/proc/on_creation()
-	if(owner && !(owner in GLOB.personal_objective_minds))
-		GLOB.personal_objective_minds |= owner
 	return
 
 /datum/objective/proc/get_owners() // Combine owner and team into a single list.
 	. = (team && team.members) ? team.members.Copy() : list()
 	if(owner)
 		. += owner
-
-/datum/objective/proc/escalate_objective(event_track = EVENT_TRACK_PERSONAL, second_event_track = EVENT_TRACK_INTERVENTION)
-	if(event_track)
-		var/first_points_to_add = SSgamemode.point_thresholds[event_track] * rand(0.5, 0.75)
-		SSgamemode.event_track_points[event_track] += first_points_to_add
-	if(second_event_track)
-		var/second_points_to_add = SSgamemode.point_thresholds[second_event_track] * rand(0.05, 0.1)
-		SSgamemode.event_track_points[second_event_track] += second_points_to_add
 
 /datum/objective/proc/admin_edit(mob/admin)
 	return

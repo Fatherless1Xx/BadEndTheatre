@@ -8,7 +8,7 @@
 	outfit = /datum/outfit/adventurer/mason
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Mason Apprentice"
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'//pilgrims aren't towners, this fits them more for a combat on the woods
 
 /datum/outfit/adventurer/mason/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -31,7 +31,7 @@
 	cloak = /obj/item/clothing/cloak/apron/waist/colored/brown
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	pants = /obj/item/clothing/pants/trou
-	shirt = /obj/item/clothing/shirt/undershirt/colored/random
+	shirt = pick(/obj/item/clothing/shirt/undershirt/colored/random, /obj/item/clothing/shirt/tunic/colored/random)
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/hammer
@@ -43,3 +43,7 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, -1)
+
+	if(H.dna.species.id == SPEC_ID_DWARF)
+		head = /obj/item/clothing/head/helmet/leather/minershelm
+		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'

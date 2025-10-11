@@ -142,6 +142,16 @@
 	)
 	craftdiff = 1
 
+/datum/blueprint_recipe/carpentry/psydon_wooden_cross
+	name = "wooden psycross"
+	desc = "A wooden psycross dedicated to Psydon."
+	required_materials = list(
+		/obj/item/grown/log/tree/small = 1,
+		/obj/item/grown/log/tree/stake = 3
+	)
+	result_type = /obj/structure/fluff/psycross/psydon
+	craftdiff = 1
+
 /datum/blueprint_recipe/carpentry/wooden_stairs_down
 	name = "wooden stairs (down)"
 	desc = "Wooden stairs leading downward."
@@ -454,7 +464,7 @@
 	required_materials = list(
 		/obj/item/rope = 1
 	)
-	craftdiff = 1
+	build_time = 4 SECONDS
 	requires_ceiling = TRUE
 
 /datum/blueprint_recipe/carpentry/apiary

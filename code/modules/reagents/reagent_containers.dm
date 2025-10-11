@@ -126,7 +126,7 @@
 	filling.color = mix_color_from_reagents(reagents.reagent_list)
 	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 
-	if(fill_icon_under_override || reagent_flags & TRANSPARENT)
+	if(fill_icon_under_override)
 		underlays.Cut()
 		underlays += filling
 	else

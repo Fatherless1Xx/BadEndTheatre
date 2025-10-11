@@ -7,8 +7,8 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "May you find bliss through your pain!"
-	invocation_type = INVOCATION_SHOUT
+	invocation = "May you find bliss through your pain."
+	invocation_type = INVOCATION_WHISPER
 
 	attunements = list(
 		/datum/attunement/electric = 0.3,

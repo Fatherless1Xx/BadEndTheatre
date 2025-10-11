@@ -13,15 +13,15 @@
 /turf/closed/wall/mineral/underbrick,
 /area/template_noop)
 "u" = (
-/obj/structure/lootable_structure/fish_barrel{
+/obj/structure/lootable_structure/stockpile/fish_barrel{
 	pixel_y = 13;
 	pixel_x = 7
 	},
-/obj/structure/lootable_structure/grain_barrel{
+/obj/structure/lootable_structure/stockpile/grain_barrel{
 	pixel_x = -7;
 	pixel_y = 9
 	},
-/obj/structure/lootable_structure/powder_sack{
+/obj/structure/lootable_structure/stockpile/powder_sack{
 	pixel_y = 4;
 	pixel_x = 4
 	},

@@ -41,7 +41,7 @@
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	var/datum/objective/marriage_broker/new_objective = new(owner = chosen_one.mind)
+	var/datum/objective/personal/marriage_broker/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE EORA'S CHOSEN!"))

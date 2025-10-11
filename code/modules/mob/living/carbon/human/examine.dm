@@ -87,7 +87,7 @@
 
 		if(race_name) // race name
 			appendage_to_name += " [race_name]"
- // job name, don't show job of foreigners.
+// job name, don't show job of foreigners.
 
 		if(used_title && !HAS_TRAIT(src, TRAIT_FACELESS) && (!HAS_TRAIT(src, TRAIT_FOREIGNER) || HAS_TRAIT(src, TRAIT_RECRUITED) || HAS_TRAIT(src, TRAIT_RECOGNIZED)))
 			appendage_to_name += ", [used_title]"
@@ -151,15 +151,22 @@
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
 
+		if(has_flaw(/datum/charflaw/addiction/alcoholic) && HAS_TRAIT(user, TRAIT_RECOGNIZE_ADDICTS))
+			. += span_userdanger("ALCOHOLIC!")
+
+		if(has_flaw(/datum/charflaw/addiction/junkie) && HAS_TRAIT(user, TRAIT_RECOGNIZE_ADDICTS))
+			. += span_userdanger("JUNKIE!")
+
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")
 
 		if(real_name in GLOB.heretical_players)
 			. += span_userdanger("HERETIC! SHAME!")
 
-		if(is_zizocultist(user.mind) || is_zizolackey(user.mind))
-			if(virginity)
-				. += span_userdanger("VIRGIN!")
+		if(user.mind)
+			if(is_zizocultist(user.mind) || is_zizolackey(user.mind))
+				if(virginity)
+					. += span_userdanger("VIRGIN!")
 
 		var/is_bandit = FALSE
 		if(mind?.special_role == "Bandit")
@@ -167,7 +174,7 @@
 			if((real_name in GLOB.outlawed_players) && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
 				. += span_userdanger("BANDIT!")
 
-		if(mind && mind.special_role == "Vampire Lord")
+		if(mind && mind?.special_role == "Vampire Lord")
 			var/datum/component/vampire_disguise/disguise_comp = GetComponent(/datum/component/vampire_disguise)
 			if(!disguise_comp.disguised)
 				. += span_userdanger("A MONSTER!")

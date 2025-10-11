@@ -183,6 +183,13 @@
 	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
 	under_layer = TRUE
 
+/datum/sprite_accessory/hair/head/dunes
+	name = "Dunes"
+	icon_state = "dunes"
+	gender = MALE
+	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
+
+
 /datum/sprite_accessory/hair/head/druid
 	name = "Druid"
 	icon_state = "druid"  // original name elf_scout?
@@ -418,6 +425,12 @@
 /datum/sprite_accessory/hair/head/vagabond
 	name = "Vagabond"
 	icon_state = "vagabond"
+	gender = MALE
+	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
+
+/datum/sprite_accessory/hair/head/sandcrop
+	name = "Sand Crop"
+	icon_state = "sandcrop"
 	gender = MALE
 	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
 
@@ -760,6 +773,18 @@
 /datum/sprite_accessory/hair/head/mediumbraid
 	name = "Medium Braid"
 	icon_state = "mediumbraid"
+	gender = FEMALE
+	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
+
+/datum/sprite_accessory/hair/head/lakkaricut
+	name = "Lakkari Cut"
+	icon_state = "lakkaricut"
+	gender = FEMALE
+	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
+
+/datum/sprite_accessory/hair/head/lakkaribun
+	name = "Lakkari Bun"
+	icon_state = "lakkaribun"
 	gender = FEMALE
 	specuse = list(SPEC_ID_HUMEN, SPEC_ID_DWARF, SPEC_ID_ELF, SPEC_ID_AASIMAR, SPEC_ID_TIEFLING, SPEC_ID_HALF_ORC)
 

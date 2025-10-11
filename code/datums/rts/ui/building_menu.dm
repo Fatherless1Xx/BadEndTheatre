@@ -16,12 +16,19 @@
 /atom/movable/screen/building_button/proc/update_build_state(mob/camera/strategy_controller/master)
 	if(!build_datum)
 		build_datum = new datum_path
+
+	if(build_datum.stockpile_needed && !master.resource_stockpile)
+		build_state = FALSE
+		color = COLOR_RED_LIGHT
+		return
+
 	if(!build_datum.resource_check(master))
 		build_state = FALSE
 		color = COLOR_RED_LIGHT
-	else
-		build_state = TRUE
-		color = null
+		return
+
+	build_state = TRUE
+	color = null
 
 /atom/movable/screen/building_button/Click(location, control, params)
 	. = ..()

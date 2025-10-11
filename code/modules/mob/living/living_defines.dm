@@ -231,5 +231,7 @@
 
 	var/list/status_modifiers
 
+	var/datum/blood_type/animal_type
+
 	/// cooldown for the next time this person can offer
 	COOLDOWN_DECLARE(offer_cooldown)

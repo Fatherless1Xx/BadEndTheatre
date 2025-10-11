@@ -41,6 +41,166 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	clothing_flags = CANT_SLEEP_IN
 
+/obj/item/clothing/face/jademask
+	name = "joapstone mask "
+	icon_state = "mask_jade"
+	desc = "A joapstone mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 70
+
+/obj/item/clothing/face/turqmask
+	name = "ceruleabaster mask "
+	icon_state = "mask_turq"
+	desc = "A ceruleabaster mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE | HIDEFACIALHAIR | HIDEHAIR
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 95
+
+/obj/item/clothing/face/rosemask
+	name = "rosellusk mask "
+	icon_state = "mask_rose"
+	desc = "A rosellusk mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 35
+
+/obj/item/clothing/face/shellmask
+	name = "shell mask "
+	icon_state = "mask_shell"
+	desc = "A shell mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 30
+
+/obj/item/clothing/face/coralmask
+	name = "aoetal mask "
+	icon_state = "mask_coral"
+	desc = "An aoetal mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 80
+
+/obj/item/clothing/face/ambermask
+	name = "petriamber mask "
+	icon_state = "mask_amber"
+	desc = "A petriamber mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 70
+
+/obj/item/clothing/face/onyxamask
+	name = "onyxa mask "
+	icon_state = "mask_onyxa"
+	desc = "An onyxa mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 50
+
+/obj/item/clothing/face/opalmask
+	name = "opaloise mask "
+	icon_state = "mask_opal"
+	desc = "An opaloise mask that both conceals and protects the face."
+	max_integrity = 85
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_STAB)
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	sewrepair = FALSE
+	anvilrepair = FALSE
+	clothing_flags = CANT_SLEEP_IN
+	sellprice = 100
+
 /obj/item/clothing/face/shepherd/clothmask
 	name = "cloth mask"
 	icon_state = "clothm"

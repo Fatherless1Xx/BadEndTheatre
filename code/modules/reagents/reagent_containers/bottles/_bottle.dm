@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	obj_flags = CAN_BE_HIT
 	spillable = FALSE
 	reagent_flags = TRANSPARENT
+	fill_icon_under_override = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
@@ -28,9 +29,12 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	var/auto_label_name
 	/// Auto label description, appended to current desc
 	var/auto_label_desc
+	///custom icon?
+	var/custom_icon = FALSE
 
 /obj/item/reagent_containers/glass/bottle/Initialize()
-	icon_state = "clear_bottle[rand(1,4)]"
+	if(!custom_icon)
+		icon_state = "clear_bottle[rand(1,4)]"
 	return ..()
 
 /obj/item/reagent_containers/glass/bottle/apply_initial_label()
@@ -291,6 +295,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	volume = 30
 	dropshrink = 0.7
 	can_label_container = FALSE
+	custom_icon = TRUE
 
 /obj/item/reagent_containers/glass/bottle/glazed_teapot
 	name = "fancy teapot"
@@ -299,6 +304,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	volume = 100
 	dropshrink = 0.7
 	can_label_container = FALSE
+	custom_icon = TRUE
 
 /obj/item/reagent_containers/glass/bottle/black
 	name = "wine pot"
@@ -306,6 +312,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	icon_state = "blackbottle"
 	fill_icon_thresholds = null
 	label_prefix = "pot of "
+	custom_icon = TRUE
 
 /obj/item/reagent_containers/glass/bottle/black/Initialize()
 	. = ..()

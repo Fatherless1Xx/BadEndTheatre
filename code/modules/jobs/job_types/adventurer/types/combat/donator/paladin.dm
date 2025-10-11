@@ -27,7 +27,7 @@
 			H.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/helmet/heavy/necked/noc
-			wrists = /obj/item/clothing/neck/psycross/noc
+			wrists = /obj/item/clothing/neck/psycross/silver/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm

@@ -31,5 +31,6 @@
 		playsound(get_turf(soil), 'sound/vo/smokedrag.ogg', 100, TRUE)
 		soil.bless_soil()
 		amount_blessed++
+		new /obj/effect/temp_visual/bless_swirl(get_turf(soil))
 		if(amount_blessed >= 5)
 			break

@@ -10,6 +10,7 @@
 	total_positions = 0
 	spawn_positions = 0
 	min_pq = -999
+	is_foreigner = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
 	allowed_sexes = list(MALE, FEMALE)

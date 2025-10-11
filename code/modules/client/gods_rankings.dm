@@ -51,6 +51,7 @@
 
 			for(var/datum/round_event_control/listed as anything in SSgamemode.control)
 				listed.occurrences = 0
+				listed.last_round_occurrences = 0
 
 			for(var/client/C in GLOB.clients)
 				if(!C?.mob)
@@ -80,11 +81,14 @@
 	var/most_frequent
 	var/highest_influence = -1
 	var/highest_chosen = -1
+	var/list/all_storytellers = list()
 
 	for(var/storyteller_name in SSgamemode.storytellers)
 		var/datum/storyteller/initialized_storyteller = SSgamemode.storytellers[storyteller_name]
 		if(!initialized_storyteller)
 			continue
+
+		all_storytellers += initialized_storyteller.name
 
 		var/influence = SSgamemode.calculate_storyteller_influence(initialized_storyteller.type)
 		if(influence > highest_influence)
@@ -106,11 +110,18 @@
 	var/current_points_influential = json[most_influential] || 0
 	var/current_points_frequent = json[most_frequent] || 0
 
+	var/list/eligible_storytellers = all_storytellers - list(most_influential, most_frequent)
+
 	if(most_influential == most_frequent)
 		json[most_influential] = min(current_points_influential + 3, 100)
 	else
 		json[most_influential] = min(current_points_influential + 1, 100)
 		json[most_frequent] = min(current_points_frequent + 2, 100)
+
+	if(length(eligible_storytellers) > 0)
+		var/random_god = pick(eligible_storytellers)
+		var/current_points_random = json[random_god] || 0
+		json[random_god] = min(current_points_random + 1, 100)
 
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(json))

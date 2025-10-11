@@ -36,9 +36,6 @@
 	else if(href_list["ahelp_tickets"])
 		GLOB.ahelp_tickets.BrowseTickets(text2num(href_list["ahelp_tickets"]))
 
-	else if(href_list["stickyban"])
-		stickyban(href_list["stickyban"],href_list)
-
 	else if(href_list["getplaytimewindow"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -692,6 +689,33 @@
 				job.total_positions = job.current_positions
 				break
 
+		src.manage_free_slots()
+
+	else if(href_list["enablejob"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/Enable = href_list["enablejob"]
+		for(var/datum/job/job in SSjob.joinable_occupations)
+			if(job.title == Enable)
+				job.enabled = TRUE
+				job.total_positions = initial(job.total_positions)
+				job.spawn_positions = initial(job.spawn_positions)
+				break
+
+		src.manage_free_slots()
+
+	else if(href_list["disablejob"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/Disable = href_list["disablejob"]
+		for(var/datum/job/job in SSjob.joinable_occupations)
+			if(job.title == Disable)
+				job.enabled = FALSE
+				job.total_positions = 0
+				job.spawn_positions = 0
+				break
 		src.manage_free_slots()
 
 
@@ -1494,6 +1518,12 @@
 		var/datum/browser/noclose/popup = new(usr, "cursecheck", "", 370, 220)
 		popup.set_content(popup_window_data)
 		popup.open()
+
+	else if(href_list["adminbirdletter"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["adminbirdletter"])
+		usr.client.send_bird_letter(M)
 
 /datum/admins/proc/HandleCMode()
 	if(!check_rights(R_ADMIN))

@@ -24,8 +24,8 @@
 	bearer.update_blindness()
 
 /datum/bodypart_feature/bloodsight_brand
-    name = "Bloodsight Brand"
-    feature_slot = BODYPART_FEATURE_BRAND
-    body_zone = BODY_ZONE_CHEST // Around the eyes
-    accessory_colors = "#FF4500"
-    accessory_type = /datum/sprite_accessory/brand/vampire_seal
+	name = "Bloodsight Brand"
+	feature_slot = BODYPART_FEATURE_BRAND
+	body_zone = BODY_ZONE_CHEST // Around the eyes
+	accessory_colors = "#FF4500"
+	accessory_type = /datum/sprite_accessory/brand/vampire_seal

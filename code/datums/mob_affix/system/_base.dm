@@ -1,3 +1,4 @@
+
 /datum/mob_affix_system
 	var/list/available_affixes = list()
 

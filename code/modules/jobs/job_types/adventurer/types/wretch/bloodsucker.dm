@@ -6,7 +6,14 @@
 	category_tags = list(CTAG_WRETCH) // Due to vampire status: skilled weapon skill, no armor besides a gorget.
 	outfit = /datum/outfit/wretch/bloodsucker
 	total_positions = 1
-	roll_chance = 25
+	roll_chance = 100
+
+/datum/job/advclass/wretch/bloodsucker/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+
+	if(spawned.mind)
+		var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(/datum/clan/caitiff, TRUE)
+		spawned.mind.add_antag_datum(new_antag)
 
 /datum/outfit/wretch/bloodsucker/pre_equip(mob/living/carbon/human/H)
 
@@ -50,9 +57,6 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
-	if(H.mind)
-		var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(/datum/clan/caitiff, TRUE)
-		H.mind.add_antag_datum(new_antag)
 	if(H.gender == FEMALE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -122,9 +126,6 @@
 			H.dna.species.native_language = "Old Psydonic"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 		wretch_select_bounty(H)
-		if(H.mind)
-			var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(new /datum/clan/caitiff, TRUE)
-			H.mind.add_antag_datum(new_antag)
 
 /datum/outfit/wretch/bloodsucker/proc/bum_equip(mob/living/carbon/human/H)
 	cloak = /obj/item/clothing/cloak/tribal // yes, just a cloak
@@ -141,6 +142,3 @@
 	H.add_spell(/datum/action/cooldown/spell/undirected/shapeshift/rat_vampire) // seems funny, rat powers, sewer lurker
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
-	if(H.mind)
-		var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(new /datum/clan/caitiff, TRUE)
-		H.mind.add_antag_datum(new_antag)

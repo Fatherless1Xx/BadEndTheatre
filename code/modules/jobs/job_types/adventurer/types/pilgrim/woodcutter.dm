@@ -4,7 +4,7 @@
 
 	outfit = /datum/outfit/adventurer/woodcutter
 	apprentice_name = "Woodcutter"
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg' // pilgrims aren't towners, this fits them more for a combat on the woods
 
 /datum/outfit/adventurer/woodcutter/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -23,7 +23,7 @@
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/shortshirt/colored/random
 	pants = /obj/item/clothing/pants/trou
-	head = /obj/item/clothing/head/brimmed
+	head =  pick(/obj/item/clothing/head/hatfur, /obj/item/clothing/head/hatblu, /obj/item/clothing/head/brimmed)
 	neck = /obj/item/clothing/neck/coif
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = /obj/item/storage/backpack/satchel

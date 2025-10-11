@@ -78,6 +78,7 @@
 		CLERIC_T0 = /datum/action/cooldown/spell/healing,
 		CLERIC_T1 = /datum/action/cooldown/spell/undirected/list_target/vicious_mimicry,
 		CLERIC_T2 = /datum/action/cooldown/spell/status/wheel,
+		CLERIC_T3 = /datum/action/cooldown/spell/undirected/jaunt/illusory_prop,
 	)
 
 /datum/devotion/divine/pestra

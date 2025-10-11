@@ -63,6 +63,8 @@
 		return
 	var/obj/structure/flora/field/field = new flowers(victim)
 	field.dir = pick(GLOB.cardinals)
+	for(var/mob/living/L in victim)
+		field.Crossed(L)
 
 /*-----------------\
 |  Flower Fields   |
@@ -240,7 +242,8 @@
 	. = ..()
 	if(overlay_state && ismob(owner))
 		var/mob/M = owner
-		M.add_overlay(mutable_appearance('icons/effects/effects.dmi', overlay_state))
+		flower_overlay = mutable_appearance('icons/effects/effects.dmi', overlay_state)
+		M.add_overlay(flower_overlay)
 		RegisterSignal(M, COMSIG_MOVABLE_MOVED, PROC_REF(_check_flower_field))
 
 /datum/status_effect/debuff/flower_base/on_remove()
@@ -249,7 +252,11 @@
 		var/mob/M = owner
 		if (flower_overlay)
 			M.overlays -= flower_overlay
+			flower_overlay = null
 		UnregisterSignal(M, COMSIG_MOVABLE_MOVED)
+
+/datum/status_effect/debuff/flower_base/tick()
+	check_field_presence()
 
 /datum/status_effect/debuff/flower_base/proc/_check_flower_field(mob/living/L)
 	if (!field_path || !locate(field_path) in get_turf(L))

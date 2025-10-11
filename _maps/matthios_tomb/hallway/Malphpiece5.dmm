@@ -124,7 +124,7 @@
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
+/obj/item/clothing/neck/psycross/silver/malum/steel,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave)
 "Z" = (

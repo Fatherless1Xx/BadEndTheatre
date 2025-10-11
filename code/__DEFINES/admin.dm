@@ -68,6 +68,7 @@
 #define ADMIN_COORDJMP(src) "[src ? src.Admin_Coordinates_Readable(FALSE, TRUE) : "nonexistent location"]"
 #define ADMIN_VERBOSEJMP(src) "[src ? src.Admin_Coordinates_Readable(TRUE, TRUE) : "nonexistent location"]"
 #define ADMIN_INDIVIDUALLOG(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];individuallog=[REF(user)]'>LOGS</a>)"
+#define ADMIN_BIRD_LETTER(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];adminbirdletter=[REF(user)]'>LETTER</a>)"
 
 /atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
 	var/turf/turf_at_coords = Safe_COORD_Location()
@@ -125,9 +126,6 @@
 #define MAX_KEYPRESS_AUTOKICK 50
 /// Max keys that can be held down at once by a client
 #define MAX_HELD_KEYS 15
-
-#define STICKYBAN_DB_CACHE_TIME 10 SECONDS
-#define STICKYBAN_ROGUE_CHECK_TIME 5
 
 
 /// Shown to vicitm of staff of change and related effects.

@@ -7,7 +7,7 @@
 	outfit = /datum/outfit/adventurer/blacksmith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
-	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg' // pilgrims aren't towners, this fits them more for a combat on the woods
 
 /datum/outfit/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -16,6 +16,7 @@
 	beltr = /obj/item/weapon/hammer/iron
 	beltl = /obj/item/weapon/tongs
 
+	head = pick(/obj/item/clothing/head/hatfur, /obj/item/clothing/head/hatblu)
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	gloves = /obj/item/clothing/gloves/leather
 	cloak = /obj/item/clothing/cloak/apron/brown
@@ -58,7 +59,7 @@
 
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/boots/leather
-		shirt = /obj/item/clothing/shirt/shortshirt
+		shirt = pick(/obj/item/clothing/shirt/undershirt/colored/random, /obj/item/clothing/shirt/tunic/colored/random)
 	else
 		armor = /obj/item/clothing/shirt/dress/gen/colored/random
 		shoes = /obj/item/clothing/shoes/shortboots

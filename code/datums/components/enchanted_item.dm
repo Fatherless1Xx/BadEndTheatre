@@ -77,12 +77,17 @@
 	if(QDELETED(holder))
 		clean_up(TRUE)
 		return
-	if(!refresh_skill || !holder.has_skill(refresh_skill))
+	if(refresh_count != -1 && refresh_count <= 0)
 		clean_up(TRUE)
 		return
-	if(skill_threshold && (!holder.get_skill_level(refresh_skill) > skill_threshold))
+	if(refresh_skill && !holder.has_skill(refresh_skill))
 		clean_up(TRUE)
 		return
+	if(skill_threshold && holder.get_skill_level(refresh_skill) < skill_threshold)
+		clean_up(TRUE)
+		return
+
+	refresh_count--
 
 	to_chat(holder, span_nicegreen("A faint glow eminates from \the [parent], its enchantment is renewed!"))
 

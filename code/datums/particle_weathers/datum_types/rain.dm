@@ -21,8 +21,8 @@
 	particleEffectType = /particles/weather/rain
 
 	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/rain)
-	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)
+	weather_sounds = /datum/looping_sound/rain
+	indoor_weather_sounds = /datum/looping_sound/indoor_rain
 
 	minSeverity = 1
 	maxSeverity = 15
@@ -41,8 +41,8 @@
 	particleEffectType = /particles/weather/rain
 
 	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/storm)
-	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)
+	weather_sounds = /datum/looping_sound/storm
+	indoor_weather_sounds = /datum/looping_sound/indoor_rain
 
 	minSeverity = 4
 	maxSeverity = 100
@@ -67,6 +67,8 @@
 		if(prob(100))
 			var/list/viable_players = list()
 			for(var/client/client in GLOB.clients)
+				if(!client.mob)
+					continue
 				var/client_z = client.mob.z
 				if(!isliving(client.mob))
 					continue

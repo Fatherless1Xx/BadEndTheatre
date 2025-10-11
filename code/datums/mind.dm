@@ -437,7 +437,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	if(personal_objectives.len)
 		output += "<B>Personal Objectives:</B>"
 		var/personal_count = 1
-		for(var/datum/objective/objective in personal_objectives)
+		for(var/datum/objective/personal/objective in personal_objectives)
 			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
 			personal_count++
 		output += "<br>"
@@ -695,7 +695,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 /datum/mind/proc/announce_personal_objectives()
 	if(length(personal_objectives))
 		var/personal_count = 1
-		for(var/datum/objective/O in personal_objectives)
+		for(var/datum/objective/personal/O in personal_objectives)
 			O.update_explanation_text()
 			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
 			personal_count++
@@ -787,6 +787,8 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 /datum/mind/proc/add_personal_objective(datum/objective/O)
 	if(!istype(O))
 		return FALSE
+	if(current)
+		current.apply_status_effect(/datum/status_effect/purpose)
 	personal_objectives += O
 	O.owner = src
 	return TRUE

@@ -102,5 +102,388 @@
                 "rscdel": "patreon restrictions on accents"
             }
         ]
+    },
+    "2025-10-04": {
+        "CheffieGithub": [
+            {
+                "bugfix": "Fixed loadout patreon rank checks"
+            }
+        ],
+        "RelentlessDouche": [
+            {
+                "balance": "Readjusted Ruffian"
+            }
+        ],
+        "wgtjunior743": [
+            {
+                "admin": "Yielding now logs for admins."
+            }
+        ],
+        "snowyseshi": [
+            {
+                "code_imp": "make restricted roles less strict for vampire and lich"
+            }
+        ],
+        "SarmentiCampbell": [
+            {
+                "balance": "Youngling/Old Maniac/lich have now the same stats as their adult counterpart."
+            },
+            {
+                "rscadd": "Give Ability to remove Foreigner from Disgraced Knight, Rejected Royal"
+            },
+            {
+                "rscadd": "Poisons bombs are now craftable."
+            },
+            {
+                "balance": "Noble Scabbard now has silver Enchant."
+            },
+            {
+                "balance": "Summon Rous, Conjure Puffer and Conjure Poison Bomb should no longer give you Arcane Skill"
+            }
+        ],
+        "Arkatos": [
+            {
+                "rscadd": "God's chosen received an ability to view their tasks at any time via new button."
+            },
+            {
+                "rscadd": "God's chosen tasks have new, varied rewards."
+            }
+        ],
+        "Ambrose997": [
+            {
+                "balance": "nerfed hedge mage's physical stats down to the same level as normal mages."
+            }
+        ],
+        "Bloo4420": [
+            {
+                "rscadd": "More filled_overlay sprites for peddlers"
+            },
+            {
+                "bugfix": "Innkeep and Steward peddler now hold keys that can actually be used"
+            }
+        ]
+    },
+    "2025-10-05": {
+        "snowyseshi": [
+            {
+                "bugfix": "fixed unplayable roles being playable\\n<!-- Both :cl:'s are required for the changelog to work! You can put your name to the right of the first :cl: if you want to overwrite your GitHub username as author ingame. -->\\n<!-- You can use multiple of the same prefix (they're only used for the icon ingame) and delete the unneeded ones. Despite some of the tags, changelogs should generally represent how a player might be affected by the changes rather than a summary of the PR's contents. -->\\n## Pre-Merge Checklist\\n<!-- Don't bother filling these in while creating your Pull Request, just click the checkboxes after the Pull Request is opened and you are redirected to the page. -->\\n- [ ] You tested this on a local server.\\n- [ ] This code did not runtime during testing.\\n- [ ] You documented all of your changes.\\n<!-- Neither the compiler nor workflow checks are perfect at detecting runtimes and errors. It is important to test your code/feature/fix locally. -->"
+            }
+        ],
+        "Wouju": [
+            {
+                "rscadd": "Instruments are now craftable"
+            },
+            {
+                "bugfix": "essence spells (used by the essence gauntlet) now require alchemy spell instead of arcyne, like they should've been"
+            },
+            {
+                "rscadd": "Forager Trait shows up and has a description now"
+            }
+        ],
+        "CheffieGithub": [
+            {
+                "bugfix": "Fixed every role getting renamed"
+            },
+            {
+                "bugfix": "Bloodsuckers clan works correctly"
+            }
+        ],
+        "MercadierY2K": [
+            {
+                "rscadd": "Adds Bardic Inspiration, usable by bards and related classes."
+            }
+        ]
+    },
+    "2025-10-07": {
+        "Wouju": [
+            {
+                "rscadd": "Leeches and worms are grindable in a mortar"
+            },
+            {
+                "rscadd": "examining any item that has a precursor will tell you what essence it gives (with enough alchemy skill of course)"
+            },
+            {
+                "rscdel": "Removed grind recipe for organs, grinding them gives their reagents instead"
+            },
+            {
+                "rscadd": "dwarven music box is craftable by artificers"
+            }
+        ],
+        "wgtjunior743": [
+            {
+                "bugfix": "Migrants not being foreigners"
+            },
+            {
+                "bugfix": "Adv classes who showed their title having all the same name."
+            },
+            {
+                "rscadd": "Vote Continue time scales of the amount of ppl who voted Continue or End round."
+            },
+            {
+                "rscadd": "INITIAL_ROUND_TIMER now decides when the first vote of the round happens"
+            }
+        ],
+        "Snack-Max": [
+            {
+                "rscadd": "Added four new hairstyles, Lakkari Bun, Lakkari Cut, Sand Crop and Dunes"
+            }
+        ],
+        "DirectorNoot": [
+            {
+                "rscadd": "Added 'control undead' spell to necromancer's starting spells"
+            }
+        ],
+        "DrSirKnight": [
+            {
+                "rscadd": "Added a way for nobles to contact admins for IC things by sending letters"
+            },
+            {
+                "admin": "Added a way to send paper letters to people"
+            }
+        ],
+        "TooFewSecrets": [
+            {
+                "balance": "Baothan clerics are better at crafting drugs and will not recklessly shout their goddess's name when handing out magic drugs."
+            }
+        ],
+        "CheffieGithub": [
+            {
+                "bugfix": "Advclass and migrants get loadout items"
+            },
+            {
+                "bugfix": "Not every conjured item has infinite refreshes"
+            }
+        ],
+        "Beryyseimith": [
+            {
+                "rscadd": "creating a noose now uses build delay instead of a skill-check."
+            }
+        ],
+        "Raptorian1": [
+            {
+                "map": "Updated rosewood."
+            },
+            {
+                "map": "large sections of the map to shrink it down to a more manageable size."
+            },
+            {
+                "map": "Shrinked the lower floor of the inn."
+            },
+            {
+                "rscadd": "Adds the sword display, paper and quills and another set of keys to the inn."
+            },
+            {
+                "rscdel": "The bathrooms and bath from the inn."
+            },
+            {
+                "rscadd": "Cannon to the fort"
+            },
+            {
+                "rscadd": "A secret to the apothecary"
+            }
+        ]
+    },
+    "2025-10-08": {
+        "Wouju": [
+            {
+                "bugfix": "fixed runtime error on examining items without a precursor"
+            }
+        ],
+        "flleeppyy": [
+            {
+                "rscdel": "Remove Stickybans"
+            }
+        ],
+        "wgtjunior743": [
+            {
+                "bugfix": "Handpie uses the right mince type"
+            }
+        ]
+    },
+    "2025-10-09": {
+        "DirectorNoot": [
+            {
+                "rscadd": "add control undead spell to lich"
+            },
+            {
+                "bugfix": "Fixed that spell, previously did nothing"
+            }
+        ],
+        "Dorodomki": [
+            {
+                "balance": "rebalanced pilgrims"
+            },
+            {
+                "rscadd": "Added more clothing rolls for pilgrims, the peasant pilgrim gets 6 tools on spawn\\n:cl:\\n## Pre-Merge Checklist\\n- [x] You tested this on a local server.\\n- [x] This code did not runtime during testing.\\n- [x] You documented all of your changes."
+            },
+            {
+                "rscadd": "Added missing sprites for templar tabard"
+            },
+            {
+                "rscadd": "Robes can now go in the shirt slot\\n:cl:\\n## Pre-Merge Checklist\\n- [x] You tested this on a local server.\\n- [x] This code did not runtime during testing.\\n- [x] You documented all of your changes."
+            }
+        ],
+        "wgtjunior743": [
+            {
+                "bugfix": "The game prioritizing your armor slot even if your shirt slot armor is better when taking damage"
+            },
+            {
+                "bugfix": "Triumph Buy \\\"Pick Any Class\\\" now works properly"
+            }
+        ],
+        "Wouju": [
+            {
+                "balance": "You can pray to Psydon (and The Ten with their respective amulet) if you have a psycross/amulet in your active hand, neck or wrists"
+            },
+            {
+                "bugfix": "Noc amulet is now made of silver as it shouldve been"
+            },
+            {
+                "rscadd": "Inquisitors can purchase crossbows and lifeblood. Inquisitor favour list slightly tweaked (for example, chain gloves now come in one pair and not two)"
+            },
+            {
+                "rscadd": "Craftable wooden and metal psydon cross"
+            },
+            {
+                "balance": "3 Adepts can now spawn roundstart, there can be a total of 2 adepts of the same advclass."
+            },
+            {
+                "balance": "Slight changes to brutal zealot and inquisitor skills/stats/traits"
+            },
+            {
+                "map": "Major changes to the Old Church."
+            }
+        ],
+        "DrSirKnight": [
+            {
+                "rscadd": "Two new admin only rousmen and a admin only rous abomination"
+            }
+        ]
+    },
+    "2025-10-10": {
+        "notably magickal frog": [
+            {
+                "spellcheck": "The magician in charge of writing the spell tree was found to be a Zizoite who was intentionally misinforming many novice wizards. They have been sacked, socked, and subsequently shot. Hail the Ten."
+            },
+            {
+                "spellcheck": "Some skill descriptions are more accurate too."
+            }
+        ],
+        "DrSirKnight": [
+            {
+                "admin": "Proper logging for messenger bird"
+            }
+        ],
+        "Wouju": [
+            {
+                "rscadd": "Adds the airgun, craftable by artificiers. Basically a steam musket. Requires average engineering to even be able to use it."
+            },
+            {
+                "map": "added spare vault key located inside the vault, this is done for vanderlin, rosewood and wpp"
+            }
+        ],
+        "Viviridia": [
+            {
+                "rscadd": "Adds 4 spells [Briar_Claw], [Falcon_disrupt], [Garden_Fae], [Bush_Jaunt]"
+            },
+            {
+                "rscadd": "path traits for briar paths"
+            },
+            {
+                "rscadd": "crafting recipes for new briar blessings"
+            },
+            {
+                "rscadd": "bush_dummy structure a part of the bush jaunt spell"
+            },
+            {
+                "rscadd": "agriopylon controllers, mob file, and its special ability"
+            },
+            {
+                "bugfix": "fixed flower field overlays not being removed"
+            },
+            {
+                "image": "adds spell icon for new spells [Falcon_disrupt], [Garden_Fae], [Bush_Jaunt]"
+            },
+            {
+                "image": "adds falcon icon in effects.dmi and projectile.dmi"
+            },
+            {
+                "image": "adds agriopylon icon with its act icon and overlays in summonable/32x32.dmi"
+            },
+            {
+                "code_imp": "changed parts of the briar.dm code"
+            },
+            {
+                "code_imp": "changed some parts of the gnome farming code"
+            }
+        ],
+        "7erracotta": [
+            {
+                "rscadd": "added sprites"
+            },
+            {
+                "rscadd": "ton of new items and their crafting recipes"
+            }
+        ],
+        "wgtjunior743": [
+            {
+                "rscadd": "Inquisitor and the Episcopal Inquisitor can contact the Holy Bishop of the Inquisition through a message bird."
+            },
+            {
+                "admin": "New Admin option at Manage Job to disable or enable jobs."
+            }
+        ]
+    },
+    "2025-10-11": {
+        "wgtjunior743": [
+            {
+                "bugfix": "Dark Elves Zizo Descendant not having cursed elf blood."
+            },
+            {
+                "bugfix": "Forest Guard now knows who is bandit or not from the roundstart."
+            },
+            {
+                "bugfix": "Princess being called prince"
+            },
+            {
+                "bugfix": "Coronate now always gives the proper title."
+            }
+        ],
+        "Bloo4420": [
+            {
+                "rscadd": "Added a new tailor shop sign."
+            },
+            {
+                "map": "Reconfigured the main road of Rosewood to flow better."
+            },
+            {
+                "map": "Many Rosewood shops have been reconfigured to be more accessible from the main road."
+            },
+            {
+                "map": "Fixed placement of Scoms, Meisters, and Hermes on Rosewood."
+            },
+            {
+                "map": "Added Meisters to the generic shops on Rosewood."
+            },
+            {
+                "map": "Changed the Rosewood theatre to be more like an ampitheatre."
+            },
+            {
+                "map": "Increased the size of the Rosewood clinic to be more visible."
+            },
+            {
+                "spellcheck": "Fixed a few hermes directory entries."
+            }
+        ],
+        "snowyseshi": [
+            {
+                "rscadd": "Added new specials and tweak some special trait weight"
+            }
+        ],
+        "Dorodomki": [
+            {
+                "rscadd": "Added more skills to the acolytes of ravox, malum, they get new tabards on them including the xylixian acolyte"
+            }
+        ]
     }
 }

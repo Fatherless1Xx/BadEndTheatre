@@ -1,6 +1,6 @@
 /obj/item/essence_connector
-	name = "Pestran Connector"
-	desc = "A oddly shaped object used to create connections between alchemical apparatus. Something under the metal squirms... Click and drag between devices to establish connections, or right-click to remove connections."
+	name = "pestran connector"
+	desc = "A oddly shaped object used to create connections between alchemical apparatus. Something under the metal squirms..."
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "connector"
 	w_class = WEIGHT_CLASS_SMALL
@@ -24,7 +24,11 @@
 		start_connection(machine, user)
 
 /obj/item/essence_connector/attack_self(mob/user, params)
-	cancel_connection(user)
+	if(connecting)
+		cancel_connection(user)
+	else
+		to_chat(user, span_info("Click and drag between devices to establish connections, or right-click to remove connections."))
+
 
 /obj/item/essence_connector/proc/start_connection(obj/machinery/essence/machine, mob/user)
 	source_device = machine

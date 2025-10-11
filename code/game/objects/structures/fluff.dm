@@ -1021,7 +1021,6 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	sellprice = 40
-	var/chance2hear = 30
 	buckleverb = "crucifie"
 	can_buckle = 1
 	buckle_lying = 0
@@ -1067,7 +1066,6 @@
 	icon_state = "psycrosschurch"
 	break_sound = null
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
-	chance2hear = 66
 
 /obj/structure/fluff/psycross/zizocross
 	name = "inverted cross"
@@ -1079,7 +1077,6 @@
 /obj/structure/fluff/psycross/crafted
 	name = "wooden pantheon cross"
 	icon_state = "psycrosscrafted"
-	chance2hear = 10
 
 /obj/structure/fluff/psycross/crafted/shrine
 	plane = GAME_PLANE_UPPER
@@ -1280,10 +1277,36 @@
 	else //caused by emp/remote signal
 		M.log_message("was [targeted? "flashed(targeted)" : "flashed(AOE)"]",LOG_ATTACK)
 	if(generic_message && M != user)
-		to_chat(M, "<span class='danger'>[src] emits a blinding light!</span>")
+		to_chat(M, span_danger("[src] emits a blinding light!"))
 	if(M.flash_act())
 		var/diff = power - M.confused
 		M.confused += min(power, diff)
+
+/obj/structure/fluff/psycross/psydon
+	name = "psydonian cross"
+	desc = "A wooden monument to Psydon. Let His name be naught but forgot'n."
+	icon_state = "psydon_wooden_cross"
+	icon = 'icons/roguetown/misc/psydon_cross.dmi'
+	divine = FALSE //this variable to my understanding is only used to prevent zizo prayers. He's dead, so he can't do anything.
+
+/obj/structure/fluff/psycross/psydon/metal
+	desc = "A metal monument to Psydon. Let His name be naught but forgot'n."
+	icon_state = "psydon_metal_cross"
+
+//this one is meant to be uncraftable
+/obj/structure/fluff/psycross/psydon/abandoned
+	name = "overgrown psydonian cross"
+	desc = "A decrepit monument to a dead god. Looking at it fills you with profound sadness."
+	icon_state = "psydon_abandoned_cross"
+
+/obj/structure/fluff/psycross/psydon/abandoned/examine(mob/user)
+	. = ..()
+	if(!isliving(user))
+		return
+	var/mob/living/living_user = user
+	if(istype(living_user.patron, /datum/patron/psydon))
+		living_user.add_stress(/datum/stress_event/painful_reminder)
+		. += " Never forget those we have lost."
 
 /obj/structure/fluff/statue/shisha
 	name = "shisha pipe"

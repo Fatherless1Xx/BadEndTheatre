@@ -56,7 +56,6 @@
 #define COMSIG_GRAVE_ROBBED "grave_robbed"
 /// from /datum/action/cooldown/spell/find_flaw/cast() (datum/charflaw/flaw, mob/target)
 #define COMSIG_FLAW_FOUND "flaw_found"
-
 // Globals
 
 /// from base of /obj/structure/fluff/psycross/attackby() (bride, groom)

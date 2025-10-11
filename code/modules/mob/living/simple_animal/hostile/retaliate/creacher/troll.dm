@@ -21,6 +21,8 @@
 	vision_range = 6
 	aggro_vision_range = 6
 
+	animal_type = /datum/blood_type/troll
+
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1, \
 						/obj/item/natural/hide = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,

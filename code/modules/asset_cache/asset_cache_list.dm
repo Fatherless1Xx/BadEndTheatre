@@ -52,7 +52,8 @@
 		"hell.ttf" = 'interface/fonts/languages/hell.ttf',
 		"orc.ttf" = 'interface/fonts/languages/orc.ttf',
 		"sand.ttf" = 'interface/fonts/languages/sand.ttf',
-		"undead.ttf" = 'interface/fonts/languages/undead.ttf'
+		"undead.ttf" = 'interface/fonts/languages/undead.ttf',
+		"Vaticanus.ttf" = 'interface/fonts/Vaticanus.ttf'
 	)
 
 //this exists purely to avoid meta by pre-loading all language icons.

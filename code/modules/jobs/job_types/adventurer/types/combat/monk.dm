@@ -32,7 +32,7 @@
 		if(/datum/patron/divine/eora)
 			neck = /obj/item/clothing/neck/psycross/silver/eora
 		if(/datum/patron/divine/noc)
-			neck = /obj/item/clothing/neck/psycross/noc
+			neck = /obj/item/clothing/neck/psycross/silver/noc
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
 		if(/datum/patron/divine/dendor)

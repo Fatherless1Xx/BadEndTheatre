@@ -8,3 +8,14 @@
 #define MAT_VEG "Vegetable"
 #define MAT_FRUIT "Fruit"
 #define MAT_MEAT "Meat"
+
+#define TASK_KEY_SPEED "speed"
+#define TASK_KEY_REDUCTION "reduction"
+#define TASK_KEY_QUANTITY "quantity"
+
+
+#define WORKER_SLOT_HEAD "head"
+#define WORKER_SLOT_PANTS "pants"
+#define WORKER_SLOT_SHIRT "shirt"
+#define WORKER_SLOT_SHOES "shoes"
+#define WORKER_SLOT_HANDS "hands"

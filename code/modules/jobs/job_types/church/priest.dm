@@ -23,6 +23,7 @@
 		/datum/action/cooldown/spell/undirected/list_target/convert_role/templar,
 		/datum/action/cooldown/spell/undirected/list_target/convert_role/acolyte,
 		/datum/action/cooldown/spell/undirected/list_target/convert_role/churchling,
+		/datum/action/cooldown/spell/undirected/call_bird/priest,
 	)
 
 /datum/outfit/priest/pre_equip(mob/living/carbon/human/H)
@@ -75,7 +76,6 @@
 		var/datum/devotion/devotion = new holder()
 		devotion.make_priest()
 		devotion.grant_to(H)
-
 	H.update_icons()
 
 /datum/job/priest/demoted //just used to change the priest title
@@ -138,7 +138,9 @@
 			HL.job = "Ex-Consort"
 			consort_job?.remove_spells(HL)
 
+	var/new_title = (coronated.gender == MALE) ? SSmapping.config.monarch_title : SSmapping.config.monarch_title_f
 	coronated.mind.set_assigned_role(/datum/job/lord)
+	lord_job?.get_informed_title(coronated, TRUE, new_title)
 	coronated.job = "Monarch" //Monarch is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated

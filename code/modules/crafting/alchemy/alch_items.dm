@@ -13,6 +13,7 @@
 	spillable = FALSE
 	var/closed = TRUE //Put a cork in it!
 	reagent_flags = TRANSPARENT
+	fill_icon_under_override = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 32
 	grid_height = 32

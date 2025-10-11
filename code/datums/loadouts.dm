@@ -206,17 +206,17 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	item_path = /obj/item/clothing/neck/bellcollar
 
 /datum/loadout_item/chaperon
-    name = "Chaperon (Normal)"
-    item_path = /obj/item/clothing/head/chaperon
+	name = "Chaperon (Normal)"
+	item_path = /obj/item/clothing/head/chaperon
 
 /datum/loadout_item/jesterhat
-    name = "Jester's Hat"
-    item_path = /obj/item/clothing/head/jester
+	name = "Jester's Hat"
+	item_path = /obj/item/clothing/head/jester
 
 /datum/loadout_item/jestertunick
-    name = "Jester's Tunick"
-    item_path = /obj/item/clothing/shirt/jester
+	name = "Jester's Tunick"
+	item_path = /obj/item/clothing/shirt/jester
 
 /datum/loadout_item/jestershoes
-    name = "Jester's Shoes"
-    item_path = /obj/item/clothing/shoes/jester
+	name = "Jester's Shoes"
+	item_path = /obj/item/clothing/shoes/jester

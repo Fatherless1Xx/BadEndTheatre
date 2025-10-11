@@ -37,6 +37,9 @@
 		if(!findtext(H.wear_armor.name,"([H.real_name])"))
 			H.wear_armor.name = "[H.wear_armor.name]"+" "+"([H.real_name])"
 
+/datum/job/advclass/gatemaster
+	inherit_parent_title = TRUE
+
 /datum/job/advclass/gatemaster/gatemaster_whip
 	title = "Chainguard Gatemaster"
 	tutorial = "Metal chimes in your hands, their skin rough from those heavy chains you pull. \

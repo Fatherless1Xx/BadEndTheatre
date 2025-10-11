@@ -30,7 +30,6 @@
 
 	bleed_rate = min(get_bleed_rate(), 10)
 
-
 	if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume && !bleed_rate)
 		blood_volume = min(blood_volume+0.5, BLOOD_VOLUME_MAXIMUM)
 
@@ -79,11 +78,11 @@
 /mob/living/carbon/handle_blood()
 	if(HAS_TRAIT(src, TRAIT_HUSK)) //cryosleep or husked people do not pump the blood.
 		return
-	var/sigreturn = SEND_SIGNAL(src, COMSIG_CARBON_ON_HANDLE_BLOOD)
+	var/bleed_rate = get_bleed_rate()
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_CARBON_ON_HANDLE_BLOOD, bleed_rate)
 	if(sigreturn & HANDLE_BLOOD_HANDLED)
 		return
 	blood_volume = min(blood_volume, BLOOD_VOLUME_MAXIMUM)
-	var/bleed_rate = get_bleed_rate()
 	if(dna?.species)
 		if(NOBLOOD in dna.species.species_traits)
 			blood_volume = BLOOD_VOLUME_NORMAL
@@ -226,13 +225,15 @@
 
 /mob/living/proc/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)
-	return GLOB.blood_types[/datum/blood_type/animal]
+	return GLOB.blood_types[animal_type] || GLOB.blood_types[/datum/blood_type/animal]
 
 /mob/living/proc/get_lux_status()
 	var/datum/blood_type/blood = get_blood_type()
 
 	if(has_status_effect(/datum/status_effect/debuff/lux_drained) || has_status_effect(/datum/status_effect/debuff/flaw_lux_taken))//accounts for luxless flaw
 		return LUX_DRAINED
+	if(has_status_effect(/datum/status_effect/buff/received_lux))
+		return LUX_HAS_LUX
 
 	return blood.contains_lux
 

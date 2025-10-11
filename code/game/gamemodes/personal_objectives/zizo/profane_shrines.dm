@@ -1,23 +1,26 @@
-/datum/objective/build_zizo_shrine
+/datum/objective/personal/build_zizo_shrine
 	name = "Construct Profane Shrines"
+	category = "Zizo's Chosen"
 	triumph_count = 2
+	immediate_effects = list("Gained an ability to construct profane shrines")
+	rewards = list("2 Triumphs", "Zizo grows stronger")
 	var/target_type = /obj/structure/fluff/psycross/zizocross
 	var/target_count = 2
 	var/current_count = 0
 
-/datum/objective/build_zizo_shrine/on_creation()
+/datum/objective/personal/build_zizo_shrine/on_creation()
 	. = ..()
 	if(owner?.current)
 		owner.current.mind.teach_crafting_recipe(/datum/blueprint_recipe/zizo/shrine)
 		RegisterSignal(owner.current, COMSIG_ITEM_CRAFTED, PROC_REF(on_item_crafted))
 	update_explanation_text()
 
-/datum/objective/build_zizo_shrine/Destroy()
+/datum/objective/personal/build_zizo_shrine/Destroy()
 	if(owner?.current)
 		UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 	return ..()
 
-/datum/objective/build_zizo_shrine/proc/on_item_crafted(datum/source, mob/user, craft_path)
+/datum/objective/personal/build_zizo_shrine/proc/on_item_crafted(datum/source, mob/user, craft_path)
 	SIGNAL_HANDLER
 	if(completed || !ispath(craft_path, target_type))
 		return
@@ -34,6 +37,6 @@
 	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
-/datum/objective/build_zizo_shrine/update_explanation_text()
+/datum/objective/personal/build_zizo_shrine/update_explanation_text()
 	explanation_text = "Construct [target_count] profane shrine[target_count > 1 ? "s" : ""] to spread Zizo's corruption!"
 

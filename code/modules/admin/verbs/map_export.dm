@@ -92,9 +92,13 @@
 
 		// Delete ourselves as we've been replaced
 		qdel(src)
+		restored_obj.after_load()
 		return TRUE
 
 	return FALSE
+
+/obj/proc/after_load()
+	return
 
 /proc/save_object_to_stasis(obj/target)
 	if(!target || !target.UUID_saving || !target.object_uuid)

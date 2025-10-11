@@ -19451,11 +19451,11 @@
 	pixel_y = 7;
 	pixel_x = 9
 	},
-/obj/item/clothing/neck/psycross/noc{
+/obj/item/clothing/neck/psycross/silver/noc{
 	pixel_y = 7;
 	pixel_x = 3
 	},
-/obj/item/clothing/neck/psycross/noc,
+/obj/item/clothing/neck/psycross/silver/noc,
 /obj/item/clothing/neck/psycross/silver/astrata,
 /obj/item/clothing/neck/psycross/silver/astrata{
 	pixel_y = 4;
@@ -21543,8 +21543,8 @@
 /area/rogue/outdoors/town/roofs)
 "uVN" = (
 /obj/structure/rack,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
-/obj/item/clothing/neck/psycross/silver/malum_steel{
+/obj/item/clothing/neck/psycross/silver/malum/steel,
+/obj/item/clothing/neck/psycross/silver/malum/steel{
 	pixel_y = -5;
 	pixel_x = -11
 	},

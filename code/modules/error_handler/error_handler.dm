@@ -120,7 +120,7 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 	if(GLOB.error_cache)
 		GLOB.error_cache.log_error(E, desclines)
 
-	var/main_line = "\[[time_stamp()]] Runtime in [E.file],[E.line]: [E]"
+	var/main_line = "\[[time_stamp()]\] Runtime in [E.file],[E.line]: [E]"
 	#ifdef LOWMEMORYMODE
 		to_chat(world, span_danger(main_line))
 	#endif

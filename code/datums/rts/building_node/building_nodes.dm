@@ -20,6 +20,59 @@
 
 	var/list/work_materials = list()
 
+	var/list/stored_gear = list()
+
+/obj/effect/building_node/Click(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		handle_right_click(usr)
+
+/obj/effect/building_node/proc/handle_right_click(mob/camera/strategy_controller/user)
+	if(!istype(user))
+		return
+	user.open_gear_ui(src)
+
+/obj/effect/building_node/proc/store_gear(obj/item/item, gear_type)
+	if(!stored_gear)
+		stored_gear = list()
+	stored_gear[gear_type] = item
+	item.forceMove(src)
+
+/obj/effect/building_node/proc/retrieve_gear(gear_type)
+	if(!stored_gear || !(gear_type in stored_gear))
+		return null
+
+	var/obj/item/item = stored_gear[gear_type]
+	stored_gear -= gear_type
+	return item
+
+/obj/effect/building_node/proc/get_stored_gear(gear_type)
+	if(!stored_gear)
+		return null
+	return stored_gear[gear_type]
+
+/obj/effect/building_node/proc/get_stored_gear_by_type(slot_type)
+	if(!stored_gear)
+		return list()
+
+	var/list/matching_gear = list()
+	for(var/gear_key in stored_gear)
+		if(findtext(gear_key, slot_type))
+			matching_gear[gear_key] = stored_gear[gear_key]
+
+	return matching_gear
+
+/obj/effect/building_node/proc/get_storage_capacity(slot_type)
+	return 6 // override in subtypes if needed
+
+/obj/effect/building_node/proc/get_stored_count(slot_type)
+	var/list/matching = get_stored_gear_by_type(slot_type)
+	return length(matching)
+
+/obj/effect/building_node/proc/can_store_more(slot_type)
+	return get_stored_count(slot_type) < get_storage_capacity(slot_type)
+
 /obj/effect/building_node/proc/on_construction(mob/camera/strategy_controller/master_controller)
 	SHOULD_CALL_PARENT(TRUE)
 	master_controller.constructed_building_nodes |= src
@@ -40,6 +93,11 @@
 	persistant_nodes = created_nodes
 
 /obj/effect/building_node/proc/after_construction(list/turfs, atom/master)
+	SHOULD_CALL_PARENT(TRUE)
+	for(var/turf/turf in turfs)
+		var/mob/camera/strategy_controller/overlord_controller/controller = master
+		for(var/obj/structure/lootable_structure/stockpile/structure in turf.contents)
+			structure.linked_stockpile = controller.resource_stockpile
 	return
 
 /obj/effect/building_node/proc/add_material_request(location, list/resource_amount, multiplier = 1)

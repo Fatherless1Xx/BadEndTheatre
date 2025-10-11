@@ -20,9 +20,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/forced = FALSE
 	var/datum/clan/forcing_clan
 
-/datum/antagonist/vampire/New(incoming_clan = /datum/clan/nosferatu, forced_clan = FALSE)
+/datum/antagonist/vampire/New(datum/clan/incoming_clan = /datum/clan/nosferatu, forced_clan = FALSE)
 	. = ..()
 	if(forced_clan)
+		if(!istype(incoming_clan))
+			incoming_clan = new incoming_clan()
 		forced = forced_clan
 		forcing_clan = incoming_clan
 	else

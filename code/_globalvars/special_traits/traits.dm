@@ -76,9 +76,11 @@
 	ADD_TRAIT(character, TRAIT_DEADNOSE, "[type]")
 
 /datum/special_trait/latentmagic
-	name = "Latent Magic"
-	greet_text = span_notice("I have innate magical potential.")
+	name = "Magic apprentice"
+	greet_text = span_notice("I have learned basic arcyne but my skills are far from good.")
 	weight = 25
+	req_text = "Have Noc or Zizo as your Patron"
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/special_trait/latentmagic/on_apply(mob/living/carbon/human/character, silent)
 	character.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
@@ -152,6 +154,30 @@
 	character.change_stat(STATKEY_CON, 2)
 	character.change_stat(STATKEY_INT, -2)
 
+/datum/special_trait/darkmagic
+	name = "Practitioner of forbidden magic"
+	greet_text = span_notice("Noc's path is weak, I have seen the light and practiced magic these fools call forbidden.")
+	weight = 25
+	req_text = "Worship zizo and roll court magician or magician apprentice."
+	allowed_patrons = list(/datum/patron/inhumen/zizo)
+	allowed_jobs = list(/datum/job/magician, /datum/job/mageapprentice)
+
+/datum/special_trait/darkmagic/on_apply(mob/living/carbon/human/character, silent)
+	character.add_spell(/datum/action/cooldown/spell/eyebite, silent = TRUE)
+	character.add_spell(/datum/action/cooldown/spell/projectile/sickness, silent = TRUE)
+	character.add_spell(/datum/action/cooldown/spell/conjure/raise_lesser_undead/necromancer, silent = TRUE)
+	character.add_spell(/datum/action/cooldown/spell/gravemark, silent = TRUE)
+
+/datum/special_trait/too_smart
+	name = "Too smart"
+	greet_text = span_notice("I am too smart for my own good.")
+	weight = 50
+
+/datum/special_trait/too_smart/on_apply(mob/living/carbon/human/character, silent)
+	character.change_stat(STATKEY_INT, 5)
+	ADD_TRAIT(character, TRAIT_BAD_MOOD, "[type]")
+	character.set_flaw(/datum/charflaw/paranoid)
+
 /datum/special_trait/bookworm
 	name = "Bookworm"
 	greet_text = span_notice("I'm a fan of books and I enjoy reading them regularly.")
@@ -220,6 +246,7 @@
 	character.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 	character.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 	character.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	character.grant_language(/datum/language/thievescant)
 
 /datum/special_trait/languagesavant
 	name = "Polyglot"
@@ -228,6 +255,48 @@
 	weight = 50
 
 /datum/special_trait/languagesavant/on_apply(mob/living/carbon/human/character, silent)
+	character.grant_language(/datum/language/dwarvish)
+	character.grant_language(/datum/language/elvish)
+	character.grant_language(/datum/language/hellspeak)
+	character.grant_language(/datum/language/celestial)
+	character.grant_language(/datum/language/orcish)
+	character.grant_language(/datum/language/deepspeak)
+	character.grant_language(/datum/language/oldpsydonic)
+	character.grant_language(/datum/language/zalad)
+	character.grant_language(/datum/language/thievescant)
+
+/datum/special_trait/uniglot
+	name = "Uniglot"
+	greet_text = span_notice("I could never pick up on languages easily, \
+	even those that most people speak... What even is that Imperial nonsense?")
+	weight = 25
+
+/datum/special_trait/uniglot/on_apply(mob/living/carbon/human/character, silent)
+	character.remove_language(/datum/language/common)
+	switch(rand(1,7))
+		if(1)
+			character.grant_language(/datum/language/elvish)
+		if(2)
+			character.grant_language(/datum/language/deepspeak)
+		if(3)
+			character.grant_language(/datum/language/dwarvish)
+		if(4)
+			character.grant_language(/datum/language/zalad)
+		if(5)
+			character.grant_language(/datum/language/oldpsydonic)
+		if(6)
+			character.grant_language(/datum/language/hellspeak)
+		if(7)
+			character.grant_language(/datum/language/orcish)
+
+/datum/special_trait/languageidiot
+	name = "Somewhat Polyglot"
+	greet_text = span_notice("I have always picked up on languages easily, \
+	even those that are forbidden to mortals... except that accursed Imperial chatter. What even is that nonsense?")
+	weight = 50
+
+/datum/special_trait/languageidiot/on_apply(mob/living/carbon/human/character, silent)
+	character.remove_language(/datum/language/common)
 	character.grant_language(/datum/language/dwarvish)
 	character.grant_language(/datum/language/elvish)
 	character.grant_language(/datum/language/hellspeak)
@@ -279,6 +348,28 @@
 	ADD_TRAIT(character, TRAIT_NOBLE, "[type]")
 	character.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 
+/datum/special_trait/burdened
+	name = "The Burdened One"
+	greet_text = span_notice("You are a true instrument of creation, the most blessed of Malum, nothing will stop your toil, be it sleep or fatigue.")
+	weight = 10
+	allowed_patrons = list(/datum/patron/divine/malum)
+	req_text = "Worship Malum, must be a carpenter, elder, smith, artificer or miner."
+	allowed_jobs = list(/datum/job/carpenter, /datum/job/armorsmith, /datum/job/weaponsmith, /datum/job/artificer, /datum/job/bapprentice, /datum/job/miner, /datum/job/town_elder) // no combat roles
+
+/datum/special_trait/burdened/on_apply(mob/living/carbon/human/character, silent)
+	ADD_TRAIT(character, TRAIT_MALUMFIRE, "[type]")
+	ADD_TRAIT(character, TRAIT_NOSLEEP, "[type]") // can't learn any new skills
+	ADD_TRAIT(character, TRAIT_NOENERGY, "[type]")
+	character.change_stat(STATKEY_END, 4) // Never stop.
+	character.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/weaponsmithing, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/blacksmithing, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/masonry, 3, TRUE)
+	character.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
+	character.cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'  // has a burdened vibe to it
+
 /datum/special_trait/richpouch
 	name = "Rich Pouch"
 	greet_text = span_notice("I've recently found a pouch filled with mammons, probably belonging to some noble.")
@@ -317,6 +408,27 @@
 /datum/special_trait/lucky/on_apply(mob/living/carbon/human/character, silent)
 	character.STALUC = rand(15, 20) //In other words, In the next round following the special, you are effectively lucky.
 
+/datum/special_trait/blessed
+	name = "The Blessed One"
+	greet_text = span_notice("I am beloved by the Ten, I have been blessed by all their boons.")
+	req_text = "Be Tennite"
+	weight = 7
+	allowed_patrons = ALL_TEMPLE_PATRONS
+
+/datum/special_trait/blessed/on_apply(mob/living/carbon/human/character, silent)
+	ADD_TRAIT(character, TRAIT_APRICITY, "[type]")
+	ADD_TRAIT(character, TRAIT_TUTELAGE, "[type]")
+	ADD_TRAIT(character, TRAIT_KNEESTINGER_IMMUNITY, "[type]")
+	ADD_TRAIT(character, TRAIT_LEECHIMMUNE, "[type]")
+	ADD_TRAIT(character, TRAIT_SOUL_EXAMINE, "[type]")
+	ADD_TRAIT(character, TRAIT_SHARPER_BLADES, "[type]")
+	ADD_TRAIT(character, TRAIT_BLACKLEG, "[type]")
+	ADD_TRAIT(character, TRAIT_ROT_EATER, "[type]")
+	ADD_TRAIT(character, TRAIT_BETTER_SLEEP, "[type]")
+	ADD_TRAIT(character, TRAIT_EXTEROCEPTION, "[type]")
+	character.change_stat(STATKEY_LCK, 1)
+	character.add_stress(/datum/stress_event/blessed)
+
 //neutral
 /datum/special_trait/backproblems
 	name = "Giant"
@@ -334,6 +446,47 @@
 	character.transform = character.transform.Translate(0, (0.25 * 16))
 	character.update_transform()
 
+/datum/special_trait/little
+	name = "Clever little guy"
+	greet_text = span_notice("I am a clever little guy, nyehehehehe!")
+	req_text = "Not a kobold or dwarf"
+	restricted_races = list(SPEC_ID_DWARF, SPEC_ID_KOBOLD)
+	weight = 50
+
+/datum/special_trait/little/on_apply(mob/living/carbon/human/character)
+	character.change_stat(STATKEY_STR, -2)
+	character.change_stat(STATKEY_CON, -2)
+	character.change_stat(STATKEY_SPD, 2)
+	character.change_stat(STATKEY_INT, 2)
+	ADD_TRAIT(character, TRAIT_TINY, "[type]")
+	character.transform = character.transform.Scale(0.90, 0.90)
+	character.update_transform()
+
+/datum/special_trait/war_veteran
+	name = "War Veteran"
+	greet_text = span_boldwarning("I have fought in the goblin wars.. albeit at a cost.")
+	weight = 25
+	req_text = "Be middle aged or old"
+	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
+
+/datum/special_trait/war_veteran/on_apply(mob/living/carbon/human/character, silent)
+	character.set_flaw(/datum/charflaw/limbloss/arm_l)
+	character.set_flaw(/datum/charflaw/noeyel)
+	character.set_flaw(/datum/charflaw/old_war_wound)
+	character.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
+	character.clamped_adjust_skillrank(/datum/skill/combat/polearms, 4, 4, TRUE)
+	character.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+
+/datum/special_trait/sadistic
+	name = "Sadistic"
+	greet_text = span_boldwarning("You are addicted to seeing limbs fly, to hurting others. You learned the arts of torture to follow your wicked hobby. You have hidden some chains.")
+	weight = 25
+
+/datum/special_trait/sadistic/on_apply(mob/living/carbon/human/character, silent)
+	character.set_flaw(/datum/charflaw/addiction/maniac)
+	character.verbs |= /mob/living/carbon/human/proc/torture_victim
+	character.mind.special_items["Chains"] = /obj/item/rope/chain
+
 //negative
 /datum/special_trait/nimrod
 	name = "Nimrod"
@@ -341,13 +494,21 @@
 	weight = 100
 
 /datum/special_trait/nimrod/on_apply(mob/living/carbon/human/character, silent)
-	character.change_stat(STATKEY_SPD, -2)
 	character.change_stat(STATKEY_INT, -4)
+
+/datum/special_trait/ugly
+	name = "Ugly"
+	greet_text = span_notice("People find me repulsive.")
+	weight = 100
+
+/datum/special_trait/ugly/on_apply(mob/living/carbon/human/character, silent)
+	ADD_TRAIT(character, TRAIT_UGLY, "[type]")
+	REMOVE_TRAIT(character, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 
 /datum/special_trait/nopouch
 	name = "No Pouch"
 	greet_text = span_boldwarning("I lost my pouch recently, I'm without a zenny..")
-	weight = 200
+	weight = 100
 
 /datum/special_trait/nopouch/on_apply(mob/living/carbon/human/character, silent)
 	var/obj/item/pouch = locate(/obj/item/storage/belt/pouch) in character
@@ -380,7 +541,7 @@
 /datum/special_trait/unlucky
 	name = "Unlucky"
 	greet_text = span_boldwarning("Ever since you knocked over that glass vase, you just feel... off")
-	weight = 100
+	weight = 50
 
 /datum/special_trait/unlucky/on_apply(mob/living/carbon/human/character, silent)
 	character.STALUC = rand(1, 10)
@@ -397,7 +558,7 @@
 /datum/special_trait/wild_night
 	name = "Wild Night"
 	greet_text = span_boldwarning("I don't remember what I did last night, and now I'm lost!")
-	weight = 200
+	weight = 100
 
 /datum/special_trait/wild_night/on_apply(mob/living/carbon/human/character, silent)
 	var/turf/location = get_spawn_turf_for_job("Pilgrim")
@@ -405,6 +566,13 @@
 	character.reagents.add_reagent(pick(/datum/reagent/ozium, /datum/reagent/moondust, /datum/reagent/druqks), 15)
 	character.reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, 72)
 	character.grant_lit_torch()
+
+/datum/special_trait/bald
+	name = "Bald"
+	greet_text = span_boldwarning("MY HAIIIR!! WHERE IS IT!! WHERE IS MY HAIR!!")
+	weight = 100
+/datum/special_trait/bald/on_apply(mob/living/carbon/human/character)
+	character.set_hair_style(/datum/sprite_accessory/hair/head/bald, FALSE)
 
 /datum/special_trait/atrophy
 	name = "Atrophy"
@@ -612,7 +780,7 @@
 			weapon = /obj/item/weapon/sword/long/exe/astrata
 			character.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 		if(/datum/patron/divine/noc)
-			psycross = /obj/item/clothing/neck/psycross/noc
+			psycross = /obj/item/clothing/neck/psycross/silver/noc
 			helmet = /obj/item/clothing/head/helmet/heavy/necked/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
 			weapon = /obj/item/weapon/sword/sabre/noc
@@ -718,3 +886,17 @@
 
 /datum/special_trait/keenears/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_KEENEARS, "[type]")
+
+/datum/special_trait/bestial
+	name = "Bestial"
+	greet_text = span_notice("I am blessed by Dendor I feel closer to beasts than men, I can whisper in their tongue.")
+	weight = 50
+	req_text = "Worship Dendor and be an acolyte"
+	allowed_jobs = list(/datum/job/monk)
+	allowed_patrons = list(/datum/patron/divine/dendor)
+
+/datum/special_trait/bestial/on_apply(mob/living/carbon/human/character, silent)
+	character.grant_language(/datum/language/beast)
+	character.add_spell(/datum/action/cooldown/spell/undirected/howl/call_of_the_moon, silent = TRUE)
+	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]") // eat the raw meat
+

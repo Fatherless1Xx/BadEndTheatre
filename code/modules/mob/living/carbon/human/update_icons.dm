@@ -1690,7 +1690,7 @@ generate/load female uniform sprites matching all previously decided variables
 	update_inv_wear_mask()
 	update_inv_mouth()
 
-/mob/living/carbon/human/proc/update_smell(var/smelly_icon = "generic_mob_smell")
+/mob/living/carbon/human/proc/update_smell(smelly_icon = "generic_mob_smell")
 	remove_overlay(SMELL_LAYER)
 	if(hygiene == HYGIENE_LEVEL_DISGUSTING) //You have literally ignored your stank for so long that you physically can't get dirtier.
 		var/mutable_appearance/new_smell_overlay = mutable_appearance('icons/mob/smelly.dmi', smelly_icon, -SMELL_LAYER)

@@ -21,6 +21,8 @@
 #define COMSIG_MOVABLE_NEWTONIAN_MOVE "movable_newtonian_move"
 	#define COMPONENT_MOVABLE_NEWTONIAN_BLOCK (1<<0)
 
+#define COMSIG_MOB_FOOD_EAT "mob_food_ate"
+
 // /datum/element/movetype_handler signals
 /// Called when the floating anim has to be temporarily stopped and restarted later: (timer)
 #define COMSIG_PAUSE_FLOATING_ANIM "pause_floating_anim"

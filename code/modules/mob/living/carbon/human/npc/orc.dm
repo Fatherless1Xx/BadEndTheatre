@@ -185,6 +185,7 @@
 	sexes = 1
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
+	exotic_bloodtype = /datum/blood_type/human/orc
 	var/raceicon = "orc"
 
 /datum/species/orc/update_damage_overlays(mob/living/carbon/human/H)

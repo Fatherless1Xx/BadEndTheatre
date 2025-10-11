@@ -167,6 +167,10 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ player did not pass special check, Player: [player], Job:[job.title]")
 			continue
 
+		if(!job.enabled)
+			JobDebug("GRJ player tried to play a disabled job, Player: [player], Job:[job.title]")
+			continue
+
 		if(CONFIG_GET(flag/usewhitelist))
 			if(job.whitelist_req && (!player.client.whitelisted()))
 				continue
@@ -326,10 +330,14 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO player did not pass special check, Player: [player], Job:[job.title]")
 					continue
 
+				if(!job.enabled)
+					JobDebug("DO player tried to play a disabled job, Player: [player], Job:[job.title]")
+					continue
+
 				// If the player wants that job on this level, then try give it to him.
 				if(player.client.prefs.job_preferences[job.title] == level)
 					// If the job isn't filled
-					if((job.current_positions < job.total_positions) || job.total_positions == -1)
+					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
 						// Use boost if applicable
 						for(var/datum/job_priority_boost/boost in player_boosts)
 							if(boost.can_boost_job(job))
@@ -519,6 +527,9 @@ SUBSYSTEM_DEF(job)
 				continue
 
 			if(!job.special_job_check(player))
+				continue
+
+			if(!job.enabled)
 				continue
 
 			// If the player wants that job on this level, then try give it to him.

@@ -171,5 +171,7 @@
 	var/static/list/last_names = world.file2list('strings/rt/names/elf/elfsnf.txt')
 	return last_names
 
-/datum/species/elf/dark/after_creation(mob/living/carbon/C)
+/datum/species/elf/dark/after_creation(mob/living/carbon/human/C)
 	C.dna.species.accent_language = C.dna.species.get_accent(native_language, 2)
+	if(C.skin_tone == SKIN_COLOR_SNOW_ELF)
+		exotic_bloodtype = /datum/blood_type/human/cursed_elf

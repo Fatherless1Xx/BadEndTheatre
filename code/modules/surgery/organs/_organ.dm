@@ -63,6 +63,44 @@
 /obj/item/organ/item_action_slot_check(slot,mob/user)
 	return //so we don't grant the organ's action to mobs who pick up the organ.
 
+/obj/item/organ/proc/generate_chimeric_organ(mob/living/source_mob)
+	if(!source_mob)
+		return
+	var/datum/component/chimeric_organ/organ = AddComponent(/datum/component/chimeric_organ, 3)
+	var/node_count = rand(3, 5)
+	var/list/obj/item/chimeric_node/generated_nodes = list()
+
+	for(var/i in 1 to node_count)
+		var/obj/item/chimeric_node/new_node = source_mob.generate_chimeric_node_from_mob()
+		if(!new_node)
+			continue
+
+		if(!organ.check_node_compatibility(new_node.stored_node))
+			qdel(new_node)
+			continue
+
+		generated_nodes += new_node
+
+	if(!length(generated_nodes))
+		return
+
+	for(var/obj/item/chimeric_node/node as anything in generated_nodes)
+		organ.handle_node_injection(node.node_tier, node.node_purity, node.stored_node.slot, node.stored_node, node.icon_state)
+		node.forceMove(src)
+
+	update_appearance()
+	return TRUE
+
+/obj/item/organ/update_overlays()
+	. = ..()
+	var/datum/component/chimeric_organ/organ = GetComponent(/datum/component/chimeric_organ)
+
+	if(!organ)
+		return
+
+	for(var/mutable_appearance/node_overlay in organ.overlay_states)
+		. += node_overlay
+
 /obj/item/organ/proc/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = TRUE)
 	if(!iscarbon(M) || owner == M)
 		return
@@ -75,6 +113,7 @@
 		else
 			qdel(replaced)
 
+	SEND_SIGNAL(src, COMSIG_ORGAN_INSERTED, M)
 	owner = M
 	last_owner = M
 	M.internal_organs |= src
@@ -87,6 +126,7 @@
 
 //Special is for instant replacement like autosurgeons
 /obj/item/organ/proc/Remove(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, M)
 	owner = null
 	if(M)
 		M.internal_organs -= src

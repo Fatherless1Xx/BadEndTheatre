@@ -94,7 +94,7 @@
 
 	for(var/pack_name in GLOB.contraband_packs)
 		contraband_options += "<option value=\"[pack_name]\">[pack_name]</option>"
-	
+
 	for(var/contract_type in GLOB.bounty_contract_types)
 		contract_types += "<option value=\"[contract_type]\">[GLOB.bounty_contract_types[contract_type]]</option>"
 
@@ -1094,7 +1094,7 @@
 			if(loc.location_name == delivery_location)
 				valid_location = TRUE
 				break
-		
+
 		if(!valid_location)
 			to_chat(user, span_warning("Invalid delivery location!"))
 			return
@@ -1754,7 +1754,6 @@
 	LAZYREMOVE(GLOB.bounty_locations, src)
 	return ..()
 
-// Example locations - add these around your map
 /obj/effect/landmark/bounty_location/bathhouse
 	name = "Behind the Bathhouse"
 	location_name = "Behind the Bathhouse"

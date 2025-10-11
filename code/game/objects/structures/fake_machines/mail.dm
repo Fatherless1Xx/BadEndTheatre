@@ -407,6 +407,12 @@ GLOBAL_LIST_EMPTY(letters_sent)
 			cost = 3,
 			max_purchases = 1
 		),
+		"Crossbow and Quiver (4)" = list(
+			list(type = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow, count = 1),
+			list(type = /obj/item/ammo_holder/quiver/bolts, count = 1),
+			cost = 4,
+			max_purchases = 1
+		),
 		"Psydonian Longsword (8)" = list(
 			list(type = /obj/item/weapon/sword/long/psydon, count = 1),
 			cost = 8,
@@ -501,7 +507,12 @@ GLOBAL_LIST_EMPTY(letters_sent)
 		"Vial Of Antidote (2)" = list(
 			list(type = /obj/item/reagent_containers/glass/bottle/vial/antidote, count = 1),
 			cost = 2,
-			max_purchases = 1
+			max_purchases = 4
+		),
+		"Vial Of Lifeblood (3)" = list(
+			list(type = /obj/item/reagent_containers/glass/bottle/vial/healthpot, count = 1),
+			cost = 3,
+			max_purchases = 3
 		),
 		// Clothing
 		"Silver Psycross (2)" = list(
@@ -544,9 +555,9 @@ GLOBAL_LIST_EMPTY(letters_sent)
 			cost = 2,
 			max_purchases = 4
 		),
-		"Chain Gauntlets (3)" = list(
-			list(type = /obj/item/clothing/gloves/chain, count = 2),
-			cost = 3,
+		"Chain Gauntlets (2)" = list(
+			list(type = /obj/item/clothing/gloves/chain, count = 1),
+			cost = 2,
 			max_purchases = 4
 		),
 	)

@@ -1,0 +1,5 @@
+#define COMSIG_ORGAN_REMOVED "organ_removed"
+#define COMSIG_ORGAN_INSERTED "organ_inserted"
+#define COMSIG_CHIMERIC_ORGAN_FAILURE "chimeric_organ_failure"
+#define COMSIG_DEVOUR_OVERDRIVE "devour_overdrive"
+#define COMSIG_HANDLE_INFUSION "handle_infusion"

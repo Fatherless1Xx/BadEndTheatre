@@ -28,6 +28,86 @@
 	. = ..()
 	enchant(/datum/enchantment/silver)
 
+/obj/item/clothing/neck/jadeamulet
+	name = "joapstone amulet"
+	icon_state = "amulet_jade"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 60
+
+/obj/item/clothing/neck/turqamulet
+	name = "ceruleabaster amulet"
+	icon_state = "amulet_turq"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 85
+
+/obj/item/clothing/neck/onyxaamulet
+	name = "onyxa amulet"
+	icon_state = "amulet_onyxa"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 40
+
+/obj/item/clothing/neck/coralamulet
+	name = "aoetal amulet"
+	icon_state = "amulet_coral"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 70
+
+/obj/item/clothing/neck/amberamulet
+	name = "petriamber amulet"
+	icon_state = "amulet_amber"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 60
+
+/obj/item/clothing/neck/opalamulet
+	name = "opaloise amulet"
+	icon_state = "amulet_opal"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 90
+
+/obj/item/clothing/neck/roseamulet
+	name = "rosellusk amulet"
+	icon_state = "amulet_rose"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 25
+
+/obj/item/clothing/neck/shellamulet
+	name = "shell amulet"
+	icon_state = "amulet_shell"
+	slot_flags = ITEM_SLOT_NECK
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sellprice = 25
+
 /obj/item/clothing/neck/coif
 	name = "leather coif"
 	desc = "A simple coif made of boiled leather, not that good as armor itself but mostly useful as padding for proper helmets."

@@ -60,7 +60,7 @@
 			H.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguehood/nochood
-			neck = /obj/item/clothing/neck/psycross/noc
+			neck = /obj/item/clothing/neck/psycross/silver/noc
 			wrists = /obj/item/clothing/wrists/nocwrappings
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/noc
@@ -120,31 +120,40 @@
 			H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		if(/datum/patron/divine/ravox)
-			head = /obj/item/clothing/head/roguehood/colored/random
+			head = /obj/item/clothing/head/helmet/leather/headscarf
 			neck = /obj/item/clothing/neck/psycross/silver/ravox
 			shoes = /obj/item/clothing/shoes/boots
-			armor = /obj/item/clothing/shirt/robe/colored/plain
+			shirt = /obj/item/clothing/armor/gambeson/light
+			armor = /obj/item/clothing/armor/leather
+			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, pick(1,3), TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, pick(1,3), TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, pick(0,1), TRUE)
 		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/roguehood/colored/random
 			neck = /obj/item/clothing/neck/psycross/silver/xylix
 			shoes = /obj/item/clothing/shoes/boots
-			armor = /obj/item/clothing/shirt/robe/colored/plain
+			armor = /obj/item/clothing/shirt/robe/colored/purple
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 		if(/datum/patron/divine/malum)
-			head = /obj/item/clothing/head/roguehood/colored/random
+			head = /obj/item/clothing/head/headband/colored/red
 			neck = /obj/item/clothing/neck/psycross/silver/malum
 			shoes = /obj/item/clothing/shoes/boots
-			armor = /obj/item/clothing/shirt/robe/colored/plain
+			armor = /obj/item/clothing/shirt/robe/colored/red
 			backpack_contents += /obj/item/weapon/hammer/iron
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/smelting, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		else // Failsafe
 			head = /obj/item/clothing/head/roguehood/colored/random

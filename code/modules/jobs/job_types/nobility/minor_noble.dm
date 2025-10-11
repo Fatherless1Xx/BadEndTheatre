@@ -18,6 +18,10 @@
 	give_bank_account = 60
 	noble_income = 16
 
+	spells = list(
+		/datum/action/cooldown/spell/undirected/call_bird = 1,
+	)
+
 	job_bitflag = BITFLAG_ROYALTY
 
 /datum/outfit/noble/pre_equip(mob/living/carbon/human/H)

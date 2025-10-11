@@ -2,6 +2,7 @@ GLOBAL_LIST_INIT(breakable_types, list(
 	/obj/structure/flora,
 ))
 /datum/building_datum/simple
+	stockpile_needed = FALSE
 	var/atom/created_atom
 
 /datum/building_datum/simple/generate_preview()

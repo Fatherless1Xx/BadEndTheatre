@@ -48,10 +48,10 @@
 	/// Does this step allow self surgery?
 	var/self_operable = TRUE
 	/// Acceptable mob types for this surgery
-	var/list/target_mobtypes = list(/mob/living/carbon)
+	var/list/target_mobtypes = list(/mob/living/carbon, /mob/living/simple_animal)
 
 	/// Skill used to perform this surgery step
-	var/skill_used = /datum/skill/misc/medicine
+	var/datum/skill/skill_used = /datum/skill/misc/medicine
 	/// Necessary skill MINIMUM to perform this surgery step, of skill_used
 	var/skill_min = SKILL_LEVEL_NOVICE
 	/// Skill median used to apply success and speed bonuses

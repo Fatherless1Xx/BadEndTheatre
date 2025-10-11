@@ -64,6 +64,7 @@
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard

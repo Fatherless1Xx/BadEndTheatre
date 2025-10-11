@@ -71,7 +71,7 @@
 /////////////////
 //This signal return value bitflags can be found in __DEFINES/misc.dm
 #define COMSIG_ATOM_INTERCEPT_Z_FALL "movable_intercept_z_impact"	//called for each movable in a turf contents on /turf/zImpact(): (atom/movable/A, levels)
-
+#define COMSIG_ATOM_FALL_INTERACT "atom_fall_interact"
 /////////////////
 
 #define COMSIG_ENTER_AREA "enter_area" 						//from base of area/Entered(): (/area)
@@ -127,7 +127,11 @@
 ///from base of /mob/verb/pointed: (atom/A)
 #define COMSIG_MOB_POINTED "mob_pointed"
 
+#define COMSIG_MOB_ADD_STRESS "mob_add_stress"
+#define COMSIG_MOB_APPLIED_STATUS_EFFECT "mob_applied_status_effect"
+
 // /mob/living/carbon signals
+#define COMSIG_CARBON_REAGENT_ADD "carbon_reagent_add"
 #define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"					//from base of mob/living/carbon/soundbang_act(): (list(intensity))
 #define COMSIG_CARBON_ON_HANDLE_BLOOD "human_on_handle_blood"
 	#define HANDLE_BLOOD_HANDLED (1<<0)

@@ -22,6 +22,9 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 	job_bitflag = BITFLAG_GARRISON
 
+/datum/job/advclass/royalknight
+	inherit_parent_title = TRUE
+
 /datum/job/advclass/royalknight/knight
 	title = "Royal Knight"
 	tutorial = "The classic Knight in shining armor. Slightly more skilled then their Steam counterpart but has worse armor."

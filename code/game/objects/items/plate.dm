@@ -162,6 +162,70 @@
 	sellprice = 20
 	smeltresult = /obj/item/ingot/gold
 
+/obj/item/plate/jade
+	name = "joapstone platter"
+	desc = "A fancy platter carved out of joapstone."
+	icon_state = "platter_jade"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 60
+
+/obj/item/plate/onyxa
+	name = "onyxa platter"
+	desc = "A fancy platter carved out of onyxa."
+	icon_state = "platter_onyxa"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 40
+
+/obj/item/plate/shell
+	name = "shell platter"
+	desc = "A fancy platter carved out of shell."
+	icon_state = "platter_shell"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 20
+
+/obj/item/plate/rose
+	name = "rosellusk platter"
+	desc = "A fancy platter carved out of rosellusk."
+	icon_state = "platter_rose"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 25
+
+/obj/item/plate/amber
+	name = "petriamber platter"
+	desc = "A fancy platter carved out of petriamber."
+	icon_state = "platter_amber"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 60
+
+/obj/item/plate/opal
+	name = "opaloise platter"
+	desc = "A fancy platter carved out of opaloise."
+	icon_state = "platter_opal"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 90
+
+/obj/item/plate/coral
+	name = "aoetal platter"
+	desc = "A fancy platter carved out of aoetal."
+	icon_state = "platter_coral"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 70
+
+/obj/item/plate/turq
+	name = "ceruleabaster platter"
+	desc = "A fancy platter carved out of ceruleabaster."
+	icon_state = "platter_turq"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 85
+
 /obj/item/plate/tray
 	name = "tray"
 	desc = "Best used when hosting for banquets or drunken taverns."

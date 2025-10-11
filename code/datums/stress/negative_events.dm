@@ -285,6 +285,12 @@
 	desc = span_red("I tortured a fellow believer!")
 	timer = 15 MINUTES
 
+/datum/stress_event/painful_reminder
+	stress_change = 4
+	max_stacks = 1
+	desc = span_dead("Melancholy fills my heart.")
+	timer = 1 MINUTES
+
 /datum/stress_event/maniac
 	stress_change = 4
 	desc = "<span class='red'>THE MANIAC COULD BE HERE!</span>"
@@ -624,3 +630,8 @@
 	desc = "<span class='boldwarning'>It's uncomfortable, and I can't take it off!</span>\n" //torture yay!
 	stress_change = 50
 	timer = 1000 MINUTES
+
+/datum/stress_event/dead_bird
+	timer = 5 MINUTES
+	stress_change = 3
+	desc = span_red("My precious bird won't answer my call...")

@@ -64,7 +64,7 @@
 	owner.death()
 
 	if(owner.mind)
-		var/datum/objective/ultimate_sacrifice/objective = target
+		var/datum/objective/personal/ultimate_sacrifice/objective = target
 		if(objective && !objective.completed)
 			objective.completed = TRUE
 			owner.adjust_triumphs(objective.triumph_count)

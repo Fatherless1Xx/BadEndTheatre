@@ -32,6 +32,10 @@
 		/datum/skill/labor/mathematics = 3,
 	)
 
+	spells = list(
+		/datum/action/cooldown/spell/undirected/call_bird/grenzel
+	)
+
 	traits = list(TRAIT_HEAVYARMOR, TRAIT_MEDIUMARMOR, TRAIT_NOBLE)
 	languages = list(/datum/language/oldpsydonic)
 	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
@@ -98,6 +102,10 @@
 		/datum/skill/combat/unarmed = 2,
 		/datum/skill/combat/swords = 3,
 		/datum/skill/combat/knives = 2,
+	)
+
+	spells = list(
+		/datum/action/cooldown/spell/undirected/call_bird/grenzel
 	)
 
 	traits = list(TRAIT_MEDIUMARMOR, TRAIT_NOBLE)

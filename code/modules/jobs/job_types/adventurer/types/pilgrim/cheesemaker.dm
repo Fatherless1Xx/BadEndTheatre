@@ -9,7 +9,7 @@
 
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Cheesemaker Apprentice"
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg' // pilgrims aren't towners, this fits them more for a combat on the woods
 
 /datum/job/advclass/pilgrim/cheesemaker/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
@@ -28,11 +28,12 @@
 	H.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/colored/random
 	shirt = /obj/item/clothing/shirt/shortshirt/colored/random
 	cloak = /obj/item/clothing/cloak/apron
-	shoes = /obj/item/clothing/shoes/simpleshoes
+	shoes = pick(/obj/item/clothing/shoes/simpleshoes, /obj/item/clothing/shoes/boots/leather)
 	backl = /obj/item/storage/backpack/backpack
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	wrists = /obj/item/clothing/wrists/bracers/leather

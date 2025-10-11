@@ -189,6 +189,12 @@
 	dropshrink = 0.6
 	sellprice = 100
 
+/obj/item/weapon/polearm/woodstaff/seer
+	force_wielded =  DAMAGE_STAFF_WIELD+1
+	name = "staff of the rous seer"
+	desc = "A staff used by the rousman seers, mainly to protect themselves."
+	icon_state = "seerstaff"
+	sellprice = 100
 
 //................ Spear ............... //
 /obj/item/weapon/polearm/spear

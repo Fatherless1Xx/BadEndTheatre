@@ -45,7 +45,7 @@
 	beltl = /obj/item/storage/keyring/archivist
 	beltr = /obj/item/book/granter/spellbook/apprentice
 	backl = /obj/item/storage/backpack/satchel
-	neck = /obj/item/clothing/neck/psycross/noc
+	neck = /obj/item/clothing/neck/psycross/silver/noc
 	backpack_contents = list(/obj/item/textbook = 1, /obj/item/natural/feather)
 
 	H.grant_language(/datum/language/elvish)

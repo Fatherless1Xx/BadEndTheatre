@@ -217,6 +217,7 @@
 
 	var/flags = NONE
 	var/mov_name = A.name
+	flags |= SEND_SIGNAL(A, COMSIG_ATOM_FALL_INTERACT, levels)
 	for(var/atom/thing as anything in contents)
 		flags |= thing.intercept_zImpact(A, levels)
 		if(flags & FALL_STOP_INTERCEPTING)

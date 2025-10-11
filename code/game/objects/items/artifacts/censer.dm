@@ -146,7 +146,7 @@
 				playsound(H, 'sound/magic/holyshield.ogg', 100)
 				new /obj/effect/temp_visual/censer_dust(get_turf(H))
 		else
-			to_chat(span_warning("They've already been blessed."))
+			to_chat(user, span_warning("They've already been blessed."))
 
 /datum/component/psyblessed
 	var/is_blessed

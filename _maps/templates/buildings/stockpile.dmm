@@ -4,11 +4,11 @@
 /area/template_noop)
 "r" = (
 /obj/machinery/light/fueled/wallfire/candle/skull/l,
-/obj/structure/lootable_structure/fish_barrel{
+/obj/structure/lootable_structure/stockpile/fish_barrel{
 	pixel_y = 9;
 	pixel_x = -7
 	},
-/obj/structure/lootable_structure/mining_cache{
+/obj/structure/lootable_structure/stockpile/mining_cache{
 	pixel_y = -2;
 	pixel_x = -1
 	},
@@ -40,14 +40,14 @@
 /turf/closed/wall/mineral/underbrick,
 /area/template_noop)
 "R" = (
-/obj/structure/lootable_structure/fish_barrel{
+/obj/structure/lootable_structure/stockpile/fish_barrel{
 	pixel_y = 9;
 	pixel_x = -6
 	},
-/obj/structure/lootable_structure/grain_barrel{
+/obj/structure/lootable_structure/stockpile/grain_barrel{
 	pixel_y = -3
 	},
-/obj/structure/lootable_structure/mining_cache{
+/obj/structure/lootable_structure/stockpile/mining_cache{
 	pixel_y = -2;
 	pixel_x = -11
 	},

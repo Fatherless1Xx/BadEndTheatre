@@ -8,6 +8,7 @@
 	invisibility = INVISIBILITY_OBSERVER
 	layer = FLY_LAYER
 	plane = GAME_PLANE_UPPER
+	sight = (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 	see_invisible = SEE_INVISIBLE_LIVING
 	uses_intents = FALSE
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
@@ -30,6 +31,9 @@
 
 	var/atom/movable/screen/controller_ui/controller_ui/displayed_mob_ui
 	var/atom/movable/screen/strategy_ui/controller_ui/displayed_base_ui
+
+	var/atom/movable/screen/gear_menu_backdrop/gear_ui
+	var/atom/movable/screen/worker_inventory_backdrop/inventory_ui
 	var/atom/movable/screen/building_backdrop/building_icon
 
 	var/datum/building_datum/held_build
@@ -48,6 +52,31 @@
 	building_icon = new
 	START_PROCESSING(SSstrategy_master, src)
 
+
+/mob/camera/strategy_controller/proc/open_gear_ui(obj/effect/building_node/node)
+	if(!gear_ui)
+		gear_ui = new
+	gear_ui.open_ui(src, node)
+
+/mob/camera/strategy_controller/proc/close_gear_ui()
+	if(gear_ui)
+		gear_ui.close_uis(src)
+
+/mob/camera/strategy_controller/proc/open_inventory_ui(datum/worker_mind/worker)
+	if(!inventory_ui)
+		inventory_ui = new
+	inventory_ui.open_ui(src, worker)
+	RegisterSignal(displayed_mob_ui.worker_mind, COMSIG_WORKER_GEAR_CHANGED, PROC_REF(update_inventory))
+
+/mob/camera/strategy_controller/proc/update_inventory()
+	close_inventory_ui()
+	open_inventory_ui(displayed_mob_ui.worker_mind)
+
+/mob/camera/strategy_controller/proc/close_inventory_ui()
+	if(inventory_ui)
+		inventory_ui.close_uis(src)
+		UnregisterSignal(displayed_mob_ui.worker_mind, COMSIG_WORKER_GEAR_CHANGED)
+
 /mob/camera/strategy_controller/proc/close_building_ui()
 	building_icon.close_uis(src)
 
@@ -56,14 +85,6 @@
 
 /mob/camera/strategy_controller/proc/add_new_worker(mob/living/worker)
 	worker_mobs |= worker
-
-/mob/camera/strategy_controller/proc/test_place_stockpile()
-	queue_building_build(/datum/building_datum/stockpile, get_turf(src))
-
-/mob/camera/strategy_controller/proc/create_testing_controlled_mob()
-	var/turf/new_turf = get_turf(src)
-	var/mob/living/simple_animal/hostile/retaliate/leylinelycan/new_rat = new(new_turf)
-	new_rat.controller_mind = new(new_rat, src)
 
 /mob/camera/strategy_controller/proc/create_new_worker_mob(atom/spawn_loc)
 	var/turf/turf = get_turf(spawn_loc)
@@ -77,10 +98,6 @@
 
 	var/datum/building_datum/build = new building(src)
 	build.setup_building_ghost()
-
-/mob/camera/strategy_controller/proc/remove_inspiration(mob/living/worker)
-	if(worker && worker.controller_mind)
-		worker.controller_mind.work_speed /= 1.5
 
 /mob/camera/strategy_controller/proc/queue_building_build(datum/building_datum/building, turf/source_turf)
 	new building(src, source_turf)
@@ -131,7 +148,9 @@
 				displayed_base_ui.remove_ui(client)
 				if(displayed_mob_ui)
 					displayed_mob_ui.remove_ui(client)
+					close_inventory_ui()
 				displayed_mob_ui  = living.controller_mind.stats
+				open_inventory_ui(living.controller_mind)
 			displayed_mob_ui.add_ui(client)
 	. = ..()
 

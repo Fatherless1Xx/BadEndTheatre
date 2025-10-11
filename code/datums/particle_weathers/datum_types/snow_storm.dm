@@ -20,7 +20,7 @@
 	particleEffectType = /particles/weather/snow
 
 	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/snow)
+	weather_sounds = /datum/looping_sound/snow
 
 	minSeverity = 1
 	maxSeverity = 10
@@ -45,7 +45,7 @@
 	particleEffectType = /particles/weather/snow
 
 	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/snow)
+	weather_sounds = /datum/looping_sound/snow
 
 	minSeverity = 40
 	maxSeverity = 100

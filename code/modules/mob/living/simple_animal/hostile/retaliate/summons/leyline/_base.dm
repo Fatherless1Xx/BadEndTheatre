@@ -22,6 +22,7 @@
 	aggro_vision_range = 9
 
 	butcher_results = list()
+	animal_type = /datum/blood_type/lycan
 
 	health = 240
 	maxHealth = 240

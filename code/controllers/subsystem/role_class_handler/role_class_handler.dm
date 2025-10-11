@@ -56,7 +56,12 @@ SUBSYSTEM_DEF(role_class_handler)
 // This covers both class datums and drifter waves
 /datum/controller/subsystem/role_class_handler/proc/build_category_lists()
 	var/list/all_classes = list()
-	init_subtypes(/datum/job/advclass, all_classes) // Init all the classes
+	for(var/datum/job/job as anything in subtypesof(/datum/job/advclass))
+		if(is_abstract(job))
+			continue
+		var/datum/job/real_datum = SSjob.GetJobType(job)
+		if(real_datum)
+			all_classes += real_datum
 	sorted_class_categories[CTAG_ALLCLASS] = all_classes
 
 	//Time to sort these classes, and sort them we shall.
@@ -129,11 +134,16 @@ SUBSYSTEM_DEF(role_class_handler)
 	qdel(related_handler)
 
 	if(picked_class.inherit_parent_title)
+		// At this point the job is the job of the previous advclass "parent" or null
 		var/datum/job/old = SSjob.GetJob(H.job)
 		if(old)
-			picked_class.title = old.title
+			if(H.gender == FEMALE && old.f_title)
+				picked_class.title_override = old.f_title
+			else
+				picked_class.title_override = old.title
 
 	SSjob.EquipRank(H, picked_class, H.client)
+	apply_loadouts(H, H.client)
 
 // A dum helper to adjust the class amount, we could do it elsewhere but this will also inform any relevant class handlers open.
 /datum/controller/subsystem/role_class_handler/proc/adjust_class_amount(datum/job/advclass/target_datum, amount)

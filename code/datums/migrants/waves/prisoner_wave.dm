@@ -7,6 +7,7 @@
 	title = "Gaoler"
 	tutorial = "The lords of Vanderlins sent you to Heartfelt to rappatriate some prisoners that were in their prison, you are now on your way back."
 	outfit = /datum/outfit/gaoler
+	is_foreigner = FALSE
 	allowed_races = list(
 		SPEC_ID_HUMEN,
 		SPEC_ID_ELF,
@@ -75,7 +76,7 @@
 	title = "Prisoner"
 	tutorial = "You had fled Vanderlin, took refuge in Heartfelt yet the lords over there caught you and thus handed you over to those who seeked you before."
 	outfit = /datum/outfit/mig_prisoner
-
+	is_foreigner = FALSE
 	jobstats = list(
 		STATKEY_STR = -1,
 		STATKEY_PER = 2,
@@ -115,6 +116,7 @@
 	title = "Convoy Guard"
 	tutorial = "You are apart of a convoy returning prisoners to Vanderlin. Obey the gaoler and ensure the prisoners get back to the dungeons."
 	outfit = /datum/outfit/mig_guard
+	is_foreigner = FALSE
 	allowed_races = list(
 		SPEC_ID_HUMEN,
 		SPEC_ID_ELF,
