@@ -33,7 +33,6 @@
 		TRAIT_STINKY, // Flies gotta come from somewhere!
 		TRAIT_THIEVESGUILD,
 		TRAIT_DODGEEXPERT,
-		TRAIT_XRAY_VISION, //Adding traits to items is broken to shit right now, AND Thermal is also broken. When these two work slot em on the mask
 		TRAIT_LIGHT_STEP
 	)
 
