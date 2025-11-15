@@ -38,7 +38,7 @@
 	)
 
 	jobstats = list(
-		STATKEY_CON = -2,
+		STATKEY_CON = -1,
 		STATKEY_END = -1,
 		STATKEY_STR = -2 // These are all relatively low, the class requires cantrips to work around these.
 	)
