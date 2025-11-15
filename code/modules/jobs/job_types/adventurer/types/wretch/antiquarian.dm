@@ -2,13 +2,12 @@
 	title = "Antiquarian"
 	tutorial = "You're a professional. You've seen things. Many disturbing, and many strange - and it's all changed who you are. Your years of avoiding the watch of Heartfelt \
 	gave you the skills needed to escape when the steam rose from the cracks in the roads, when you saw the fire in the streets, when it took your friends and family away. \
-	You're not the same anymore, in mind and in flesh - beyond it all you saw the riches, YOUR riches, get pilfered. And now, here you are. It's time to spite the Gods. \
-	Line your pockets, your last act of defiance."
+	You're not the same anymore, in mind and in flesh - beyond it all you saw your home be pilfered. It's time to take it all back."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/wretch/antiquarian
 	total_positions = 10
-	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 
 	skills = list(
 		/datum/skill/combat/axesmaces = SKILL_LEVEL_JOURNEYMAN, // Needed just for NPC's.
@@ -40,20 +39,24 @@
 	)
 
 	spells = list(
-		/datum/action/cooldown/spell/undirected/conjure_item/garrote,
-		/datum/action/cooldown/spell/undirected/conjure_item/smoke_bomb
+		/datum/action/cooldown/spell/undirected/conjure_item/smoke_bomb,
+		/datum/action/cooldown/spell/undirected/adrenalinerush,
+		///datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt, // He's missing a two-tile jaunt, something to slip under doors.
+		/datum/action/cooldown/spell/flashpowder,
+		/datum/action/cooldown/spell/aoe/snuff,
+		/datum/action/cooldown/spell/undirected/conjure_item/calling_card
 	)
 
 /datum/outfit/wretch/antiquarian/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.set_patron(/datum/faith/godless) // He wouldn't worship the man who stole an entire Kingdom! He is NOT Matthiosan.
+	H.set_patron(/datum/patron/godless) // Believers in Matthios, and those from Heartfelt, do not mix.
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/black
 	mask = /obj/item/clothing/face/antiq
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/colored/black
 	backr = /obj/item/storage/backpack/satchel
 	pants = /obj/item/clothing/pants/trou/leather
-	gloves = /obj/item/clothing/gloves/fingerless
+	gloves = /obj/item/clothing/gloves/bandages/pugilist
 	armor = /obj/item/clothing/armor/leather/splint
 	neck = /obj/item/clothing/neck/coif
 	belt = /obj/item/storage/belt/leather/black

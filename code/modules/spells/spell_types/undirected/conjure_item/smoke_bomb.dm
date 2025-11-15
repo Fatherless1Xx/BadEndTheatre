@@ -11,6 +11,6 @@
 	item_type = /obj/item/smokebomb
 	item_duration = null
 	item_outline ="#0e5c21"
-	delete_old = FALSE
+	delete_old = TRUE // Antiquarian has alot of other utility spells now, goodbye FALSE my beloved.
 	spell_type = SPELL_STAMINA
 	spell_cost = 30
