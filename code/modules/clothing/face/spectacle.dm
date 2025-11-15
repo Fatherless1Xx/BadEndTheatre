@@ -102,12 +102,13 @@
 
 /obj/item/clothing/face/antiq
 	name = "Antiquarian's Hood"
-	desc = "I've seen things you people wouldn't believe."
+	desc = "The mechanisms inside hum in a strange, mechanical unison. You have a feeling that this mask has seen things you wouldn't believe."
 	icon_state = "antiqmask"
 	blocksound = SOFTHIT
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	max_integrity = 400 // Respect the drip.
+	sellprice = 300 // Strange foreign device, BOY do I want to sell the shit outta THAT.
 	prevent_crits = list(BCLASS_BLUNT)
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEEARS

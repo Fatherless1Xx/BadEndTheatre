@@ -9,11 +9,14 @@
 	total_positions = 10
 	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 
+// The idea is that they're a slippery bastard. Cantrip focused, stealth-focused. They rely on their spells.
+
+
 	skills = list(
 		/datum/skill/combat/axesmaces = SKILL_LEVEL_JOURNEYMAN, // Needed just for NPC's.
 		/datum/skill/misc/swimming = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/combat/unarmed = SKILL_LEVEL_EXPERT, // They're not meant to kill. Unarmed/Wrestling is annoying, but they're on their own, and they dodge. If it sucks we can always change it.
+		/datum/skill/combat/unarmed = SKILL_LEVEL_EXPERT, // They're not meant to kill.
 		/datum/skill/misc/climbing = SKILL_LEVEL_MASTER,
 		/datum/skill/craft/crafting = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
@@ -27,30 +30,32 @@
 
 	traits = list(
 		TRAIT_DEADNOSE,
+		TRAIT_STINKY, // Flies gotta come from somewhere!
 		TRAIT_THIEVESGUILD,
 		TRAIT_DODGEEXPERT,
+		TRAIT_XRAY_VISION, //Adding traits to items is broken to shit right now, AND Thermal is also broken. When these two work slot em on the mask
 		TRAIT_LIGHT_STEP
 	)
 
 	jobstats = list(
-		STATKEY_SPD = 1,
-		STATKEY_CON = -1,
-		STATKEY_STR = -1 // These are all relatively low, the class requires cantrips to temporarily raise his stats.
+		STATKEY_CON = -2,
+		STATKEY_END = -1,
+		STATKEY_STR = -2 // These are all relatively low, the class requires cantrips to work around these.
 	)
 
 	spells = list(
 		/datum/action/cooldown/spell/undirected/conjure_item/smoke_bomb,
 		/datum/action/cooldown/spell/undirected/adrenalinerush,
-		///datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt, // He's missing a two-tile jaunt, something to slip under doors.
+		///datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt, // He's missing a two-tile jaunt, something to slip under doors. Outta my skill-level. Oh well!
 		/datum/action/cooldown/spell/flashpowder,
-		/datum/action/cooldown/spell/aoe/snuff,
+		/datum/action/cooldown/spell/undirected/conjure_item/summon_lockpick,
+		///datum/action/cooldown/spell/aoe/snuff,
 		/datum/action/cooldown/spell/undirected/conjure_item/calling_card
 	)
 
 /datum/outfit/wretch/antiquarian/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.set_patron(/datum/patron/godless) // Believers in Matthios, and those from Heartfelt, do not mix.
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/black
+	H.set_patron(/datum/patron/godless/defiant) // This one has seen too much. Matthiosans are not compatible with Heartfelt.
 	mask = /obj/item/clothing/face/antiq
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/colored/black
@@ -68,6 +73,9 @@
 		/obj/item/reagent_containers/glass/bottle/stronghealthpot = 1,
 	)
 	wretch_select_bounty(H)
+
+	H.grant_language(/datum/language/thievescant)
+	to_chat(H, span_info("I can gesture in thieves' cant with ,t before my speech."))
 
 /datum/outfit/wretch/antiquarian/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()

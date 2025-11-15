@@ -263,7 +263,7 @@
 /datum/status_effect/buff/adrenalinerush
 	id = "adrenalinerush"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/adrenalinerush
-	effectedstats = list(STATKEY_SPD = 4, STATKEY_END = 2) // Meant as a 'GET THE FUCK OUT' spell.
+	effectedstats = list(STATKEY_SPD = 4, STATKEY_END = 2, STATKEY_CON = 2) // Meant as a 'GET THE FUCK OUT' spell.
 	duration = 2 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/barbrage

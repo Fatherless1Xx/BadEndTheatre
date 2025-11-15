@@ -5,7 +5,7 @@
 	sound = 'sound/magic/flashpowder.ogg'
 
 	charge_required = FALSE
-	cooldown_time = 120 SECONDS
+	cooldown_time = 3 MINUTES // Once per combat.
 
 /datum/action/cooldown/spell/flashpowder/is_valid_target(atom/cast_on)
 	. = ..()
@@ -17,10 +17,10 @@
 	. = ..()
 	cast_on.visible_message(
 		span_info("[cast_on] has been blinded with Flashpowder!"),
-		span_userdanger("OH, GODS ABOVE! MY EYES ARE BURNING!! IT'S IN MY EYES!!! AAARRRRGGGGHHHH!!!!!"),
-		span_hear("I hear a loud explosion."),
+		span_userdanger("OH, GODS ABOVE! MY EYES ARE BURNING!!"),
+		span_hear("I hear a brief explosion."),
 	)
-	cast_on.adjustBruteLoss(15)
-	cast_on.blind_eyes(3)
+	cast_on.adjustBruteLoss(10)
+	cast_on.blind_eyes(4)
 	cast_on.blur_eyes(20)
 	cast_on.emote("firescream", forced = TRUE)
