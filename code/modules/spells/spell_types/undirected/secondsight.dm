@@ -16,6 +16,8 @@
 		if(L.has_status_effect(status))
 			L.remove_status_effect(status)
 		else
+			var/duration_increase = attuned_strength * 1.0 MINUTES // god damnit this shit won't compile or some shit without these. Fuck it.
+			L.apply_status_effect(status, initial(status.duration) + duration_increase)
 
 /datum/status_effect/buff/secondsight
 	duration = 1 MINUTES
