@@ -3495,6 +3495,7 @@
 #include "code\modules\spells\spell_types\undirected\message.dm"
 #include "code\modules\spells\spell_types\undirected\personality_commune.dm"
 #include "code\modules\spells\spell_types\undirected\rituos.dm"
+#include "code\modules\spells\spell_types\undirected\secondsight.dm"
 #include "code\modules\spells\spell_types\undirected\seek_orphan.dm"
 #include "code\modules\spells\spell_types\undirected\seek_rival.dm"
 #include "code\modules\spells\spell_types\undirected\shadow_step.dm"

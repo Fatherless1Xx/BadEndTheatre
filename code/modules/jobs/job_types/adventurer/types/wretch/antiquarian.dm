@@ -45,6 +45,7 @@
 	spells = list(
 		/datum/action/cooldown/spell/undirected/conjure_item/smoke_bomb,
 		/datum/action/cooldown/spell/undirected/adrenalinerush,
+		/datum/action/cooldown/spell/undirected/secondsight,
 		///datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt, // He's missing a two-tile jaunt, something to slip under doors. Outta my skill-level. Oh well!
 		/datum/action/cooldown/spell/flashpowder,
 		/datum/action/cooldown/spell/undirected/conjure_item/summon_lockpick,
