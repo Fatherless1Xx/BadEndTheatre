@@ -100,6 +100,22 @@
 	desc = "An ordinary brown sack. This one has eyeholes cut into it, bearing a crude chalk drawing of Psydon's cross upon its visage. Unsettling for most."
 	icon_state = "sackmask_psy"
 
+/obj/item/clothing/face/antiq
+	name = "Antiquarian's Hood"
+	desc = "I've seen things you people wouldn't believe."
+	icon_state = "antiqmask"
+	blocksound = SOFTHIT
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	max_integrity = 400 // Respect the drip.
+	prevent_crits = list(BCLASS_BLUNT)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEEARS
+	body_parts_covered = FACE|HEAD
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	armor = ARMOR_PADDED
+	sewrepair = TRUE
+
 /obj/item/clothing/face/facemask/steel/confessor
 	name = "strange mask"
 	desc = "It is said that the original version of this mask was used for obscure rituals in Grenzelhoft, and now it has been repurposed as a veil for the cunning hand of the Ordo Venatari. Others say it is a piece of heresy, a necessary evil, capable of keeping its user safe from vile magicks. You can taste copper whenever you draw breath."
