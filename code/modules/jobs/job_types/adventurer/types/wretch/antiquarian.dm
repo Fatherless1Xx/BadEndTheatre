@@ -58,7 +58,8 @@
 	H.set_patron(/datum/patron/godless/defiant) // This one has seen too much. Matthiosans are not compatible with Heartfelt.
 	mask = /obj/item/clothing/face/antiq
 	shoes = /obj/item/clothing/shoes/boots/leather
-	shirt = /obj/item/clothing/shirt/undershirt/colored/black
+	head = /obj/item/clothing/head/roguehood/faceless
+	shirt = /obj/item/clothing/shirt/tunic/colored/purple
 	backr = /obj/item/storage/backpack/satchel
 	pants = /obj/item/clothing/pants/trou/leather
 	gloves = /obj/item/clothing/gloves/bandages/pugilist
