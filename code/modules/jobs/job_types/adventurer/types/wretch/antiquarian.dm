@@ -7,7 +7,7 @@
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/wretch/antiquarian
 	total_positions = 10
-	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatDream.ogg'
 
 // The idea is that they're a slippery bastard. Cantrip focused, stealth-focused. They rely on their spells.
 
@@ -58,6 +58,7 @@
 	H.set_patron(/datum/patron/godless/defiant) // This one has seen too much. Matthiosans are not compatible with Heartfelt.
 	mask = /obj/item/clothing/face/antiq
 	shoes = /obj/item/clothing/shoes/boots/leather
+	cloak = /obj/item/clothing/cloak/raincloak/colored/mortus
 	head = /obj/item/clothing/head/roguehood/faceless
 	shirt = /obj/item/clothing/shirt/tunic/colored/purple
 	backr = /obj/item/storage/backpack/satchel
