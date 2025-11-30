@@ -1,4 +1,4 @@
 <!-- Most valid html will work in here, excluding images. -->
-<center>Vanderlin/Monkestation Discord Server: <a href="https://discord.monkestation.com">https://discord.monkestation.com</a></center>
-<center>* TECHNICAL DISPLAY PLAYTEST *</center>
+<center>Bad End Theatre Discord Server: <a href="https://discord.gg/N2SFurq779">https://discord.gg/N2SFurq779</a></center>
+<center>* Lore is WIP - please make suggestions on the Discord *</center>
 <!-- We're no longer so unstable, also it's shit advertising. -->
