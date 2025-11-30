@@ -1717,6 +1717,7 @@
 #include "code\game\objects\items\natural\poo.dm"
 #include "code\game\objects\items\natural\stones.dm"
 #include "code\game\objects\items\natural\wood.dm"
+#include "code\game\objects\items\rogueitems\leash.dm"
 #include "code\game\objects\items\painting\canvas.dm"
 #include "code\game\objects\items\painting\easel.dm"
 #include "code\game\objects\items\painting\paint_brush.dm"

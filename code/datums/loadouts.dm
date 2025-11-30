@@ -199,11 +199,31 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 
 /datum/loadout_item/collar
 	name = "Collar"
-	item_path = /obj/item/clothing/neck/leathercollar
+	item_path = /obj/item/clothing/neck/roguetown/collar
 
 /datum/loadout_item/bell_collar
 	name = "Bell Collar"
-	item_path = /obj/item/clothing/neck/bellcollar
+	item_path = /obj/item/clothing/neck/roguetown/collar/catbell
+
+/datum/loadout_item/cowbell_collar
+	name = "Cowbell Collar"
+	item_path = /obj/item/clothing/neck/roguetown/collar/cowbell
+
+/datum/loadout_item/leather_collar
+	name = "Leather Collar"
+	item_path = /obj/item/clothing/neck/roguetown/collar/leather
+
+/datum/loadout_item/rope_leash
+	name = "Rope Leash"
+	item_path = /obj/item/leash
+
+/datum/loadout_item/chain_leash
+	name = "Chain Leash"
+	item_path = /obj/item/leash/chain
+
+/datum/loadout_item/leather_leash
+	name = "Leather Leash"
+	item_path = /obj/item/leash/leather
 
 /datum/loadout_item/chaperon
 	name = "Chaperon (Normal)"

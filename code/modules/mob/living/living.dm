@@ -1152,11 +1152,17 @@
 		var/obj/C = loc
 		C.container_resist(src)
 
-	else if(!HAS_TRAIT(src, TRAIT_IMMOBILIZED))
-		if(on_fire)
+	else if(mobility_flags & MOBILITY_MOVE)
+		if(on_fire && last_special <= world.time)
 			resist_fire() //stop, drop, and roll
+			changeNext_move(CLICK_CD_RESIST)
+		else if(has_status_effect(/datum/status_effect/leash_pet))
+			if(istype(src, /mob/living/carbon))
+				src:resist_leash()
+				changeNext_move(CLICK_CD_RESIST)
 		else if(last_special <= world.time)
 			resist_restraints() //trying to remove cuffs.
+			changeNext_move(CLICK_CD_RESIST)
 
 /mob/living/carbon/human/verb/ic_pray()
 	set name = "Prayer"
@@ -1570,6 +1576,9 @@
 	return TRUE
 
 /mob/living/proc/resist_fire()
+	return
+
+/mob/living/proc/resist_leash()
 	return
 
 /mob/living/proc/resist_restraints()

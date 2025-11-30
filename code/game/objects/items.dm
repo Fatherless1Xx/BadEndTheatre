@@ -32,6 +32,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/inhand_y_dimension = 64
 
 	var/no_effect = FALSE
+	var/leashable = FALSE // More elegant solution to leash checks
 
 	max_integrity = 200
 

@@ -214,6 +214,52 @@
 /obj/item/clothing/neck/bellcollar/Initialize()
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = list(SFX_JINGLE_BELLS))
+
+/obj/item/clothing/neck/roguetown/collar
+	name = "collar"
+	icon = 'icons/obj/leashes_collars.dmi'
+	mob_overlay_icon = 'icons/mob/collars_leashes.dmi'
+	desc = "This is a debug parent item. If you are seeing it meow at the coders."
+	icon_state = "collar_rope"
+	item_state = "collar_rope"
+	resistance_flags = FIRE_PROOF
+	dropshrink = 0.5
+	leashable = TRUE
+	var/bellsound = FALSE
+	var/bell = FALSE
+
+/obj/item/clothing/neck/roguetown/collar/leather
+	name = "leather collar"
+	desc = "A sturdy leather collar."
+	icon = 'icons/obj/leashes_collars.dmi'
+	mob_overlay_icon = 'icons/mob/collars_leashes.dmi'
+	icon_state = "leathercollar"
+	item_state = "leathercollar"
+	leashable = TRUE
+	resistance_flags = FIRE_PROOF
+	dropshrink = 0.5
+
+/obj/item/clothing/neck/roguetown/collar/cowbell
+	name = "cowbell collar"
+	desc = "A leather collar with a jingly cowbell attached."
+	icon = 'icons/obj/leashes_collars.dmi'
+	mob_overlay_icon = 'icons/mob/collars_leashes.dmi'
+	icon_state = "cowbellcollar"
+	item_state = "cowbellcollar"
+	leashable = TRUE
+	resistance_flags = FIRE_PROOF
+	dropshrink = 0.5
+
+/obj/item/clothing/neck/roguetown/collar/catbell
+	name = "catbell collar"
+	desc = "A leather collar with a jingling catbell attached."
+	icon = 'icons/obj/leashes_collars.dmi'
+	mob_overlay_icon = 'icons/mob/collars_leashes.dmi'
+	icon_state = "catbellcollar"
+	item_state = "catbellcollar"
+	leashable = TRUE
+	resistance_flags = FIRE_PROOF
+	dropshrink = 0.5
 //..................................................................................................................................
 /*---------------\
 |			 	 |
