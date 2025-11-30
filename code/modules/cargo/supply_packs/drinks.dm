@@ -85,3 +85,8 @@
 	name = "Valmora Blue Wine"
 	cost = 305
 	contains = /obj/item/reagent_containers/glass/bottle/elfblue
+
+/datum/supply_pack/food/drinks/emberwine
+	name = "Emberwine"
+	cost = 120
+	contains = /obj/item/reagent_containers/glass/bottle/emberwine

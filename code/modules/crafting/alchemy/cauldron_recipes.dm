@@ -375,3 +375,13 @@ Keep them reasonable to make
 		/datum/thaumaturgical_essence/light = 3,
 		/datum/thaumaturgical_essence/water = 3,
 	)
+
+/datum/alch_cauldron_recipe/aphrodisiac_wine
+	recipe_name = "Aphrodisiac Wine"
+	smells_like = "ardent sweetness"
+	output_reagents = list(/datum/reagent/consumable/ethanol/beer/emberwine = 54)
+	required_essences = list(
+		/datum/thaumaturgical_essence/fire = 3,
+		/datum/thaumaturgical_essence/life = 2,
+		/datum/thaumaturgical_essence/order = 2,
+	)

@@ -102,6 +102,13 @@
 	auto_label_name = "valmora blue"
 	auto_label_desc = "This is the legendary Valmora Blue from the Vineyard of Valmora, headed by a sainted Dark-Elf swordsmaster. This bottle would swoon Gods over!"
 
+/obj/item/reagent_containers/glass/bottle/emberwine
+	name = "bottle of emberwine"
+	desc = "A dark bottle sealed with deep crimson wax. It radiates a faint heat."
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/emberwine = 70)
+	auto_label_name = "emberwine"
+	auto_label_desc = "A searing-sweet wine whose warmth lingers well after the last sip."
+
 /obj/item/reagent_containers/glass/bottle/tiefling_wine
 	list_reagents = list(/datum/reagent/consumable/ethanol/tiefling/aged = 45)
 	auto_label_name = "tiefling-blood wine"

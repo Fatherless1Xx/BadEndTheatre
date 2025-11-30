@@ -569,3 +569,18 @@
 /atom/movable/screen/alert/status_effect/debuff/corrupted_by_tainted_lux
 	name = "Corrupted..."
 	desc = span_danger("It filled my veins with light and rot alike... I can feel it crawling under my skin, whispering that I should never have done it...")
+
+/atom/movable/screen/alert/status_effect/debuff/emberwine
+	name = "Aphrodisiac"
+	desc = "The warmth is spreading through my body..."
+
+/datum/status_effect/debuff/emberwine
+	id = "emberwine"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/emberwine
+	effectedstats = list(
+		STATKEY_STR = -1,
+		STATKEY_END = -2,
+		STATKEY_SPD = -2,
+		STATKEY_INT = -3,
+	)
+	duration = 1 MINUTES

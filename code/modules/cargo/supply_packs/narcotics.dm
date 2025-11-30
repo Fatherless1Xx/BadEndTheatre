@@ -53,3 +53,8 @@
 	name = "Stamina Poison"
 	cost = 22
 	contains = /obj/item/reagent_containers/glass/bottle/stampoison
+
+/datum/supply_pack/narcotics/emberwine
+	name = "Emberwine"
+	cost = 120
+	contains = /obj/item/reagent_containers/glass/bottle/emberwine
