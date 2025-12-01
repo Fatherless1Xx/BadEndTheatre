@@ -188,6 +188,11 @@
 		/datum/job/pilgrim,
 	)
 
+	///list of job packs we select from during job setup
+	var/list/job_packs
+	var/pack_title = "JOB PACKS"
+	var/pack_message = "Choose a job pack"
+
 /datum/job/New()
 	. = ..()
 	if(give_bank_account)
@@ -382,6 +387,36 @@
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
 	dress_up_as_job(equipping)
+	pick_job_packs(equipping)
+
+/mob/living/carbon/human/proc/pick_job_packs(datum/job/equipping)
+	if(!length(equipping.job_packs))
+		return
+	var/for_length = 1
+	if(islist(equipping.job_packs[1]))
+		for_length = length(equipping.job_packs)
+
+	var/list/previous_picked_types = list()
+
+	for(var/i = 1 to for_length)
+		var/list/job_packs = equipping.job_packs
+		if(islist(equipping.job_packs[i]))
+			job_packs = equipping.job_packs[i]
+		var/datum/job_pack/picked_pack
+		var/list/reals = list()
+		for(var/pack as anything in job_packs)
+			var/datum/job_pack/real_pack = GLOB.job_pack_singletons[pack]
+			if(!real_pack.can_pick_pack(src, previous_picked_types))
+				continue
+			reals |= real_pack
+		if(!length(reals))
+			return
+		if(!client)
+			picked_pack = GLOB.job_pack_singletons[pick(reals)]
+		else
+			picked_pack = browser_input_list(src, equipping.pack_title, equipping.pack_message, reals, timeout = 20 SECONDS)
+		previous_picked_types |= picked_pack.type
+		picked_pack.pick_pack(src)
 
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return

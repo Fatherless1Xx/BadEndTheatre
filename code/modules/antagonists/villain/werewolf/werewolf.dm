@@ -18,6 +18,8 @@
 	var/transformed
 	/// Tracks when in the middle of either transforming into or out of WW form
 	var/transforming
+	var/untransforming
+
 	var/wolfname = "Werevolf"
 	COOLDOWN_DECLARE(message_cooldown)
 
@@ -53,6 +55,12 @@
 	owner.special_role = name
 	if(increase_votepwr)
 		forge_werewolf_objectives()
+	owner.current.add_spell(/datum/action/cooldown/spell/undirected/werewolf_form)
+	owner.current.RegisterSignal(owner.current, COMSIG_RAGE_BOTTOMED, TYPE_PROC_REF(/mob/living/carbon/human, werewolf_untransform))
+	owner.current.RegisterSignal(owner.current, COMSIG_RAGE_OVERRAGE, TYPE_PROC_REF(/mob/living/carbon/human, werewolf_transform))
+
+	var/datum/rage/new_rage = new
+	new_rage.grant_to(owner.current)
 
 	wolfname = "[pick(strings("werewolf_names.json", "wolf_prefixes"))] [pick(strings("werewolf_names.json", "wolf_suffixes"))]"
 	return ..()
@@ -152,7 +160,7 @@
 	to_chat(src, span_warning("I feed on succulent flesh. I feel reinvigorated."))
 	return src.reagents.add_reagent(/datum/reagent/medicine/healthpot, healing_amount)
 
-/obj/item/clothing/armor/skin_armor/werewolf_skin
+/obj/item/clothing/armor/regenerating/skin/werewolf_skin
 	slot_flags = null
 	name = "Werevolf's skin"
 	desc = ""
@@ -166,6 +174,7 @@
 	sewrepair = FALSE
 	max_integrity = INTEGRITY_STRONG
 	item_flags = DROPDEL
+	repair_time = 15 SECONDS
 
 /datum/intent/simple/werewolf
 	name = "claw"

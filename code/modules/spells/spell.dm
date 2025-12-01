@@ -247,6 +247,8 @@
 		RegisterSignal(owner, COMSIG_LIVING_MANA_CHANGED, PROC_REF(update_status_on_signal))
 	if(spell_type == SPELL_MIRACLE)
 		RegisterSignal(owner, COMSIG_LIVING_DEVOTION_CHANGED, PROC_REF(update_status_on_signal))
+	if(spell_type == SPELL_RAGE)
+		RegisterSignal(owner, COMSIG_LIVING_RAGE_CHANGED, PROC_REF(update_status_on_signal))
 
 	RegisterSignal(owner, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(update_status_on_signal))
 
@@ -894,6 +896,15 @@
 
 			return TRUE
 
+		if(SPELL_RAGE)
+			var/mob/living/carbon/human/H = caster
+			if(!istype(H) || !H.rage_datum?.check_rage(spell_cost))
+				if(feedback)
+					owner.balloon_alert(owner, "Not enough Rage!")
+				return FALSE
+
+			return TRUE
+
 		if(SPELL_ESSENCE)
 			var/obj/item/clothing/gloves/essence_gauntlet/gaunt = target
 			if(QDELETED(target) || !istype(target))
@@ -960,6 +971,12 @@
 			if(!istype(H) || !H.cleric)
 				return
 			H.cleric.update_devotion(-used_cost)
+
+		if(SPELL_RAGE)
+			var/mob/living/carbon/human/H = owner
+			if(!istype(H) || !H.rage_datum)
+				return
+			H.rage_datum.update_rage(-used_cost)
 
 		if(SPELL_ESSENCE)
 			var/obj/item/clothing/gloves/essence_gauntlet/gaunt = target

@@ -1505,9 +1505,9 @@
 			gcord = L.get_inactive_held_item()
 		to_chat(pulledby, span_warning("[src] struggles against the [gcord]!"))
 		if(!src.mind) // NPCs do less damage to the garrote
-			gcord.take_damage(10)
+			gcord.take_damage(5)
 		else
-			gcord.take_damage(25)
+			gcord.take_damage(10)
 	if(prob(resist_chance))
 		visible_message("<span class='warning'>[src] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='notice'>I break free of [pulledby]'s grip![shitte]</span>", null, null, pulledby)
@@ -1516,7 +1516,7 @@
 			var/obj/item/inqarticles/garrote/gcord = L.get_active_held_item()
 			if(!gcord)
 				gcord = L.get_inactive_held_item()
-			gcord.take_damage(gcord.max_integrity)
+			gcord.take_damage(gcord.max_integrity * 0.2)
 			gcord.wipeslate(src)
 		log_combat(pulledby, src, "broke grab")
 		pulledby.stop_pulling()
