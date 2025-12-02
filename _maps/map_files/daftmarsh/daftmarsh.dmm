@@ -9908,7 +9908,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church/chapel)
 "jEn" = (
-/obj/item/chair/stool/bar,
+/obj/item/chair/stool,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town/roofs)
 "jEr" = (

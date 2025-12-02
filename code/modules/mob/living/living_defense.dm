@@ -1,24 +1,23 @@
 
 /mob/living/proc/run_armor_check(def_zone = null, attack_flag = "blunt", absorb_text = null, soften_text = null, armor_penetration, penetrated_text, damage, blade_dulling)
 	var/armor = getarmor(def_zone, attack_flag, damage, armor_penetration, blade_dulling)
+	var/armor_check = 0
 
-	//the if "armor" check is because this is used for everything on /living, including humans
-	if(armor > 0 && armor_penetration)
-		armor = max(0, armor - armor_penetration)
-		if(penetrated_text)
-			to_chat(src, "<span class='danger'>[penetrated_text]</span>")
-		else
-			to_chat(src, "<span class='danger'>My armor was penetrated!</span>")
-	else if(armor >= 130)
-		if(absorb_text)
-			to_chat(src, "<span class='notice'>[absorb_text]</span>")
-		else
-			to_chat(src, "<span class='notice'>My armor absorbs the blow!</span>")
-	else if(armor > 0)
-		if(soften_text)
-			to_chat(src, "<span class='warning'>[soften_text]</span>")
-		else
-			to_chat(src, "<span class='warning'>My armor softens the blow!</span>")
+	// Only run armor logic if there actually is armor
+	if(armor > 0)
+		if(armor_penetration)
+			armor = max(0, armor - armor_penetration)
+		armor_check = max(0, armor - damage)
+
+		// Decide feedback based on how much damage got through
+		if(armor_check == 0 && armor_penetration)
+			to_chat(src, "<span class='danger'>[penetrated_text || "My armor was penetrated!"]</span>")
+		else if(armor_check > 0)
+			if(armor_penetration)
+				to_chat(src, "<span class='warning'>[soften_text || "My armor softens the blow!"]</span>")
+			else
+				to_chat(src, "<span class='notice'>[absorb_text || "My armor absorbs the blow!"]</span>")
+
 	return armor
 
 
