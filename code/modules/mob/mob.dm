@@ -503,15 +503,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self))
 		if(qdel_on_fail)
 			qdel(W)
-		else
-			if(!disable_warning)
-				to_chat(src, "<span class='warning'>I couldn't equip that.</span>")
+		else if(!disable_warning)
+			to_chat(src, span_warning("I can't equip that!"))
 		return FALSE
-	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
+	equip_to_slot(W, slot, initial, redraw_mob) //This proc should not ever fail.
 	update_a_intents()
-	if(isliving(src))
-		var/mob/living/L = src
-		L.update_reflection()
 	return TRUE
 
 /**
@@ -522,7 +518,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  *
  *In most cases you will want to use equip_to_slot_if_possible()
  */
-/mob/proc/equip_to_slot(obj/item/W, slot, initial)
+/mob/proc/equip_to_slot(obj/item/equipping, slot, initial = FALSE, redraw_mob = FALSE)
 	return
 
 /**

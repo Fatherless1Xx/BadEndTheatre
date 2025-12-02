@@ -5,7 +5,6 @@
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/confessor
 	category_tags = list(CTAG_INQUISITION)
-	cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg'
 
 	jobstats = list(
 		STATKEY_SPD = 3,
@@ -18,11 +17,11 @@
 		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
-		/datum/skill/misc/climbing = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/climbing = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/medicine = SKILL_LEVEL_JOURNEYMAN, //Ensures that captured individuals are less likely to die, if subdued with harsher force.
-		/datum/skill/misc/sneaking = SKILL_LEVEL_MASTER,
-		/datum/skill/misc/stealing = SKILL_LEVEL_MASTER,
-		/datum/skill/misc/lockpicking = SKILL_LEVEL_MASTER,
+		/datum/skill/misc/sneaking = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/stealing = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/lockpicking = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/crossbows = SKILL_LEVEL_EXPERT,
 	)
 
@@ -30,7 +29,6 @@
 		TRAIT_DODGEEXPERT,
 		TRAIT_STEELHEARTED,
 		TRAIT_INQUISITION,
-		TRAIT_PSYDONITE,
 		TRAIT_BLACKBAGGER,
 		TRAIT_SILVER_BLESSED,
 	)
@@ -65,7 +63,6 @@
 				armor = /obj/item/clothing/armor/brigandine/light
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 				REMOVE_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-				H.clamped_adjust_skillrank(/datum/skill/combat/crossbows, 5, 5)
 				H.change_stat(STATKEY_CON, 1)
 				H.change_stat(STATKEY_STR, 2)
 				H.change_stat(STATKEY_PER, 1) //Applies a base statblock of 11/11/11/13 to CON, STR, SPD and PER - compared to the standard 10/9/13/12 + DODGE EXPERT. Physically adept and capable of higher ranged damage..

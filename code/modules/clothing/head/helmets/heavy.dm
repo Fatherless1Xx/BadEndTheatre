@@ -270,6 +270,14 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = list(SFX_JINGLE_BELLS))
 
+//................ Abyssor Helmet ............. //
+/obj/item/clothing/head/helmet/heavy/necked/abyssor
+	name = "abyssor helmet"
+	desc = "A great helmet crafted from bronze. The visor is slitted and ridged, evoking the gills of a great sea-beast."
+	icon_state = "abyssorhelm"
+	item_state = "abyssorhelm"
+	item_weight = 6 * IRON_MULTIPLIER
+
 //............... Sinistar (Graggar) Helmet ............... //
 /obj/item/clothing/head/helmet/heavy/sinistar
 	name = "sinistar helmet"

@@ -5,7 +5,6 @@
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/psydoniantemplar
 	category_tags = list(CTAG_INQUISITION)
-	cmode_music = 'sound/music/templarofpsydonia.ogg'
 
 	jobstats = list(
 		STATKEY_STR = 2,
@@ -24,7 +23,6 @@
 		/datum/skill/misc/climbing = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/magic/holy = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/shields = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/medicine = SKILL_LEVEL_NOVICE
 	)

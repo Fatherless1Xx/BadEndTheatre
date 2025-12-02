@@ -1372,7 +1372,7 @@ SUBSYSTEM_DEF(gamemode)
 	return highest
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
-/datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
+/datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE, first_post_roundstart_check = FALSE)
 	if(SSticker.current_state == GAME_STATE_FINISHED)
 		return
 
@@ -1506,7 +1506,7 @@ SUBSYSTEM_DEF(gamemode)
 				record_round_statistic(STATS_ALIVE_CLERGY)
 			if((human_mob.mind.assigned_role.title in GLOB.serf_positions) || (human_mob.mind.assigned_role.title in GLOB.peasant_positions) || (human_mob.mind.assigned_role.title in GLOB.company_positions))
 				record_round_statistic(STATS_ALIVE_TRADESMEN)
-			if(!human_mob.is_literate())
+			if(!human_mob.is_literate() && !first_post_roundstart_check)
 				record_round_statistic(STATS_ILLITERATES)
 			if(human_mob.has_flaw(/datum/charflaw/clingy))
 				record_round_statistic(STATS_CLINGY_PEOPLE)

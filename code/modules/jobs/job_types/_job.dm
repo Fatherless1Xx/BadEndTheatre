@@ -84,6 +84,8 @@
 	var/list/allowed_sexes = list(MALE, FEMALE)
 	/// Species allowed to be this job
 	var/list/allowed_races = RACES_PLAYER_ALL
+	/// Species blacklisted from this job
+	var/list/blacklisted_species = list()
 	/// Ages allowed to be this job
 	var/list/allowed_ages = ALL_AGES_LIST
 
@@ -289,6 +291,15 @@
 		for(var/datum/mind/MF in get_minds(X))
 			spawned.mind.i_know_person(MF)
 
+	// Ready up bonus
+	if(!spawned.islatejoin)
+		spawned.adjust_triumphs(1)
+		spawned.apply_status_effect(/datum/status_effect/buff/foodbuff)
+		spawned.hydration = 800 // Set higher hydration
+		spawned.nutrition = 800
+		to_chat(spawned, span_notice("Rising early, you made sure to eat a hearty meal before starting your dae. A true TRIUMPH!"))
+
+
 	var/used_title = get_informed_title(spawned)
 	if(spawned.islatejoin && (job_flags & JOB_ANNOUNCE_ARRIVAL)) //to be moved somewhere more appropriate
 		scom_announce("[spawned.real_name] the [used_title] arrives from [SSmapping.config.immigrant_origin].")
@@ -342,7 +353,7 @@
 		spawned.hugboxify_for_class_selection()
 
 	if(job_flags & JOB_SHOW_IN_CREDITS)
-		SScrediticons.processing += spawned
+		START_PROCESSING(SScrediticons, player_client)
 
 
 /datum/job/proc/adjust_patron(mob/living/carbon/human/spawned)

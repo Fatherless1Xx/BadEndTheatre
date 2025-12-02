@@ -285,6 +285,7 @@
 	tutorial = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Vanderlin, you seek answers and perhaps a new purpose in the wake of destruction."
 	outfit = /datum/outfit/heartfelt_magos
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	blacklisted_species = list(SPEC_ID_HALFLING)
 	allowed_patrons = list(/datum/patron/divine/noc)
 	is_recognized = TRUE
 
@@ -445,6 +446,7 @@
 		/datum/skill/labor/mining = 2,
 		/datum/skill/craft/smelting = 4,
 		/datum/skill/misc/reading = 2,
+		/datum/skill/craft/bombs= 4,
 	)
 
 	traits = list(TRAIT_SEEPRICES)

@@ -22,7 +22,12 @@
 		"Royal Knight",
 		"Templar",
 		"Bandit",
-		"Wretch"
+		"Wretch",
+		"Inquisitor",
+		"Absolver",
+		"Confessor",
+		"Orthodoxist",
+		"Adept",
 	)
 
 	base_antags = 1

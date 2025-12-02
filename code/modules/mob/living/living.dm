@@ -1925,6 +1925,10 @@
 /mob/living/proc/SoakMob(locations)
 	if(locations & CHEST)
 		ExtinguishMob()
+		if(locations & HEAD)
+			adjust_fire_stacks(-2)
+		else
+			adjust_fire_stacks(-1)
 
 /mob/living/proc/ExtinguishMob()
 	if(on_fire)

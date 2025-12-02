@@ -74,7 +74,7 @@
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 			cloak =  /obj/item/clothing/cloak/stabard/templar/ravox
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.cmode_music = 'sound/music/cmode/church/CombatRavox.ogg'
 			backr = /obj/item/weapon/polearm/woodstaff/quarterstaff/iron
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
@@ -96,7 +96,7 @@
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		if(/datum/patron/divine/abyssor)
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
-			cloak = /obj/item/clothing/cloak/tabard/crusader
+			cloak = /obj/item/clothing/cloak/stabard/templar/abyssor
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			backr = /obj/item/weapon/polearm/spear //think fishing spear
 			beltl = /obj/item/fishingrod //no attachements, cleric can either discard it or embrace abyssor and fish like man was made to do
@@ -111,7 +111,7 @@
 		if(/datum/patron/divine/xylix)
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 			cloak = /obj/item/clothing/cloak/stabard/templar/xylix
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/CombatXylix.ogg'
 			backr = /obj/item/weapon/shield/heater
 			beltl = /obj/item/weapon/flail
 			H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)

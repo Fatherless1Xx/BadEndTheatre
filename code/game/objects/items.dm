@@ -313,14 +313,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(recipe_quality <= length(quality_icons) && quality_icons[recipe_quality])
 		. += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[recipe_quality])
 
-/obj/item/dropped(mob/user, silent)
-	. = ..()
-	update_appearance(UPDATE_OVERLAYS)
-
-/obj/item/equipped(mob/user, slot, initial)
-	. = ..()
-	update_appearance(UPDATE_OVERLAYS)
-
 /**
  * Handles adding components to the item. Added in Initialize()
  *
@@ -809,8 +801,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	toggle_altgrip(user, FALSE)
 	user.update_equipment_speed_mods()
 	if(isliving(user))
-		user:encumbrance_to_speed()
+		var/mob/living/living_user = user
+		living_user.encumbrance_to_speed()
 	update_transform()
+	update_appearance(UPDATE_OVERLAYS)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -855,6 +849,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 					playsound(src, pickup_sound, PICKUP_SOUND_VOLUME, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
 	update_transform()
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Gives one of our item actions to a mob, when equipped to a certain slot
 /obj/item/proc/give_item_action(datum/action/action, mob/to_who, slot)

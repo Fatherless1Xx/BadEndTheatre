@@ -21,6 +21,7 @@
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_PER, 1)
 			H.grant_language(/datum/language/oldpsydonic)
+			ADD_TRAIT(H, TRAIT_PSYDONIAN_GRIT, TRAIT_GENERIC)
 		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
@@ -44,11 +45,11 @@
 		if(/datum/patron/divine/ravox)
 			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.cmode_music = 'sound/music/cmode/church/CombatRavox.ogg'
 		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/CombatXylix.ogg'
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
 			wrists = /obj/item/clothing/neck/psycross/silver/pestra

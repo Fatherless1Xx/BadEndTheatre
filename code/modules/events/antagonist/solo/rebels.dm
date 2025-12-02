@@ -29,6 +29,9 @@
 		"Prince",
 		"Priest",
 		"Inquisitor",
+		"Absolver",
+		"Confessor",
+		"Orthodoxist",
 		"Adept",
 	)
 

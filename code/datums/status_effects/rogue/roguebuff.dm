@@ -45,7 +45,7 @@
 	id = "cleanplus"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/clean_plus
 	effectedstats = list(STATKEY_LCK = 1)
-	duration = 15 MINUTES
+	duration = 10 MINUTES
 
 /datum/status_effect/buff/clean_plus/on_apply()
 	. = ..()
@@ -942,3 +942,37 @@
 /atom/movable/screen/alert/status_effect/buff/received_lux
 	name = "Received Lux"
 	desc = "I can feel something... is this what it means to have a soul?"
+
+// Small buff to halflings for having over 800 nutrition currently
+/datum/status_effect/buff/stuffed
+	id = "stuffed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/stuffed
+	effectedstats = list(STATKEY_CON = 1, STATKEY_END = 1)
+	duration = 3 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/stuffed
+	name = "Stuffed"
+	desc = "A hearty meal!"
+
+// Buff to halflings for not wearing shoes, comes with stress events
+/datum/status_effect/buff/free_feet
+	id = "free_feet"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/free_feet
+	effectedstats = list(STATKEY_SPD = 1)
+	duration = -1
+
+/datum/status_effect/buff/free_feet/on_apply()
+	. = ..()
+	owner.add_stress(/datum/stress_event/feet_free)
+	owner.remove_stress(/datum/stress_event/feet_constrained)
+
+/datum/status_effect/buff/free_feet/on_remove()
+	. = ..()
+	if(!owner)
+		return
+	owner.add_stress(/datum/stress_event/feet_constrained)
+	owner.remove_stress(/datum/stress_event/feet_free)
+
+/atom/movable/screen/alert/status_effect/buff/free_feet
+	name = "Foot Freedom"
+	desc = "Not wearing shoes allows me to move more freely."

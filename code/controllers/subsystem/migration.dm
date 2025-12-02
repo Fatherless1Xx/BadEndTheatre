@@ -409,6 +409,12 @@ SUBSYSTEM_DEF(migrants)
 		if(!(player.has_triumph_buy(TRIUMPH_BUY_RACE_ALL)))
 			to_chat(player, span_warning("Wrong species. Your prioritized role only allows [migrant_job.allowed_races.Join(", ")]."))
 			can_join = FALSE
+
+	if(length(migrant_job.blacklisted_species) && (prefs.pref_species.id in migrant_job.blacklisted_species))
+		if(!(player.has_triumph_buy(TRIUMPH_BUY_RACE_ALL)))
+			to_chat(player, span_warning("Wrong species. Your prioritized role disallows [migrant_job.blacklisted_species.Join(", ")]."))
+			can_join = FALSE
+
 	if(length(migrant_job.allowed_sexes) && !(prefs.gender in migrant_job.allowed_sexes))
 		to_chat(player, span_warning("Wrong gender. Your prioritized role only allows [migrant_job.allowed_sexes.Join(", ")]."))
 		can_join = FALSE

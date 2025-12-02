@@ -915,6 +915,14 @@
 	craftdiff = 3
 	category = "Cloak"
 
+/datum/repeatable_crafting_recipe/sewing/abyssortemplar/alt
+	name = "abyssal surcoat(alt)"
+	output = /obj/item/clothing/cloak/stabard/templar/abyssor/alt
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+	category = "Cloak"
+
 /datum/repeatable_crafting_recipe/sewing/malumtemplar
 	name = "malumite surcoat"
 	output = /obj/item/clothing/cloak/stabard/templar/malum

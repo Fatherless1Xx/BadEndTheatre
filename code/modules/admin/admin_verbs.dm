@@ -147,6 +147,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/run_particle_weather,
 	/client/proc/show_tip,
 	/client/proc/smite,
+	/client/proc/heart_attack,
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom, /client/proc/respawn_character, /datum/admins/proc/beaker_panel))

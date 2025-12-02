@@ -26,6 +26,7 @@
 	var/alert_type = /atom/movable/screen/alert/status_effect
 	/// The alert itself, if it exists
 	var/atom/movable/screen/alert/status_effect/linked_alert = null
+	/// Assoc list of statkey to value
 	var/list/effectedstats = list()
 
 /datum/status_effect/New(list/arguments)
