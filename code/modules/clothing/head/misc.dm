@@ -24,6 +24,12 @@
 	icon_state = "knitcap"
 	min_cold_protection_temperature = -5
 
+/obj/item/clothing/head/turban
+	name = "turban"
+	desc = "A headwrap worn throughout the southern parts of Faience."
+	icon_state = "turban"
+	min_cold_protection_temperature = -5
+
 /obj/item/clothing/head/headband
 	name = "headband"
 	desc = "A piece of cloth worn around the temple."

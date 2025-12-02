@@ -91,7 +91,7 @@
 				if("Orcish")
 					H.grant_language(/datum/language/orcish)
 					to_chat(H,span_info("\
-					I learned the tongue of the savages in my time.")
+					I learned the tongue of the Orcs in my time.")
 					)
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/padded/pestra
