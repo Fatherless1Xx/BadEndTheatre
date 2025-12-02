@@ -85,6 +85,16 @@
 	new /obj/item/rope/chain(src)
 	new /obj/item/rope/chain(src)
 
+/datum/inqports/supplies/collar
+	name = "3 Collars of Servitude Alongside Key"
+	item_type = /obj/structure/closet/crate/chest/inqcrate/supplies/collar
+	marquescost = 8
+
+/obj/structure/closet/crate/chest/inqcrate/supplies/collar/PopulateContents()
+	for(var/i in 1 to 3)
+		new /obj/item/clothing/neck/gorget/explosive(src)
+	new /obj/item/collar_detonator(src)
+
 /datum/inqports/supplies/redpotions
 	name = "3 Bottles of Red"
 	item_type = /obj/structure/closet/crate/chest/inqcrate/supplies/redpots

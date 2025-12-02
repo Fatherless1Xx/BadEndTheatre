@@ -29,6 +29,7 @@ abstract types are automatically excluded.
 		/obj/item/clothing/head/helmet/skullcap/cult, // cultist item
 		/obj/item/clothing/head/helmet/leather/saiga, // idk what kind of recipe to make this
 		/obj/item/clothing/neck/mana_star, // todo?
+		/obj/item/clothing/neck/gorget/explosive, // Inq shop only
 		/obj/item/storage/backpack/backpack/artibackpack/porter, //Unique to Kobl
 		/obj/item/clothing/face/spectacles/inq/spawnpair, //spawn type
 		/obj/item/clothing/face/facemask/steel/confessor/lensed, //manual craft
