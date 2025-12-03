@@ -1689,6 +1689,8 @@
 #include "code\game\objects\items\plate.dm"
 #include "code\game\objects\items\pouring_mould.dm"
 #include "code\game\objects\items\quicksilver.dm"
+#include "code\game\objects\items\ritechalk.dm"
+#include "code\game\objects\items\ritualcircles.dm"
 #include "code\game\objects\items\ropechainbola.dm"
 #include "code\game\objects\items\scrolls.dm"
 #include "code\game\objects\items\signal_horn.dm"

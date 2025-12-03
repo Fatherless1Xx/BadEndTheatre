@@ -30,6 +30,7 @@
 /datum/outfit/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
+	ADD_TRAIT(H, TRAIT_RITUALIST, JOB_TRAIT)
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	H.verbs |= /mob/living/carbon/human/proc/churchcurse

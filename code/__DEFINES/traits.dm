@@ -339,6 +339,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define DEVOTION_TRAIT "devotion_trait"
 #define RAGE_TRAIT "rage_trait"
 #define TRAIT_PSYDONIAN_GRIT "Psydonian Grit" // Pain Tolerance. Through faith, ENDURE.
+#define TRAIT_RITUALIST "Ritualist" // Allows use of ritual chalk
+#define TRAIT_DREAMWALKER "Dreamwalker"
 #define TRAIT_PSYDONITE "Psydonite's Devotion" // Anti-Miracles on a selective basis, anastasis / cure rot still apply. Slow passive wound healing while you have blood.
 #define TRAIT_BLACKBAGGER "Apprehension Techniques" // Capable of using Garrotes and Blackbags. Apprehension techniques.
 #define TRAIT_LYCANRESILENCE "Werewolf Resilence"
