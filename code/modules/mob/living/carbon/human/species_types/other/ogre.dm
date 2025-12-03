@@ -66,6 +66,9 @@
 	specstats_m = list(STATKEY_STR = 2, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
 
+	pain_mod = 0.5 // 50% less pain from wounds - THIS IS BECAUSE THEY ARE ANTAG ONLY. DO NOT MAKE OGRES NON-ANTAG WITHOUT CHANGING THIS BACK
+	bleed_mod = 0.5 // 50% less bleed rate from injuries
+
 	enflamed_icon = "widefire"
 
 	organs = list(

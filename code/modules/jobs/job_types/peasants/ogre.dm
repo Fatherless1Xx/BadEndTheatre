@@ -1,12 +1,12 @@
-/datum/job/ogre
-	title = "Ogre"
-	tutorial = "A hulking wanderer from Gronn. Townsfolk tolerate you for your strength and coin, but few dare to stand in your way."
+/datum/job/advclass/wretch/ogre/dumdum
+	title = "Dum Dum"
+	tutorial = "You left Gronn because you could not find enough to eat there, and mean men kept firing arrows at you! Now you are here, and you are hungry. Time to find food!"
 	display_order = JDO_OGRE
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	department_flag = PEASANTS
-	faction = FACTION_TOWN
-	total_positions = 2
-	spawn_positions = 2
+	department_flag = OUTSIDERS
+	faction = FACTION_NEUTRAL
+	total_positions = 1
+	spawn_positions = 1
 	bypass_lastclass = TRUE
 	allowed_races = list(SPEC_ID_OGRE)
 	allowed_sexes = list(MALE, FEMALE)
@@ -39,13 +39,13 @@
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 
-/datum/job/ogre_avatar
-	title = "Ogre Avatar"
+/datum/job/advclass/wretch/ogre/avatar
+	title = "Avatar of Graggar"
 	tutorial = "A hulking avatar of Graggar. Smash, chop, or crush anything in your way."
 	display_order = JDO_OGRE + 0.1
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	department_flag = PEASANTS
-	faction = FACTION_TOWN
+	department_flag = OUTSIDERS
+	faction = FACTION_NEUTRAL
 	total_positions = 1
 	spawn_positions = 1
 	bypass_lastclass = TRUE
@@ -94,15 +94,15 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
 
-/datum/job/ogre_mercenary
+/datum/job/advclass/wretch/ogre/mercenary
 	title = "Ogre Mercenary"
 	tutorial = "A wandering sell-sword from Gronn. Get paid, get food."
 	display_order = JDO_OGRE + 0.2
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	department_flag = PEASANTS
-	faction = FACTION_TOWN
-	total_positions = 2
-	spawn_positions = 2
+	department_flag = OUTSIDERS
+	faction = FACTION_NEUTRAL
+	total_positions = 1
+	spawn_positions = 1
 	bypass_lastclass = TRUE
 	allowed_races = list(SPEC_ID_OGRE)
 	allowed_sexes = list(MALE, FEMALE)
@@ -146,13 +146,13 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
 
-/datum/job/ogre_warlord
+/datum/job/advclass/wretch/ogre/warlord
 	title = "Ogre Warlord"
 	tutorial = "A war horn calls you to lead and crush."
 	display_order = JDO_OGRE + 0.3
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	department_flag = PEASANTS
-	faction = FACTION_TOWN
+	department_flag = OUTSIDERS
+	faction = FACTION_NEUTRAL
 	total_positions = 1
 	spawn_positions = 1
 	bypass_lastclass = TRUE
@@ -197,13 +197,13 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
 
-/datum/job/ogre_cook
-	title = "Ogre Cook"
+/datum/job/advclass/wretch/ogre/cook
+	title = "Cook-Cook"
 	tutorial = "A massive cook with an even bigger appetite."
 	display_order = JDO_OGRE + 0.4
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	department_flag = PEASANTS
-	faction = FACTION_TOWN
+	department_flag = OUTSIDERS
+	faction = FACTION_NEUTRAL
 	total_positions = 1
 	spawn_positions = 1
 	bypass_lastclass = TRUE
