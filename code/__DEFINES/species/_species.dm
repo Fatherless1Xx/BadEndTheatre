@@ -101,7 +101,6 @@
 	SPEC_ID_KOBOLD,\
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_HALF_ORC,\
-	SPEC_ID_OGRE,\
 )
 
 /// Species not considered discriminated against in Vanderlin. Used for nobility, etc.

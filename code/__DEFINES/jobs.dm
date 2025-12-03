@@ -153,6 +153,7 @@
 #define JDO_PURITAN 40
 #define JDO_ORTHODOXIST	40.1
 #define JDO_ABSOLVER 40.2
+#define JDO_OGRE 41
 
 #define BITFLAG_CHURCH (1<<0)
 #define BITFLAG_ROYALTY (1<<1)

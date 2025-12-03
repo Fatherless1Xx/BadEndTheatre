@@ -131,17 +131,10 @@
 	return TRUE
 
 /datum/species/ogre/get_skin_list()
-	return list(
-		"Shellcrest" = SKIN_COLOR_SHELLCREST,
-		"Bloodaxe" = SKIN_COLOR_BLOOD_AXE,
-		"Splitjaw" = SKIN_COLOR_GROONN,
-		"Blackhammer" = SKIN_COLOR_BLACK_HAMMER,
-		"Skullseeker" = SKIN_COLOR_SKULL_SEEKER,
-		"Crescent Fang" = SKIN_COLOR_CRESCENT_FANG,
-		"Murkwalker" = SKIN_COLOR_MURKWALKER,
-		"Shatterhorn" = SKIN_COLOR_SHATTERHORN,
-		"Spiritcrusher" = SKIN_COLOR_SPIRITCRUSHER,
-	)
+	return sortList(list(
+	"skin1" = "ffe0d1",
+	"skin2" = "fcccb3",
+	))
 
 /datum/species/ogre/get_hairc_list()
 	return sortList(list(
