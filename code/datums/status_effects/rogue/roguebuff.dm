@@ -976,3 +976,144 @@
 /atom/movable/screen/alert/status_effect/buff/free_feet
 	name = "Foot Freedom"
 	desc = "Not wearing shoes allows me to move more freely."
+
+#define BLESSINGOFSUN_FILTER "guidinglight_outline"
+
+/datum/status_effect/buff/guidinglight
+	id = "guidinglight"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/guidinglight
+	duration = 30 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+	effectedstats = list(STATKEY_PER = 2)
+	examine_text = "SUBJECTPRONOUN walks with Her Light!"
+	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj
+	var/outline_colour = "#ffffff"
+
+/datum/status_effect/buff/guidinglight/on_apply()
+	. = ..()
+	if(!.)
+		return
+	to_chat(owner, span_notice("Light blossoms into being around me!"))
+	if(!owner.get_filter(BLESSINGOFSUN_FILTER))
+		owner.add_filter(BLESSINGOFSUN_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
+	mob_light_obj = owner.mob_light("#fdfbd3", 10, 10)
+	return TRUE
+
+/datum/status_effect/buff/guidinglight/on_remove()
+	. = ..()
+	playsound(owner, 'sound/items/firesnuff.ogg', 75, FALSE)
+	to_chat(owner, span_notice("The miraculous light surrounding me has fled..."))
+	owner.remove_filter(BLESSINGOFSUN_FILTER)
+	QDEL_NULL(mob_light_obj)
+
+/atom/movable/screen/alert/status_effect/buff/guidinglight
+	name = "Guiding Light"
+	desc = "Astrata's light guides me forward."
+	icon_state = "guidinglight"
+
+/datum/status_effect/buff/moonlightdance
+	id = "Moonsight"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/moonlightdance
+	effectedstats = list(STATKEY_INT = 2)
+	duration = 25 MINUTES
+
+/datum/status_effect/buff/moonlightdance/on_apply()
+	. = ..()
+	to_chat(owner, span_warning("I see through the Moonlight. Silvery threads dance in my vision."))
+	ADD_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
+
+/datum/status_effect/buff/moonlightdance/on_remove()
+	. = ..()
+	to_chat(owner, span_warning("Noc's silver leaves my mind."))
+	REMOVE_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
+
+/atom/movable/screen/alert/status_effect/buff/moonlightdance
+	name = "Moonlight Dance"
+	desc = "Noc's stony touch lays upon my mind, bringing me wisdom."
+	icon_state = "moonlightdance"
+
+/atom/movable/screen/alert/status_effect/buff/flylordstriage
+	name = "Flylord's Triage"
+	desc = "Pestra's servants crawl through my pores and wounds!"
+	icon_state = "buff"
+
+/datum/status_effect/buff/flylordstriage
+	id = "flylordstriage"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/flylordstriage
+	duration = 20 SECONDS
+	var/healing_on_tick = 40
+
+/datum/status_effect/buff/flylordstriage/tick()
+	playsound(owner, 'sound/misc/fliesloop.ogg', 100, FALSE, -1)
+	owner.flash_fullscreen("redflash3")
+	owner.emote("agony")
+	new /obj/effect/temp_visual/flies(get_turf(owner))
+	var/list/wCount = owner.get_wounds()
+	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
+		owner.blood_volume = min(owner.blood_volume+100, BLOOD_VOLUME_NORMAL)
+	if(wCount.len > 0)
+		owner.heal_wounds(healing_on_tick)
+		owner.update_damage_overlays()
+	owner.adjustBruteLoss(-healing_on_tick, 0)
+	owner.adjustFireLoss(-healing_on_tick, 0)
+	owner.adjustOxyLoss(-healing_on_tick, 0)
+	owner.adjustToxLoss(-healing_on_tick, 0)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
+	owner.adjustCloneLoss(-healing_on_tick, 0)
+
+/datum/status_effect/buff/flylordstriage/on_remove()
+	if(!..())
+		return FALSE
+	to_chat(owner,span_userdanger("It's finally over..."))
+	return TRUE
+
+/obj/effect/temp_visual/flies
+	name = "Flylord's triage"
+	icon = 'icons/roguetown/mob/rotten.dmi'
+	icon_state = "rotten"
+	duration = 15
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_ALL_MOB_LAYER
+
+/atom/movable/screen/alert/status_effect/buff/lesserwolf
+	name = "Blessing of the Lesser Wolf"
+	desc = "I swell with the embuement of a predator..."
+	icon_state = "buff"
+
+/datum/status_effect/buff/lesserwolf
+	id = "lesserwolf"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/lesserwolf
+	duration = 30 MINUTES
+
+/datum/status_effect/buff/lesserwolf/on_apply()
+	. = ..()
+	to_chat(owner, span_warning("I feel my leg muscles grow taut, my teeth sharp, I am embued with the power of a predator. Branches and brush reach out for my soul..."))
+	ADD_TRAIT(owner, TRAIT_LONGSTRIDER, id)
+	ADD_TRAIT(owner, TRAIT_STRONGBITE, id)
+
+/datum/status_effect/buff/lesserwolf/on_remove()
+	. = ..()
+	to_chat(owner, span_warning("I feel Dendor's blessing leave my body..."))
+	REMOVE_TRAIT(owner, TRAIT_LONGSTRIDER, id)
+	REMOVE_TRAIT(owner, TRAIT_STRONGBITE, id)
+
+/atom/movable/screen/alert/status_effect/buff/dreamcraft
+	name = "Dreamcraft"
+	desc = "The dream hums through me, granting strange clarity and vigor."
+	icon_state = "buff"
+
+/datum/status_effect/buff/dreamcraft
+	id = "dreamcraft"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/dreamcraft
+	duration = 20 MINUTES
+	effectedstats = list(STATKEY_SPD = 2, STATKEY_PER = 1)
+
+/datum/status_effect/buff/dreamcraft/on_apply()
+	. = ..()
+	to_chat(owner, span_notice("The dream coalesces around you, sharpening your focus."))
+
+/datum/status_effect/buff/dreamcraft/on_remove()
+	if(!..())
+		return FALSE
+	to_chat(owner, span_notice("The dreamstuff slips away, leaving you grounded once more."))
+	return TRUE

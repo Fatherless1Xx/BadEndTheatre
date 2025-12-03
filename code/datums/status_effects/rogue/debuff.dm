@@ -584,3 +584,33 @@
 		STATKEY_INT = -3,
 	)
 	duration = 1 MINUTES
+
+/datum/status_effect/debuff/ritesexpended
+	id = "ritesexpended"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/ritesexpended
+	duration = 30 MINUTES
+
+/atom/movable/screen/alert/status_effect/debuff/ritesexpended
+	name = "Rites Complete"
+	desc = "It will take time before I can next perform a rite."
+	icon_state = "ritesexpended"
+
+/datum/status_effect/debuff/ritesexpended_heavy
+	id = "ritesexpended_heavy"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/ritesexpended_heavy
+	duration = 1 HOURS
+
+/atom/movable/screen/alert/status_effect/debuff/ritesexpended_heavy
+	name = "Rites Complete"
+	desc = "It will take a lot of time before I can perform a next rite. I am drained."
+	icon_state = "ritesexpended"
+
+/datum/status_effect/debuff/ritesexpended_lesser
+	id = "ritesexpended_lesser"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/ritesexpended_lesser
+	duration = 5 MINUTES
+
+/atom/movable/screen/alert/status_effect/debuff/ritesexpended_lesser
+	name = "Rites Complete"
+	desc = "It will be a short period before I can perform another rite."
+	icon_state = "ritesexpended"
