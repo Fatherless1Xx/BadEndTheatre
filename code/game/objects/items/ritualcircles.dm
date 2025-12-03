@@ -287,6 +287,134 @@
 	icon_state = "abyssoralt_chalky"
 	desc = "A Holy Rune of Abyssor. This one seems different to the rest."
 	allow_dreamwalkers = TRUE
+	var/stirringrites = list("Rite of the Crystal Spire")
+	var/list/dreamwalker_rites = list("Rite of Dreamcraft")
+
+/obj/structure/ritualcircle/abyssor_alt_inactive/attack_hand(mob/living/user)
+	if(!..())
+		return
+	// Allow both Abyssorites and Dreamwalkers to use the rune
+	if((user.patron?.type) != /datum/patron/divine/abyssor && !HAS_TRAIT(user, TRAIT_DREAMWALKER))
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(user.has_status_effect(/datum/status_effect/debuff/ritesexpended))
+		to_chat(user,span_smallred("I have performed enough rituals for the day... I must rest before communing more."))
+		return
+
+	var/list/available_rites = list()
+
+	if(user.patron?.type == /datum/patron/divine/abyssor)
+		available_rites += stirringrites
+
+	if(HAS_TRAIT(user, TRAIT_DREAMWALKER))
+		available_rites += dreamwalker_rites
+
+	if(!length(available_rites))
+		to_chat(user,span_smallred("No rites are currently available."))
+		return
+
+	var/riteselection = input(user, "Rites of his dream", src) as null|anything in available_rites
+	switch(riteselection)
+		if("Rite of the Crystal Spire")
+			if(do_after(user, 50))
+				user.say("Deep Father, hear my call!")
+				if(do_after(user, 50))
+					user.say("From the Abyss, split the earth!")
+					if(do_after(user, 50))
+						icon_state = "abyssoralt_active"
+						user.say("Let your tempest chase away the craven ones!")
+						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with Abyssor's power."))
+						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+						spawn(240)
+							icon_state = "abyssoralt_chalky"
+		if("Rite of Dreamcraft")
+			if(!HAS_TRAIT(user, TRAIT_DREAMWALKER))
+				return
+
+			var/list/weapon_options = list(
+				"Dreamreaver Greataxe" = image(icon = 'icons/roguetown/weapons/64.dmi', icon_state = "dreamaxe"),
+				"Harmonious Spear" = image(icon = 'icons/roguetown/weapons/64.dmi', icon_state = "dreamspear"),
+				"Oozing Sword" = image(icon = 'icons/roguetown/weapons/64.dmi', icon_state = "dreamsword"),
+				"Thunderous Trident" = image(icon = 'icons/roguetown/weapons/64.dmi', icon_state = "dreamtri")
+			)
+
+			var/choice = show_radial_menu(user, src, weapon_options, require_near = TRUE, tooltips = TRUE)
+			if(!choice)
+				return
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("DREAM! DREAM! MANIFEST MY VISION!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("DREAM! DREAM! BEND TO MY WILL!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("DREAM! DREAM! FORGE MY WEAPON!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+
+			icon_state = "abyssoralt_active"
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+			dreamarmor(user)
+			dreamcraft_weapon(user, choice)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				if(H.mind)
+					H.mind.special_role = "dreamwalker"
+			spawn(240)
+				icon_state = "abyssoralt_chalky"
+
+/obj/structure/ritualcircle/abyssor_alt_inactive/proc/dreamcraft_weapon(mob/living/user, choice)
+	var/obj/item/new_weapon
+	var/datum/skill/skill_to_teach
+
+	switch(choice)
+		if("Harmonious Spear")
+			new_weapon = new /obj/item/weapon/polearm/spear/dreamscape(user.loc)
+			skill_to_teach = /datum/skill/combat/polearms
+		if("Oozing Sword")
+			new_weapon = new /obj/item/weapon/sword/long/greatsword/dreamscape(user.loc)
+			skill_to_teach = /datum/skill/combat/swords
+		if("Dreamreaver Greataxe")
+			new_weapon = new /obj/item/weapon/axe/dreamscape(user.loc)
+			skill_to_teach = /datum/skill/combat/axesmaces
+		if("Thunderous Trident")
+			new_weapon = new /obj/item/weapon/polearm/spear/dreamscape_trident(user.loc)
+			skill_to_teach = /datum/skill/combat/polearms
+
+	if(new_weapon)
+		user.put_in_hands(new_weapon)
+		to_chat(user, span_warning("The dream solidifies into a [choice]!"))
+
+		var/current_skill = user.get_skill_level(skill_to_teach)
+		var/current_athletics = user.get_skill_level(/datum/skill/misc/athletics)
+		if(current_skill < 4)
+			user.adjust_skillrank(skill_to_teach, 4 - current_skill, TRUE)
+			to_chat(user, span_notice("Knowledge of [skill_to_teach] floods your mind!"))
+		if(current_athletics < 6)
+			user.adjust_skillrank(/datum/skill/misc/athletics, 6 - current_athletics, TRUE)
+			to_chat(user, span_notice("Your endurance swells!"))
+	else
+		to_chat(user, span_warning("The dream fails to take shape."))
+
+/obj/structure/ritualcircle/abyssor_alt_inactive/proc/dreamarmor(mob/living/carbon/human/target)
+	if(!HAS_TRAIT(target, TRAIT_DREAMWALKER))
+		loc.visible_message(span_cult("THE RITE REJECTS ONE WHO DOES NOT BEND THE DREAMS TO THEIR WILL."))
+		return
+	target.Stun(60)
+	target.Knockdown(60)
+	to_chat(target, span_userdanger("UNIMAGINABLE PAIN!"))
+	target.emote("Agony")
+	playsound(loc, 'sound/combat/newstuck.ogg', 50)
+	loc.visible_message(span_cult("Ethereal tendrils emerge from the rune, wrapping around [target]'s body. Their form shifts and warps as dream-stuff solidifies into armor."))
+	spawn(20)
+		playsound(loc, 'sound/combat/hits/onmetal/grille (2).ogg', 50)
+		target.equipOutfit(/datum/outfit/job/roguetown/dreamwalker_armorrite)
+		spawn(40)
+			to_chat(target, span_purple("Reality is but a fragile dream. You are the dreamer, and your will is law."))
 
 /obj/structure/ritualcircle/zizo
 	name = "Rune of Progress"

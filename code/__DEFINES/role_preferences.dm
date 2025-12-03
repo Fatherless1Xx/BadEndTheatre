@@ -18,6 +18,7 @@
 #define ROLE_ASPIRANT			"Aspirant"
 #define ROLE_BOUND_BEAST		"Bound Beast"
 #define ROLE_HARLEQUINN 		"Harlequinn"
+#define ROLE_DREAMWALKER		"Dreamwalker"
 
 #define ROLE_NECRO_SKELETON		"Necromancer Skeleton"
 
@@ -31,6 +32,7 @@ GLOBAL_LIST_INIT(special_roles_rogue, list(
 	ROLE_NBEAST = /datum/antagonist/vampire,
 	ROLE_ASPIRANT = /datum/antagonist/aspirant,
 	ROLE_LICH = /datum/antagonist/lich,
+	ROLE_DREAMWALKER = /datum/antagonist/dreamwalker,
 	ROLE_HARLEQUINN = /datum/antagonist/harlequinn
 ))
 
