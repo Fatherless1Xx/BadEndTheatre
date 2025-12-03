@@ -88,3 +88,13 @@
 	max_integrity = INTEGRITY_STANDARD
 	salvage_result = /obj/item/natural/fur
 	item_weight = 4
+
+/obj/item/clothing/gloves/leather/ogre
+	name = "oversized gloves"
+	desc = "Huge, leather gloves - the size of a human head."
+	icon = 'icons/roguetown/ogre/clothing/gloves.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogreglove"
+	item_state = "ogreglove"
+	allowed_race = list(SPEC_ID_OGRE)

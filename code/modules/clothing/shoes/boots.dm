@@ -182,6 +182,26 @@
 	armor = ARMOR_PLATE_GOOD
 	item_weight = 5 * STEEL_MULTIPLIER
 
+/obj/item/clothing/shoes/boots/armor/ogre
+	name = "oversized plated boots"
+	desc = "Huge, iron boots - the size of a human waist."
+	icon = 'icons/roguetown/ogre/clothing/feet.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_plateboots"
+	item_state = "ogre_plateboots"
+	allowed_race = list(SPEC_ID_OGRE)
+
+/obj/item/clothing/shoes/boots/ogre
+	name = "oversized boots"
+	desc = "Huge, leather boots - the size of a human waist."
+	icon = 'icons/roguetown/ogre/clothing/feet.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_boots"
+	item_state = "ogre_boots"
+	allowed_race = list(SPEC_ID_OGRE)
+
 //............... Evil Boots ............... //
 
 /obj/item/clothing/shoes/boots/armor/zizo

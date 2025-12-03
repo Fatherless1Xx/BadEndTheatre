@@ -410,6 +410,18 @@
 	icon_state = "carpentercudgel"
 	desc = "A stubby club reinforced with iron bits, popular among village watchmen and peasant militias. Despite being reinforced and hard-hitting, it still cannot compare to a proper mace."
 
+/obj/item/weapon/mace/cudgel/ogre
+	name = "weird cudgel"
+	desc = "This kinda looks like a bell ringer. There's no handle, so it's probably an emergency item."
+	force = 25
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	icon_state = "ogre_cudgel"
+	force_wielded = 25
+	minstr = 13
+	pixel_y = -16
+	pixel_x = -16
+	gripsprite = TRUE
+
 
 //................ Wooden sword ............... //
 /obj/item/weapon/mace/woodclub/train_sword
@@ -498,6 +510,30 @@
 //	slowdown = 1
 	sellprice = 60
 	wbalance = DODGE_CHANCE_NORMAL
+
+/obj/item/weapon/mace/goden/steel/ogre
+	name = "wackin' stick"
+	desc = "SMASH 'EM."
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	icon_state = "ogre_anvil"
+	force = 20
+	force_wielded = 40
+	gripped_intents = list(/datum/intent/mace/smash/heavy)
+	smeltresult = /obj/item/ingot/steel
+	minstr = 15
+	max_integrity = 260
+
+/obj/item/weapon/mace/goden/steel/ogre/graggar
+	name = "big klobba"
+	desc = "CRUSH 'EM!"
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	icon_state = "ogre_mace"
+	force = 25
+	force_wielded = 50
+	gripped_intents = list(/datum/intent/mace/smash/heavy)
+	smeltresult = /obj/item/ingot/steel
+	minstr = 15
+	max_integrity = 280
 
 /obj/item/weapon/mace/goden/steel/getonmobprop(tag)
 	. = ..()

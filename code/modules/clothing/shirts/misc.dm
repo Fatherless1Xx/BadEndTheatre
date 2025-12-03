@@ -146,4 +146,14 @@
 	color = pick(CLOTHING_LINEN, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN, CLOTHING_BERRY_BLUE, CLOTHING_BLOOD_RED, CLOTHING_PEAR_YELLOW, CLOTHING_ROYAL_TEAL)
 	return ..()
 
+/obj/item/clothing/shirt/ogre
+	name = "gigantic shirt"
+	desc = "This thing's three times the size of a normal human body!"
+	icon = 'icons/roguetown/ogre/clothing/shirts.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_shirt"
+	item_state = "ogre_shirt"
+	allowed_race = list(SPEC_ID_OGRE)
+
 

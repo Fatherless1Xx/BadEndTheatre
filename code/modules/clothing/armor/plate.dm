@@ -201,6 +201,16 @@
 	desc = "A relic that is said to have survived the early sieges of Grenzelhoft, refurbished and repurposed to slay the arch-enemy in the name of Psydon. <br> A fluted cuirass that has been reinforced with thick padding and an additional shoulder piece. You will endure."
 	icon_state = "ordinatorplate"
 
+/obj/item/clothing/armor/plate/ogre
+	name = "gigantic cuirass"
+	desc = "This thing's absurdly thick. Heavy, too."
+	icon = 'icons/roguetown/ogre/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_cuirass"
+	item_state = "ogre_cuirass"
+	max_integrity = 450
+	allowed_race = list(SPEC_ID_OGRE)
+
 
 /datum/status_effect/buff/psydonic_endurance
 	id = "psydonic_endurance"

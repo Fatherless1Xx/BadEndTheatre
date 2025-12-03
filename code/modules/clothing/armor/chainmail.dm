@@ -75,3 +75,13 @@
 	armor = ARMOR_SCALE
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	item_weight = 7 * STEEL_MULTIPLIER
+
+/obj/item/clothing/armor/chainmail/hauberk/ogre
+	name = "large hauberk"
+	desc = "This looks like it would fit someone of gargantuan size."
+	icon = 'icons/roguetown/ogre/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_maille"
+	item_state = "ogre_maille"
+	allowed_race = list(SPEC_ID_OGRE)

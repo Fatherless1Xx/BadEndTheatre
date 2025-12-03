@@ -57,3 +57,13 @@
 	smeltresult = /obj/item/ingot/iron
 	armor = ARMOR_MAILLE_IRON
 	max_integrity = INTEGRITY_STRONG
+
+/obj/item/clothing/pants/chainlegs/ogre
+	name = "oversized chain chausses"
+	desc = "A single pant leg could fit a human body."
+	icon = 'icons/roguetown/ogre/clothing/pants.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_chain"
+	item_state = "ogre_chain"
+	allowed_race = list(SPEC_ID_OGRE)

@@ -1043,6 +1043,19 @@
 	melting_material = /datum/material/iron
 	melt_amount = 225
 
+/obj/item/weapon/sword/long/greatsword/zwei/ogre
+	name = "big choppa"
+	desc = "DICE 'EM."
+	icon_state = "ogre_sword"
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	minstr = 15
+	force = 20
+	force_wielded = 35
+	max_blade_int = 250
+	max_integrity = 260
+	wbalance = VERY_EASY_TO_DODGE
+	bigboy = TRUE
+
 /obj/item/weapon/sword/long/greatsword/zwei/getonmobprop(tag)
 	. = ..()
 	if(tag)

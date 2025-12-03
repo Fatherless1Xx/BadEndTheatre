@@ -40,3 +40,12 @@
 	item_state = "aproncook"
 	body_parts_covered = GROIN
 	boobed = FALSE
+
+/obj/item/clothing/cloak/apron/ogre
+	name = "gigantic apron"
+	desc = "An absurdly oversized apron. Most humanoids can't wear this."
+	icon = 'icons/roguetown/ogre/clothing/cloaks.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "cookapron"
+	item_state = "cookapron"
+	allowed_race = list(SPEC_ID_OGRE)

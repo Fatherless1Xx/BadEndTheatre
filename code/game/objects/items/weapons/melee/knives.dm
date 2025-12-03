@@ -255,6 +255,19 @@
 	wbalance = 0 // Except this one, too huge and used to chop
 	dropshrink = 0.9
 
+/obj/item/weapon/knife/cleaver/ogre
+	name = "small choppa"
+	desc = "Mush 'em good."
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	icon_state = "ogre_cleaver"
+	force = 25
+	wbalance = VERY_EASY_TO_DODGE
+	wdefense = 10
+	minstr = 13
+	pixel_y = -16
+	pixel_x = -16
+	bigboy = TRUE
+
 //................ Hack-Knife ............... //
 /obj/item/weapon/knife/cleaver/combat
 	name = "hack-knife"

@@ -59,3 +59,13 @@
 /obj/item/clothing/pants/tights/sailor
 	name = "pants"
 	icon_state = "sailorpants"
+
+/obj/item/clothing/pants/tights/ogre
+	name = "oversized pants"
+	desc = "A goblin could make a bedroll out of this."
+	icon = 'icons/roguetown/ogre/clothing/pants.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_pants"
+	item_state = "ogre_pants"
+	allowed_race = list(SPEC_ID_OGRE)

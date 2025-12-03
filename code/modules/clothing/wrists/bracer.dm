@@ -102,6 +102,16 @@
 	. = ..()
 	filters += filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
 
+/obj/item/clothing/wrists/bracers/ogre
+	name = "thick bracers"
+	desc = "Normal humans can fit a leg through this hunk of steel."
+	icon = 'icons/roguetown/ogre/clothing/wrists.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogre_bracers"
+	item_state = "ogre_bracers"
+	allowed_race = list(SPEC_ID_OGRE)
+
 /obj/item/clothing/wrists/bracers/psythorns
 	name = "psydonian thorns"
 	desc = "Thorns fashioned from pliable yet durable blacksteel - woven and interlinked, fashioned to be wrapped around the wrists."

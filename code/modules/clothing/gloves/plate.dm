@@ -60,7 +60,17 @@
 	item_weight = 7 * BLACKSTEEL_MULTIPLIER
 	sellprice = VALUE_SILVER_ITEM * 2
 
-	//............... Evil Gloves ............... //
+/obj/item/clothing/gloves/plate/ogre
+	name = "oversized gauntlets"
+	desc = "Huge, iron gauntlets - the size of a human head."
+	icon = 'icons/roguetown/ogre/clothing/gloves.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	icon_state = "ogregrabbers"
+	item_state = "ogregrabbers"
+	allowed_race = list(SPEC_ID_OGRE)
+
+//............... Evil Gloves ............... //
 
 /obj/item/clothing/gloves/plate/zizo
 	name = "darksteel gauntlets"

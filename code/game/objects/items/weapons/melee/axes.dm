@@ -545,6 +545,16 @@
 	icon = 'icons/roguetown/weapons/64.dmi'
 	sellprice = 0 // Graggarite axe, nobody wants this
 
+/obj/item/weapon/greataxe/steel/doublehead/graggar/ogre
+	name = "imposing greataxe"
+	desc = "GRAAAAAHHHHHH!!!"
+	icon_state = "ogre_axe"
+	icon = 'icons/roguetown/ogre/weapons_64.dmi'
+	force = 20
+	force_wielded = 40
+	max_blade_int = 250
+	wbalance = VERY_EASY_TO_DODGE
+
 
 /obj/item/weapon/greataxe/dreamscape
 	force = 10

@@ -377,6 +377,15 @@
 	max_integrity = INTEGRITY_STRONG
 	prevent_crits = ALL_EXCEPT_STAB
 
+/obj/item/clothing/neck/gorget/ogre
+	name = "weirdly big gorget"
+	desc = "It might be possible to fit this ontop of some human shoulders."
+	icon = 'icons/roguetown/ogre/clothing/neck.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_gorget"
+	item_state = "ogre_gorget"
+	allowed_race = list(SPEC_ID_OGRE)
+
 /obj/item/clothing/neck/gorget/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_HARD_TO_STEAL, TRAIT_GENERIC)

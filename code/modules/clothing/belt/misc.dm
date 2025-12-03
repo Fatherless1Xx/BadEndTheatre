@@ -533,3 +533,11 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/gold
 	component_type = /datum/component/storage/concrete/grid/headhook/bronze
+
+/obj/item/storage/belt/leather/ogre
+	name = "gigantic belt"
+	desc = "This one's too large for normal people."
+	icon = 'icons/roguetown/ogre/clothing/belts.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_belt"
+	item_state = "ogre_belt"
