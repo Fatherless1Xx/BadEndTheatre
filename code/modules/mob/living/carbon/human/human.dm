@@ -3,9 +3,9 @@
 	if(!user)
 		return
 	var/obj/item/held_item = user.get_active_held_item()
-	// Remove stockings when leg-grabbed and empty-handed
-	if(!held_item && ishuman(user) && legwear_socks)
-		var/has_leg_grab = FALSE
+	// Remove stockings when leg-grabbed; allow using the grabbing hand itself
+	if(ishuman(user) && legwear_socks)
+		var/obj/item/grabbing/leg_grab
 		for(var/obj/item/I as anything in user.held_items)
 			if(!istype(I, /obj/item/grabbing))
 				continue
@@ -15,11 +15,14 @@
 			if(istype(G.limb_grabbed, /obj/item/bodypart))
 				var/obj/item/bodypart/BP = G.limb_grabbed
 				if(BP.body_zone == BODY_ZONE_L_LEG || BP.body_zone == BODY_ZONE_R_LEG)
-					has_leg_grab = TRUE
+					leg_grab = G
 					break
-		if(has_leg_grab)
-			if(try_remove_legwear(user, 40))
-				return
+		if(leg_grab)
+			var/using_grabbing_hand = (held_item == leg_grab)
+			var/hand_free_or_grab = (!held_item || using_grabbing_hand)
+			if(hand_free_or_grab)
+				if(try_remove_legwear(user, 40))
+					return
 	if(held_item && (user.zone_selected == BODY_ZONE_PRECISE_MOUTH))
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			var/datum/bodypart_feature/hair/facial = get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
