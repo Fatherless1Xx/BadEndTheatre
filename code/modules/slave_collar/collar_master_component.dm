@@ -236,6 +236,12 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return FALSE
 	ghost.can_reenter_corpse = FALSE
 	to_chat(ghost, span_warning("Your spirit is yanked from your body by the cursed collar! You will be pulled back soon."))
+	pet_mind.transfer_to(ghost, TRUE)
+	if(pet_mind.current != ghost)
+		if(mindparent?.current)
+			to_chat(mindparent.current, span_warning("The collar fizzles; the link to the pet's spirit fails."))
+		pet_ghost_cleanup(ghost)
+		return FALSE
 
 	var/mob/living/master_body = mindparent.current
 	remote_control_master_body = master_body
@@ -274,4 +280,9 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		to_chat(mindparent.current, span_notice("The collar releases its hold; you return to your own body."))
 	if(pet_mind?.current && pet_mind.current != mindparent?.current)
 		to_chat(pet_mind.current, span_notice("Control of your body snaps back to you."))
+	return TRUE
+
+/datum/component/collar_master/proc/pet_ghost_cleanup(mob/dead/observer/ghost)
+	if(ghost && !QDELETED(ghost))
+		ghost.reenter_corpse(TRUE)
 	return TRUE
