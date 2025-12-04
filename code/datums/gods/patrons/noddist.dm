@@ -1,6 +1,6 @@
 /datum/patron/noddist
 	name = null
-	associated_faith = /datum/faith/noddism
+	associated_faith = /datum/faith/noddist
 
 	profane_words = list()
 
