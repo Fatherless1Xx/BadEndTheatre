@@ -375,8 +375,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOSLEEP				"Fatal Insomnia" //for thralls
 #define TRAIT_FASTSLEEP 			"Fast Sleeper"
 #define TRAIT_NUDIST					"Nudist" //you can't wear most clothes
-#define TRAIT_INHUMANE_ANATOMY			"Inhumen Anatomy" //can't wear hats and shoes
-#define TRAIT_NASTY_EATER 				"Inhumen Digestion" //can eat rotten food, organs, poison berries, and drink murky water
+#define TRAIT_INHUMANE_ANATOMY			"Inhuman Anatomy" //can't wear hats and shoes
+#define TRAIT_NASTY_EATER 				"Inhuman Digestion" //can eat rotten food, organs, poison berries, and drink murky water
 #define TRAIT_NOFALLDAMAGE1 		"Minor Fall Damage Immunity"
 #define TRAIT_NOFALLDAMAGE2 		"Total	 Fall Damage Immunity"
 #define TRAIT_DEATHSIGHT "Veiled Whispers" // Is notified when a player character dies, but not told exactly where or how.
@@ -438,8 +438,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PURITAN					"Puritan"
 #define TRAIT_SILVER_BLESSED 			"Silver Blessed"
 
-// Inhumen patron trait bonuses:
-#define TRAIT_ORGAN_EATER				"Blessing of Graggar"//Can eat organs (duh.) and raw meat
+// Inhuman patron trait bonuses:
+#define TRAIT_ORGAN_EATER				"Fleshfeaster"//Can eat organs (duh.) and raw meat
 #define TRAIT_CRACKHEAD					"Blessing of Baotha" //No overdose on drugs.
 #define TRAIT_CABAL                     "Of the Cabal" //Zizo cultists recognize each other too
 #define TRAIT_MATTHIOS_EYES				"Eyes of Matthios" //Examine to see the most expensive item someone has
