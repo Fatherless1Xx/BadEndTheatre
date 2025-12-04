@@ -424,7 +424,7 @@
 			STATS_NOBLE_DEATHS = list("name" = "Nobles killed:", "points" = 5.5, "capacity" = 80),
 		),
 		"Set 3" = list(
-			STATS_DEADITES_WOKEN_UP = list("name" = "Deadites woken up:", "points" = 4.5, "capacity" = 85),
+			STATS_DEADITES_WOKEN_UP = list("name" = "undeads woken up:", "points" = 4.5, "capacity" = 85),
 		),
 		"Set 4" = list(
 			STATS_CLERGY_DEATHS = list("name" = "Clergy killed:", "points" = 12.25, "capacity" = 70),
