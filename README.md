@@ -1,20 +1,14 @@
-# Bad End Theatre
+# NOCTRA
 
-## About
-
-This is a server for Lovers. Noddists. Those who find joy in many things. Those who explore the inner limits of their peristaltating boundraries.
-
-To us a dangling jawbone is as tantalizing as a pair of succulent breasts might be to you right now. Stay with us. Learn our ways.
-
-[![BYOND Build](https://github.com/Fatherless1Xx/BadEndTheatre/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/Fatherless1Xx/BadEndTheatre/actions/workflows/ci_suite.yml)
+[![BYOND Build](https://github.com/Monkestation/Vanderlin/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/Monkestation/Vanderlin/actions/workflows/ci_suite.yml)
 
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
-| Discord    | [https://discord.gg/8xwjCuupeq](https://discord.gg/8xwjCuupeq) |
-| Code    | [https://github.com/Fatherless1Xx/BadEndTheatre](https://github.com/Fatherless1Xx/BadEndTheatre) |
-| Website    | TBD |
-| Vanderlin Discord | [https://discord.monkestation@ookthedidyblud.com](https://discord.monkestation.com) |
-| Vanderlin Code    | [https://github.com/ookthedidyblud/Vanderlin](https://github.com/Monkestation/Vanderlin)    |
+| Discord    | [https://discord.gg/99tqMbqfDt](https://discord.gg/99tqMbqfDt) |
+| Code    | [https://github.com/Monkestation/Noctra/](https://github.com/Monkestation/Noctra/) |
+| Website    | [https://noctragame.com](https://noctragame.com) |
+| Vanderlin Discord | [https://discord.monkestation.com](https://discord.monkestation.com) |
+| Vanderlin Code    | [https://github.com/Monkestation/Vanderlin](https://github.com/Monkestation/Vanderlin)    |
 
 ## LICENSE
 Original Fork Originates from [commit c28b351807bad950d2b323ada048190844bbda32](https://github.com/tgstation/tgstation/commit/c28b351807bad950d2b323ada048190844bbda32).
