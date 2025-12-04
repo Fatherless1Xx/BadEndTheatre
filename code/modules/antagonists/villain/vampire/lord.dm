@@ -1,11 +1,11 @@
 /datum/antagonist/vampire/lord
-	name = "Vampire Lord"
+	name = "Noctulian Master"
 	antag_hud_type = ANTAG_HUD_VAMPIRE
 	antag_hud_name = "vamplord"
 	confess_lines = list(
 		"I AM ANCIENT!",
 		"I AM THE LAND!",
-		"FIRSTBORNE CHILD OF KAIN!",
+		"FIRSTBORNE CHILD OF NODD!",
 	)
 
 	var/ascended = FALSE
@@ -70,7 +70,7 @@
 	owner.unknow_all_people()
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
-	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
+	for(var/datum/mind/MF in get_minds("Noctulian Spawn"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
 	for(var/datum/mind/MF in get_minds("Death Knight"))
@@ -114,7 +114,7 @@
 // NEW VERBS
 /mob/living/carbon/human/proc/demand_submission()
 	set name = "Demand Submission"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 	if(SSmapping.retainer.king_submitted)
 		to_chat(src, span_warning("I am already the Master of [SSmapping.config.map_name]."))
 		return
@@ -138,7 +138,7 @@
 
 /mob/living/carbon/human/proc/punish_spawn()
 	set name = "Punish Minion"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	var/list/possible = list()
 	for(var/mob/living/carbon/human/member in clan?.clan_members)

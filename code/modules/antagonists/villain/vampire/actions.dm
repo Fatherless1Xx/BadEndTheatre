@@ -3,7 +3,7 @@
 	var/TELEPATHY_COOLDOWN = 30 SECONDS
 
 	set name = "Telepathy"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	if(!mind)
 		return
@@ -34,7 +34,7 @@
 
 /mob/living/carbon/human/proc/disguise_button()
 	set name = "Disguise"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	var/datum/component/vampire_disguise/disguise_comp = GetComponent(/datum/component/vampire_disguise)
 	if(!disguise_comp)
@@ -61,7 +61,7 @@
 
 /mob/living/carbon/human/proc/blood_strength()
 	set name = "Night Muscles"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	if(!clan)
 		return
@@ -96,7 +96,7 @@
 
 /mob/living/carbon/human/proc/blood_celerity()
 	set name = "Quickening"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	if(!clan)
 		return
@@ -134,7 +134,7 @@
 
 /mob/living/carbon/human/proc/blood_fortitude()
 	set name = "Armor of Darkness"
-	set category = "VAMPIRE"
+	set category = "NOCTULIAN"
 
 	if(clan)
 		return
