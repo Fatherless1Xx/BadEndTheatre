@@ -5,7 +5,7 @@
 	name = "Ogre"
 	id = SPEC_ID_OGRE
 	native_language = "Orcish"
-	desc = "Creatures born from the labors of Graggar, Ogres are his favored children in all creation. Massive in appetite and size they are titans of the battlefield. Maneaters who smash all who oppose their strength and take as they please from the world. Native to the windswept steppes of Gronn, they have migrated across the world in search of food and riches, as conquerors and mercenaries. Not all ogres are Graggarites, and many have converted as they are either simple minded enough to convince to convert, or cunning enough to see the benefit of adopting a new faith in a new land."
+	desc = "Graggar's greatest creation, the ogres are favored precisely because they cannot grasp justice or morality and act on every impulse. Massive in appetite and size, they are titans of the battlefield who smash all opposition and seize what they want. Born on the windswept steppes of Gronn, they roam the world as conquerors, too simple to question their patron's will and too stubborn to change."
 
 	skin_tone_wording = "Region"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
@@ -63,8 +63,8 @@
 		OFFSET_UNDIES = list(0,8),\
 	)
 
-	specstats_m = list(STATKEY_STR = 2, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = 3, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 3, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = 3, STATKEY_PER = 0, STATKEY_INT = -3, STATKEY_CON = 3, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
 
 	pain_mod = 0.5 // 50% less pain from wounds - THIS IS BECAUSE THEY ARE ANTAG ONLY. DO NOT MAKE OGRES NON-ANTAG WITHOUT CHANGING THIS BACK
 	bleed_mod = 0.5 // 50% less bleed rate from injuries

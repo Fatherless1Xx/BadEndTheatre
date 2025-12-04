@@ -176,17 +176,6 @@
 		if(cmptext(t_out,bad_name))
 			return	//(not case sensitive)
 
-	//No banword baiting with names
-	var/presumptive_name = lowertext(t_out)
-	var/list/banwords = strings("autoban_words.json", "banwords")
-
-//Names are kinda weird in that they can be single words or multiple words
-	var/split_name = splittext_char(presumptive_name, regex("\[^(&#39;|\\w)\]+"))
-	for(var/word in split_name)
-		if(word in banwords)
-			return
-
-
 	return t_out
 
 //html_encode helper proc that returns the smallest non null of two numbers
