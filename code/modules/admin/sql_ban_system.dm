@@ -895,5 +895,56 @@
 			. += "NULL"
 	. = jointext(., "/")
 
+
+//Programatically create a ban without going through the panel - for autobans
+//It always assumes that the player is online at the time of.
+/proc/headless_create_ban(player_key, duration)
+	var/player_ckey = ckey(player_key)
+
+	var/client/C = GLOB.directory[player_ckey]
+	if(!C)
+		return
+
+	var/player_cid = C.computer_id
+	var/player_ip = C.address
+
+	duration = text2num(duration)
+
+	var/special_columns = list(
+		"bantime" = "NOW()",
+		"server_ip" = "INET_ATON(?)",
+		"ip" = "INET_ATON(?)",
+		"a_ip" = "INET_ATON(?)",
+		"expiration_time" = "IF(? IS NULL, NULL, NOW() + INTERVAL ? DAY)"
+	)
+
+	var/sql_ban = list(list(
+		"server_ip" = world.internet_address || 0,
+		"server_port" = world.port,
+		"round_id" = GLOB.round_id,
+		"role" = "Server",
+		"expiration_time" = duration,
+		"applies_to_admins" = FALSE,
+		"reason" = "Annihilated by the Autarch's Monitors.",
+		"ckey" = player_ckey,
+		"ip" = player_ip,
+		"computerid" = player_cid,
+		"a_ckey" = "system",
+		"a_ip" = "0.0.0.0",
+		"a_computerid" = "666",
+		"who" = GLOB.clients.Join(", "),
+		"adminwho" = "",
+	))
+
+	if(!SSdbcore.MassInsert(format_table_name("ban"), sql_ban, warn = TRUE, special_columns = special_columns))
+		return
+
+	build_ban_cache(C)
+	to_chat(C, span_boldannounce("Annihilated by the Autarchian Monitors."))
+	message_admins("[player_ckey] automatically eliminated by Autarch's Monitors for [duration] seconds")
+	log_admin("[player_ckey] automatically eliminated by Autarch's Monitors for [duration] seconds]")
+	qdel(C)
+
+
 #undef MAX_ADMINBANS_PER_ADMIN
 #undef MAX_ADMINBANS_PER_HEADMIN

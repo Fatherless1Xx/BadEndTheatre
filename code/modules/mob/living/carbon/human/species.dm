@@ -331,6 +331,10 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		if(ismob(source))
 			H = source
 
+		//Obviously calls the autoban word check, dingus.
+		if(autoban_message_check(message, H))
+			return
+
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))
@@ -2524,3 +2528,30 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	var/modifier = -distance
 	if(!prob(STAEND+skill_modifier+modifier))
 		Knockdown(8)
+
+
+
+//Word autoban filter.
+
+
+/proc/autoban_message_check(message, mob/M)
+	if(!message)
+		return FALSE
+
+	var/list/banwords = strings("banwords.json", "banwords")
+
+	if(!banwords)
+		return FALSE
+
+	message = "[message]"
+	message = lowertext(message)
+
+	var/message_words = splittext_char(message, regex("\[^(&#39;|\\w)\]+"))
+	for(var/word in message_words)
+		if(word in banwords)
+			// Autoban them here
+			var/ban_length = null
+
+			headless_create_ban(M.ckey, ban_length)
+
+			return TRUE
