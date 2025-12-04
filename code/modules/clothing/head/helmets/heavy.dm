@@ -175,15 +175,27 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/ogre
 	name = "iron barbute"
 	desc = "This one's too large for normal people."
+	icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi' ///placeholder icon
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "merchelmet" ///placeholder
 	item_state = "merchelmet"
+	armor = ARMOR_PLATE
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 5 * STEEL_MULTIPLIER
+	block2add = FOV_BEHIND
 	allowed_race = list(SPEC_ID_OGRE)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/graggar/ogre
 	name = "crushing barbute"
 	desc = "KILL! CRUSH! MAIM!"
+	icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "merchelmet"
 	item_state = "warlhelmet"
+	armor = ARMOR_PLATE
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 5 * STEEL_MULTIPLIER
+	block2add = FOV_BEHIND
 	allowed_race = list(SPEC_ID_OGRE)
 
 //............... Spangenhelm ............... //
