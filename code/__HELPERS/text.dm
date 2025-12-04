@@ -172,9 +172,20 @@
 	if(last_char_group == 1)
 		t_out = copytext(t_out,1,length(t_out))	//removes the last character (in this case a space)
 
-	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai"))	//prevents these common metagamey names
+	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai", "zaelorion", "zizo", "psydon", "lolita"))	//prevents these common metagamey names
 		if(cmptext(t_out,bad_name))
 			return	//(not case sensitive)
+
+	//No banword baiting with names
+	var/presumptive_name = lowertext(t_out)
+	var/list/banwords = strings("autoban_words.json", "banwords", convert_HTML = TRUE)
+
+//Names are kinda weird in that they can be single words or multiple words
+	var/split_name = splittext_char(presumptive_name, regex("\[^(&#39;|\\w)\]+"))
+	for(var/word in split_name)
+		if(word in banwords)
+			return
+
 
 	return t_out
 
