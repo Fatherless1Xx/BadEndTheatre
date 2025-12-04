@@ -1,5 +1,5 @@
 /datum/action/cooldown/spell/baothablessings
-	name = "Baotha's Blessings"
+	name = "Spread the Noddist Gift"
 	desc = "Reverses overdose effect on a target and soothe their mood.."
 	button_icon_state = "lesserheal"
 	sound = 'sound/magic/heal.ogg'
@@ -8,13 +8,11 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "Receive Boatha's Gift."
-	invocation_type = INVOCATION_WHISPER
+	invocation_type = INVOCATION_NONE
 
 	cast_range = 4
 	charge_required = FALSE
 	cooldown_time = 10 SECONDS
-	spell_cost = 10
 
 /datum/action/cooldown/spell/baothablessings/is_valid_target(atom/cast_on)
 	. = ..()

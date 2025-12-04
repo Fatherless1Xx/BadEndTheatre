@@ -142,3 +142,11 @@
 		CLERIC_T1 = /datum/action/cooldown/spell/psydonendure,
 		CLERIC_T2 = /datum/action/cooldown/spell/undirected/psydonrespite,
 	)
+
+/datum/devotion/noddist
+	miracles = list(
+		CLERIC_T0 = list(/datum/action/cooldown/spell/undirected/touch/orison, /datum/action/cooldown/spell/aoe/snuff),
+		CLERIC_T1 = /datum/action/cooldown/spell/baothablessings,
+		CLERIC_T2 = /datum/action/cooldown/spell/revel_in_slaughter,
+		CLERIC_T3 = /datum/action/cooldown/spell/conjure/raise_lesser_undead
+	)

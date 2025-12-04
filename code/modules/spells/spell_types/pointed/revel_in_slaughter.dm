@@ -1,13 +1,13 @@
 /datum/action/cooldown/spell/revel_in_slaughter
-	name = "Revel in Slaughter"
-	desc = "The blood of your enemy shall boil, their skin feeling as if it's being ripped apart! Gaggar demands their blood must FLOW!!!"
+	name = "Play With Blood"
+	desc = "Blood as lube? What a curious idea..."
 	button_icon_state = "bloodsteal"
 	sound = 'sound/magic/antimagic.ogg'
 
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "YOUR BLOOD WILL BOIL TILL IT'S SPILLED!"
+	invocation = "Hmm, blood as lube..."
 	invocation_type = INVOCATION_SHOUT
 	attunements = list(
 		/datum/attunement/blood = 0.5,
