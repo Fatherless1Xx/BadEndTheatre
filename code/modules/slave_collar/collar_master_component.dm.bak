@@ -11,10 +11,6 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/last_command_time = 0
 	var/command_cooldown = 2 SECONDS
 	var/list/speech_blocked = list()
-	var/remote_control_timer_id
-	var/mob/living/remote_control_master_body
-	var/mob/living/carbon/human/remote_control_pet_body
-	var/datum/mind/remote_control_pet_mind
 
 /datum/component/collar_master/Initialize(...)
 	. = ..()
@@ -22,7 +18,6 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	GLOB.collar_masters += mindparent
 
 /datum/component/collar_master/Destroy(force, silent)
-	end_remote_control()
 	. = ..()
 	for(var/mob/living/carbon/human/pet in my_pets.Copy())
 		cleanup_pet(pet)
@@ -60,9 +55,10 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/remove_pet(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets))
 		return FALSE
-	if(listening_pet == pet)
-		stop_listening()
 	UnregisterSignal(pet, list(COMSIG_MOB_SAY, COMSIG_MOB_DEATH, COMSIG_MOVABLE_HEAR, COMSIG_MOB_ATTACK_HAND, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, COMSIG_ITEM_ATTACK))
+	if(listening_pet == pet)
+		listening = FALSE
+		listening_pet = null
 	speech_blocked -= pet
 	my_pets -= pet
 	return TRUE
@@ -90,37 +86,21 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/toggle_listening(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets))
 		return FALSE
-	if(listening_pet == pet)
-		stop_listening()
-		return FALSE
-	stop_listening()
-	start_listening(pet)
-	return TRUE
-
-/datum/component/collar_master/proc/start_listening(mob/living/carbon/human/pet)
-	if(!pet || !(pet in my_pets))
-		return FALSE
-	listening = TRUE
-	listening_pet = pet
-	RegisterSignal(pet, COMSIG_MOVABLE_HEAR, PROC_REF(relay_heard))
-	return TRUE
-
-/datum/component/collar_master/proc/stop_listening()
-	if(listening_pet)
-		UnregisterSignal(listening_pet, list(COMSIG_MOVABLE_HEAR))
-	listening = FALSE
-	listening_pet = null
+	listening = !listening
+	listening_pet = listening ? pet : null
+	if(listening)
+		RegisterSignal(pet, COMSIG_MOVABLE_HEAR, PROC_REF(relay_heard))
+	else
+		UnregisterSignal(pet, list(COMSIG_MOVABLE_HEAR))
 	return TRUE
 
 /datum/component/collar_master/proc/relay_heard(datum/source, list/hearing_args)
 	SIGNAL_HANDLER
 	if(!listening || source != listening_pet || !mindparent?.current)
 		return
-	if(mindparent.current == listening_pet)
-		return
-	if(LAZYLEN(hearing_args) && hearing_args[HEARING_MESSAGE])
-		// Relay the full hearing payload so the master hears what the pet hears.
-		mindparent.current.Hear(arglist(hearing_args))
+	var/message = hearing_args[HEARING_MESSAGE]
+	if(message)
+		to_chat(mindparent.current, span_notice("<i>Through [listening_pet]'s collar: [message]</i>"))
 
 /datum/component/collar_master/proc/force_surrender(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets))
@@ -183,8 +163,6 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/cleanup_pet(mob/living/carbon/human/pet)
 	if(!pet)
 		return FALSE
-	if(remote_control_pet_body == pet)
-		end_remote_control()
 	remove_pet(pet)
 	REMOVE_TRAIT(pet, TRAIT_NUDIST, COLLAR_TRAIT)
 	return TRUE
@@ -200,63 +178,3 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		to_chat(pet, span_warning("Your collar shocks you for attacking your master!"))
 		// Run the shock asynchronously so we don't block the signal handler on any sleeping subcalls (emotes, etc.)
 		INVOKE_ASYNC(src, PROC_REF(shock_pet), pet, 15)
-
-/datum/component/collar_master/proc/scry_pet(mob/living/carbon/human/pet, duration = 10 SECONDS)
-	if(!pet || !(pet in my_pets) || pet.stat >= DEAD)
-		return FALSE
-	if(!mindparent?.current || !mindparent.current.client)
-		return FALSE
-	var/mob/living/viewer = mindparent.current
-	var/mob/dead/observer/screye/eye = viewer.scry_ghost()
-	if(!eye)
-		return FALSE
-	eye.ManualFollow(pet)
-	eye.name = "[viewer.real_name]'s sight"
-	to_chat(viewer, span_notice("You let your senses ride along [pet]'s collar."))
-	addtimer(CALLBACK(eye, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), duration)
-	return TRUE
-
-/datum/component/collar_master/proc/remote_control_pet(mob/living/carbon/human/pet, control_duration = 30 SECONDS)
-	if(!pet || !(pet in my_pets) || pet.stat >= DEAD)
-		return FALSE
-	if(remote_control_timer_id)
-		if(mindparent?.current)
-			to_chat(mindparent.current, span_warning("You are already controlling a pet. Finish that first."))
-		return FALSE
-	if(!mindparent?.current || !mindparent.current.client)
-		return FALSE
-	var/mob/living/master_body = mindparent.current
-	remote_control_master_body = master_body
-	remote_control_pet_body = pet
-	remote_control_pet_mind = pet.mind
-	// Move the master's mind into the pet first, then park the pet's mind in the master's body if possible.
-	mindparent.transfer_to(pet)
-	if(remote_control_pet_mind && remote_control_pet_mind.current && remote_control_pet_mind != mindparent)
-		remote_control_pet_mind.transfer_to(master_body, TRUE)
-	if(mindparent?.current)
-		to_chat(mindparent.current, span_userdanger("You seize [pet]'s body through the cursed collar for a short while!"))
-	if(remote_control_pet_mind?.current == master_body)
-		to_chat(remote_control_pet_mind.current, span_warning("Your senses are dragged into [master_body], leaving your body to your master."))
-	remote_control_timer_id = addtimer(CALLBACK(src, PROC_REF(end_remote_control)), control_duration, TIMER_STOPPABLE)
-	return TRUE
-
-/datum/component/collar_master/proc/end_remote_control()
-	if(remote_control_timer_id)
-		deltimer(remote_control_timer_id)
-	remote_control_timer_id = null
-	var/mob/living/master_body = remote_control_master_body
-	var/mob/living/carbon/human/pet_body = remote_control_pet_body
-	var/datum/mind/pet_mind = remote_control_pet_mind
-	remote_control_master_body = null
-	remote_control_pet_body = null
-	remote_control_pet_mind = null
-	// Return minds to their original homes when possible.
-	if(mindparent && master_body && !QDELETED(master_body) && mindparent.current != master_body)
-		mindparent.transfer_to(master_body, TRUE)
-	if(pet_mind && pet_body && !QDELETED(pet_body) && pet_mind.current != pet_body)
-		pet_mind.transfer_to(pet_body, TRUE)
-	if(mindparent?.current)
-		to_chat(mindparent.current, span_notice("The collar releases its hold; you return to your own body."))
-	if(pet_mind?.current && pet_mind.current != mindparent?.current)
-		to_chat(pet_mind.current, span_notice("Control of your body snaps back to you."))
-	return TRUE

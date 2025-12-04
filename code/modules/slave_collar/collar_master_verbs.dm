@@ -7,10 +7,12 @@
 		return
 
 	var/list/valid_pets = list()
+	var/list/namecounts = list()
 	for(var/mob/living/carbon/human/pet in CM.my_pets)
-		if(!pet || !pet.mind || !pet.client)
+		if(!pet || !pet.mind)
 			continue
-		valid_pets[pet.real_name] = pet
+		var/label = avoid_assoc_duplicate_keys(pet.real_name, namecounts)
+		valid_pets[label] = pet
 	if(!length(valid_pets))
 		to_chat(src, span_warning("No valid pets available!"))
 		return
@@ -19,7 +21,19 @@
 	if(!selected)
 		return
 
-	CM.temp_selected_pets = list(valid_pets[selected])
+	CM.temp_selected_pets.Cut()
+	if(islist(selected))
+		for(var/choice in selected)
+			var/mob/living/carbon/human/pet_choice = valid_pets[choice]
+			if(pet_choice)
+				CM.temp_selected_pets += pet_choice
+	else
+		var/mob/living/carbon/human/pet_choice = valid_pets[selected]
+		if(pet_choice)
+			CM.temp_selected_pets = list(pet_choice)
+	if(!length(CM.temp_selected_pets))
+		to_chat(src, span_warning("No valid pets available!"))
+		return
 
 	var/list/options = list(
 		"Listen to Pets" = /mob/proc/collar_master_listen,
@@ -29,6 +43,8 @@
 		"Force Strip" = /mob/proc/collar_master_force_strip,
 		"Forbid/permit Clothing" = /mob/proc/collar_master_clothing,
 		"Toggle Pet Speech" = /mob/proc/collar_master_toggle_speech,
+		"Scry Pet" = /mob/proc/collar_master_scry,
+		"Remote Control Pet" = /mob/proc/collar_master_remote_control,
 		"Free Pet" = /mob/proc/collar_master_release_pet,
 	)
 
@@ -49,7 +65,11 @@
 	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
 	if(!pet || pet.stat >= UNCONSCIOUS || !(pet in CM.my_pets))
 		return
-	CM.toggle_listening(pet)
+	var/now_listening = CM.toggle_listening(pet)
+	if(now_listening)
+		to_chat(src, span_notice("You tune in to [pet]'s surroundings."))
+	else
+		to_chat(src, span_notice("You stop listening through [pet]'s collar."))
 	CM.last_command_time = world.time
 
 /mob/proc/collar_master_shock()
@@ -147,6 +167,40 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.toggle_speech(pet)
+
+/mob/proc/collar_master_scry()
+	set name = "Scry Pet"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's vision is still refocusing!"))
+		return
+	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
+	if(!pet || !(pet in CM.my_pets))
+		return
+	if(!CM.scry_pet(pet))
+		to_chat(src, span_warning("The collar refuses to share that pet's sight."))
+		return
+	CM.last_command_time = world.time
+
+/mob/proc/collar_master_remote_control()
+	set name = "Remote Control"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's circuits are still recalibrating!"))
+		return
+	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
+	if(!pet || !(pet in CM.my_pets))
+		return
+	if(!CM.remote_control_pet(pet, 30 SECONDS))
+		to_chat(src, span_warning("The collar cannot link you to that pet right now."))
+		return
+	CM.last_command_time = world.time
 
 /mob/proc/collar_master_release_pet()
 	set name = "Release Pet"

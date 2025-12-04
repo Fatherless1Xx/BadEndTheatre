@@ -14,6 +14,17 @@
 	leashable = TRUE
 	var/datum/mind/collar_master = null
 
+/obj/item/clothing/neck/roguetown/cursed_collar/canStrip(mob/stripper, mob/owner)
+	if(!collar_master)
+		return ..()
+	if(collar_master && stripper?.mind && stripper.mind == collar_master)
+		return ..()
+	if(stripper && collar_master && owner && owner.mind == collar_master && stripper == owner)
+		return ..()
+	if(stripper)
+		to_chat(stripper, span_warning("[src] refuses to come loose."))
+	return FALSE
+
 /obj/item/clothing/neck/roguetown/cursed_collar/attack(mob/living/carbon/human/C, mob/living/user)
 	if(!istype(C))
 		return ..()
