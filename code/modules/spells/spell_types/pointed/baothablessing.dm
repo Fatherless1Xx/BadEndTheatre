@@ -1,5 +1,5 @@
 /datum/action/cooldown/spell/baothablessings
-	name = "Spread the Noddist Gift"
+	name = "Spread the Gift"
 	desc = "Reverses overdose effect on a target and soothe their mood.."
 	button_icon_state = "lesserheal"
 	sound = 'sound/magic/heal.ogg'

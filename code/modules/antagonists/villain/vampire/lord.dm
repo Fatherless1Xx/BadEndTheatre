@@ -5,7 +5,7 @@
 	confess_lines = list(
 		"I AM ANCIENT!",
 		"I AM THE LAND!",
-		"FIRSTBORNE CHILD OF NODD!",
+		"FIRSTBORNE CHILD OF DEATH!",
 	)
 
 	var/ascended = FALSE
