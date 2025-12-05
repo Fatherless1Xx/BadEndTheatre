@@ -7,3 +7,5 @@
 	But perhaps it is the only thing that can stand a chance to the Friendly hordes."
 
 	patron_name = "Tutelar"
+
+	godhead = /datum/patron/pagan/edledhron

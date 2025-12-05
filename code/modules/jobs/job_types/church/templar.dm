@@ -80,3 +80,4 @@
 /datum/outfit/templar/post_equip(mob/living/carbon/human/H, visuals_only)
 	. = ..()
 	var/obj/item/weapon/sword/long/exe/astrata/P = new(get_turf(src))
+	H.equip_to_appropriate_slot(P)
