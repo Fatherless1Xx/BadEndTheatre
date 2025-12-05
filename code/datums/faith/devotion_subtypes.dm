@@ -181,3 +181,11 @@
 		CLERIC_T1 = /datum/action/cooldown/spell/undirected/call_to_slaughter,
 		CLERIC_T2 = /datum/action/cooldown/spell/revel_in_slaughter,
 	)
+
+/datum/devotion/pagan/phaetya
+	miracles = list(
+		CLERIC_T0 = /datum/action/cooldown/spell/healing,
+		CLERIC_T1 = list(/datum/action/cooldown/spell/undirected/bless_crops, /datum/action/cooldown/spell/aoe/churn_undead)
+		CLERIC_T2 = /datum/action/cooldown/spell/undirected/beast_sense,
+		CLERIC_T3 = /datum/action/cooldown/spell/beast_tame,
+	)

@@ -38,7 +38,6 @@
 		var/list/wAmount = target.get_wounds()
 		var/conditional_buff = FALSE
 		var/situational_bonus = 0
-		var/pp = 0
 		var/damtotal = brute + burn
 		var/zcross_trigger = FALSE
 

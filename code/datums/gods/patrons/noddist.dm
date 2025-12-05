@@ -48,3 +48,6 @@
 	Among them you have no friendship. To them you are a relic of a different time, soon to perish. But you are in no rush. \n\
 	Time is a trick that can turn to cheat you. You're not going anywhere, but already you have borne witness to how the ancient followers of Hyatt\n\
 	will enact Inhumanities even the Tempel could not think of. The sliver of silver pinned inside your urethra is proof of that."
+	flaws = "Out of touch, hunted by other Noddists"
+	worshippers = "Those who seek an easier Truth to swallow, those loyal to the Nihilion, sad old men."
+	boons = "You might have an easier time convincing the others of Noddism's virtues."

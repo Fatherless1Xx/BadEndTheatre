@@ -23,6 +23,8 @@
 	worshippers = "Lawmen, Sages, Scholars, Gravetenders, the Diseased, the Elderly, and Thieves."
 	added_traits = list(TRAIT_NO_REFLECTION, TRAIT_FEARLESS)
 
+	devotion_holder = /datum/devotion/pagan/edledhron
+
 /datum/patron/pagan/zhakral
 	name = "Zhakral"
 	desc = "Blood flows hotter when in the throes of abject pleasure. Yet pleasure itself is not the most important thing in life.\n\
@@ -42,6 +44,8 @@
 		"I can't take it anymore!! STOP!!",
 		"N-no don't!!!"
 	)
+
+	devotion_holder = /datum/devotion/zhakral
 
 /datum/patron/pagan/phaetya
 	name = "Phaetya"

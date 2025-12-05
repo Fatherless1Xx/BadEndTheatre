@@ -7,14 +7,13 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	required_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	attunements = list(
 		/datum/attunement/earth = 0.5,
 		/datum/attunement/life = 0.5,
 	)
 
-	invocation = "The Treefather commands thee, be fruitful!"
-	invocation_type = INVOCATION_SHOUT
+	invocation = "cuts their arms so that blood may feed the soil."
+	invocation_type = INVOCATION_EMOTE
 
 	charge_required = FALSE
 	cooldown_time = 30 SECONDS
@@ -23,8 +22,8 @@
 /datum/action/cooldown/spell/undirected/bless_crops/cast(atom/cast_on)
 	. = ..()
 	owner.visible_message(
-		span_greentext("[owner] blesses the crops with Dendor's Favour!"),
-		span_greentext("I bless the crops with Dendor's Favour!"),
+		span_greentext("[owner] bleeds upon the crops!"),
+		span_greentext("My blood feeds the thirsty children of the soil."),
 	)
 	var/amount_blessed = 0
 	for(var/obj/structure/soil/soil in view(4, owner))
