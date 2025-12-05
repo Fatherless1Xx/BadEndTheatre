@@ -7,7 +7,7 @@
 	confess_lines = list(
 		"We have crushed the heads of every child borne to the people of Hal'desh.",
 		"No matter what, the way perseveres.",
-		"Together we are stronger than anything you perverted child molesters could ever hope!"
+		"Together we are stronger than anything you perverted defilers could ever hope!"
 	)
 
 /datum/patron/pagan/edledhron

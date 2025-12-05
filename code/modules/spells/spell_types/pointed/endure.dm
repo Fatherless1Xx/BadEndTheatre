@@ -24,7 +24,7 @@
 	charge_time = 1
 	cast_range = 2
 	sound = 'sound/magic/ENDVRE.ogg'
-	invocation = "My balls itch." // holy larp yelling for healing is silly
+	invocation = "My balls itch." // This doesn't actually do anything because there's no invoke.
 	invocation_type = INVOCATION_NONE
 	associated_skill = /datum/skill/magic/holy
 	cooldown_time = 30 SECONDS

@@ -11,7 +11,7 @@
 	invocation_type = INVOCATION_EMOTE
 
 	charge_required = FALSE
-	cooldown_time = 5 MINUTES
+	cooldown_time = 15 MINUTES
 	spell_cost = 0
 
 /datum/action/cooldown/spell/undirected/call_to_slaughter/cast(atom/cast_on)
