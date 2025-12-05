@@ -8,7 +8,7 @@
 	devotion_holder = /datum/devotion/friendship
 
 /datum/patron/friendship/friend
-	name = "He"
+	name = "HIM"
 	desc = "He is both the Teacher and the Student. The perfection of Man incarnate.\n\
 	His Fellowship is exacting and precise. Those who are Friends are given the privilege of standing with him.\n\
 	Those who are Enemies are Destroyed at all costs. We must seek to be as perfect as He Is.\n\

@@ -13,7 +13,7 @@
 		/datum/attunement/blood = 0.5,
 	)
 	charge_required = FALSE
-	cooldown_time = 5 MINUTES
+	cooldown_time = 15 MINUTES
 	spell_cost = 70
 
 /datum/action/cooldown/spell/revel_in_slaughter/is_valid_target(atom/cast_on)

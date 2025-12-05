@@ -700,7 +700,7 @@
 	name = "The Ruminator"
 	greet_text = span_notice("Ahh... but it would be so nice to put my intellect towards more Sinister deeds...")
 	req_text = "Monarch, pratice the Hyattite way or Kipthoth"
-	allowed_patrons = list(/datum/patron/noddist/hyattite, /datum/patron/noddist/carpathianflorist)
+	allowed_patrons = list(/datum/patron/noddist/hyattite, /datum/patron/noddist/noctulius/carpathianflorist)
 	allowed_jobs = list(/datum/job/lord)
 	weight = 25 //Should be fine.
 

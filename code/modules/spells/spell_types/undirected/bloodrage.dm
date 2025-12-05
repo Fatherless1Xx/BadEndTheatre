@@ -11,7 +11,7 @@
 	invocation = "beats his forehead repeatedly!"
 	invocation_type = INVOCATION_EMOTE
 	charge_required = FALSE
-	cooldown_time = 2 MINUTES
+	cooldown_time = 30 MINUTES
 	spell_cost = 0
 	var/static/list/purged_effects = list(
 		/datum/status_effect/incapacitating/immobilized,

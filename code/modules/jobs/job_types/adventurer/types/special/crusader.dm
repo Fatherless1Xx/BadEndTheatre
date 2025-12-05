@@ -30,9 +30,6 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/silver
 
-	switch(H.patron?.name)
-		cloak = /obj/item/clothing/cloak/stabard/templar/ravox // Gold version regardless of gender or patron
-		wrists = /obj/item/clothing/neck/psycross/silver/ravox
 
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

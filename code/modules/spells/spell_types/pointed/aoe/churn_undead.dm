@@ -14,7 +14,7 @@
 
 	click_to_activate = FALSE
 	charge_required = FALSE
-	cooldown_time = 1 SECONDS
+	cooldown_time = 120 SECONDS
 
 	aoe_radius = 6
 
