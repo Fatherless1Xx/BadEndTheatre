@@ -1,13 +1,13 @@
 /datum/action/cooldown/spell/revel_in_slaughter
 	name = "Play With Blood"
-	desc = "Blood as lube? What a curious idea..."
+	desc = "Play with another's blood."
 	button_icon_state = "bloodsteal"
 	sound = 'sound/magic/antimagic.ogg'
 
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "Hmm, blood as lube..."
+	invocation = "Blood plays along, bloodjoy nourishes the heart-body..."
 	invocation_type = INVOCATION_SHOUT
 	attunements = list(
 		/datum/attunement/blood = 0.5,
