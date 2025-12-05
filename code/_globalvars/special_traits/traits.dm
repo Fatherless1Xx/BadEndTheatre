@@ -157,10 +157,10 @@
 
 /datum/special_trait/darkmagic
 	name = "Practitioner of forbidden magic"
-	greet_text = span_notice("Noc's path is weak, I have seen the light and practiced magic these fools call forbidden.")
+	greet_text = span_notice("I have seen the light and practiced magic these fools call forbidden. Already I have sacrificed my prepuce to Sinister powers...")
 	weight = 25
-	req_text = "Worship zizo and roll court magician or magician apprentice."
-	allowed_patrons = list(/datum/patron/inhumen/zizo)
+	req_text = "Be a member of the Tempel."
+	allowed_patrons = list(/datum/patron/noddist/noctulius)
 	allowed_jobs = list(/datum/job/magician, /datum/job/mageapprentice)
 
 /datum/special_trait/darkmagic/on_apply(mob/living/carbon/human/character, silent)
@@ -207,10 +207,10 @@
 	character.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
 
 /datum/special_trait/psydons_rider
-	name = "Psydon's Drunkest Rider"
-	greet_text = span_notice("I ride! None of the laws shall stop me for that is Psydon's divine will!")
+	name = "Friend's Drunkest Rider"
+	greet_text = span_notice("I ride! None of the laws shall stop me for that is Friend's will!")
 	req_text = "Worship Psydon"
-	allowed_patrons = list(/datum/patron/psydon)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 	weight = 100
 
 /datum/special_trait/psydons_rider/on_apply(mob/living/carbon/human/character, silent)
@@ -353,7 +353,7 @@
 	name = "The Burdened One"
 	greet_text = span_notice("You are a true instrument of creation, the most blessed of Malum, nothing will stop your toil, be it sleep or fatigue.")
 	weight = 10
-	allowed_patrons = list(/datum/patron/divine/malum)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 	req_text = "Worship Malum, must be a carpenter, elder, smith, artificer or miner."
 	allowed_jobs = list(/datum/job/carpenter, /datum/job/armorsmith, /datum/job/weaponsmith, /datum/job/artificer, /datum/job/bapprentice, /datum/job/miner, /datum/job/town_elder) // no combat roles
 
@@ -401,9 +401,9 @@
 
 /datum/special_trait/lucky
 	name = "Fortune's Grace"
-	greet_text = span_notice("Xylix favor me, I am extremely lucky.")
-	req_text = "Have Xylix as your Patron"
-	allowed_patrons = list(/datum/patron/divine/xylix)
+	greet_text = span_notice("Edledhron shew me his favour in the dying eyes of a man I throttled to the end.")
+	req_text = "Have Edledhron as your Patron"
+	allowed_patrons = list(/datum/patron/pagan/edledhron)
 	weight = 7
 
 /datum/special_trait/lucky/on_apply(mob/living/carbon/human/character, silent)
@@ -411,8 +411,8 @@
 
 /datum/special_trait/blessed
 	name = "The Blessed One"
-	greet_text = span_notice("I am beloved by the Ten, I have been blessed by all their boons.")
-	req_text = "Be Tennite"
+	greet_text = span_notice("Friend loves me.")
+	req_text = "Be a Friend"
 	weight = 7
 	allowed_patrons = ALL_TEMPLE_PATRONS
 
@@ -697,12 +697,10 @@
 	character.mind.special_items["GOLDFACE Gem"] = /obj/item/gem_device/goldface
 
 /datum/special_trait/thinker
-	name = "The Thinker"
-	greet_text = span_notice("Physique, Endurance, Constitution. \
-	The trinity of what builds a great leader and an even greater kingdom... \
-	or whatever those nimrods were yapping about! <b>I cast FIREBALL!!!</b>")
-	req_text = "Monarch, worship Noc or Zizo"
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
+	name = "The Ruminator"
+	greet_text = span_notice("Ahh... but it would be so nice to put my intellect towards more Sinister deeds...")
+	req_text = "Monarch, pratice the Hyattite way or Kipthoth"
+	allowed_patrons = list(/datum/patron/noddist/hyattite, /datum/patron/noddist/carpathianflorist)
 	allowed_jobs = list(/datum/job/lord)
 	weight = 25 //Should be fine.
 
@@ -887,19 +885,6 @@
 
 /datum/special_trait/keenears/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_KEENEARS, "[type]")
-
-/datum/special_trait/bestial
-	name = "Bestial"
-	greet_text = span_notice("I am blessed by Dendor I feel closer to beasts than men, I can whisper in their tongue.")
-	weight = 50
-	req_text = "Worship Dendor and be an acolyte"
-	allowed_jobs = list(/datum/job/monk)
-	allowed_patrons = list(/datum/patron/divine/dendor)
-
-/datum/special_trait/bestial/on_apply(mob/living/carbon/human/character, silent)
-	character.grant_language(/datum/language/beast)
-	character.add_spell(/datum/action/cooldown/spell/undirected/howl/call_of_the_moon, silent = TRUE)
-	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]") // eat the raw meat
 
 /datum/special_trait/musical
 	name = "Musical Legend"

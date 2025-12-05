@@ -13,7 +13,6 @@
 	outfit = /datum/outfit/magic_teacher
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_NONEXOTIC
-	allowed_patrons = list(/datum/patron/divine/noc)
 
 	jobstats = list(
 		STATKEY_STR = -1,
@@ -70,7 +69,6 @@
 	outfit = /datum/outfit/magic_student
 	allowed_ages = list(AGE_CHILD)
 	allowed_races = RACES_PLAYER_NONEXOTIC
-	allowed_patrons = list(/datum/patron/divine/noc)
 
 	jobstats = list(
 		STATKEY_STR = -1,
