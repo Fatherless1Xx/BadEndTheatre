@@ -368,19 +368,12 @@
 		return
 
 	var/list/datum/patron/all_gods = list()
-	var/list/datum/patron/pantheon_gods = list()
 	for(var/god in GLOB.patronlist)
 		if(!(god in allowed_patrons))
 			continue
 		all_gods |= god
-		var/datum/patron/P = GLOB.patronlist[god]
-		if(P.associated_faith == old_patron.associated_faith) //Prioritize choosing a possible patron within our pantheon
-			pantheon_gods |= god
 
-	if(length(pantheon_gods))
-		spawned.set_patron(default_patron || pick(pantheon_gods), TRUE)
-	else
-		spawned.set_patron(default_patron || pick(all_gods), TRUE)
+		spawned.set_patron(default_patron, TRUE)
 
 	var/datum/patron/new_patron = spawned.patron
 	if(old_patron != new_patron) // If the patron we selected first does not match the patron we end up with, display the message.

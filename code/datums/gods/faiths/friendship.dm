@@ -9,4 +9,6 @@
 	However, the Friends of a lower social stratum may notice that whilst those of the fairer sex may find pleasure in others of their same sex,\
 	this same right is not afforded to those of peasantly and ignoble birth. It is said that Friend approved of such aristocratic pleasures only when they were practiced by the Aristocracy."
 
-	godhead = /datum/patron/noddist/noctulius
+	godhead = /datum/patron/friendship/friend
+
+	patron_name = "Great Friend"
