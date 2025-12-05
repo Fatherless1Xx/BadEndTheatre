@@ -9,14 +9,14 @@
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
 
-	invocation = "Begone, enemies!"
+	invocation = "Begone, unnautral beings!"
 	invocation_type = INVOCATION_SHOUT
 
 	click_to_activate = FALSE
 	charge_required = FALSE
-	cooldown_time = 120 SECONDS
+	cooldown_time = 10 MINUTES
 
-	aoe_radius = 6
+	aoe_radius = 3
 
 /datum/action/cooldown/spell/aoe/churn_undead/is_valid_target(atom/cast_on)
 	return isliving(cast_on)
