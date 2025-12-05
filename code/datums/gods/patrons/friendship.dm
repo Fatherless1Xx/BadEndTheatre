@@ -3,7 +3,7 @@
 
 	profane_words = list("Nodd")
 
-	confess_lines = list("He is a person who holds great fellowship.")
+	confess_lines = list("This is the Truth.", "Every night, I prepare a special blend of herbs...")
 
 	devotion_holder = /datum/devotion/friendship
 
