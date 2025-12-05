@@ -55,7 +55,6 @@
 
 		target.visible_message(span_info("[target] grits his teeth!"), span_info("The thought of digging my fingers into a weakling's eye sockets invigorates me..."))
 		var/psyhealing = 3
-		psyhealing += psicross_bonus
 		if (conditional_buff & !zcross_trigger)
 			to_chat(user, "<b>BLOOD FOR SEX!</b>")
 			psyhealing += situational_bonus
