@@ -45,7 +45,7 @@
 		"N-no don't!!!"
 	)
 
-	devotion_holder = /datum/devotion/zhakral
+	devotion_holder = /datum/devotion/pagan/zhakral
 
 /datum/patron/pagan/phaetya
 	name = "Phaetya"

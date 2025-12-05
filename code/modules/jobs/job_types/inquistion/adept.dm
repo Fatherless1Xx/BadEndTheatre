@@ -46,5 +46,5 @@
 
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
-			to_chat(H, span_info("I can speak Old Psydonic with ,m before my speech."))
+			to_chat(H, span_info("I can speak Old Noddish with ,m before my speech."))
 		H.mind.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)

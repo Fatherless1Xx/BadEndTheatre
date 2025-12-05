@@ -7,9 +7,8 @@
 	allowed_races = RACES_PLAYER_GRENZ
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
-	allowed_patrons = list(
-		/datum/patron/psydon
-	)
+	allowed_patrons = list(/datum/patron/friendship/friend) //Friendship
+	default_patron = /datum/patron/friendship/friend
 
 	tutorial = "A student of the Oratorium in training to become a full Inquisitor. You’ve come here under the stern gaze of the Herr Präfekt to prove your wits and skill. This is your week. You’re going to take your place among the blades of Psydon."
 	selection_color = JCOLOR_INQUISITION
@@ -48,5 +47,5 @@
 		H.maxbloodpool = 1000
 
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Psydonic"
+			H.dna.species.native_language = "Old Noddish"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)

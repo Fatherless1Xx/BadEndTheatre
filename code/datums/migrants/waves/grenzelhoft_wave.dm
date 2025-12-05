@@ -51,7 +51,7 @@
 	if(!spawned.dna?.species)
 		return
 	var/datum/species/species = spawned.dna.species
-	species.native_language = "Old Psydonic"
+	species.native_language = "Old Noddish"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/grenzelhoft_count
@@ -123,7 +123,7 @@
 	if(!spawned.dna?.species)
 		return
 	var/datum/species/species = spawned.dna.species
-	species.native_language = "Old Psydonic"
+	species.native_language = "Old Noddish"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/grenzelhoft_countess
@@ -189,7 +189,7 @@
 	if(!spawned.dna?.species)
 		return
 	var/datum/species/species = spawned.dna.species
-	species.native_language = "Old Psydonic"
+	species.native_language = "Old Noddish"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/grenzelhoft_knight
@@ -249,7 +249,7 @@
 	if(!spawned.dna?.species)
 		return
 	var/datum/species/species = spawned.dna.species
-	species.native_language = "Old Psydonic"
+	species.native_language = "Old Noddish"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/grenzelhoft_man_at_arms

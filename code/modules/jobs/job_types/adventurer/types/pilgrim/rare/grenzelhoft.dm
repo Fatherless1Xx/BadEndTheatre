@@ -52,13 +52,13 @@
 		H.name = "[honorary] [prev_name]"
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
-			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
+			to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	if(H.dna?.species.id == SPEC_ID_HUMEN)
-		H.dna.species.native_language = "Old Psydonic"
+		H.dna.species.native_language = "Old Noddish"
 		H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 	H.add_spell(/datum/action/cooldown/spell/undirected/call_bird/grenzel)

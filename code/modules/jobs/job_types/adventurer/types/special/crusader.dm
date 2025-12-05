@@ -85,7 +85,7 @@
 
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)
-		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
+		to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
 
 /datum/outfit/adventurer/crusader // Reminder message
 	var/tutorial = "<br><br><font color='#bdc34a'><span class='bold'>You have been sent from the Totod Order on a mission to aid your struggle against the Blood Barons somehow. The details of your mission may vary, perhaps to find allies, funding, or a agent of the enemy...</span></font><br><br>"
@@ -127,7 +127,7 @@
 	worn_y_dimension = 64
 
 /obj/item/clothing/head/helmet/heavy/crusader/t
-	desc = "A silver gilded bucket helm, inscriptions in old Psydonic are found embezzeled on every inch of silver. Grenzelhoft specializes in these helmets, the Totod order has been purchasing them en-masse."
+	desc = "A silver gilded bucket helm, inscriptions in Old Noddish are found embezzeled on every inch of silver. Grenzelhoft specializes in these helmets, the Totod order has been purchasing them en-masse."
 	icon_state = "crusader_helmt2"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'

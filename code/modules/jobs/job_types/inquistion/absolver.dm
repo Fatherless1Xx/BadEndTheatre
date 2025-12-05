@@ -6,8 +6,9 @@
 	total_positions = 1 // THE ONE.
 	spawn_positions = 1
 	allowed_races = list(SPEC_ID_HUMEN, SPEC_ID_AASIMAR)
-	allowed_patrons = list(/datum/patron/psydon) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "The Oratorium claims you are naught more than a 'cleric', but you know the truth; you are a sacrificial lamb. Your hands, unmarred through prayer and pacifism, have been gifted with the power to manipulate blood - to siphon away the wounds of others, so that you may endure in their stead. Let your censer's light shepherd the Inquisitor's retinue forth, lest they're led astray by wrath and temptation."
+	allowed_patrons = list(/datum/patron/friendship/friend) //Friendship
+	default_patron = /datum/patron/friendship/friend
+	tutorial = "You are the conclave's special rape toy."
 	selection_color = JCOLOR_INQUISITION
 	outfit = /datum/outfit/job/absolver
 	bypass_lastclass = TRUE
@@ -61,8 +62,9 @@
 		H.grant_language(/datum/language/oldpsydonic)
 		H.verbs |= /mob/living/carbon/human/proc/view_inquisition
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Psydonic"
+			H.dna.species.native_language = "Old Noddish"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
+		H.virginity = FALSE
 
 /datum/outfit/job/absolver/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -70,7 +72,7 @@
 	H.hud_used?.shutdown_bloodpool()
 	H.hud_used?.initialize_bloodpool()
 	H.hud_used?.bloodpool.set_fill_color("#dcdddb")
-	H?.hud_used?.bloodpool?.name = "Psydon's Grace: [H.bloodpool]"
+	H?.hud_used?.bloodpool?.name = "Friendship: [H.bloodpool]"
 	H?.hud_used?.bloodpool?.desc = "Devotion: [H.bloodpool]/[H.maxbloodpool]"
 	H.maxbloodpool = 1000
 

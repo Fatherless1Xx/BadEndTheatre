@@ -115,7 +115,7 @@
 		H.name = "[honorary] [prev_name]"
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
-			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
+			to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_STR, 2) // more of a brute type
@@ -123,7 +123,7 @@
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Psydonic"
+			H.dna.species.native_language = "Old Noddish"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 		wretch_select_bounty(H)
 

@@ -295,7 +295,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 ///////////
 
 /datum/species/proc/get_accent(language, variant = 0)
-	if(language == "Old Psydonic")
+	if(language == "Old Noddish")
 		return strings("accents/grenz_replacement.json", "grenz")
 	if(language == "Zalad")
 		return strings("accents/zalad_replacement.json", "arabic")
@@ -405,7 +405,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				/datum/language/celestial = "Celestial",
 				/datum/language/zalad = "Zalad",
 				/datum/language/deepspeak = "Deepspeak",
-				/datum/language/oldpsydonic = "Old Psydonic",
+				/datum/language/oldpsydonic = "Old Noddish",
 				/datum/language/undead = "Zizo Chant"
 			)
 

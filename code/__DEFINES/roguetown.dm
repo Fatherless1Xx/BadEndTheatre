@@ -1,8 +1,8 @@
-#define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
-#define ALL_CLERIC_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
-#define ALL_PALADIN_PATRONS 	list(/datum/patron/psydon, /datum/patron/psydon/progressive, /datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
-#define ALL_TEMPLAR_PATRONS 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/eora, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/pestra, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/malum, /datum/patron/divine/xylix)
-#define ALL_PROFANE_PATRONS 	list(/datum/patron/inhumen/graggar, /datum/patron/inhumen/zizo, /datum/patron/inhumen/matthios, /datum/patron/inhumen/baotha)
+#define ALL_TEMPLE_PATRONS 		list(/datum/patron/friendship/friend)
+#define ALL_CLERIC_PATRONS 		list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya, /datum/patron/pagan/zhakral)
+#define ALL_PALADIN_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya)
+#define ALL_TEMPLAR_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya)
+#define ALL_PROFANE_PATRONS 	list(/datum/patron/noddist/noctulius, /datum/patron/noddist/noctulius/carpathianflorist, /datum/patron/noddist/hyattite, /datum/patron/noddist/noctulius/sahur)
 
 GLOBAL_LIST_INIT(curse_names, list())
 

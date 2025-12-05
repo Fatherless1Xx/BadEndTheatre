@@ -1,5 +1,5 @@
 /datum/job/inquisitor
-	title = "Herr Prafekt"
+	title = "Friendship Prefect"
 	department_flag = INQUISITION
 	faction = "Station"
 	total_positions = 1
@@ -10,8 +10,9 @@
 		SPEC_ID_HUMEN,\
 		SPEC_ID_DWARF,\
 	)
-	allowed_patrons = list(/datum/patron/psydon) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "This is the week. All your lessons have led to this moment. Your students follow you with eager steps and breathless anticipation. You’re to observe their hunt, and see if they can banish the evils haunting Psydonia, and rise up to become true inquisitors. A guide to them, a monster to others. You are the thing that goes bump in the night."
+	allowed_patrons = list(/datum/patron/friendship/friend) //Friendship
+	default_patron = /datum/patron/friendship/friend
+	tutorial = "You will ensure that the people will obey the precepts of Friendship."
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 	selection_color = JCOLOR_INQUISITION
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
@@ -53,7 +54,7 @@
 		H.name = "[honorary] [prev_name]"
 
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Psydonic"
+			H.dna.species.native_language = "Old Noddish"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 ////Classic Inquisitor with a much more underground twist. Use listening devices, sneak into places to gather evidence, track down suspicious individuals. Has relatively the same utility stats as Confessor, but fulfills a different niche in terms of their combative job as the head honcho.
 
