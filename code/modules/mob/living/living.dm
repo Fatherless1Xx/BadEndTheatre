@@ -663,6 +663,11 @@
 		adjustOxyLoss(201)
 		updatehealth()
 //		if(!whispered)
+//			to_chat(src, span_userdanger("I have given up life and succumbed to death."))
+
+		var/word_input = stripped_input(src, "Your parting words? Leave empty if you will.", "Last Words")
+		if(word_input)
+			say(word_input)
 //			to_chat(src, "<span class='userdanger'>I have given up life and succumbed to death.</span>")
 		death()
 

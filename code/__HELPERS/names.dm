@@ -40,7 +40,7 @@ GLOBAL_VAR(command_name)
 
 /proc/set_station_name(newname)
 	GLOB.station_name = newname
-	world.name = "NOCTRA"
+	world.name = "The Badend Theatre"
 
 /proc/new_station_name()
 	var/random = rand(1,5)

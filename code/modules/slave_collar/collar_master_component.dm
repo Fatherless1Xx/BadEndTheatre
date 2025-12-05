@@ -16,6 +16,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/carbon/human/remote_control_pet_body
 	var/datum/mind/remote_control_pet_mind
 	var/mob/dead/observer/remote_control_pet_ghost
+	var/list/forced_arousal_timers = list()
 
 /datum/component/collar_master/Initialize(...)
 	. = ..()
@@ -181,11 +182,80 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	playsound(pet, 'sound/misc/vampirespell.ogg', 50, TRUE)
 	return TRUE
 
+/datum/component/collar_master/proc/force_love(mob/living/carbon/human/pet)
+	if(!pet || !(pet in my_pets) || !mindparent?.current)
+		return FALSE
+	if(pet.has_status_effect(/datum/status_effect/in_love))
+		pet.remove_status_effect(/datum/status_effect/in_love)
+		if(islist(pet.faction))
+			pet.faction -= "[REF(mindparent.current)]"
+		to_chat(pet, span_notice("The collar releases the enforced affection toward [mindparent.current]."))
+		to_chat(mindparent.current, span_notice("[pet]'s collar no longer twists their heart."))
+		return TRUE
+	if(!islist(pet.faction))
+		pet.faction = list()
+	pet.faction |= "[REF(mindparent.current)]"
+	pet.apply_status_effect(/datum/status_effect/in_love, mindparent.current)
+	to_chat(pet, span_love("Overwhelming adoration for [mindparent.current] floods your mind."))
+	to_chat(mindparent.current, span_notice("[pet] is bound to you by the collar's twisted affection."))
+	return TRUE
+
+/datum/component/collar_master/proc/force_say(mob/living/carbon/human/pet, message)
+	if(!pet || !(pet in my_pets) || !message)
+		return FALSE
+	var/was_blocked = (pet in speech_blocked)
+	if(was_blocked)
+		UnregisterSignal(pet, COMSIG_MOB_SAY)
+	pet.say(message, forced = TRUE)
+	if(was_blocked)
+		RegisterSignal(pet, COMSIG_MOB_SAY, PROC_REF(block_speech))
+	return TRUE
+
+/datum/component/collar_master/proc/force_emote(mob/living/carbon/human/pet, message)
+	if(!pet || !(pet in my_pets) || !message)
+		return FALSE
+	pet.emote("me", 1, message, FALSE, TRUE, TRUE)
+	return TRUE
+
+/datum/component/collar_master/proc/toggle_arousal(mob/living/carbon/human/pet)
+	if(!pet || !(pet in my_pets))
+		return FALSE
+	if(forced_arousal_timers[pet])
+		stop_forced_arousal(pet)
+		to_chat(pet, span_notice("The collar eases its constant teasing."))
+		if(mindparent?.current)
+			to_chat(mindparent.current, span_notice("[pet]'s enforced arousal is switched off."))
+		return TRUE
+	SEND_SIGNAL(pet, COMSIG_SEX_FREEZE_AROUSAL, FALSE)
+	to_chat(pet, span_warning("The collar hums, flooding you with relentless arousal."))
+	if(mindparent?.current)
+		to_chat(mindparent.current, span_notice("You set [pet]'s collar to steadily increase their arousal."))
+	var/id = addtimer(CALLBACK(src, PROC_REF(ramp_arousal_tick), pet), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP)
+	if(id)
+		forced_arousal_timers[pet] = id
+	return TRUE
+
+/datum/component/collar_master/proc/ramp_arousal_tick(mob/living/carbon/human/pet)
+	if(!pet || QDELETED(pet) || !(pet in my_pets) || pet.stat >= DEAD)
+		stop_forced_arousal(pet)
+		return
+	SEND_SIGNAL(pet, COMSIG_SEX_ADJUST_AROUSAL, 2)
+
+/datum/component/collar_master/proc/stop_forced_arousal(mob/living/carbon/human/pet)
+	if(!forced_arousal_timers[pet])
+		return
+	var/id = forced_arousal_timers[pet]
+	forced_arousal_timers -= pet
+	if(id)
+		deltimer(id)
+	return TRUE
+
 /datum/component/collar_master/proc/cleanup_pet(mob/living/carbon/human/pet)
 	if(!pet)
 		return FALSE
 	if(remote_control_pet_body == pet)
 		end_remote_control()
+	stop_forced_arousal(pet)
 	remove_pet(pet)
 	REMOVE_TRAIT(pet, TRAIT_NUDIST, COLLAR_TRAIT)
 	return TRUE
@@ -229,7 +299,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 
 	// Push the pet's player into a ghost for the duration.
 	var/datum/mind/pet_mind = pet.mind
-	var/mob/dead/observer/screye/ghost = pet.scry_ghost()
+	var/mob/dead/observer/ghost = create_pet_ghost(pet)
 	if(!ghost)
 		if(mindparent?.current)
 			to_chat(mindparent.current, span_warning("The collar fails to cast the pet's spirit out."))
@@ -286,3 +356,13 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(ghost && !QDELETED(ghost))
 		ghost.reenter_corpse(TRUE)
 	return TRUE
+
+/datum/component/collar_master/proc/create_pet_ghost(mob/living/carbon/human/pet)
+	if(!pet?.client)
+		return null
+	var/mob/dead/observer/rogue/ghost = new(pet)
+	SStgui.on_transfer(pet, ghost)
+	ghost.key = pet.key
+	ghost.can_reenter_corpse = FALSE
+	ghost.name = "[pet.real_name]'s spirit"
+	return ghost

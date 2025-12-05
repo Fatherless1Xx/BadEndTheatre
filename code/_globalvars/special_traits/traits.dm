@@ -886,6 +886,67 @@
 /datum/special_trait/keenears/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_KEENEARS, "[type]")
 
+/datum/special_trait/bestial
+	name = "Bestial"
+	greet_text = span_notice("I am blessed by Dendor I feel closer to beasts than men, I can whisper in their tongue.")
+	weight = 50
+	req_text = "Worship Dendor and be an acolyte"
+	allowed_jobs = list(/datum/job/monk)
+	allowed_patrons = list(/datum/patron/divine/dendor)
+
+/datum/special_trait/bestial/on_apply(mob/living/carbon/human/character, silent)
+	character.grant_language(/datum/language/beast)
+	character.add_spell(/datum/action/cooldown/spell/undirected/howl/call_of_the_moon, silent = TRUE)
+	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]") // eat the raw meat
+
+/datum/special_trait/glutton
+	name = "The Glutton"
+	greet_text = span_notice("Baotha has cursed my entire bloodline, demanding that we indulge in luxuries and dine in decadance.")
+	weight = 20
+	req_text = "Monarch"
+	allowed_jobs = list(/datum/job/lord)
+
+/datum/special_trait/glutton/on_apply(mob/living/carbon/human/character, silent)
+	character.set_stat_modifier("[type]", STATKEY_STR, 5)
+	character.set_stat_modifier("[type]", STATKEY_CON, 7)
+	character.set_stat_modifier("[type]", STATKEY_END, -6)
+	character.set_stat_modifier("[type]", STATKEY_SPD, -10)
+
+	character.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE) // this guy will sit on you
+	character.adjust_skillrank(/datum/skill/misc/athletics, -3, TRUE)
+
+	ADD_TRAIT(character, TRAIT_FAT, "[type]")
+	ADD_TRAIT(character, TRAIT_CRITICAL_RESISTANCE, "[type]")
+
+	character.family_datum.AddFamilyCurse(/datum/family_curse/hunger, 1, BAOTHA)
+
+	character.transform = character.transform.Scale(1.15, 1)
+	character.update_transform()
+	character.RemoveElement(/datum/element/footstep, character.footstep_type, 1, -6)
+	character.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HEAVY, 1, -2)
+	character.verbs |= /mob/living/carbon/human/proc/emote_burp_loud
+	var/datum/voicepack/glutton/sound_m = new()
+	var/datum/voicepack/glutton/sound_f = new()
+	sound_m.parent_datum = character.dna.species.soundpack_m
+	sound_f.parent_datum = character.dna.species.soundpack_f
+	character.dna.species.soundpack_m = sound_m
+	character.dna.species.soundpack_f = sound_f
+
+/datum/emote/living/burp_loud
+	key = "burploud"
+	emote_type = EMOTE_AUDIBLE
+	key_third_person = "burps gluttonously"
+	message = "burps gluttonously!"
+	snd_range = 4
+	snd_vol = 200
+	mute_time = 100 // little less spammable
+
+/mob/living/carbon/human/proc/emote_burp_loud()
+	set name = "Gluttonous Burp"
+	set category = "Noises"
+
+	emote("burploud", intentional = TRUE)
+
 /datum/special_trait/musical
 	name = "Musical Legend"
 	greet_text = span_notice("I am very good with instruments! though my previous one got stolen..")

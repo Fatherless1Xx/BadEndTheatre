@@ -43,6 +43,10 @@
 		"Force Strip" = /mob/proc/collar_master_force_strip,
 		"Forbid/permit Clothing" = /mob/proc/collar_master_clothing,
 		"Toggle Pet Speech" = /mob/proc/collar_master_toggle_speech,
+		"Force Love" = /mob/proc/collar_master_force_love,
+		"Force Say" = /mob/proc/collar_master_force_say,
+		"Force Emote" = /mob/proc/collar_master_force_emote,
+		"Toggle Arousal" = /mob/proc/collar_master_toggle_arousal,
 		"Scry Pet" = /mob/proc/collar_master_scry,
 		"Remote Control Pet" = /mob/proc/collar_master_remote_control,
 		"Free Pet" = /mob/proc/collar_master_release_pet,
@@ -167,6 +171,72 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.toggle_speech(pet)
+
+/mob/proc/collar_master_force_love()
+	set name = "Force Love"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's heart sigils are still pulsing!"))
+		return
+	CM.last_command_time = world.time
+	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+		if(!pet || !(pet in CM.my_pets))
+			continue
+		CM.force_love(pet)
+
+/mob/proc/collar_master_force_say()
+	set name = "Force Say"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's voice modulator is still warming up!"))
+		return
+	var/message = input(src, "Force your pet to say:", "Collar Command") as text|null
+	if(!message)
+		return
+	CM.last_command_time = world.time
+	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+		if(!pet || !(pet in CM.my_pets))
+			continue
+		CM.force_say(pet, message)
+
+/mob/proc/collar_master_force_emote()
+	set name = "Force Emote"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's emotive circuit hums; wait a moment."))
+		return
+	var/message = input(src, "Force your pet to emote:", "Collar Command") as text|null
+	if(!message)
+		return
+	CM.last_command_time = world.time
+	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+		if(!pet || !(pet in CM.my_pets))
+			continue
+		CM.force_emote(pet, message)
+
+/mob/proc/collar_master_toggle_arousal()
+	set name = "Toggle Arousal"
+	set category = "Collar Tab"
+	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
+	if(!CM || !length(CM.temp_selected_pets))
+		return
+	if(world.time < CM.last_command_time + CM.command_cooldown)
+		to_chat(src, span_warning("The collar's tease nodes are still cycling!"))
+		return
+	CM.last_command_time = world.time
+	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+		if(!pet || !(pet in CM.my_pets))
+			continue
+		CM.toggle_arousal(pet)
 
 /mob/proc/collar_master_scry()
 	set name = "Scry Pet"
