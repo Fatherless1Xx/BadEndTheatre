@@ -8,3 +8,5 @@
 	now spread to the masses much to the chagrin of the Nihilion's followers..."
 
 	godhead = /datum/patron/noddist/noctulius
+
+	patron_name = "Paradigm"

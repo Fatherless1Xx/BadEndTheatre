@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/// The patron/god/diety this character worships
 	var/datum/patron/selected_patron
 	/// The default patron to use if none is selected
-	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
+	var/static/datum/patron/default_patron = /datum/patron/friendship/friend
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
 		(RANDOM_BODY) = FALSE,
@@ -406,7 +406,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<b>Flaw:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
 	var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
 	dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
-	dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
+	if(length(GLOB.patrons_by_faith[selected_faith]) > 1)
+		dat += "<b>[selected_faith.patron_name]:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
 	dat += "<b>Family:</b> <a href='?_src_=prefs;preference=family'>[family ? family : "None"]</a><BR>"
 	if(family == FAMILY_FULL || family == FAMILY_NEWLYWED)
 		dat += "<b>Preferred Spouse:</b> <a href='?_src_=prefs;preference=setspouse'>[setspouse ? setspouse : "None"]</a><BR>"
