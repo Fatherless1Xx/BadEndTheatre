@@ -8,7 +8,7 @@
 	allowed_races = list(SPEC_ID_HUMEN, SPEC_ID_AASIMAR)
 	allowed_patrons = list(/datum/patron/friendship/friend) //Friendship
 	default_patron = /datum/patron/friendship/friend
-	tutorial = "You are the conclave's special rape toy."
+	tutorial = "You are the Conclave's special pain sponge."
 	selection_color = JCOLOR_INQUISITION
 	outfit = /datum/outfit/job/absolver
 	bypass_lastclass = TRUE
