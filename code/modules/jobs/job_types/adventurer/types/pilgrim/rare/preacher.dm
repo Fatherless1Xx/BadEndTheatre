@@ -29,9 +29,9 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
-			to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
+			to_chat(H, "<span class='info'>I can speak Old Nhoktist with ,m before my speech.</span>")
 		H.set_patron(/datum/patron/psydon, TRUE)
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	if(H.dna?.species.id == SPEC_ID_HUMEN)
-		H.dna.species.native_language = "Old Noddish"
+		H.dna.species.native_language = "Old Nhoktist"
 		H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)

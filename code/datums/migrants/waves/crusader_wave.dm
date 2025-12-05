@@ -57,7 +57,7 @@
 	var/datum/species/species = spawned.dna?.species
 	if(!species)
 		return
-	species.native_language = "Old Noddish"
+	species.native_language = "Old Nhoktist"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/specialinquisitor
@@ -138,7 +138,7 @@
 	var/datum/species/species = spawned.dna?.species
 	if(!species)
 		return
-	species.native_language = "Old Noddish"
+	species.native_language = "Old Nhoktist"
 	species.accent_language = species.get_accent(species.native_language)
 
 /datum/outfit/inquisition_crusader

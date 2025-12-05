@@ -62,7 +62,7 @@
 		H.grant_language(/datum/language/oldpsydonic)
 		H.verbs |= /mob/living/carbon/human/proc/view_inquisition
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
-			H.dna.species.native_language = "Old Noddish"
+			H.dna.species.native_language = "Old Nhoktist"
 			H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 		H.virginity = FALSE
 

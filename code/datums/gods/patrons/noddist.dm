@@ -5,7 +5,6 @@
 	profane_words = list()
 
 	confess_lines = list(
-		"Tung tung tung!",
 		"Sinister!",
 		"TOUCH MY GENITAL STUMP!!!!",
 		"It feels like acid upon my tender parts.",
@@ -17,8 +16,8 @@
 
 /datum/patron/noddist/noctulius
 	name = "Noctulius"
-	domain = "Modern Noddism, The Study of this Nexion, The Inhumanities, Blood Drinking"
-	desc = "The modern Emanation of Noddist belief. He who Knows is the Eater and the Grower, the \n\
+	domain = "Modern Nhoktism, The Study of this Nexion, The Inhumanities, Blood Drinking"
+	desc = "The modern Emanation of Nhoktist belief. He who Knows is the Eater and the Grower, the \n\
 	storyteller and the renegade childer of the damned. \n\
 	Blood is as sweet as the sobber's agony."
 	flaws = "Decentralized, at odds with older interpretations, hated by all."
@@ -48,6 +47,6 @@
 	Among them you have no friendship. To them you are a relic of a different time, soon to perish. But you are in no rush. \n\
 	Time is a trick that can turn to cheat you. You're not going anywhere, but already you have borne witness to how the ancient followers of Hyatt\n\
 	will enact Inhumanities even the Tempel could not think of. The sliver of silver pinned inside your urethra is proof of that."
-	flaws = "Out of touch, hunted by other Noddists"
+	flaws = "Out of touch, hunted by other Nhoktists"
 	worshippers = "Those who seek an easier Truth to swallow, those loyal to the Nihilion, sad old men."
-	boons = "You might have an easier time convincing the others of Noddism's virtues."
+	boons = "You might have an easier time convincing the others of Nhoktism's virtues."

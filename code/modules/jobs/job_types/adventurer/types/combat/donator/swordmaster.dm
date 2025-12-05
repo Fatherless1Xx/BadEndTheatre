@@ -46,11 +46,11 @@
 	neck = /obj/item/clothing/neck/chaincoif
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)
-		to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
+		to_chat(H, "<span class='info'>I can speak Old Nhoktist with ,m before my speech.</span>")
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
 	if(H.dna?.species.id == SPEC_ID_HUMEN)
-		H.dna.species.native_language = "Old Noddish"
+		H.dna.species.native_language = "Old Nhoktist"
 		H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

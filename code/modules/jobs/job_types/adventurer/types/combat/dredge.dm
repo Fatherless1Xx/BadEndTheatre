@@ -170,7 +170,7 @@
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			if(!H.has_language(/datum/language/oldpsydonic))
 				H.grant_language(/datum/language/oldpsydonic)
-				to_chat(H, "<span class='info'>I can speak Old Noddish with ,m before my speech.</span>")
+				to_chat(H, "<span class='info'>I can speak Old Nhoktist with ,m before my speech.</span>")
 			H.set_patron(/datum/patron/psydon, TRUE)
 			to_chat(H,span_info("\
 			The Ten are false gods, and I loathe those that worship the true corpse god, Necra. Psydon lives, my life for Psydon.")
