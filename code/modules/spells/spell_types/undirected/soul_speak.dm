@@ -9,12 +9,12 @@
 	associated_skill = /datum/skill/magic/holy
 	required_items = list(/obj/item/clothing/neck/psycross/silver/necra)
 
-	invocation = "Undermaiden grant thee passage forth and spare the trials of the forgotten."
+	invocation = "Establishing mortal-to-spirit communication protocol."
 	invocation_type = INVOCATION_WHISPER
 
 	charge_required = FALSE
-	cooldown_time = 75 SECONDS
-	spell_cost = 40
+	cooldown_time = 1 SECONDS
+	spell_cost = 0
 
 	var/datum/weakref/soul
 
@@ -50,7 +50,7 @@
 	var/mob/living/carbon/spirit/called = soul.resolve()
 	if(QDELETED(called))
 		return
-	to_chat(called, span_userdanger("You feel yourself being pulled out of the Underworld!"))
+	to_chat(called, span_userdanger("You feel yourself being pulled out of the Hell!"))
 	SSdeath_arena.remove_fighter(called)
 
 	var/list/itemstore = list()
@@ -74,7 +74,7 @@
 	addtimer(CALLBACK(src, PROC_REF(return_soul), called, itemstore), 60 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(return_soul_warning), called), 50 SECONDS)
 
-	to_chat(owner, span_userdanger("I feel a cold chill run down my spine, a ghastly presence has arrived."))
+	to_chat(owner, span_userdanger("A chill of excitement runs through me. The one I seek has arrived. Edledhron favours me, for now."))
 
 /datum/action/cooldown/spell/undirected/soul_speak/proc/return_soul_warning(mob/living/carbon/spirit/soul)
 	if(!QDELETED(owner))
@@ -84,10 +84,10 @@
 
 /datum/action/cooldown/spell/undirected/soul_speak/proc/return_soul(mob/living/carbon/spirit/soul, list/itemstore)
 	if(!QDELETED(owner))
-		to_chat(owner, span_warning("The soul returns to the Underworld."))
+		to_chat(owner, span_warning("The soul returns to the great whorl of souls."))
 	if(QDELETED(soul))
 		return
-	to_chat(soul, span_warning("You feel yourself being transported back to the Underworld."))
+	to_chat(soul, span_warning("You feel yourself being transported back to Hell."))
 	soul.orbiting?.end_orbit()
 	soul.drop_all_held_items()
 	var/turf/soul_turf = pick(GLOB.underworldspiritspawns)

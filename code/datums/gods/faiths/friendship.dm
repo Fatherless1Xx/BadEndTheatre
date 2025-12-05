@@ -1,5 +1,5 @@
 /datum/faith/friendship
-	name = "\improper Friendship"
+	name = "Great Friendship"
 	desc = "The nascent creed of mankind. Those born of men are Eternal Friends under the eyes of He Who Holds Great Friendship\n\
 	And truly, the warmth of friendship does feel warm, happy, and pleasing to those within its hold.\n\
 	But alas, those inhuman have a lesser affinity to the blood-friendship the races of men enjoy.\n\

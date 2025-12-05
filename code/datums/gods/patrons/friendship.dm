@@ -19,3 +19,4 @@
 	sins = "Penetration of a twink's ass without aristocratic lineage, being an Enemy, refusing the perfection of Friend"
 	flaws = "Fanaticism, xenophobia, loyalty to a fault"
 	boons = "You know the True Meaning of Friendship."
+	worshippers = "Humans, aristocrats, those with rareified tastes, those keen to climb the social ladder, false-converts, the friendless"

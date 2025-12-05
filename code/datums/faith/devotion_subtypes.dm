@@ -167,3 +167,10 @@
 		CLERIC_T3 = /datum/action/cooldown/spell/undirected/divine_strike
 	)
 
+/datum/devotion/pagan/edledhron
+	miracles = list(
+		CLERIC_T0 = /datum/action/cooldown/spell/conjure/raise_lesser_undead,
+		CLERIC_T1 = /datum/action/cooldown/spell/psydonendure,
+		CLERIC_T2 = list(/datum/action/cooldown/spell/undirected/soul_speak, /datum/action/cooldown/spell/status/invisibility),
+		CLERIC_T3 = /datum/action/cooldown/spell/persistence,
+	)
