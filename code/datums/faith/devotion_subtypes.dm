@@ -159,3 +159,11 @@
 		CLERIC_T3 = /datum/action/cooldown/spell/conjure/raise_lesser_undead
 	)
 
+/datum/devotion/friendship
+	miracles = list(
+		CLERIC_T0 = list(/datum/action/cooldown/spell/undirected/touch/orison, /datum/action/cooldown/spell/healing),
+		CLERIC_T1 = /datum/action/cooldown/spell/aoe/churn_undead,
+		CLERIC_T2 = list(/datum/action/cooldown/spell/healing/greater, /datum/action/cooldown/spell/instill_perfection)
+		CLERIC_T3 = /datum/action/cooldown/spell/undirected/divine_strike
+	)
+
