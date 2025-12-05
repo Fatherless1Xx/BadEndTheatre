@@ -1,7 +1,7 @@
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/friendship/friend)
-#define ALL_CLERIC_PATRONS 		list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya, /datum/patron/pagan/zhakral)
-#define ALL_PALADIN_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya)
-#define ALL_TEMPLAR_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/phaetya)
+#define ALL_CLERIC_PATRONS 		list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/saya, /datum/patron/pagan/zhakral)
+#define ALL_PALADIN_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/saya)
+#define ALL_TEMPLAR_PATRONS 	list(/datum/patron/friendship/friend, /datum/patron/pagan/edledhron, /datum/patron/pagan/saya)
 #define ALL_PROFANE_PATRONS 	list(/datum/patron/noddist/noctulius, /datum/patron/noddist/noctulius/carpathianflorist, /datum/patron/noddist/hyattite, /datum/patron/noddist/noctulius/sahur)
 
 GLOBAL_LIST_INIT(curse_names, list())

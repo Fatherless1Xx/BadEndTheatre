@@ -182,7 +182,7 @@
 		CLERIC_T2 = /datum/action/cooldown/spell/revel_in_slaughter,
 	)
 
-/datum/devotion/pagan/phaetya
+/datum/devotion/pagan/saya
 	miracles = list(
 		CLERIC_T0 = /datum/action/cooldown/spell/healing,
 		CLERIC_T1 = list(/datum/action/cooldown/spell/undirected/bless_crops, /datum/action/cooldown/spell/aoe/churn_undead),
