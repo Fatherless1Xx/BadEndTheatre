@@ -8,11 +8,11 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "GRAGGAR!! GRAGGAR!! GRAGGAR!!"
-	invocation_type = INVOCATION_SHOUT
+	invocation = "beats his forehead repeatedly!"
+	invocation_type = INVOCATION_EMOTE
 	charge_required = FALSE
-	cooldown_time = 5 MINUTES
-	spell_cost = 80
+	cooldown_time = 2 MINUTES
+	spell_cost = 0
 	var/static/list/purged_effects = list(
 		/datum/status_effect/incapacitating/immobilized,
 		/datum/status_effect/incapacitating/paralyzed,
@@ -26,7 +26,7 @@
 		return
 
 	if(cast_on.stat == DEAD)
-		to_chat(cast_on, span_warning("I am dead."))
+		to_chat(cast_on, span_warning("I am a tasty and delectable corpse just waiting to be raped..."))
 		reset_spell_cooldown()
 		return . | SPELL_CANCEL_CAST
 	if(cast_on.buckled)

@@ -170,7 +170,14 @@
 /datum/devotion/pagan/edledhron
 	miracles = list(
 		CLERIC_T0 = /datum/action/cooldown/spell/conjure/raise_lesser_undead,
-		CLERIC_T1 = /datum/action/cooldown/spell/psydonendure,
-		CLERIC_T2 = list(/datum/action/cooldown/spell/undirected/soul_speak, /datum/action/cooldown/spell/status/invisibility),
+		CLERIC_T1 = list(/datum/action/cooldown/spell/psydonendure, /datum/action/cooldown/spell/beam/equalize),
+		CLERIC_T2 = list(/datum/action/cooldown/spell/undirected/soul_speak, /datum/action/cooldown/spell/status/invisibility, /datum/action/cooldown/spell/undirected/rituos),
 		CLERIC_T3 = /datum/action/cooldown/spell/persistence,
+	)
+
+/datum/devotion/pagan/zhakral
+	miracles = list(
+		CLERIC_T0 = /datum/action/cooldown/spell/undirected/bloodrage,
+		CLERIC_T1 = /datum/action/cooldown/spell/undirected/call_to_slaughter,
+		CLERIC_T2 = /datum/action/cooldown/spell/revel_in_slaughter,
 	)

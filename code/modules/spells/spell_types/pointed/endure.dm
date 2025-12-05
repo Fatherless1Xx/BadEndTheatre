@@ -24,8 +24,8 @@
 	charge_time = 1
 	cast_range = 2
 	sound = 'sound/magic/ENDVRE.ogg'
-	invocation = "LYVE, ENDURE!" // holy larp yelling for healing is silly
-	invocation_type = "none"
+	invocation = "My balls itch." // holy larp yelling for healing is silly
+	invocation_type = INVOCATION_NONE
 	associated_skill = /datum/skill/magic/holy
 	cooldown_time = 30 SECONDS
 
@@ -38,38 +38,12 @@
 		var/list/wAmount = target.get_wounds()
 		var/conditional_buff = FALSE
 		var/situational_bonus = 0
-		var/psicross_bonus = 0
 		var/pp = 0
 		var/damtotal = brute + burn
 		var/zcross_trigger = FALSE
 
 		// Bonuses! Flavour! SOVL!
 		for(var/obj/item/clothing/neck/current_item in target.get_equipped_items(TRUE))
-			if(istype(current_item, /obj/item/clothing/neck/psycross))
-				pp += 1
-				if(pp >= 12 & target == user) // A harmless easter-egg. Only applies on self-cast. You'd have to be pretty deliberate to wear 12 of them.
-					target.visible_message(span_danger("[target]'s many psycrosses reverberate with a strange, ephemeral sound..."), span_userdanger("HE must be waking up! I can hear it! I'm ENDURING so much!"))
-					playsound(user, 'sound/magic/PSYDONE.ogg', 100, FALSE)
-					sleep(60)
-					user.psydo_nyte()
-					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
-					sleep(20)
-					user.psydo_nyte()
-					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
-					sleep(15)
-					user.psydo_nyte()
-					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
-					sleep(10)
-					user.gib()
-					return FALSE
-
-				switch(current_item.type) // Target-based worn Psicross Piety bonus. For fun.
-					if(/obj/item/clothing/neck/psycross)
-						psicross_bonus = 0.3
-					if(/obj/item/clothing/neck/psycross/silver)
-						psicross_bonus = 0.4
-					if(/obj/item/clothing/neck/psycross/g) // PURITY AFLOAT.
-						psicross_bonus = 0.4
 		if(damtotal >= 300) // ARE THEY ENDURING MUCH, IN ONE WAY OR ANOTHER?
 			situational_bonus += 0.3
 
@@ -79,11 +53,11 @@
 		if (situational_bonus > 0)
 			conditional_buff = TRUE
 
-		target.visible_message(span_info("A strange stirring feeling pours from [target]!"), span_info("Sentimental thoughts drive away my pain..."))
+		target.visible_message(span_info("[target] grits his teeth!"), span_info("The thought of digging my fingers into a weakling's eye sockets invigorates me..."))
 		var/psyhealing = 3
 		psyhealing += psicross_bonus
 		if (conditional_buff & !zcross_trigger)
-			to_chat(user, "In <b>ENDURING</b> so much, become <b>EMBOLDENED</b>!")
+			to_chat(user, "<b>BLOOD FOR SEX!</b>")
 			psyhealing += situational_bonus
 
 		if (zcross_trigger)
@@ -99,7 +73,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/psyhealing
 	name = "Enduring"
-	desc = "I am awash with sentimentality."
+	desc = "I am ready to kill a fool.."
 	icon_state = "buff"
 
 #define PSYDON_HEALING_FILTER "psydon_heal_glow"
@@ -108,7 +82,7 @@
 	id = "psyhealing"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/psyhealing
 	duration = 15 SECONDS
-	examine_text = "SUBJECTPRONOUN stirs with a sense of ENDURING!"
+	examine_text = "SUBJECTPRONOUN is a maniac! I need to stop them!"
 	var/healing_on_tick = 1
 	var/outline_colour = "#d3d3d3"
 

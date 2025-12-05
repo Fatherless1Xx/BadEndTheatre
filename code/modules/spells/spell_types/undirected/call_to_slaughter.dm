@@ -7,17 +7,17 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "LAMBS TO THE SLAUGHTER!"
-	invocation_type = INVOCATION_SHOUT
+	invocation = "grins wickedly, gnashing their teeth!"
+	invocation_type = INVOCATION_EMOTE
 
 	charge_required = FALSE
 	cooldown_time = 5 MINUTES
-	spell_cost = 40
+	spell_cost = 0
 
 /datum/action/cooldown/spell/undirected/call_to_slaughter/cast(atom/cast_on)
 	. = ..()
 	for(var/mob/living/carbon/target in viewers(3, get_turf(owner)))
-		if(istype(target.patron, /datum/patron/inhumen))
+		if(istype(target.patron, /datum/patron/pagan))
 			target.apply_status_effect(/datum/status_effect/buff/call_to_slaughter)	//Buffs inhumens
 			return
 		if(istype(target.patron, /datum/patron/psydon))
@@ -27,4 +27,4 @@
 			continue
 		if(target.mob_biotypes & MOB_UNDEAD)
 			continue
-		target.apply_status_effect(/datum/status_effect/debuff/call_to_slaughter)	//Debuffs non-inhumens/psydonians
+		target.apply_status_effect(/datum/status_effect/debuff/call_to_slaughter)	//Debuffs anyone that's less trvd than him
