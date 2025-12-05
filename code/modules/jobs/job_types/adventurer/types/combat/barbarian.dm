@@ -13,7 +13,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-	allowed_patrons = list(/datum/patron/pagan/zhakral, /datum/patron/noddist/noctulius/sahur, /datum/patron/noddist/noctulius, /datum/patron/pagan/saya)
+	allowed_patrons = list(/datum/patron/pagan/zhakral, /datum/patron/noddist/noctulius/sahur, /datum/patron/noddist/noctulius, /datum/patron/pagan/tsaiya)
 
 /datum/outfit/adventurer/barbarian/pre_equip(mob/living/carbon/human/H)
 	..()

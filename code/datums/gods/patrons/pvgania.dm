@@ -47,7 +47,7 @@
 
 	devotion_holder = /datum/devotion/pagan/zhakral
 
-/datum/patron/pagan/saya
+/datum/patron/pagan/tsaiya
 	name = "Tsaiya"
 	desc = "It is perhaps unsurprising that the merciless force that is Tsaiya holds sympathy for those downtrodden masses.\n\
 	They have been shackled by the trappings of 'civilization', of 'aristrocracy' that attempts to live outside natural forces.\n\

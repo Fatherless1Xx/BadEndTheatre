@@ -43,10 +43,10 @@
 /datum/patron/noddist/hyattite
 	name = "Hyattite"
 	domain = "Elder Chaos, Truthseeking, Emancipation from Morality Shackles, Primoidal Dominance"
-	desc = "The 'Tempel ov Blood'. The name of it makes you sick. It is a perversion of the truth your kin have known for a long, long time.\n\
+	desc = "The 'Rite to Blood'. The name of it makes you sick. It is a perversion of the truth your kin have known for a long, long time.\n\
 	Among them you have no friendship. To them you are a relic of a different time, soon to perish. But you are in no rush. \n\
 	Time is a trick that can turn to cheat you. You're not going anywhere, but already you have borne witness to how the ancient followers of Hyatt\n\
-	will enact Inhumanities even the Tempel could not think of. The sliver of silver pinned inside your urethra is proof of that."
+	will enact Inhumanities even the Rite could not think of. The sliver of silver pinned inside your urethra is proof of that."
 	flaws = "Out of touch, hunted by other Nhoktists"
 	worshippers = "Those who seek an easier Truth to swallow, those loyal to the Nihilion, sad old men."
 	boons = "You might have an easier time convincing the others of Nhoktism's virtues."

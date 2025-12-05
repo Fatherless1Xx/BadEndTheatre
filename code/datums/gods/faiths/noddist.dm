@@ -1,5 +1,5 @@
 /datum/faith/noddist
-	name = "\improper Tempel ov Nhokt"
+	name = "\improper Rite to Blood"
 	desc = "Our world is a lattice for suffering. Bodies are the conduit through which joy is extracted. \
 	One's joy is another's suffering. Our Joy is the bonfire that will illuminate our conscience and part the metastatic dark.\n\
 	\n\

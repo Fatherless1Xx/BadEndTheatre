@@ -159,7 +159,7 @@
 	name = "Practitioner of forbidden magic"
 	greet_text = span_notice("I have seen the light and practiced magic these fools call forbidden. Already I have sacrificed my prepuce to Sinister powers...")
 	weight = 25
-	req_text = "Be a member of the Tempel."
+	req_text = "Be a member of the Rite."
 	allowed_patrons = list(/datum/patron/noddist/noctulius)
 	allowed_jobs = list(/datum/job/magician, /datum/job/mageapprentice)
 
