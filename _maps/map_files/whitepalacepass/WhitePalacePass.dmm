@@ -5911,21 +5911,6 @@
 /area/rogue/under/cavewet)
 "fKF" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
-/obj/item/paper/confession,
 /obj/item/natural/feather,
 /obj/item/natural/feather,
 /obj/item/natural/feather,
@@ -8335,6 +8320,11 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield/safe)
+/area/outdoors/rtfield/safe)
+"hKX" = (
+/obj/structure/dryclothes,
+/turf/open/floor/grass/cold,
+/area/outdoors/rtfield/safe)
 "hLw" = (
 /obj/structure/door/window{
 	name = "Tailor"
@@ -171595,7 +171585,7 @@ nse
 iJC
 iJC
 iJC
-iJC
+hKX
 jMd
 eJr
 cgE
@@ -171794,9 +171784,9 @@ gio
 iJC
 iJC
 nse
-iJC
-iJC
-iJC
+hKX
+uRz
+uRz
 iJC
 tLB
 dnx
@@ -171997,8 +171987,8 @@ iJC
 iJC
 iJC
 ivY
-nkN
-iJC
+jdw
+uRz
 jMd
 jMd
 tLB

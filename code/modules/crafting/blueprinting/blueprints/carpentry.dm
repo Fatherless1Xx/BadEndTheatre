@@ -488,3 +488,14 @@
 		/obj/item/natural/fibers = 2
 	)
 	craftdiff = 1
+
+/datum/blueprint_recipe/carpentry/dryclothes
+	name = "Clothline"
+	desc = "It can dry clothes well."
+	result_type = /obj/structure/dryclothes
+	required_materials = list(
+		/obj/item/grown/log/tree/small = 2,
+		/obj/item/rope = 2
+	)
+	craftdiff = 0
+

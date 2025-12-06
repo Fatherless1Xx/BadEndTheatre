@@ -9790,6 +9790,448 @@
 	dir = 8;
 	pixel_y = -1
 	},
+/turf/open/floor/dirt,
+/area/outdoors/town)
+"bng" = (
+/obj/structure/table/wood/plain,
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/turf/open/floor/blocks,
+/area/indoors/dungeon)
+"bnw" = (
+/obj/structure/door{
+	lockid = "roomhunt";
+	name = "HUNT ROOM"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/wood,
+/area/indoors/town/tavern)
+"bnQ" = (
+/obj/structure/flora/starfish,
+/turf/open/floor/sand,
+/area/outdoors/beach)
+"bnU" = (
+/obj/item/grown/log/tree/stick,
+/turf/open/floor/grass,
+/area/outdoors/rtfield)
+"boo" = (
+/obj/structure/bars/grille,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/transparent/openspace,
+/area/indoors/town/garrison)
+"bow" = (
+/obj/machinery/light/fueled/lanternpost/fixed{
+	pixel_x = -2
+	},
+/turf/open/floor/cobble/mossy,
+/area/under/cavewet)
+"boA" = (
+/turf/closed/wall/mineral/stone/window,
+/area/indoors/town/bath)
+"boR" = (
+/obj/structure/fluff/wallclock{
+	pixel_y = -32
+	},
+/turf/open/floor/metal/barograte,
+/area/indoors/town/clocktower)
+"bpv" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/grass,
+/area/outdoors/mountains)
+"bpw" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/indoors/town/cell)
+"bpL" = (
+/turf/open/floor/wood,
+/area/indoors/town/steward)
+"bqc" = (
+/obj/structure/table/wood/reinforced_alter,
+/obj/item/clothing/face/cigarette/pipe/westman,
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
+/turf/open/floor/herringbone,
+/area/indoors/town/manor)
+"bqw" = (
+/obj/machinery/light/fueledstreet/orange{
+	dir = 1
+	},
+/turf/open/floor/dirt,
+/area/outdoors/beach)
+"bqy" = (
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
+/obj/structure/fluff/millstone{
+	pixel_y = 10
+	},
+/turf/open/floor/tile,
+/area/indoors/town/church)
+"bqL" = (
+/obj/structure/table/wood/reinf_long{
+	dir = 8
+	},
+/obj/item/natural/cloth{
+	pixel_y = 12
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/obj/item/recipe_book/medical,
+/turf/open/floor/carpet,
+/area/indoors/town/clinic_large/feldsher)
+"bre" = (
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/obj/effect/landmark/start/servant{
+	dir = 8
+	},
+/obj/structure/bed/hay,
+/turf/open/floor/cobble,
+/area/indoors/town/manor/servant)
+"brg" = (
+/obj/structure/table/wood/counter/end,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/machinery/light/fueled/torchholder/l,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/hexstone,
+/area/indoors/town/garrison)
+"brn" = (
+/turf/closed/wall/mineral/stone,
+/area/indoors/town/clinic_large/apothecary)
+"brQ" = (
+/obj/effect/landmark/start/vagrantlate{
+	dir = 1
+	},
+/turf/open/floor/naturalstone,
+/area/under/cave)
+"bsr" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/blocks,
+/area/under/town/basement)
+"bsF" = (
+/turf/open/floor/tile,
+/area/indoors/town)
+"btc" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
+/turf/open/floor/wood,
+/area/indoors/town)
+"btx" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/under/town/basement)
+"btE" = (
+/obj/structure/flora/grass,
+/turf/open/floor/cobblerock/alt,
+/area/outdoors/beach)
+"btZ" = (
+/obj/structure/bookcase/random/legends,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/indoors/town/orphanage)
+"bul" = (
+/turf/open/floor/dirt/road,
+/area/outdoors/rtfield/safe)
+"buq" = (
+/turf/open/floor/naturalstone,
+/area/under/cavelava)
+"buC" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/clothing/cloak/tabard/knight,
+/obj/item/clothing/shoes/boots/leather,
+/obj/item/clothing/pants/tights/colored/black,
+/obj/item/clothing/shirt/undershirt/fancy,
+/turf/open/floor/woodturned/nosmooth,
+/area/indoors/town/manor/squire)
+"buG" = (
+/obj/structure/flora/grass,
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/dirt,
+/area/outdoors/town)
+"buP" = (
+/obj/structure/closet/crate/crafted_closet/inn/chest,
+/turf/open/floor/carpet/green,
+/area/indoors/town)
+"buQ" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/open/floor/woodturned,
+/area/indoors/town/magician)
+"buR" = (
+/obj/structure/flora/tree/burnt,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/under/cave)
+"buV" = (
+/turf/open/floor/carpet/lord/center,
+/area/indoors/town/manor/halls/s)
+"bvw" = (
+/obj/structure/dryclothes,
+/turf/open/floor/dirt/road,
+/area/outdoors/town)
+"bvT" = (
+/turf/closed/wall/mineral/craftstone,
+/area/indoors/town/manor/dungeoneer)
+"bwd" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/greenstone,
+/area/indoors/town/manor/library)
+"bwh" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_x = 1
+	},
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/dirt/road,
+/area/under/cave)
+"bwv" = (
+/obj/machinery/light/fueled/torchholder{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/turned,
+/area/outdoors/town/roofs)
+"bwO" = (
+/obj/structure/table/wood/large/corner_new{
+	dir = 5
+	},
+/turf/open/floor/carpet,
+/area/indoors/town/tavern)
+"bwU" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/transparent/openspace,
+/area/indoors/town/magician)
+"bxu" = (
+/obj/structure/flora/tree/dying_bush,
+/turf/open/floor/dirt,
+/area/under/cave)
+"bxA" = (
+/obj/structure/door{
+	name = "Apartment XV";
+	lockids = "apartment15"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/indoors/town)
+"bxK" = (
+/obj/machinery/light/fueled/lanternpost/fixed{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/outdoors/town)
+"bxV" = (
+/obj/structure/fluff/walldeco/painting,
+/turf/closed/wall/mineral/decorstone,
+/area/indoors/town/manor/throne)
+"byd" = (
+/obj/structure/bookcase/random_recipes,
+/turf/open/floor/herringbone,
+/area/indoors/town/manor/library)
+"byt" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/open/floor/woodturned,
+/area/indoors/town/tavern)
+"byu" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/natural/bundle/cloth{
+	amount = 7
+	},
+/turf/open/floor/twig,
+/area/indoors/town/manor/dungeoneer)
+"byz" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/indoors/soilsons)
+"byB" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/under/cave)
+"byD" = (
+/obj/structure/bars/pipe{
+	dir = 4;
+	layer = 2.81;
+	pixel_x = -9
+	},
+/turf/open/transparent/openspace,
+/area/outdoors/town/roofs)
+"byM" = (
+/obj/structure/table/wood/reinf_long,
+/obj/item/soap{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/tile,
+/area/indoors/town/bath)
+"byY" = (
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
+/area/under/cave)
+"bzb" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = 26
+	},
+/obj/structure/ladder,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/indoors/town)
+"bzg" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/door/window{
+	name = "Apothecary"
+	},
+/obj/effect/mapping_helpers/access/keyset/town/bathhouse,
+/turf/open/floor/blocks/stonered/tiny,
+/area/indoors/town/clinic_large/apothecary)
+"bzB" = (
+/obj/effect/landmark/events/haunts,
+/turf/open/floor/tile/masonic,
+/area/indoors/town/manor/lord_appt)
+"bAd" = (
+/obj/structure/water_pipe,
+/turf/open/floor/greenstone,
+/area/under/town/sewer)
+"bAe" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/tile,
+/area/indoors/town/manor/halls/e)
+"bAf" = (
+/obj/structure/closet/crate/crafted_closet/dark,
+/obj/item/clothing/shirt/undershirt/artificer,
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/item/clothing/head/articap,
+/obj/item/clothing/armor/leather/jacket/artijacket,
+/obj/item/clothing/pants/trou/artipants,
+/turf/open/floor/blocks/newstone/alt,
+/area/indoors/town/dwarfin)
+"bAu" = (
+/obj/effect/decal/cleanable/blood/puddle,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/cobble,
+/area/under/town/basement)
+"bAT" = (
+/turf/open/dungeon_trap,
+/area/under/town/basement)
+"bBD" = (
+/obj/machinery/light/fueled/oven/west,
+/turf/open/floor/woodturned,
+/area/indoors/town/magician)
+"bBG" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/wood,
+/area/indoors/town/magician)
+"bCL" = (
+/turf/closed/wall/mineral/wood,
+/area/indoors/town/manor/lord_appt)
+"bCP" = (
+/obj/effect/landmark/start/armorsmith{
+	dir = 4
+	},
+/turf/open/floor/cobblerock,
+/area/indoors/town/smithy)
+"bCW" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/cobble,
+/area/indoors/villagegarrison)
+"bDa" = (
+/turf/open/water/river{
+	dir = 1
+	},
+/area/outdoors/beach)
+"bDf" = (
+/obj/structure/flora/grass/bush_meagre,
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 1;
+	pixel_y = -1
+	},
+/turf/open/floor/grass,
+/area/outdoors/town)
+"bDj" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/indoors/town/theatre)
+"bDm" = (
+/obj/machinery/light/fueledstreet,
+/turf/open/floor/cobble,
+/area/outdoors/town)
+"bDn" = (
+/obj/structure/closet/crate/crafted_closet/crafted,
+/obj/item/clothing/shoes/nobleboot,
+/obj/item/clothing/head/courtierhat,
+/obj/item/clothing/head/chaperon/colored,
+/obj/item/clothing/cloak/half/colored/red,
+/obj/item/clothing/shirt/tunic/noblecoat,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/clothing/shirt/dress/gown/fallgown,
+/turf/open/floor/herringbone,
+/area/indoors/town/manor)
+"bDs" = (
+/obj/structure/door/violet{
+	name = "Fishing Ship"
+	},
+/turf/open/floor/wood,
+/area/indoors/town)
+"bDR" = (
+/turf/closed/wall/mineral/stonebrick,
+/area/indoors/town/clocktower)
+"bEs" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/clothing/face/cigarette/pipe,
+/turf/open/floor/cobble/mossy,
+/area/outdoors/rtfield/safe)
+"bEA" = (
+/obj/effect/mapping_helpers/access/keyset/manor/general,
+/obj/structure/door/fancy,
+/turf/open/floor/woodturned/nosmooth,
+/area/indoors/town/manor/throne)
+"bEG" = (
+/obj/item/bin/water,
+/turf/open/floor/wood,
+/area/indoors/town/manor)
+"bEJ" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/ruinedwood/turned,
+/area/outdoors/town)
+"bEP" = (
+/obj/structure/kneestingers,
 /obj/structure/flora/grass/water,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/river)
