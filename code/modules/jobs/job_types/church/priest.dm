@@ -48,8 +48,8 @@
 	var/obj/item/weapon/polearm/woodstaff/aries/P = new()
 	H.put_in_hands(P, forced = TRUE)
 
-	if(H.patron != /datum/patron/divine/astrata) // For some stupid reason this was checking for Dendor before.
-		H.set_patron(/datum/patron/divine/astrata)
+	if(H.patron != /datum/patron/friendship/friend) // For some stupid reason this was checking for Dendor before.
+		H.set_patron(/datum/patron/friendship/friend)
 
 	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)

@@ -8,7 +8,6 @@
 	cmode_music = 'sound/music/cmode/antag/CombatRogueMage.ogg'
 	total_positions = 2
 
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 	blacklisted_species = list(SPEC_ID_OGRE)
 
 /datum/outfit/wretch/hedgemage/pre_equip(mob/living/carbon/human/H)

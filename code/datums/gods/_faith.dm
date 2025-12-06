@@ -11,3 +11,5 @@ GLOBAL_LIST_EMPTY(preference_faiths)
 	var/datum/patron/godhead = /datum/patron
 	/// Whether or not this faith can be accessed in preferences
 	var/preference_accessible = TRUE
+	/// We might want to call these 'paradigms' or something else.
+	var/patron_name = "Patron"

@@ -1,11 +1,11 @@
 /datum/migrant_role/heartfelt_lord
 	name = "Lord of Heartfelt"
-	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to Vanderlin, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
+	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to new lands, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
 	migrant_job = /datum/job/migrant/heartfelt_lord
 
 /datum/job/migrant/heartfelt_lord
 	title = "Lord of Heartfelt"
-	tutorial = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to Vanderlin, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
+	tutorial = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to new lands, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
 	outfit = /datum/outfit/heartfelt_lord
 	allowed_sexes = list(MALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
@@ -63,12 +63,12 @@
 
 /datum/migrant_role/heartfelt_lady
 	name = "Lady of Heartfelt"
-	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to Vanderlin, hoping to find new purpose or refuge amidst the chaos."
+	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to new lands, hoping to find new purpose or refuge amidst the chaos."
 	migrant_job = /datum/job/migrant/heartfelt_lady
 
 /datum/job/migrant/heartfelt_lady
 	title = "Lady of Heartfelt"
-	tutorial = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to Vanderlin, hoping to find new purpose or refuge amidst the chaos."
+	tutorial = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to new lands, hoping to find new purpose or refuge amidst the chaos."
 	outfit = /datum/outfit/heartfelt_lady
 	allowed_sexes = list(FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
@@ -129,12 +129,12 @@
 
 /datum/migrant_role/heartfelt_hand
 	name = "Hand of Heartfelt"
-	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to Vanderlin, determined to fulfill your duties."
+	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to new lands, determined to fulfill your duties."
 	migrant_job = /datum/job/migrant/heartfelt_hand
 
 /datum/job/migrant/heartfelt_hand
 	title = "Hand of Heartfelt"
-	tutorial = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to Vanderlin, determined to fulfill your duties."
+	tutorial = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to new lands, determined to fulfill your duties."
 	outfit = /datum/outfit/heartfelt_hand
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	is_recognized = TRUE
@@ -182,12 +182,12 @@
 
 /datum/migrant_role/heartfelt_knight
 	name = "Knight of Heartfelt"
-	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to Vanderlin, resolved to ensure their safe arrival."
+	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to new lands, resolved to ensure their safe arrival."
 	migrant_job = /datum/job/migrant/heartfelt_knight
 
 /datum/job/migrant/heartfelt_knight
 	title = "Knight of Heartfelt"
-	tutorial = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to Vanderlin, resolved to ensure their safe arrival."
+	tutorial = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to new lands, resolved to ensure their safe arrival."
 	outfit = /datum/outfit/heartfelt_knight
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	is_recognized = TRUE
@@ -277,15 +277,15 @@
 
 /datum/migrant_role/heartfelt_magos
 	name = "Magos of Heartfelt"
-	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Vanderlin, you seek answers and perhaps a new purpose in the wake of destruction."
+	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to new lands, you seek answers and perhaps a new purpose in the wake of destruction."
 	migrant_job = /datum/job/migrant/heartfelt_magos
 
 /datum/job/migrant/heartfelt_magos
 	title = "Magos of Heartfelt"
-	tutorial = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Vanderlin, you seek answers and perhaps a new purpose in the wake of destruction."
+	tutorial = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to new lands, you seek answers and perhaps a new purpose in the wake of destruction."
 	outfit = /datum/outfit/heartfelt_magos
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-	allowed_patrons = list(/datum/patron/divine/noc)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 	is_recognized = TRUE
 
 	jobstats = list(
@@ -351,15 +351,15 @@
 
 /datum/migrant_role/heartfelt_prior
 	name = "Heartfelt Prior"
-	greet_text = "You are a Prior of Heartfelt, a spiritual leader whose faith was tested when your home fell into ruin. Now journeying to Vanderlin, you seek to rebuild not just structures, but the souls of those who follow you."
+	greet_text = "You are a Prior of Heartfelt, a spiritual leader whose faith was tested when your home fell into ruin. Now journeying to new lands, you seek to rebuild not just structures, but the souls of those who follow you."
 	migrant_job = /datum/job/migrant/heartfelt_prior
 
 /datum/job/migrant/heartfelt_prior
 	title = "Heartfelt Prior"
-	tutorial = "You are a Prior of Heartfelt, a spiritual leader whose faith was tested when your home fell into ruin. Now journeying to Vanderlin, you seek to rebuild not just structures, but the souls of those who follow you."
+	tutorial = "You are a Prior of Heartfelt, a spiritual leader whose faith was tested when your home fell into ruin. Now journeying to new lands, you seek to rebuild not just structures, but the souls of those who follow you."
 	outfit = /datum/outfit/heartfelt_prior
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-	allowed_patrons = list(/datum/patron/divine/astrata)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 
 	jobstats = list(
 		STATKEY_STR = -1,

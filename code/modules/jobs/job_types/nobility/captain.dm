@@ -13,6 +13,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_patrons = (/datum/patron/friendship/friend)
 
 	outfit = /datum/outfit/captain
 	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/guard)

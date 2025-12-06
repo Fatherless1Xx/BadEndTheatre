@@ -2,10 +2,10 @@
 	title = "Totod Order Emissary"
 	tutorial = "The Crusaders are knights who have pledged their wealth and lands to the Church, \
 	taking up the banner of the Totod Order dedicated to retaking Valoria. \
-	Three cults provide knights for the Order: Astrata, Necra and Ravox. \
+	Three cults provide knights for the Friendship. \
 	You were sent to Vanderlin by the Order to get any and all assistance from the faithful for the Crusade."
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 	outfit = /datum/outfit/adventurer/crusader
 	category_tags = list(CTAG_ADVENTURER)
 	total_positions = 1
@@ -13,7 +13,7 @@
 	min_pq = 0
 	is_recognized = TRUE
 
-	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
+	allowed_patrons = list(/datum/patron/friendship/friend)
 
 /datum/outfit/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -30,19 +30,6 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/silver
 
-	switch(H.patron?.name)
-		if("Astrata")
-			H.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
-			cloak = /obj/item/clothing/cloak/stabard/templar/astrata // Gold for Astrata regardless of gender
-			wrists = /obj/item/clothing/neck/psycross/silver/astrata
-		if("Necra")
-			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
-			cloak = /obj/item/clothing/cloak/stabard/templar/necra
-			wrists = /obj/item/clothing/neck/psycross/silver/necra
-		else // Failsafe
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
-			cloak = /obj/item/clothing/cloak/stabard/templar/ravox // Gold version regardless of gender or patron
-			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -85,7 +72,7 @@
 
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)
-		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
+		to_chat(H, "<span class='info'>I can speak Old Nhoktist with ,m before my speech.</span>")
 
 /datum/outfit/adventurer/crusader // Reminder message
 	var/tutorial = "<br><br><font color='#bdc34a'><span class='bold'>You have been sent from the Totod Order on a mission to aid your struggle against the Blood Barons somehow. The details of your mission may vary, perhaps to find allies, funding, or a agent of the enemy...</span></font><br><br>"
@@ -127,7 +114,7 @@
 	worn_y_dimension = 64
 
 /obj/item/clothing/head/helmet/heavy/crusader/t
-	desc = "A silver gilded bucket helm, inscriptions in old Psydonic are found embezzeled on every inch of silver. Grenzelhoft specializes in these helmets, the Totod order has been purchasing them en-masse."
+	desc = "A silver gilded bucket helm, inscriptions in Old Nhoktist are found embezzeled on every inch of silver. Grenzelhoft specializes in these helmets, the Totod order has been purchasing them en-masse."
 	icon_state = "crusader_helmt2"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'

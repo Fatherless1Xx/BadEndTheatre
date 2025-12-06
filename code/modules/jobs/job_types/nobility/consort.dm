@@ -91,6 +91,9 @@
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
+	if(prob(66))
+		to_chat(H, span_warning("FUCK! The Friendship Prefect Made sure I'm a Friend."))
+		H.set_patron(/datum/patron/friendship/friend, TRUE)
 
 /datum/job/advclass/consort/courtesan
 	title = "Courtesan Consort"

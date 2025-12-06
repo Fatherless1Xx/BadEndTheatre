@@ -16,11 +16,11 @@
 
 /datum/world_trait/necra_requiem
 	name = "Necra's Requiem"
-	desc = "New corpses won't become deadites."
+	desc = "New corpses won't become undeads."
 
 /datum/world_trait/zizo_defilement
 	name = "Zizo's Defilement"
-	desc = "Deadites will rise in the town."
+	desc = "undeads will rise in the town."
 
 /datum/world_trait/abyssor_rage
 	name = "Abyssor's Rage"

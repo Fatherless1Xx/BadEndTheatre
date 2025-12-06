@@ -242,12 +242,12 @@
 			return
 		if(HAS_TRAIT(user, TRAIT_ROTMAN))
 			if(locked())
-				user.visible_message(span_warning("The deadite bashes into [src]!"))
+				user.visible_message(span_warning("The undead bashes into [src]!"))
 				take_damage(50, BRUTE, BCLASS_BLUNT, TRUE)
 			else
 				playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 90)
 				force_open(AM)
-				user.visible_message(span_warning("The deadite smashes through [src]!"))
+				user.visible_message(span_warning("The undead smashes through [src]!"))
 			return
 		if(locked())
 			var/obj/item/held = user.get_active_held_item()

@@ -390,6 +390,7 @@
 	id = "divine_beauty"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/divine_beauty
 	duration = 5 MINUTES
+	effectedstats = list(STATKEY_SPD = 5, STATKEY_CON = 10, STATKEY_LCK = 15)
 
 /datum/status_effect/buff/divine_beauty/on_apply()
 	. = ..()
@@ -404,8 +405,8 @@
 		C.remove_stress(/datum/stress_event/divine_beauty)
 
 /atom/movable/screen/alert/status_effect/buff/divine_beauty
-	name = "Divine Beauty"
-	desc = span_nicegreen("Everything about myself feels beautiful!")
+	name = "Divine Perfection"
+	desc = span_nicegreen("My Soul is Pure Again!")
 	icon_state = "beauty"
 
 /*-----------------\

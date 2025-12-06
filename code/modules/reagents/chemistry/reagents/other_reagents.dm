@@ -18,7 +18,7 @@
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
 		var/datum/blood_type/blood = L.get_blood_type()
-		if(blood?.reagent_type == type && (method == INJECT || (method == INGEST && C.dna && C.dna.species && (DRINKSBLOOD in C.dna.species.species_traits))))
+		if(blood?.reagent_type == type && (method == INJECT || (method == INGEST && C.dna && C.dna.species && (istype(C.patron, /datum/patron/noddist/noctulius)|| (DRINKSBLOOD in C.dna.species.species_traits)))))
 			if(!(data["blood_type"] in blood.compatible_types))
 				C.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			else

@@ -1,19 +1,19 @@
 /datum/action/cooldown/spell/revel_in_slaughter
-	name = "Revel in Slaughter"
-	desc = "The blood of your enemy shall boil, their skin feeling as if it's being ripped apart! Gaggar demands their blood must FLOW!!!"
+	name = "Play With Blood"
+	desc = "Play with another's blood."
 	button_icon_state = "bloodsteal"
 	sound = 'sound/magic/antimagic.ogg'
 
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	invocation = "YOUR BLOOD WILL BOIL TILL IT'S SPILLED!"
+	invocation = "Blood plays along, bloodjoy nourishes the heart-body..."
 	invocation_type = INVOCATION_SHOUT
 	attunements = list(
 		/datum/attunement/blood = 0.5,
 	)
 	charge_required = FALSE
-	cooldown_time = 5 MINUTES
+	cooldown_time = 15 MINUTES
 	spell_cost = 70
 
 /datum/action/cooldown/spell/revel_in_slaughter/is_valid_target(atom/cast_on)

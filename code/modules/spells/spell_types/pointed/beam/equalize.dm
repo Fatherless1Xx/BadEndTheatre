@@ -91,6 +91,6 @@
 		return
 	user.remove_filter(EQUALIZED_GLOW)
 	user.remove_stat_modifier("equalize_spell")
-	to_chat(user, "<font color='yellow'>My link wears off, their stolen fire returns to them</font>")
+	to_chat(user, "<font color='yellow'>My link wears off, their stolen atar returns to them</font>")
 
 #undef EQUALIZED_GLOW

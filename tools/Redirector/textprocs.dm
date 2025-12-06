@@ -38,11 +38,6 @@ proc
     /////////////////////
 	// Prefix checking //
 	/////////////////////
-	dd_hasprefix(text, prefix)
-		var/start = 1
-		var/end = lentext(prefix) + 1
-		return findtext(text, prefix, start, end)
-
 	dd_hasPrefix(text, prefix)
 		var/start = 1
 		var/end = lentext(prefix) + 1
@@ -52,11 +47,6 @@ proc
     /////////////////////
 	// Suffix checking //
 	/////////////////////
-	dd_hassuffix(text, suffix)
-		var/start = length(text) - length(suffix)
-		if (start)
-			return findtext(text, suffix, start)
-
 	dd_hasSuffix(text, suffix)
 		var/start = length(text) - length(suffix)
 		if (start)

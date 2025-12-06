@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/beast_tame
-	name = "Tame Beast"
-	desc = "Attempt to turn a beast of Dendor to your favor."
+	name = "Animal Empathy"
+	desc = "Have a conversation with a beast regarding the nature of things."
 	button_icon_state = "tamebeast"
 	sound = 'sound/vo/smokedrag.ogg'
 	charge_sound = 'sound/magic/holycharging.ogg'
@@ -10,12 +10,11 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	required_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	attunements = list(
 		/datum/attunement/earth = 1,
 	)
 
-	invocation = "Be still and calm, brotherbeast."
+	invocation = "Now tell me how it was your kindred's flesh was used to make shoes..."
 	invocation_type = INVOCATION_WHISPER
 
 	charge_required = FALSE
@@ -56,8 +55,8 @@
 		to_chat(owner, span_warning("\The [cast_on] resists your soothing!"))
 		return
 	owner.visible_message(
-		span_greentext("[owner] soothes \the [cast_on] with Dendor's whisper."),
-		span_notice("I tame the beast with Dendor's whisper."),
+		span_greentext("[owner] stares at \the [cast_on] with a dominant stare."),
+		span_notice("I quell the beast."),
 	)
 	cast_on.LoadComponent(/datum/component/obeys_commands, pet_commands)
 	cast_on.ai_controller.can_idle = FALSE

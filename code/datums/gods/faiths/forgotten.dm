@@ -5,3 +5,5 @@
 		Worshippers have held deep grudges against the Church of the Ten for their role in the butchery of their god. \
 		Yet in recent times, there has been a growing schism among Psydonites regarding the theological implications of the Ten."
 	godhead = /datum/patron/psydon
+
+	preference_accessible = FALSE

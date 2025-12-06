@@ -7,9 +7,8 @@
 	spell_type = SPELL_MIRACLE
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	associated_skill = /datum/skill/magic/holy
-	required_items = list(/obj/item/clothing/neck/psycross/silver/ravox)
 
-	invocation = "Ravox deems your persistence worthy!"
+	invocation = "Not yet!"
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = FALSE
@@ -35,7 +34,7 @@
 			phy.pain_mod *= 1.5
 			addtimer(VARSET_CALLBACK(phy, bleed_mod, phy.bleed_mod /= 1.5), 19 SECONDS)
 			addtimer(VARSET_CALLBACK(phy, pain_mod, phy.pain_mod /= 1.5), 19 SECONDS)
-			human_target.visible_message(span_danger("[cast_on]'s wounds become inflammed as their vitality is sapped away!"), span_userdanger("Ravox inflammes my wounds and weakens my body!"))
+			human_target.visible_message(span_danger("[cast_on]'s wounds become inflammed as their vitality is sapped away!"), span_userdanger("Something TERRIBLE inflammes my wounds and weakens my body!"))
 		return
 
 	cast_on.visible_message(span_info("Warmth radiates from [cast_on] as their wounds seal over!"), span_notice("The pain from my wounds fade as warmth radiates from my soul!"))
@@ -43,7 +42,7 @@
 	for(var/obj/effect/decal/cleanable/blood/O in view(5, cast_on))
 		situational_bonus = min(situational_bonus + 0.015, 1)
 	if(situational_bonus > 0.25)
-		to_chat(owner, "Channeling Ravox's power is easier in these conditions!")
+		to_chat(owner, "Channeling power is easier in these conditions!")
 
 	if(iscarbon(cast_on))
 		var/mob/living/carbon/C = cast_on

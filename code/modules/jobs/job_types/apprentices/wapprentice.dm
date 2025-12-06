@@ -25,7 +25,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 	)
 
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)//see court mage for explaination
 
 /datum/outfit/mageapprentice/pre_equip(mob/living/carbon/human/H)
 	. = ..()

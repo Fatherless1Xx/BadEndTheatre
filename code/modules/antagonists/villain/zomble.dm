@@ -64,11 +64,11 @@
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire))
 		if(!SEND_SIGNAL(examined_datum.owner, COMSIG_DISGUISE_STATUS))
-			return "<span class='boldnotice'>Another kind of deadite.</span>"
+			return "<span class='boldnotice'>Another kind of undead.</span>"
 	if(istype(examined_datum, /datum/antagonist/zombie))
-		return "<span class='boldnotice'>Another deadite. My ally.</span>"
+		return "<span class='boldnotice'>Another undead. My ally.</span>"
 	if(istype(examined_datum, /datum/antagonist/skeleton))
-		return "<span class='boldnotice'>Another kind of deadite.</span>"
+		return "<span class='boldnotice'>Another kind of undead.</span>"
 
 /datum/antagonist/zombie/on_gain()
 	var/mob/living/carbon/human/zombie = owner?.current
