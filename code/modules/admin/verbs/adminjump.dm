@@ -6,8 +6,13 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/sorted_areas = get_sorted_areas()
-	var/area/A = browser_input_list(usr, "Area to Jump To", "Area Jump", sorted_areas)
+	var/area/A = browser_input_list(admin_mob, "Area to Jump To", "Area Jump", sorted_areas)
 	if(!A)
 		return
 
@@ -21,9 +26,9 @@
 	if(!T)
 		to_chat(src, "Nowhere to jump to!")
 		return
-	usr.forceMove(T)
-	log_admin("[key_name(usr)] jumped to [AREACOORD(A)]")
-	message_admins("[key_name_admin(usr)] jumped to [AREACOORD(A)]")
+	admin_mob.forceMove(T)
+	log_admin("[key_name(admin_mob)] jumped to [AREACOORD(A)]")
+	message_admins("[key_name_admin(admin_mob)] jumped to [AREACOORD(A)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Area") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/jumptoturf(turf/T in world)
@@ -33,9 +38,14 @@
 	if(!holder)
 		return
 
-	log_admin("[key_name(usr)] jumped to [AREACOORD(T)]")
-	message_admins("[key_name_admin(usr)] jumped to [AREACOORD(T)]")
-	usr.forceMove(T)
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
+	log_admin("[key_name(admin_mob)] jumped to [AREACOORD(T)]")
+	message_admins("[key_name_admin(admin_mob)] jumped to [AREACOORD(T)]")
+	admin_mob.forceMove(T)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Turf") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
@@ -46,8 +56,13 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/mobs = getpois(mobs_only = TRUE)
-	var/target = browser_input_list(usr, "Mob to jump to", "Jump to Mob", mobs)
+	var/target = browser_input_list(admin_mob, "Mob to jump to", "Jump to Mob", mobs)
 
 	if(!target)
 		return
@@ -56,13 +71,13 @@
 	if(!M)
 		return
 
-	var/mob/A = src
+	var/mob/A = admin_mob
 	var/turf/T = get_turf(M)
 
 	if(T && isturf(T))
 		A.forceMove(T)
-		log_admin("[key_name(usr)] jumped to [key_name(M)]")
-		message_admins("[key_name_admin(usr)] jumped to [ADMIN_LOOKUPFLW(M)] at [AREACOORD(M)]")
+		log_admin("[key_name(admin_mob)] jumped to [key_name(M)]")
+		message_admins("[key_name_admin(admin_mob)] jumped to [ADMIN_LOOKUPFLW(M)] at [AREACOORD(M)]")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
 		to_chat(A, span_warning("This mob is not located in the game world."))
@@ -74,12 +89,15 @@
 	if(!holder)
 		return
 
-	if(src.mob)
-		var/mob/A = src.mob
-		var/turf/T = locate(tx,ty,tz)
-		A.forceMove(T)
-		SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Coordiate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	message_admins("[key_name_admin(usr)] jumped to coordinates [tx], [ty], [tz]")
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
+	var/turf/T = locate(tx,ty,tz)
+	admin_mob.forceMove(T)
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Coordiate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	message_admins("[key_name_admin(admin_mob)] jumped to coordinates [tx], [ty], [tz]")
 
 /client/proc/jumptokey()
 	set category = "GameMaster"
@@ -88,21 +106,28 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/keys = list()
 	for(var/mob/M in GLOB.player_list)
 		keys += M.client
 
 	keys = sortKey(keys)
 
-	var/client/selection = browser_input_list(usr, "Please, select a player!", "Admin Jumping", keys)
+	var/client/selection = browser_input_list(admin_mob, "Please, select a player!", "Admin Jumping", keys)
 	if(!selection)
 		to_chat(src, "No keys found.")
 		return
 	var/mob/M = selection.mob
-	log_admin("[key_name(usr)] jumped to [key_name(M)]")
-	message_admins("[key_name_admin(usr)] jumped to [ADMIN_LOOKUPFLW(M)]")
+	if(!M)
+		return
+	log_admin("[key_name(admin_mob)] jumped to [key_name(M)]")
+	message_admins("[key_name_admin(admin_mob)] jumped to [ADMIN_LOOKUPFLW(M)]")
 
-	usr.forceMove(M.loc)
+	admin_mob.forceMove(M.loc)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Jump To Key") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -114,8 +139,13 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/mobs = getpois(mobs_only = TRUE)
-	var/target = browser_input_list(usr, "Mob to get", "Get Mob", mobs)
+	var/target = browser_input_list(admin_mob, "Mob to get", "Get Mob", mobs)
 
 	if(!target)
 		return
@@ -123,7 +153,7 @@
 	var/mob/M = mobs[target]
 	if(!M)
 		return
-	var/atom/loc = get_turf(src.mob)
+	var/atom/loc = get_turf(admin_mob)
 	M.admin_teleport(loc)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Get Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -152,13 +182,18 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/keys = list()
 	for(var/mob/M in GLOB.player_list)
 		keys += M.client
 
 	keys = sortKey(keys)
 
-	var/client/selection = browser_input_list(usr, "Please, select a player!", "Admin Jumping", keys)
+	var/client/selection = browser_input_list(admin_mob, "Please, select a player!", "Admin Jumping", keys)
 	if(!selection)
 		return
 
@@ -166,13 +201,13 @@
 	if(!M)
 		return
 
-	log_admin("[key_name(usr)] teleported [key_name(M)]")
-	var/msg = "[key_name_admin(usr)] teleported [ADMIN_LOOKUPFLW(M)]"
+	log_admin("[key_name(admin_mob)] teleported [key_name(M)]")
+	var/msg = "[key_name_admin(admin_mob)] teleported [ADMIN_LOOKUPFLW(M)]"
 	message_admins(msg)
 	admin_ticket_log(M, msg)
 	if(M)
-		M.forceMove(get_turf(usr))
-		usr.forceMove(M.loc)
+		M.forceMove(get_turf(admin_mob))
+		admin_mob.forceMove(M.loc)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Get Key") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/sendmob()
@@ -182,8 +217,13 @@
 	if(!holder)
 		return
 
+	var/mob/admin_mob = src.mob
+	if(!admin_mob)
+		to_chat(src, "No mob available to jump.")
+		return
+
 	var/list/mobs = getpois(mobs_only = TRUE)
-	var/target = browser_input_list(usr, "Mob to send", "Send Mob", mobs)
+	var/target = browser_input_list(admin_mob, "Mob to send", "Send Mob", mobs)
 
 	if(!target)
 		return
@@ -197,11 +237,11 @@
 		to_chat(src, "No areas found.")
 		return
 
-	var/area/A = browser_input_list(usr, "Pick an area", "Area pick", sorted_areas)
+	var/area/A = browser_input_list(admin_mob, "Pick an area", "Area pick", sorted_areas)
 	if(A && istype(A))
 		if(M.forceMove(safepick(get_area_turfs(A))))
-			log_admin("[key_name(usr)] teleported [key_name(M)] to [AREACOORD(A)]")
-			var/msg = "[key_name_admin(usr)] teleported [ADMIN_LOOKUPFLW(M)] to [AREACOORD(A)]"
+			log_admin("[key_name(admin_mob)] teleported [key_name(M)] to [AREACOORD(A)]")
+			var/msg = "[key_name_admin(admin_mob)] teleported [ADMIN_LOOKUPFLW(M)] to [AREACOORD(A)]"
 			message_admins(msg)
 			admin_ticket_log(M, msg)
 		else

@@ -83,6 +83,15 @@
 			return FALSE
 	return TRUE
 
+/// Returns TRUE if genitals can be visibly rendered based on worn clothing slots.
+/proc/genitals_can_show(mob/living/carbon/human/human)
+	if(!istype(human))
+		return TRUE
+	// Hide when any core body covering is present.
+	if(human.wear_armor || human.wear_shirt || human.wear_pants || human.cloak)
+		return FALSE
+	return TRUE
+
 /proc/get_all_worn_items(mob/living/carbon/human/human)
 	var/list/worn_items = list()
 	for(var/slot in DEFAULT_SLOT_PRIORITY)

@@ -32,6 +32,8 @@
 	if(owner.underwear)
 		return FALSE
 	*/
+	if(!genitals_can_show(owner))
+		return FALSE
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDEUNDIESBOT)
 
 /datum/sprite_accessory/genitals/penis/human

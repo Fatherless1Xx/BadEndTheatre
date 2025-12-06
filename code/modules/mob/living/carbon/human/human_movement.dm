@@ -37,27 +37,23 @@
 
 	. = ..()
 	if(loc == NewLoc)
-		if(wear_armor)
-			if(body_position != LYING_DOWN)
+		if(body_position != LYING_DOWN)
+			if(istype(wear_armor, /obj/item/clothing))
 				var/obj/item/clothing/C = wear_armor
 				C.step_action()
-		if(wear_neck)
-			if(body_position != LYING_DOWN)
+			if(istype(wear_neck, /obj/item/clothing))
 				var/obj/item/clothing/N = wear_neck
 				N.step_action()
 
-		if(wear_shirt)
-			if(body_position != LYING_DOWN)
+			if(istype(wear_shirt, /obj/item/clothing))
 				var/obj/item/clothing/C = wear_shirt
 				C.step_action()
 
-		if(cloak)
-			if(body_position != LYING_DOWN)
+			if(istype(cloak, /obj/item/clothing))
 				var/obj/item/clothing/C = cloak
 				C.step_action()
 
-		if(shoes)
-			if(body_position != LYING_DOWN)
+			if(istype(shoes, /obj/item/clothing/shoes))
 				var/obj/item/clothing/shoes/S = shoes
 
 				//Bloody footprints

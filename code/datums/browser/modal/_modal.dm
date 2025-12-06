@@ -26,10 +26,10 @@
 	user.browser_modals.Add(src)
 
 /datum/browser/modal/Destroy(force, ...)
-	if(!user)
-		stack_trace("modal had no user when it was deleted, which isn't weird necessarily but is a sign for something going bad")
-	else
+	if(user)
 		user.browser_modals.Remove(src)
+	else
+		log_runtime("Modal [window_id] deleted without a user")
 	return ..()
 
 /datum/browser/modal/close()

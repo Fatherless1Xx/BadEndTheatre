@@ -16,6 +16,8 @@
 		return FALSE
 	*/
 
+	if(!genitals_can_show(owner))
+		return FALSE
 	return is_human_part_visible(owner, HIDEBOOB|HIDEJUMPSUIT)
 
 /datum/sprite_accessory/genitals/breasts/pair

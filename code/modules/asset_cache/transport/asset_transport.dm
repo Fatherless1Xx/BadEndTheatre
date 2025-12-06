@@ -86,8 +86,20 @@
 				client = M.client
 			else //no stacktrace because this will mainly happen because the client went away
 				return
+		else if (istype(client, /datum/admins))
+			var/datum/admins/admin_holder = client
+			client = admin_holder?.owner
+		else if (isdatum(client) && hasvar(client, "client"))
+			var/client/embedded_client = client:client
+			if(embedded_client)
+				client = embedded_client
+			else
+				return
 		else
-			CRASH("Invalid argument: client: `[client]`")
+			log_runtime("Invalid argument: client: `[client]`")
+			return
+	if(isnull(client))
+		return
 	if (!islist(asset_list))
 		asset_list = list(asset_list)
 	var/list/unreceived = list()

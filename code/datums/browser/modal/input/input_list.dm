@@ -177,8 +177,9 @@
 	close()
 
 /datum/browser/modal/input_list/set_choice(choice)
-	if(!(choice in results))
-		CRASH("user gave impossible response [choice]")
+	if(isnull(choice) || !(choice in results))
+		log_runtime("browser_input_list received invalid choice \"[choice]\"")
+		return
 
 	src.choice = results[choice]
 

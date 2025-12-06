@@ -17,6 +17,8 @@
 	if(owner.underwear)
 		return FALSE
 	*/
+	if(!genitals_can_show(owner))
+		return FALSE
 	var/obj/item/organ/genitals/penis/penis = owner.getorganslot(ORGAN_SLOT_PENIS)
 	if(penis && penis.sheath_type == SHEATH_TYPE_SLIT)
 		return FALSE

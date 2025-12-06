@@ -38,8 +38,9 @@
 
 /datum/browser/Destroy(force, ...)
 	if(!isnull(user))
-		var/client/user_client = isclient(user) ? user : user.client
-		UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
+		var/client/user_client = isclient(user) ? user : user?.client
+		if(user_client)
+			UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
 	user = null
 	owner = null
 	return ..()
@@ -121,9 +122,15 @@
 		stack_trace("Browser [title] tried to open with a null ID")
 		to_chat(user, "<span class='danger'>The [title] browser you tried to open failed a sanity check! Please report this on github!</span>")
 		return
+	if(isnull(user))
+		log_runtime("Browser [title] tried to open without a user")
+		return
 	var/window_size = ""
 	var/scaling = 1
-	var/client/user_client = isclient(user) ? user : user.client
+	var/client/user_client = isclient(user) ? user : user?.client
+	if(!user_client)
+		log_runtime("Browser [title] tried to open without a client")
+		return
 	if(user_client?.window_scaling)
 		scaling = user_client.window_scaling
 	if(width && height)
@@ -140,14 +147,18 @@
 
 /datum/browser/proc/setup_onclose()
 	set waitfor = 0 //winexists sleeps, so we don't need to.
+	var/client/user_client = isclient(user) ? user : user?.client
+	if(!user || !user_client)
+		return
 	for (var/i in 1 to 10)
-		if (user && winexists(user?.client, window_id))
+		if (winexists(user_client, window_id))
 			onclose(user, window_id, owner)
 			break
 
 /datum/browser/proc/close()
 	if(!isnull(window_id))//null check because this can potentially nuke goonchat
-		user << browse(null, "window=[window_id]")
+		if(user)
+			user << browse(null, "window=[window_id]")
 	else
 		stack_trace("Browser [title] tried to close with a null ID")
 

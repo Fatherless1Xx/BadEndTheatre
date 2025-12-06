@@ -1498,6 +1498,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						randomise_appearance_prefs(RANDOMIZE_UNDERWEAR | RANDOMIZE_HAIRSTYLE)
 						accessory = "Nothing"
 						detail = "Nothing"
+						apply_gender_customizer_defaults()
 				if("domhand")
 					if(domhand == 1)
 						domhand = 2

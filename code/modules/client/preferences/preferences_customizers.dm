@@ -175,6 +175,14 @@
 		var/datum/customizer_choice/choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
 		choice.randomize_entry(entry, src)
 
+/// Toggle gendered customizers on/off to match the current body type
+/datum/preferences/proc/apply_gender_customizer_defaults()
+	for(var/datum/customizer_entry/entry as anything in customizer_entries)
+		var/datum/customizer/customizer = CUSTOMIZER(entry.customizer_type)
+		if(!customizer.gender_enabled)
+			continue
+		entry.disabled = (gender != customizer.gender_enabled)
+
 /datum/preferences/proc/ShowCustomizers(mob/user)
 	var/list/dat = list()
 	dat += "<style>span.color_holder_box{display: inline-block; width: 20px; height: 8px; border:1px solid #000; padding: 0px;}</style>"

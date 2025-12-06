@@ -37,8 +37,16 @@
 /datum/customizer/proc/get_customizer_entry(datum/preferences/prefs, customizer_choice_type, changed_entry = TRUE)
 	var/datum/customizer_choice/chosen_custom = CUSTOMIZER_CHOICE(customizer_choice_type)
 	var/datum/customizer_entry/created_entry = chosen_custom.make_default_customizer_entry(prefs, type, changed_entry)
+	var/disable_by_default = default_disabled
+	if(gender_enabled && istype(prefs, /datum/preferences))
+		var/datum/preferences/pref_datum = prefs
+		disable_by_default = (pref_datum.gender != gender_enabled)
+
 	if(!changed_entry)
-		created_entry.disabled = default_disabled
+		created_entry.disabled = disable_by_default
+	else if(created_entry.disabled == initial(created_entry.disabled))
+		// Ensure newly created entries respect gender defaults unless the caller explicitly set disabled.
+		created_entry.disabled = disable_by_default
 	return created_entry
 
 /datum/customizer/proc/validate_entry(datum/preferences/prefs, datum/customizer_entry/entry)
