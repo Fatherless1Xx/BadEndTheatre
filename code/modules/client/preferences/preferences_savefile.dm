@@ -137,6 +137,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["menuoptions"]		>> menuoptions
 	S["enable_tips"]		>> enable_tips
 	S["tip_delay"]			>> tip_delay
+	S["grimdark_warning_acknowledged"] >> grimdark_warning_acknowledged
 	S["ui_scale"]			>> ui_scale
 
 	// Custom hotkeys
@@ -160,6 +161,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	tgui_lock		= sanitize_integer(tgui_lock, 0, 1, initial(tgui_lock))
 	buttons_locked	= sanitize_integer(buttons_locked, 0, 1, initial(buttons_locked))
 	windowflashing	= sanitize_integer(windowflashing, 0, 1, initial(windowflashing))
+	enable_tips		= sanitize_integer(enable_tips, 0, 1, initial(enable_tips))
+	tip_delay		= sanitize_integer(tip_delay, 0, 10000, initial(tip_delay))
+	grimdark_warning_acknowledged = sanitize_integer(grimdark_warning_acknowledged, 0, 1, initial(grimdark_warning_acknowledged))
 	default_slot	= sanitize_integer(default_slot, 1, max_save_slots, initial(default_slot))
 	toggles			= sanitize_integer(toggles, 0, SHORT_REAL_LIMIT, initial(toggles))
 	chat_toggles = sanitize_integer(chat_toggles, 0, SHORT_REAL_LIMIT, initial(chat_toggles))
@@ -240,6 +244,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["menuoptions"], menuoptions)
 	WRITE_FILE(S["enable_tips"], enable_tips)
 	WRITE_FILE(S["tip_delay"], tip_delay)
+	WRITE_FILE(S["grimdark_warning_acknowledged"], grimdark_warning_acknowledged)
 	WRITE_FILE(S["ui_scale"], ui_scale)
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	return TRUE

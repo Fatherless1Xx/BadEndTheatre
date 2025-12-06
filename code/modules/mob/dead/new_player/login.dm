@@ -11,6 +11,8 @@
 		mind.current = src
 
 	..()
+	if(!require_grimdark_warning_acknowledgment())
+		return
 
 	var/motd = global.config.motd
 	if(motd)
@@ -49,3 +51,31 @@
 	// client?.change_view(8)
 	// sleep(1 SECONDS)
 	client?.view_size?.resetToDefault()
+
+/mob/dead/new_player/proc/require_grimdark_warning_acknowledgment()
+	var/client/C = client
+	if(!C || !C.prefs)
+		return TRUE
+	if(C.prefs.grimdark_warning_acknowledged)
+		return TRUE
+
+	// blocking choice. this is what gates play
+	var/choice = alert(C,
+		"This server leans heavily into grimdark themes. Helplessness and losing are part of the experience; your character may be humiliated, killed, and even raped without your consent. Do you understand this and confirm you are 18 or older?",
+		"Grimdark Warning",
+		"Yes",
+		"No"
+	)
+
+	if(choice == "Yes")
+		C.prefs.grimdark_warning_acknowledged = TRUE
+		C.prefs.save_preferences()
+		return TRUE
+
+	if(choice == "No")
+		to_chat(C, "<span class='warning'>This is not the place for you.</span>")
+		qdel(C)
+		return FALSE
+
+	// fallback
+	return FALSE

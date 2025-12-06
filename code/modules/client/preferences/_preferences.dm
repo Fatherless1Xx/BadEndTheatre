@@ -30,6 +30,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
+	var/grimdark_warning_acknowledged = FALSE
 
 	//Antag preferences
 	var/list/be_special = list()		//Special role selection
