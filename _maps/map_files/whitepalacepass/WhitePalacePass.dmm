@@ -8325,6 +8325,10 @@
 /obj/structure/dryclothes,
 /turf/open/floor/grass/cold,
 /area/outdoors/rtfield/safe)
+"hKX" = (
+/obj/structure/dryclothes,
+/turf/open/floor/grass/cold,
+/area/outdoors/rtfield/safe)
 "hLw" = (
 /obj/structure/door/window{
 	name = "Tailor"
@@ -9610,7 +9614,11 @@
 	redstone_id = "SMITHY"
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/smithy)
+/area/indoors/town/smithy)
+"jdw" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/water/cleanshallow,
+/area/outdoors/rtfield/safe)
 "jdN" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/grass/cold,
@@ -22264,7 +22272,10 @@
 	dir = 5
 	},
 /turf/open/floor/cobblerock,
-/area/rogue/under/town/basement)
+/area/under/town/basement)
+"uRz" = (
+/turf/open/water/cleanshallow,
+/area/outdoors/rtfield/safe)
 "uRD" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/dirt,
