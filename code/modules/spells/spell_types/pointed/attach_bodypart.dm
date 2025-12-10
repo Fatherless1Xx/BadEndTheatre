@@ -41,6 +41,12 @@
 			span_info("\The [organ] forces itself into [cast_on]!"),
 			span_notice("\The [organ] forces itself into me!")
 		)
+	var/reattached_teeth = reattach_teeth(cast_on, owner)
+	if(reattached_teeth)
+		cast_on.visible_message(
+			span_info("Scattered teeth snap back into [cast_on]'s mouth!"),
+			span_notice("My loose teeth snap back into place!")
+		)
 	owner.update_inv_hands()
 	cast_on.update_body()
 
@@ -100,4 +106,42 @@
 			continue
 		limbs += dismembered
 	return limbs
+
+/datum/action/cooldown/spell/attach_bodypart/proc/reattach_teeth(mob/living/carbon/human/target, mob/living/user)
+	if(!target || (target.teeth >= 32))
+		return 0
+
+	var/list/teeth_items = get_teeth_items(user)
+	if(!length(teeth_items))
+		return 0
+
+	var/reattached = 0
+	for(var/obj/item/I as anything in teeth_items)
+		if(target.teeth >= 32)
+			break
+		if(istype(I, /obj/item/gold_tooth))
+			target.gold_teeth++
+		target.teeth++
+		target.recently_lost_teeth = max(0, target.recently_lost_teeth - 1)
+		reattached++
+		qdel(I)
+
+	return reattached
+
+/datum/action/cooldown/spell/attach_bodypart/proc/get_teeth_items(mob/living/user)
+	if(!user)
+		return
+
+	var/list/teeth_items = list()
+	for(var/obj/item/I in user?.held_items)
+		if(!istype(I, /obj/item/natural/human_tooth) && !istype(I, /obj/item/gold_tooth))
+			continue
+		teeth_items += I
+
+	for(var/obj/item/I in range(1, user))
+		if(!istype(I, /obj/item/natural/human_tooth) && !istype(I, /obj/item/gold_tooth))
+			continue
+		teeth_items += I
+
+	return teeth_items
 

@@ -32,6 +32,42 @@
 		return FALSE
 	return isliving(cast_on)
 
+/datum/action/cooldown/spell/healing/proc/get_most_damaged_limb(mob/living/carbon/C)
+	RETURN_TYPE(/obj/item/bodypart)
+	if(!C)
+		return null
+
+	var/obj/item/bodypart/most_damaged_limb = null
+	var/highest_damage = 0
+	var/obj/item/bodypart/bleeding_limb = null
+	var/highest_bleed_rate = 0
+
+	// First prioritize the limb bleeding the most
+	for(var/obj/item/bodypart/BP as anything in C.bodyparts)
+		var/bleed_rate = BP.get_bleed_rate()
+		if(bleed_rate > highest_bleed_rate)
+			highest_bleed_rate = bleed_rate
+			bleeding_limb = BP
+
+	if(bleeding_limb)
+		return bleeding_limb
+
+	// Otherwise pick the limb with the most total damage
+	for(var/obj/item/bodypart/BP as anything in C.bodyparts)
+		var/total_damage = BP.get_damage()
+		if(total_damage > highest_damage)
+			highest_damage = total_damage
+			most_damaged_limb = BP
+
+	if(highest_damage > 0)
+		return most_damaged_limb
+
+	// If nothing is injured, default back to the selected limb
+	if(owner)
+		return C.get_bodypart(check_zone(owner.zone_selected))
+
+	return null
+
 /datum/action/cooldown/spell/healing/cast(mob/living/cast_on)
 	. = ..()
 	if(!is_profane)
@@ -205,7 +241,7 @@
 		return
 
 	var/mob/living/carbon/C = cast_on
-	var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(owner.zone_selected))
+	var/obj/item/bodypart/affecting = get_most_damaged_limb(C)
 	if(affecting)
 		affecting.heal_damage(base_healing, base_healing)
 		affecting.heal_wounds(base_healing * wound_modifier)
