@@ -7,7 +7,6 @@
 	faction = FACTION_TOWN
 	total_positions = 6
 	spawn_positions = 6
-	min_pq = 0
 	bypass_lastclass = TRUE
 	magic_user = TRUE
 
