@@ -272,6 +272,16 @@
 	name = "corset"
 	output = /obj/item/clothing/armor/corset
 
+/datum/repeatable_crafting_recipe/leather/bellyriding_harness
+	name = "bellyriding harness"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+		/obj/item/rope = 1,
+		/obj/item/ingot/iron = 1,
+	)
+	output = /obj/item/clothing/armor/bellyriding_harness
+	craftdiff = 3
+
 /datum/repeatable_crafting_recipe/leather/sandals
 	name = "sandals"
 	requirements = list(
