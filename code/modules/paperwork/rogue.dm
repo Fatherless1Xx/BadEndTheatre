@@ -219,6 +219,10 @@
 	var/sliptype = 1
 	var/obj/item/inqarticles/indexer/paired
 
+/obj/item/paper/inqslip/Destroy()
+	paired = null
+	return ..()
+
 /obj/item/paper/inqslip/read(mob/user)
 	if(!user.client || !user.hud_used)
 		return
