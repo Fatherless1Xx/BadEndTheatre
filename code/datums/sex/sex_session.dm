@@ -172,6 +172,10 @@
 		if(desire_stop)
 			break
 
+		if(istype(action, /datum/sex_action/sex))
+			var/datum/sex_action/sex/sex_action = action
+			sex_action.apply_penetration_side_effects(user, target)
+
 		action.on_perform(user, target)
 
 		if(user.has_kink(KINK_VISUAL_EFFECTS)) //Hearts played on action that can be turned off at will

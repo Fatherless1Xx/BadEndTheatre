@@ -9538,14 +9538,15 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "joz" = (
-/area/indoors/town/orphanage)
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/orphanage)
 "hvk" = (
 /turf/closed/wall/mineral/wood,
 /area/outdoors/town)
 "hvA" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/tile/bath,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "hwb" = (
 /obj/structure/dryclothes,
 /turf/open/floor/dirt,
@@ -9557,7 +9558,7 @@
 	name = "winch (north)"
 	},
 /turf/open/floor/hexstone,
-/area/indoors/town/manorgate)
+/area/rogue/indoors/town/manorgate)
 "hwD" = (
 /obj/structure/bed/shit,
 /turf/open/floor/cobblerock,
@@ -9582,7 +9583,7 @@
 /obj/item/ore/coal,
 /obj/item/ore/coal,
 /turf/open/floor/herringbone,
-/area/indoors/town/smithy)
+/area/rogue/indoors/town/smithy)
 "hwS" = (
 /obj/structure/gate/bars{
 	redstone_id = "keepgatenorth";
@@ -9596,7 +9597,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/orphanage)
+/area/rogue/indoors/town/orphanage)
 "hxU" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/structure/bars{
@@ -9605,24 +9606,24 @@
 	},
 /obj/structure/fake_machine/vendor/blacksmith,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/smithy)
+/area/rogue/indoors/town/smithy)
 "hyL" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/pelt,
 /turf/open/floor/churchmarble,
-/area/indoors/town/church)
+/area/rogue/indoors/town/church)
 "hyS" = (
 /obj/structure/ladder,
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/carpet/red,
-/area/indoors/town)
+/area/rogue/indoors/town)
 "hyY" = (
 /turf/open/water/river,
 /area/under/cavewet)
 "hzj" = (
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/merc_guild)
+/area/rogue/indoors/town/merc_guild)
 "hzr" = (
 /obj/machinery/light/fueled/lanternpost/fixed,
 /turf/open/floor/wood,
@@ -9634,7 +9635,7 @@
 "hAp" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/metal/barograte,
-/area/indoors/town/clocktower)
+/area/rogue/indoors/town/clocktower)
 "hAr" = (
 /turf/closed,
 /area/outdoors/rtfield)
@@ -9643,7 +9644,7 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/item/broom,
 /turf/open/floor/wood,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "hBq" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -9656,7 +9657,7 @@
 /area/outdoors/town/roofs)
 "hBQ" = (
 /turf/open/floor/ruinedwood/darker,
-/area/indoors/town/orphanage)
+/area/rogue/indoors/town/orphanage)
 "hCh" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -9678,33 +9679,33 @@
 "hCC" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "hCR" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/churchbrick,
-/area/indoors/town/church)
+/area/rogue/indoors/town/church)
 "hDb" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /turf/open/floor/blocks/stonered/tiny,
-/area/indoors/town/bath)
+/area/rogue/indoors/town/bath)
 "hDF" = (
 /mob/living/simple_animal/pet/cat/cabbit{
 	name = "Tongs"
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/smithy)
+/area/rogue/indoors/town/smithy)
 "hDL" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/churchrough,
-/area/indoors/town/church/chapel)
+/area/rogue/indoors/town/church/chapel)
 "hDR" = (
 /obj/item/natural/rock,
 /turf/open/floor/dirt,
@@ -9712,16 +9713,16 @@
 "hEi" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/wood,
-/area/indoors/town/tavern)
+/area/rogue/indoors/town/tavern)
 "hEj" = (
 /obj/structure/window/openclose{
 	dir = 4
 	},
 /turf/open/floor/blocks,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "hEk" = (
 /turf/open/floor/wood,
-/area/indoors/town/church/chapel)
+/area/rogue/indoors/town/church/chapel)
 "hEr" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -9731,11 +9732,11 @@
 	},
 /obj/item/candle/yellow,
 /turf/open/floor/wood,
-/area/indoors/town/church/chapel)
+/area/rogue/indoors/town/church/chapel)
 "hEE" = (
 /obj/structure/bookcase/random/legends,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/orphanage)
+/area/rogue/indoors/town/orphanage)
 "hEH" = (
 /turf/closed/wall/mineral/decorstone,
 /area/outdoors/town/roofs)
@@ -9750,22 +9751,22 @@
 /obj/item/natural/feather,
 /obj/item/natural/feather,
 /turf/open/floor/tile,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "hFd" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/contraption/linker,
 /turf/open/floor/blocks/stonered/tiny,
-/area/indoors/town/dwarfin)
+/area/rogue/indoors/town/dwarfin)
 "hFw" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
 /turf/open/floor/blocks/stonered/tiny,
-/area/indoors/town/dwarfin)
+/area/rogue/indoors/town/dwarfin)
 "hFA" = (
 /obj/structure/bookcase/random/thesis,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town/orphanage)
+/area/rogue/indoors/town/orphanage)
 "hFB" = (
 /obj/item/ore/copper,
 /turf/open/floor/naturalstone,
@@ -24051,18 +24052,18 @@
 "xax" = (
 /obj/machinery/light/fueled/wallfire/candle{
 /turf/open/floor/carpet/green,
-/area/indoors/town/merc_guild)
+/area/rogue/indoors/town/merc_guild)
 "wMg" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
-/area/indoors/town/church/inquisition)
+/area/rogue/indoors/town/church/inquisition)
 "wMp" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town)
+/area/rogue/indoors/town)
 "wMH" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/dirt/road,
@@ -24087,7 +24088,7 @@
 "wPj" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town)
+/area/rogue/indoors/town)
 "wPk" = (
 /obj/structure/table/wood/crafted,
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -24660,7 +24661,7 @@
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
-/area/indoors/town)
+/area/rogue/indoors/town)
 "xFN" = (
 /obj/structure/flora/newleaf{
 	dir = 1
@@ -24674,17 +24675,17 @@
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /turf/open/floor/blocks/stonered/tiny,
-/area/indoors/town/bath)
+/area/rogue/indoors/town/bath)
 "xHi" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/wood,
-/area/indoors/town/garrison)
+/area/rogue/indoors/town/garrison)
 "xHO" = (
 /obj/structure/window/openclose{
 	dir = 8
 	},
 /turf/open/floor/blocks,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "xIa" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/grass/water/reeds,
@@ -24693,17 +24694,17 @@
 "xIo" = (
 /obj/structure/chair/wood/alt/fancy,
 /turf/open/floor/carpet/royalblack,
-/area/indoors/town/magician)
+/area/rogue/indoors/town/magician)
 "xIz" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
 /turf/open/floor/churchmarble,
-/area/indoors/town/church)
+/area/rogue/indoors/town/church)
 "xIL" = (
 /obj/structure/giantfur/small,
 /turf/open/floor/wood,
-/area/indoors/town/steward)
+/area/rogue/indoors/town/steward)
 "xIY" = (
 /turf/open/water/swamp,
 /area/outdoors/rtfield)
@@ -24718,7 +24719,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "xJx" = (
 /obj/structure/flora/newtree,
 /obj/structure/fluff/railing/border{
@@ -24728,14 +24729,14 @@
 /area/outdoors/town)
 "xKw" = (
 /turf/open/floor/hexstone,
-/area/indoors/town/orphanage)
+/area/rogue/indoors/town/orphanage)
 "xKG" = (
 /obj/structure/bookcase/random_recipes,
 /turf/open/floor/carpet/green,
-/area/indoors/town)
+/area/rogue/indoors/town)
 "xKV" = (
 /turf/open/floor/ruinedwood/turned/darker,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "xKX" = (
 /obj/structure/closet/crate/chest,
 /obj/item/storage/keyring,
@@ -24748,26 +24749,26 @@
 	pixel_y = 0
 	},
 /turf/open/floor/blocks/newstone,
-/area/indoors/town/church)
+/area/rogue/indoors/town/church)
 "xLC" = (
 /obj/structure/table/wood{
 	dir = 6;
 	icon_state = "largetable"
 	},
 /turf/open/floor/blocks/stonered,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "xLG" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = "CaptainPassage"
 	},
 /turf/closed/wall/mineral/decorstone,
-/area/indoors/town/manor)
+/area/rogue/indoors/town/manor)
 "xLT" = (
 /obj/structure/chair/bench/church/mid{
 	dir = 1
 	},
 /turf/open/floor/church,
-/area/indoors/town/church/chapel)
+/area/rogue/indoors/town/church/chapel)
 "xMx" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
 /obj/item/broom,
@@ -24778,7 +24779,7 @@
 /obj/item/natural/cloth,
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile,
-/area/indoors/town/tavern)
+/area/rogue/indoors/town/tavern)
 "xMT" = (
 /mob/living/simple_animal/hostile/retaliate/wolf{
 	del_on_deaggro = 0;
@@ -24794,7 +24795,7 @@
 /area/outdoors/town)
 "xNt" = (
 /turf/closed/wall/mineral/wooddark/end,
-/area/indoors/butchershop)
+/area/rogue/indoors/butchershop)
 "xOp" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -24824,7 +24825,7 @@
 /obj/effect/landmark/start/magician,
 /obj/structure/chair/bench/coucha,
 /turf/open/floor/carpet/stellar,
-/area/indoors/town/magician)
+/area/rogue/indoors/town/magician)
 "xOU" = (
 /obj/item/recipe_book/arcyne{
 	pixel_x = 10;

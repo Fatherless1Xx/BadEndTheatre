@@ -433,6 +433,27 @@
 	user.do_attack_animation(M, used_item = src, item_animation_override = ATTACK_ANIMATION_THRUST)
 
 /obj/item/grabbing/proc/twistlimb(mob/living/user) //implies limb_grabbed and sublimb are things
+	// Special case: ripping Seelie wings requires a strong grab and twisting the chest
+	if(istype(grabbed, /mob/living/carbon/human) && limb_grabbed)
+		var/mob/living/carbon/human/H = grabbed
+		if(isseelie(H))
+			if(grab_state >= GRAB_AGGRESSIVE && limb_grabbed.body_zone == BODY_ZONE_CHEST)
+				var/obj/item/organ/wings/W = H.getorganslot(ORGAN_SLOT_WINGS)
+				if(W && W.owner == H)
+					if(!do_after(user, 4 SECONDS, target = H))
+						return TRUE
+					if(W.owner == H)
+						W.Remove(H, TRUE, TRUE)
+						W.forceMove(get_turf(H))
+						H.update_body()
+						playsound(get_turf(H), 'sound/combat/wound_tear.ogg', 100, TRUE)
+						H.emote("scream", TRUE)
+						H.visible_message(
+							span_boldwarning("[user] viciously twists and rips [H]'s wings free!"),
+							span_boldwarning("My wings are torn from my back!")
+						)
+						H.apply_damage(12, BRUTE, BODY_ZONE_CHEST)
+						return TRUE
 	var/mob/living/carbon/C = grabbed
 	var/armor_block = C.run_armor_check(limb_grabbed, "blunt")
 	var/damage = user.get_punch_dmg()
@@ -530,6 +551,11 @@
 	if(!valid_check())
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
+	// Shove a grabbed Seelie into a container when clicking one
+	if(iscarbon(grabbed) && isseelie(grabbed))
+		var/mob/living/carbon/human/S = grabbed
+		if(S.seelie_force_into_container(attacked_atom, user))
+			return TRUE
 	switch(user.used_intent.type)
 		if(/datum/intent/grab/move)
 			user.Move_Pulled(get_turf(attacked_atom))

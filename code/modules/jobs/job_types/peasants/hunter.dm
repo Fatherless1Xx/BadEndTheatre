@@ -14,6 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/hunter
 	give_bank_account = 15

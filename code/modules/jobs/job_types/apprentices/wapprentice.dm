@@ -10,6 +10,7 @@
 	spawn_positions = 2
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 	allowed_sexes = list(MALE, FEMALE)
 

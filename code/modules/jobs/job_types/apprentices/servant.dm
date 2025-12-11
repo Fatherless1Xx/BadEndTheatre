@@ -16,6 +16,7 @@
 
 	allowed_ages = ALL_AGES_LIST_CHILD
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/servant
 	give_bank_account = TRUE

@@ -132,6 +132,7 @@
 #define JDO_GRAVEMAN 29
 
 #define JDO_JESTER 30
+#define JDO_SEELIE 30.05
 #define JDO_BARD 30.1
 #define JDO_PRISONER 31
 

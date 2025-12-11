@@ -12,6 +12,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/armorsmith
 	display_order = JDO_ARMORER
@@ -82,6 +83,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/weaponsmith
 	display_order = JDO_WSMITH

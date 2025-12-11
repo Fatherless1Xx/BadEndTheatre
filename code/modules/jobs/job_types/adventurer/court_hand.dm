@@ -9,6 +9,7 @@
 	total_positions = 0
 	spawn_positions = 2
 	min_pq = 10
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = null
 	outfit_female = null

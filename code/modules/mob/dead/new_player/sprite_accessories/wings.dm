@@ -53,3 +53,35 @@
 	name = "Gargoyle"
 	icon_state = "gargoyle"
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
+
+/datum/sprite_accessory/wings/seelie
+	abstract_type = /datum/sprite_accessory/wings/seelie
+	icon_state = ""
+	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	pixel_x = 0
+	color_key_defaults = list(KEY_HAIR_COLOR)
+	specuse = list(SPEC_ID_SEELIE)
+
+/datum/sprite_accessory/wings/seelie/fairy
+	name = "Fairy Wings"
+	icon_state = "fairy"
+
+/datum/sprite_accessory/wings/seelie/bee
+	name = "Bee Wings"
+	icon_state = "bee"
+
+/datum/sprite_accessory/wings/seelie/feathery
+	name = "Feathery Wings"
+	icon_state = "feathery"
+
+/datum/sprite_accessory/wings/seelie/bat
+	name = "Bat Wings"
+	icon_state = "bat"
+
+/datum/sprite_accessory/wings/seelie/feathery2
+	name = "Feathery Wings (Dark)"
+	icon_state = "feathery2"
+
+/datum/sprite_accessory/wings/seelie/feathery2_alt
+	name = "Feathery Wings (Dark, alt)"
+	icon_state = "featheryv2" // some builds name this variant with a v; provide a fallback so it renders

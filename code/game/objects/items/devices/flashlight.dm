@@ -276,6 +276,20 @@
 	extinguish_prob = 10
 	melting_material = /datum/material/iron
 	melt_amount = 75
+	/// Seelie occupant, if any
+	var/datum/weakref/seelie_inside
+
+/obj/item/flashlight/flare/torch/lantern/update_brightness(mob/user = null)
+	// adjust glow if a seelie is inside
+	if(seelie_inside?.resolve())
+		light_color = "#a5f0ff"
+		light_power = 1.5
+		light_outer_range = 4
+	else
+		light_color = initial(light_color)
+		light_power = initial(light_power)
+		light_outer_range = initial(light_outer_range)
+	..()
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
@@ -287,12 +301,23 @@
 		else
 			A.fire_act(3,3)
 
+/obj/item/flashlight/flare/torch/lantern/attack_self(mob/user, params)
+	if(seelie_inside)
+		to_chat(user, span_warning("Someone is inside, I shouldn't light it."))
+		return
+	return ..()
+
 /obj/item/flashlight/flare/torch/lantern/process()
 	open_flame(heat)
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		turn_off()
 		STOP_PROCESSING(SSobj, src)
+
+/obj/item/flashlight/flare/torch/lantern/turn_off()
+	. = ..()
+	if(seelie_inside?.resolve())
+		set_light_on(FALSE)
 
 /obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
 	. = ..()

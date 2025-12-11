@@ -26,3 +26,20 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/wings/large/harpyswept,
 	)
+
+/datum/customizer/organ/wings/seelie
+	customizer_choices = list(/datum/customizer_choice/organ/wings/seelie)
+	allows_disabling = FALSE
+
+/datum/customizer_choice/organ/wings/seelie
+	name = "Wings"
+	organ_type = /obj/item/organ/wings/anthro/seelie
+	organ_slot = ORGAN_SLOT_WINGS
+	allows_accessory_color_customization = TRUE
+	sprite_accessories = list(
+		/datum/sprite_accessory/wings/seelie/fairy,
+		/datum/sprite_accessory/wings/seelie/bee,
+		/datum/sprite_accessory/wings/seelie/feathery,
+		/datum/sprite_accessory/wings/seelie/feathery2,
+		/datum/sprite_accessory/wings/seelie/bat,
+	)

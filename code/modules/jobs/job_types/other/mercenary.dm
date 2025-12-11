@@ -16,6 +16,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = null
 	outfit_female = null

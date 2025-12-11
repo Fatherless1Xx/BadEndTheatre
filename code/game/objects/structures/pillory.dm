@@ -79,6 +79,9 @@
 	if (!istype(M, /mob/living/carbon/human))
 		to_chat(usr, span_warning("It doesn't look like [M.p_they()] can fit into this properly!"))
 		return FALSE // Can't hold non-humanoids
+	if(isseelie(M))
+		to_chat(usr, span_warning("[M] is far too small to fit into the pillory."))
+		return FALSE
 
 	if(iscarbon(M))
 		var/mob/living/carbon/carbon = M

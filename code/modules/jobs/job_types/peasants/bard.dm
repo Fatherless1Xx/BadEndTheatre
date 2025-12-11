@@ -12,6 +12,7 @@
 	spawn_positions = 4
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 	outfit = /datum/outfit/bard
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 

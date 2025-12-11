@@ -10,6 +10,7 @@
 	total_positions = 6
 	spawn_positions = 4
 	min_pq = 4
+	blacklisted_species = list(SPEC_ID_SEELIE)
 	antag_job = TRUE
 
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)

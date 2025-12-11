@@ -12,6 +12,7 @@
 	min_pq = -100
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/fisher
 	give_bank_account = 8

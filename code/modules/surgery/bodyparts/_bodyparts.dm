@@ -142,6 +142,11 @@
 		return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash, /datum/intent/grab/armdrag)
 
 /obj/item/bodypart/chest/grabbedintents(mob/living/user, precise)
+	// Allow twisting specifically to rip Seelie wings when they still have them
+	if(owner && ishuman(owner) && isseelie(owner))
+		var/obj/item/organ/wings/W = owner.getorganslot(ORGAN_SLOT_WINGS)
+		if(W && W.owner == owner)
+			return list(/datum/intent/grab/move, /datum/intent/grab/shove, /datum/intent/grab/twist)
 	if(precise == BODY_ZONE_PRECISE_GROIN)
 		return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/shove)
 	return list(/datum/intent/grab/move, /datum/intent/grab/shove)

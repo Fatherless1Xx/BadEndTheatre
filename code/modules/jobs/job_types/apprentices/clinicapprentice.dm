@@ -23,6 +23,7 @@
 	//you can have 20 year olds in the same group as 60 year olds
 	allowed_ages = ALL_AGES_LIST_CHILD
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	give_bank_account = 5
 

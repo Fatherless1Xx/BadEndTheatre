@@ -12,6 +12,7 @@
 
 	allowed_races = RACES_PLAYER_ALL
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/shophand
 	display_order = JDO_SHOPHAND

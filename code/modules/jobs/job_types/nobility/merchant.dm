@@ -15,6 +15,7 @@
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/merchant
 	give_bank_account = 200

@@ -15,6 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
+	blacklisted_species = list(SPEC_ID_SEELIE)
 
 	outfit = /datum/outfit/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
