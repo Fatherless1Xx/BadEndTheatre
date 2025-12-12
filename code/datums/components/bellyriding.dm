@@ -13,6 +13,10 @@
 	var/old_victim_pixel_y
 	var/victim_scaled = FALSE
 
+	// Stored visuals for the wearer.
+	var/matrix/old_wearer_transform
+	var/wearer_scaled = FALSE
+
 	// Stored state so we can restore the wearer after we finish buckling.
 	var/old_can_buckle
 	var/old_buckle_requires_restraints
@@ -25,11 +29,18 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_step))
 	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(update_visuals))
+	RegisterSignal(parent, COMSIG_LIVING_RESIST, PROC_REF(on_wearer_resist))
 	RegisterSignal(buckle_relay, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
+	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(on_any_unbuckle))
 
 /datum/component/bellyriding/Destroy(force)
 	unbuckle_victim(TRUE)
 	return ..()
+
+/datum/component/bellyriding/proc/on_wearer_resist(datum/_source)
+	SIGNAL_HANDLER
+	// Wearer can free their victim via resist.
+	unbuckle_victim()
 
 /datum/component/bellyriding/proc/on_mousedropped_onto(datum/_source, atom/movable/dropped, mob/user)
 	SIGNAL_HANDLER
@@ -98,6 +109,7 @@
 	wearer.add_movespeed_modifier(MOVESPEED_ID_BELLYRIDE, multiplicative_slowdown = 0.8)
 	current_victim = victim
 	RegisterSignal(current_victim, COMSIG_PARENT_QDELETING, PROC_REF(on_victim_deleted))
+	RegisterSignal(current_victim, COMSIG_MOVABLE_MOVED, PROC_REF(on_victim_move))
 	apply_victim_scaling()
 	update_visuals()
 
@@ -140,7 +152,8 @@
 
 	if(victim && !QDELETED(victim))
 		victim.reset_offsets("bellyride")
-	UnregisterSignal(victim, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(victim, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(victim, COMSIG_MOVABLE_MOVED)
 
 /datum/component/bellyriding/proc/store_old_state(mob/living/carbon/human/victim)
 	var/mob/living/carbon/human/wearer = parent
@@ -150,6 +163,12 @@
 	wearer.can_buckle = TRUE
 	wearer.buckle_requires_restraints = TRUE
 	wearer.max_buckled_mobs = max(wearer.max_buckled_mobs + 1, 1)
+	if(!old_wearer_transform)
+		old_wearer_transform = matrix(wearer.transform)
+	var/matrix/wearer_scaled_matrix = matrix(old_wearer_transform)
+	wearer_scaled_matrix.Scale(0.9)
+	wearer.transform = wearer_scaled_matrix
+	wearer_scaled = TRUE
 	if(victim)
 		old_victim_transform = matrix(victim.transform)
 		old_victim_layer = victim.layer
@@ -162,6 +181,10 @@
 	wearer.buckle_requires_restraints = old_buckle_requires_restraints
 	if(old_max_buckled_mobs)
 		wearer.max_buckled_mobs = old_max_buckled_mobs
+	if(old_wearer_transform)
+		wearer.transform = old_wearer_transform
+	old_wearer_transform = null
+	wearer_scaled = FALSE
 	if(victim)
 		if(old_victim_transform)
 			victim.transform = old_victim_transform
@@ -176,32 +199,37 @@
 	old_victim_pixel_x = null
 	old_victim_pixel_y = null
 	victim_scaled = FALSE
+	victim_scaled = FALSE
 
 /datum/component/bellyriding/proc/update_visuals()
 	if(!current_victim)
 		return
 
 	var/mob/living/carbon/human/wearer = parent
+	if(QDELETED(current_victim) || current_victim.buckled != wearer)
+		unbuckle_victim(TRUE)
+		return
 
 	current_victim.setDir(wearer.dir)
 
 	var/x_offset = 0
-	var/y_offset = 4
+	var/y_offset = 0
 	switch(wearer.dir)
 		if(EAST)
 			x_offset = 10
-			y_offset = 2
+			y_offset = -2
 		if(WEST)
 			x_offset = -10
-			y_offset = 2
+			y_offset = -2
 		if(NORTH)
 			y_offset = 10
 		if(SOUTH)
-			y_offset = -6
+			y_offset = -10
 
 	current_victim.set_mob_offsets("bellyride", _x = x_offset, _y = y_offset)
-	var/layer_offset = (wearer.dir == SOUTH) ? 0.02 : 0.002
-	current_victim.layer = wearer.layer + layer_offset
+	var/base_layer = max(wearer.layer, ABOVE_MOB_LAYER)
+	var/layer_offset = (wearer.dir == SOUTH) ? 0.1 : 0.05
+	current_victim.layer = base_layer + layer_offset
 
 /datum/component/bellyriding/proc/maybe_do_interaction()
 	var/mob/living/carbon/human/wearer = parent
@@ -270,6 +298,15 @@
 	current_victim.transform = scaled_transform
 	victim_scaled = TRUE
 
+/datum/component/bellyriding/proc/on_any_unbuckle(datum/source, atom/movable/M, force)
+	if(M == current_victim)
+		unbuckle_victim(TRUE)
+
 /datum/component/bellyriding/proc/on_victim_deleted(datum/_source)
 	SIGNAL_HANDLER
+	unbuckle_victim(TRUE)
+
+/datum/component/bellyriding/proc/on_victim_move(datum/_source, ...)
+	SIGNAL_HANDLER
+	// Victim successfully moved: end the bellyride.
 	unbuckle_victim(TRUE)

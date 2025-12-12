@@ -1,8 +1,6 @@
 /obj/item/clothing/suit/bellyriding_harness
 	name = "dual harness"
-	desc = "LustWish-brand harness, suitable for fastening one person under or beneath another. \
-			Manufactured in a \"one-size-fits-all\" configuration for bipedals and taurs alike. \
-			In recent times, these have come into fashion with EROS-sector security forces for \"alternative\" forms of punishment or coercion."
+	desc = "A harness, suitable for fastening one person under or beneath another."
 
 	icon = 'icons/roguetown/clothing/armor.dmi'
 	icon_state = "bellyriding_harness"

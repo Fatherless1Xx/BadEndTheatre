@@ -92,8 +92,6 @@
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS) || !target.getorganslot(ORGAN_SLOT_ANUS))
 		return FALSE
-	if(check_sex_lock(user, ORGAN_SLOT_PENIS) || check_sex_lock(target, ORGAN_SLOT_ANUS))
-		return FALSE
 	return TRUE
 
 /datum/sex_action/bellyriding/anal/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -124,8 +122,6 @@
 	if(!has_harness_link(user, target))
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS) || !target.getorganslot(ORGAN_SLOT_VAGINA))
-		return FALSE
-	if(check_sex_lock(user, ORGAN_SLOT_PENIS) || check_sex_lock(target, ORGAN_SLOT_VAGINA))
 		return FALSE
 	return TRUE
 
