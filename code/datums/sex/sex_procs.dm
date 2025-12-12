@@ -179,6 +179,8 @@
 	return highest_session
 
 /mob/proc/get_erp_pref(pref_type)
+	if(pref_type == /datum/erp_preference/boolean/allow_erp)
+		return TRUE
 	if(!client?.prefs)
 		return FALSE
 
@@ -245,4 +247,3 @@
 	if(!kink_prefs || !kink_prefs[kink_name])
 		return FALSE
 	return kink_prefs[kink_name]["enabled"]
-

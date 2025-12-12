@@ -282,6 +282,11 @@
 		if(!(pref_type in valid_types))
 			erp_preferences -= pref_type
 
+	// Force ERP to remain enabled even if older saves had it disabled
+	var/allow_type = /datum/erp_preference/boolean/allow_erp
+	if(allow_type in valid_types)
+		erp_preferences[allow_type] = TRUE
+
 	// Validate kinks
 	var/list/kink_prefs = erp_preferences["kinks"]
 	if(kink_prefs)
