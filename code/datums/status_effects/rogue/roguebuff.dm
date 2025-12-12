@@ -260,12 +260,29 @@
 	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_PER = -2, STATKEY_INT = -2) //endurance to boost pain treshold, not powerful enough to warrant total painkilling
 	duration = 30 SECONDS
 
+/datum/status_effect/buff/adrenalinerush
+	id = "adrenalinerush"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/adrenalinerush
+	effectedstats = list(STATKEY_SPD = 4, STATKEY_END = 2, STATKEY_CON = 2) // Meant as a 'GET THE FUCK OUT' spell.
+	duration = 2 MINUTES
+
 /atom/movable/screen/alert/status_effect/buff/barbrage
 	name = "Barbaric Rage"
 	desc = span_nicegreen("WITNESS ME!")
 	icon_state = "ravox"
 
 /datum/status_effect/buff/barbrage/on_remove()
+	. = ..()
+	if(iscarbon(owner))
+		var/mob/living/carbon/C = owner
+		C.apply_status_effect(/datum/status_effect/debuff/barbfalter)
+
+/atom/movable/screen/alert/status_effect/buff/adrenalinerush
+	name = "Adrenaline Rush"
+	desc = span_nicegreen("THE WIND IS PUSHING ME INTO THE CURRENT AGAIN! I FEEL THE BLOOD IN MY VEINS!")
+	icon_state = "bestialsense"
+
+/datum/status_effect/buff/adrenalinerush/on_remove()
 	. = ..()
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
