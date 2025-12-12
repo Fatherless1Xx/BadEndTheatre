@@ -64,6 +64,11 @@
 		/datum/customizer/organ/genitals/testicles/human,
 	)
 
+/datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	..()
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
+
 /datum/species/seelie/spec_life(mob/living/carbon/human/C)
 	. = ..()
 	enforce_wing_requirement(C)
