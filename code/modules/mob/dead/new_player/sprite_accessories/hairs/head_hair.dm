@@ -456,13 +456,33 @@
 	name = "Pixie"
 	icon_state = "pixie_f"
 
+/datum/sprite_accessory/hair/head/pigtails
+	name = "Pigtails"
+	icon_state = "pigtails"
+
 /datum/sprite_accessory/hair/head/plain
 	name = "Plain"
 	icon_state = "plain_f"
 
+/datum/sprite_accessory/hair/head/ponytail
+	name = "Ponytail"
+	icon_state = "ponytail"
+
 /datum/sprite_accessory/hair/head/ponytail8
 	name = "Ponytail 8"
 	icon_state = "ponytail8"
+
+/datum/sprite_accessory/hair/head/puffdouble
+	name = "Puff Double"
+	icon_state = "puffdouble"
+
+/datum/sprite_accessory/hair/head/puffleft
+	name = "Puff Left"
+	icon_state = "puffleft"
+
+/datum/sprite_accessory/hair/head/puffright
+	name = "Puff Right"
+	icon_state = "puffright"
 
 /datum/sprite_accessory/hair/head/queen
 	name = "Queenly"
@@ -567,6 +587,9 @@
 //////////////////////////////
 // UNISEX Hair Definitions  //
 //////////////////////////////
+/datum/sprite_accessory/hair/head/alchemist
+	name = "Alchemist"
+	icon_state = "alchemist"
 
 /datum/sprite_accessory/hair/head/martial
 	name = "Martial"
@@ -874,6 +897,64 @@
 /datum/sprite_accessory/hair/head/heiress
 	name = "Heiress"
 	icon_state = "heiress"
+
+//Monke Main Port//
+
+/datum/sprite_accessory/hair/head/phoenix
+	name = "Phoenix"
+	icon_state = "phoenix"
+
+/datum/sprite_accessory/hair/head/phoenixhalfshaven
+	name = "Phoenix Half Shaven"
+	icon_state = "phoenix_half_shaven"
+
+/datum/sprite_accessory/hair/head/royalcurl
+	name = "Royal Curl"
+	icon_state = "royalcurl"
+
+/datum/sprite_accessory/hair/head/shorthair4
+	name = "Short Hair 4"
+	icon_state = "shorthair4"
+
+/datum/sprite_accessory/hair/head/slightlymessy
+	name = "Slightly Messy"
+	icon_state = "slightlymessy"
+
+/datum/sprite_accessory/hair/head/veryshortovereye
+	name = "Very Short Over Eye"
+	icon_state = "veryshortovereye"
+
+/datum/sprite_accessory/hair/head/flatpressed
+	name = "Flat Pressed"
+	icon_state = "flatpressed"
+
+/datum/sprite_accessory/hair/head/beachwave
+	name = "Beachwave"
+	icon_state = "beachwave"
+
+/datum/sprite_accessory/hair/head/fortuneteller
+	name = "Fortune Teller"
+	icon_state = "fortuneteller"
+
+/datum/sprite_accessory/hair/head/hyenamane
+	name = "Hyena Mane"
+	icon_state = "hyenamane"
+
+/datum/sprite_accessory/hair/head/kajam
+	name = "Kajam"
+	icon_state = "kajam"
+
+/datum/sprite_accessory/hair/head/mermaid
+	name = "Mermaid"
+	icon_state = "mermaid"
+
+/datum/sprite_accessory/hair/head/unkemptcurls
+	name = "Unkempt Curls"
+	icon_state = "unkempt_curls"
+
+/datum/sprite_accessory/hair/head/shrinepriestess
+	name = "Shrine Priestess"
+	icon_state = "shrine_priestess"
 
 /datum/sprite_accessory/hair/head/triton
 	name = "Base Triton"
