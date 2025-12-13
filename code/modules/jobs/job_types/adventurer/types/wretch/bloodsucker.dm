@@ -120,7 +120,6 @@
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_STR, 2) // more of a brute type
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 		if(H.dna?.species.id == SPEC_ID_HUMEN)
 			H.dna.species.native_language = "Old Psydonic"

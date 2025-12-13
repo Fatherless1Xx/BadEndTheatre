@@ -36,7 +36,6 @@
 	)
 
 	traits = list(
-		TRAIT_NOBLE,
 		TRAIT_HEAVYARMOR,
 		TRAIT_MEDIUMARMOR,
 	)
@@ -114,7 +113,6 @@
 	)
 
 	traits = list(
-		TRAIT_NOBLE,
 		TRAIT_HEAVYARMOR,
 		TRAIT_MEDIUMARMOR,
 		TRAIT_STEELHEARTED,

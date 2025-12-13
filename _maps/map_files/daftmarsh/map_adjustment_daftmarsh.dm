@@ -27,9 +27,9 @@
 		/datum/job/farmer = 4, //Not like this would ever be filled ANYWAYS.
 		/datum/job/vagrant = 6, //Beggars and orphans don't need to be nearly so populated.
 		/datum/job/orphan = 6,
-		/datum/job/men_at_arms = 3, //Combat roles overall tuned town a bit.
-		/datum/job/guardsman = 6,
-		/datum/job/adventurer = 8, //Not sure on this one but I generally want to cut down on the non-town roles.
+		/datum/job/men_at_arms = 0, //Combat roles overall tuned town a bit.
+		/datum/job/guardsman = 0,
+		/datum/job/adventurer = 99, //Not sure on this one but I generally want to cut down on the non-town roles.
 		/datum/job/pilgrim = 15
 	)
 

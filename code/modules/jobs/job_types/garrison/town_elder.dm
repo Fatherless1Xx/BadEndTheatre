@@ -124,7 +124,6 @@
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 1)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 	var/datum/inspiration/I = new /datum/inspiration(H)

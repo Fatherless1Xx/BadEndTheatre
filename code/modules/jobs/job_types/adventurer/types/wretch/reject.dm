@@ -80,8 +80,6 @@
 	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
-	if(H.dna.species.id != SPEC_ID_TIEFLING)
-		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 
 /datum/outfit/wretch/reject/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()

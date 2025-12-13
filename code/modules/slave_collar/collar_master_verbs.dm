@@ -288,27 +288,44 @@
 /mob/proc/collar_master_release_pet()
 	set name = "Release Pet"
 	set category = "Collar Tab"
+
 	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
 	if(!CM || !length(CM.temp_selected_pets))
 		return
+
 	if(world.time < CM.last_command_time + CM.command_cooldown)
 		to_chat(src, span_warning("The collar is still cooling down!"))
 		return
+
 	var/confirm = alert("Release selected pets?", "Release Confirmation", "Yes", "No")
 	if(confirm != "Yes")
 		return
+
 	CM.last_command_time = world.time
+
 	var/list/releasing = CM.temp_selected_pets.Copy()
+	var/blocked_any = FALSE
+
 	for(var/mob/living/carbon/human/pet in releasing)
 		if(!pet || !(pet in CM.my_pets))
 			continue
+
+		if(HAS_TRAIT(pet, TRAIT_INDENTURED))
+			blocked_any = TRUE
+			continue
+
 		var/obj/item/clothing/neck/roguetown/cursed_collar/collar = pet.get_item_by_slot(ITEM_SLOT_NECK)
 		if(istype(collar))
 			REMOVE_TRAIT(collar, TRAIT_NODROP, "cursed_collar")
 			pet.dropItemToGround(collar, force = TRUE)
+
 		CM.cleanup_pet(pet)
+
 	CM.temp_selected_pets.Cut()
 	CM.log_collar_action(src, "Release Pet", releasing)
+
+	if(blocked_any)
+		to_chat(src, span_warning("This one can never be freed."))
 
 /mob/proc/collar_master_help()
 	set name = "Collar Help"
