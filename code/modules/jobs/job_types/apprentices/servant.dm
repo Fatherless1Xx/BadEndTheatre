@@ -1,10 +1,11 @@
 /datum/job/servant
 	title = "Servant"
 
-	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to. \
-	You work your fingers to the bone nearly every dae, \
-	and have naught to show for it but boney fingers. \
-	Perhaps this week you will finally be recognized, or allowed some respite?"
+
+	tutorial = "You were raised as a primer slave, shaped from childhood to serve without a name or face. \
+	You were trained in gladiatorial combat to fight when commanded, and in housekeeping and entertainment to please when not. \
+	You are the unseen labor that keeps the royal court fed, washed, and indulged."
+
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SERVANT
