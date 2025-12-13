@@ -144,7 +144,6 @@
 			M.show_message(message)
 
 	user.visible_message("<i>[message]</i>", vision_distance = 1)
-/
 
 // ............... A ..................
 /datum/emote/living/attnwhistle
