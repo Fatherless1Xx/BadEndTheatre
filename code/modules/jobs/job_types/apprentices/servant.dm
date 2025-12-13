@@ -2,16 +2,17 @@
 	title = "Servant"
 
 
-	tutorial = "You were raised as a primer slave, shaped from childhood to serve without a name or face. \
-	You were trained in gladiatorial combat to fight when commanded, and in housekeeping and entertainment to please when not. \
-	You are the unseen labor that keeps the royal court fed, washed, and indulged."
+	tutorial = "You were raised as a primer slave to serve. \
+	You were trained in gladiatorial combat to fight when commanded \
+	and in housekeeping and entertainment to please when not. \
+	You are the unseen labor that keeps the royal court fed, protected, and indulged."
 
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SERVANT
 	faction = FACTION_TOWN
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 4
+	spawn_positions = 4
 	min_pq = -20
 	bypass_lastclass = TRUE
 
@@ -47,6 +48,7 @@
 	backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, pick(1,1,2), TRUE)
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
