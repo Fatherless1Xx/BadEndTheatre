@@ -123,7 +123,6 @@
 
 	traits = list(
 		TRAIT_MEDIUMARMOR,
-		TRAIT_NOBLE,
 	)
 
 	languages = list(/datum/language/zalad)

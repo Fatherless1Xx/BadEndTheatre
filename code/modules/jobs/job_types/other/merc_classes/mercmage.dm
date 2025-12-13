@@ -73,8 +73,6 @@
 
 	H.merctype = 9
 
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-
 /datum/outfit/mercenary/sellmage/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	var/static/list/selectablehat = list(

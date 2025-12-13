@@ -9,8 +9,8 @@
 	display_order = JDO_VET
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	//Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	min_pq = 10
 
@@ -211,7 +211,6 @@
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC) // retired knight!
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
 	H.adjust_blindness(-3)

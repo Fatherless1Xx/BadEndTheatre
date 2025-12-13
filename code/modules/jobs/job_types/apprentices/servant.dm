@@ -76,7 +76,7 @@
 	if(!H || QDELETED(H) || !H.client)
 		return
 
-	var/list/weapons = list("Pikeman", "Fencer", "Archer", "Knife")
+	var/list/weapons = list("Pikeman", "Fencer", "Bow", "Crossbow", "Knife")
 	var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as null|anything in weapons
 	if(!weapon_choice)
 		return
@@ -92,22 +92,19 @@
 			give_or_drop(H, /obj/item/weapon/sword/rapier)
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 
-		if("Archer")
-			var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4))
-			switch(weapontypec)
-				if("Bow")
-					give_or_drop(H, /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long)
-					give_or_drop(H, /obj/item/ammo_holder/quiver/arrows)
-					H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-				if("Crossbow")
-					give_or_drop(H, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow)
-					give_or_drop(H, /obj/item/ammo_holder/quiver/bolts)
-					H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+		if("Bow")
+			give_or_drop(H, /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long)
+			give_or_drop(H, /obj/item/ammo_holder/quiver/arrows)
+			H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+
+		if("Crossbow")
+			give_or_drop(H, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow)
+			give_or_drop(H, /obj/item/ammo_holder/quiver/bolts)
+			H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 
 		if("Knife")
 			give_or_drop(H, /obj/item/weapon/knife/dagger/steel)
 			H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-
 
 /datum/job/servant/proc/give_or_drop(mob/living/carbon/human/H, path)
 	if(!H || QDELETED(H) || !path)

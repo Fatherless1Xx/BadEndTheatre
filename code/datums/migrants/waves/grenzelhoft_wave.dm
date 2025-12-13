@@ -108,7 +108,7 @@
 		/datum/action/cooldown/spell/undirected/call_bird/grenzel
 	)
 
-	traits = list(TRAIT_MEDIUMARMOR, TRAIT_NOBLE)
+	traits = list(TRAIT_MEDIUMARMOR)
 	languages = list(/datum/language/oldpsydonic)
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 

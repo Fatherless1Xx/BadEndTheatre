@@ -274,7 +274,6 @@
 			backpack_contents = list(/obj/item/clothing/gloves/rare/grenzelplate = 1, /obj/item/clothing/shoes/boots/rare/grenzelplate,)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE) // heavy armor user
 			ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) // Keep this rare. Only a handful of armor users get this.
-			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 			H.change_stat(STATKEY_CON, 3)
 			H.change_stat(STATKEY_PER, -3)
 			H.change_stat(STATKEY_STR, 2)
