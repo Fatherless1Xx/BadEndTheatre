@@ -1,10 +1,12 @@
 // Music Lists
 //Fucking cargo cultists - FUCK YOU VANDERLIN/AZUREPEAK/SCARLETREACH PEOPLE. This is easy as fuck to fix but you still managed to FUCK IT ALL UP!
 
+#define JUKEBOX_MUSIC_PATH "sound/music/jukeboxes/tunes/"
+
 /datum/looping_sound/musloop
 	mid_sounds = list()
-	mid_length = 4 MINUTES
-	volume = 200
+	mid_length = 5 MINUTES
+	volume = 100
 	extra_range = 8
 	falloff_exponent = 0
 	persistent_loop = TRUE
@@ -33,12 +35,13 @@
 	var/list/init_curfile = list() // A list of songs that curfile is set to on init. MUST BE IN ONE OF THE MUSIC_TAVCAT_'s. MAPPERS MAY TOUCH THIS.
 	var/curfile // The current track that is playing right now
 	var/playing = FALSE // If music is playing or not. playmusic() deals with this don't mess with it.
-	var/curvol = 200 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
+	var/curvol = 100 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
 	var/playuponspawn = FALSE // Does the music box start playing music when it first spawns in? MAPPERS MAY TOUCH THIS.
 
 /obj/structure/fake_machine/musicbox/Initialize()
 	. = ..()
-	init_curfile = flist("sound/music/jukebox/tunes/") //Yeah, we're just fucking taking all the oggs in our special little fucking folder. That's all we have to do.
+	//Flist's path should be to wherever the folder that holds all our song .oggs is. Doesn't matter where.
+	init_curfile = flist(JUKEBOX_MUSIC_PATH) //Yeah, we're just fucking taking all the oggs in our special little fucking folder. That's all we have to do.
 	curfile = pick(init_curfile)
 	soundloop = new(src, FALSE)
 	if(playuponspawn)
@@ -81,74 +84,47 @@
 /obj/structure/fake_machine/musicbox/attack_hand(mob/user)
 	. = ..()
 
-	if(.)
-		return
-
-	user.changeNext_move(CLICK_CD_MELEE)
-
 	if(locked())
 		to_chat(user, span_info("\The [src] is locked..."))
 		return
 
-	var/button_selection = input(user, "What button do I press?", "\The [src]") as null | anything in list("Stop/Start","Change Song","Change Volume")
-	if(!Adjacent(user))
-		return
-	if(!button_selection)
-		to_chat(user, span_info("I change my mind..."))
-		return
-	user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-	playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
+	ui_interact(user)
 
-	if(button_selection=="Stop/Start")
-		toggle_music()
+/obj/structure/fake_machine/musicbox/ui_interact(mob/user)
+	. = ..()
 
-	if(button_selection=="Change Song")
-		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "DAMN"=MUSIC_TAVCAT_DAMN, "MISC"=MUSIC_TAVCAT_MISC)
-		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
-		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-		var/chosen_songlists_selection = null
-		if(songlists_selection=="CHILL")
-			chosen_songlists_selection = MUSIC_TAVCAT_CHILL
-		if(songlists_selection=="FUCK")
-			chosen_songlists_selection = MUSIC_TAVCAT_FUCK
-		if(songlists_selection=="PARTY")
-			chosen_songlists_selection = MUSIC_TAVCAT_PARTY
-		if(songlists_selection=="SCUM")
-			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
-		if(songlists_selection=="DAMN")
-			chosen_songlists_selection = MUSIC_TAVCAT_DAMN
-		if(songlists_selection=="MISC")
-			chosen_songlists_selection = MUSIC_TAVCAT_MISC
-		var/song_selection = input(user, "Which song do I play?", "\The [src]") as null | anything in chosen_songlists_selection
-		if(!Adjacent(user))
-			return
-		if(!song_selection)
-			to_chat(user, span_info("I change my mind..."))
-			return
-		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
-		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-		curfile = chosen_songlists_selection[song_selection]
+	var/list/menu = list()
+
+	menu += "<style>"
+	menu += "body"
+	menu += "{background-color: #000000; font-size: 24}"
+	menu += "</style>"
+
+
+	for(var/i in 1 to init_curfile.len)
+		menu += "<A href='byond://?src=[REF(src)];song_choice=[JUKEBOX_MUSIC_PATH][init_curfile[i]]'>Song [i]</A><BR>"
+
+	menu += "<A href='byond://?src=[REF(src)];off=1'>OFF</A><BR>"
+
+	var/datum/browser/popup = new(user, "musikk", "<div align='center'>ENTERTAINMENT</div>", 250, 150 * init_curfile.len)
+	popup.set_content(menu.Join())
+	popup.open(FALSE)
+
+/obj/structure/fake_machine/musicbox/Topic(href, list/href_list)
+	if(!usr || !usr.client)
+		return
+
+	if(href_list["song_choice"])
 		stop_playing()
+		say(href_list["song_choice"])
+		playsound(get_turf(src), rattle_sound)
+		curfile = file(href_list["song_choice"])
 		start_playing()
 
-	if(button_selection=="Change Volume")
-		var/volume_selection = input(user, "How loud do you wish me to be?", "\The [src] (Volume Currently : [curvol]/[100])") as num|null
-		if(!Adjacent(user))
-			return
-		if(!volume_selection)
-			to_chat(user, span_info("I change my mind..."))
-			return
-		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
-		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-		volume_selection = clamp(volume_selection, 1, 100)
-		if(curvol<volume_selection)
-			to_chat(user, span_info("I make \the [src] louder."))
-		else
-			to_chat(user, span_info("I make \the [src] quieter."))
-		curvol = volume_selection
-		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+	if(href_list["off"])
+		playsound(get_turf(src), rattle_sound)
 		stop_playing()
-		start_playing()
+
 
 /obj/structure/fake_machine/musicbox/mannor
 	lock = /datum/lock/key/manor
