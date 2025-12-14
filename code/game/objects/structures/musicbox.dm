@@ -4,7 +4,7 @@
 /datum/looping_sound/musloop
 	mid_sounds = list()
 	mid_length = 4 MINUTES
-	volume = 70
+	volume = 200
 	extra_range = 8
 	falloff_exponent = 0
 	persistent_loop = TRUE
@@ -30,14 +30,15 @@
 	unlock_sound = 'sound/misc/beep.ogg'
 	lock_sound = 'sound/misc/beep.ogg'
 	var/datum/looping_sound/musloop/soundloop
-	var/list/init_curfile = list('sound/music/jukeboxes/_misc/_generic.ogg') // A list of songs that curfile is set to on init. MUST BE IN ONE OF THE MUSIC_TAVCAT_'s. MAPPERS MAY TOUCH THIS.
+	var/list/init_curfile = list() // A list of songs that curfile is set to on init. MUST BE IN ONE OF THE MUSIC_TAVCAT_'s. MAPPERS MAY TOUCH THIS.
 	var/curfile // The current track that is playing right now
 	var/playing = FALSE // If music is playing or not. playmusic() deals with this don't mess with it.
-	var/curvol = 50 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
+	var/curvol = 100 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
 	var/playuponspawn = FALSE // Does the music box start playing music when it first spawns in? MAPPERS MAY TOUCH THIS.
 
 /obj/structure/fake_machine/musicbox/Initialize()
 	. = ..()
+	init_curfile = flist("sound/music/jukebox/tunes/") //Yeah, we're just fucking taking all the oggs in our special little fucking folder. That's all we have to do.
 	curfile = pick(init_curfile)
 	soundloop = new(src, FALSE)
 	if(playuponspawn)
@@ -154,7 +155,7 @@
 
 /obj/structure/fake_machine/musicbox/tavern
 	lock = /datum/lock/key/inn
-	curvol = 30
+	curvol = 100
 
 /obj/structure/fake_machine/musicbox/tavern/Initialize()
 	. = ..()
