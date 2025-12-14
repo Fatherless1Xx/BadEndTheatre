@@ -54,7 +54,6 @@
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/clothing/neck/gorget
 	belt = /obj/item/storage/belt/leather
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
 	if(H.gender == FEMALE)
