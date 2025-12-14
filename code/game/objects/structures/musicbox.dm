@@ -33,7 +33,7 @@
 	var/list/init_curfile = list() // A list of songs that curfile is set to on init. MUST BE IN ONE OF THE MUSIC_TAVCAT_'s. MAPPERS MAY TOUCH THIS.
 	var/curfile // The current track that is playing right now
 	var/playing = FALSE // If music is playing or not. playmusic() deals with this don't mess with it.
-	var/curvol = 100 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
+	var/curvol = 200 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
 	var/playuponspawn = FALSE // Does the music box start playing music when it first spawns in? MAPPERS MAY TOUCH THIS.
 
 /obj/structure/fake_machine/musicbox/Initialize()
