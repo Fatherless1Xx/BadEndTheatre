@@ -116,7 +116,6 @@
 
 	if(href_list["song_choice"])
 		stop_playing()
-		say(href_list["song_choice"])
 		playsound(get_turf(src), rattle_sound)
 		curfile = file(href_list["song_choice"])
 		start_playing()
