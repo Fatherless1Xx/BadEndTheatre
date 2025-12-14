@@ -106,7 +106,7 @@
 
 	menu += "<A href='byond://?src=[REF(src)];off=1'>OFF</A><BR>"
 
-	var/datum/browser/popup = new(user, "musikk", "<div align='center'>ENTERTAINMENT</div>", 250, 150 * init_curfile.len)
+	var/datum/browser/popup = new(user, "musikk", "<div align='center'>ENTERTAINMENT</div>", 100, 300)
 	popup.set_content(menu.Join())
 	popup.open(FALSE)
 
