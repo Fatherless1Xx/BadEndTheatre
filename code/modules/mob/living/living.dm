@@ -27,6 +27,7 @@
 	if(has_reflection)
 		create_reflection()
 	recalculate_stats()
+	RegisterSignal(src, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(close_backpack_on_wear))
 
 /mob/living/Destroy()
 	if(FACTION_MATTHIOS in faction)
@@ -1068,8 +1069,7 @@
 			var/mob/living/L = pulledby
 			L.set_pull_offsets(src, pulledby.grab_state)
 
-//	if(active_storage && !(CanReach(active_storage.parent,view_only = TRUE)))
-	if(active_storage)
+	if(active_storage && !(CanReach(active_storage.parent,view_only = TRUE)))
 		active_storage.close(src)
 
 	if(body_position == LYING_DOWN && !buckled && prob(getBruteLoss()*200/maxHealth))
@@ -2947,3 +2947,11 @@
 
 /mob/living/proc/is_dead() // bwuh
 	return (!QDELETED(src) && (stat >= DEAD))
+
+/mob/living/proc/close_backpack_on_wear(mob/living/user, obj/item/bag, slot)
+	SIGNAL_HANDLER
+
+	if(!active_storage)
+		return
+
+	active_storage.close(src)

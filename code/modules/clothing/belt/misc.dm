@@ -307,6 +307,7 @@
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
+	storage_flags = STORAGE_NO_WORN_ACCESS
 	component_type = /datum/component/storage/concrete/grid/backpack
 
 /obj/item/storage/backpack/backpack/Initialize()

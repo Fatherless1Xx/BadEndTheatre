@@ -366,6 +366,7 @@
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
 
+	log_admin("on_equipped fired for storage component! Yippeee!!")
 	var/atom/parent_atom = parent
 	for(var/mob/living/living_viewer in can_see_contents())
 		if(!living_viewer.CanReach(parent_atom))
@@ -401,7 +402,7 @@
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
+/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = TRUE, no_message = FALSE)
 	if(worn_check && !worn_check(parent, user, no_message))
 		return TRUE
 	var/atom/real_location = real_location()
