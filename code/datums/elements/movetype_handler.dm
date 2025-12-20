@@ -41,6 +41,11 @@
 	if(movable_target.movement_type & (FLOATING|FLYING) && !HAS_TRAIT(movable_target, TRAIT_NO_FLOATING_ANIM))
 		DO_FLOATING_ANIM(movable_target)
 
+	// Sync movement-type traits that were applied before this element was attached.
+	for(var/trait in GLOB.movement_type_trait_to_flag)
+		if(HAS_TRAIT(movable_target, trait))
+			on_movement_type_trait_gain(movable_target, trait)
+
 /datum/element/movetype_handler/Detach(datum/source)
 	var/list/signals_to_remove = list(
 		SIGNAL_ADDTRAIT(TRAIT_NO_FLOATING_ANIM),

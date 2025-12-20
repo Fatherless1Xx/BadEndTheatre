@@ -117,6 +117,7 @@
 
 /datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
+	RegisterSignal(C, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(handle_client_login))
 	C.pass_flags |= (PASSTABLE | PASSMOB)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
@@ -149,6 +150,7 @@
 
 /datum/species/seelie/on_species_loss(mob/living/carbon/C)
 	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_CLIENT_LOGIN)
 	C.pass_flags &= ~(PASSTABLE | PASSMOB)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
@@ -159,6 +161,14 @@
 	C.verbs -= list(
 		/mob/living/carbon/human/proc/seelie_exit_container
 	)
+
+/datum/species/seelie/proc/handle_client_login(mob/living/carbon/C, client/user_client)
+	SIGNAL_HANDLER
+	if(!ishuman(C))
+		return
+	var/mob/living/carbon/human/H = C
+	H.seelie_apply_scale(0.6)
+	H.update_transform()
 
 /datum/species/seelie/check_roundstart_eligible()
 	return TRUE
