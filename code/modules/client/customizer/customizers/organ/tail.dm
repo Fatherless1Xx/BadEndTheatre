@@ -21,6 +21,9 @@
 	allows_accessory_color_customization = FALSE
 	sprite_accessories = list(
 		/datum/sprite_accessory/tail/tiefling,
+		/datum/sprite_accessory/tail/tiefling/heart,
+		/datum/sprite_accessory/tail/tiefling/heartmaw,
+		/datum/sprite_accessory/tail/tiefling/spade,
 		)
 
 /datum/customizer/organ/tail/demihuman
