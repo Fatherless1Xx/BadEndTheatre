@@ -33,3 +33,17 @@
 	if(istype(H) && H.gender == FEMALE)
 		return "marking_f"
 	return "marking_m"
+
+/datum/sprite_accessory/brand/indentured_womb/get_appearance(obj/item/organ/organ, obj/item/bodypart/bodypart, color_string)
+	var/mob/living/carbon/owner
+	if(organ)
+		owner = organ.owner
+	else if(bodypart)
+		owner = bodypart.owner || bodypart.original_owner
+	var/list/appearance_list = ..()
+	if(!appearance_list || !istype(owner, /mob/living/carbon/human/dummy))
+		return appearance_list
+	for(var/mutable_appearance/appearance as anything in appearance_list.Copy())
+		if(appearance.plane == EMISSIVE_PLANE)
+			appearance_list -= appearance
+	return appearance_list
