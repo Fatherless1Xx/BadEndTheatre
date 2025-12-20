@@ -27,7 +27,7 @@
 
 /mob/living/carbon/human/proc/lose_teeth(var/damage)
 	var/lost_teeth = 0
-	if(src.teeth == 0)
+	if(src.teeth <= 0)
 		return
 	if(damage > 12 && damage < 20) //Small hits, no big deal
 		lost_teeth = 1
@@ -37,6 +37,9 @@
 		lost_teeth += round(effective_damage / 5)
 
 	if(lost_teeth > 0)
+		lost_teeth = min(lost_teeth, src.teeth)
+		if(lost_teeth <= 0)
+			return
 		src.teeth -= lost_teeth
 		src.recently_lost_teeth += lost_teeth
 		if(src.gold_teeth > 0)
