@@ -198,8 +198,10 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/seelie_enter_container(atom/target)
+/mob/living/carbon/human/proc/seelie_enter_container(atom/target, mob/user)
 	if(!isseelie(src) || QDELETED(target))
+		return FALSE
+	if(ismob(target.loc) && target.loc != user)
 		return FALSE
 	if(get_dist(src, target) > 1)
 		return FALSE
@@ -252,7 +254,7 @@
 			highest = forcer.grab_state
 		if(highest < GRAB_AGGRESSIVE)
 			return FALSE
-	return seelie_enter_container(target)
+	return seelie_enter_container(target, forcer)
 
 /mob/living/carbon/human/proc/seelie_exit_container()
 	set name = "Leave Container"
@@ -379,7 +381,7 @@
 	if(isseelie(src))
 		if(seelie_perch_on(over_object, usr))
 			return
-		if(seelie_enter_container(over_object))
+		if(seelie_enter_container(over_object, usr))
 			return
 	. = ..()
 

@@ -5,6 +5,8 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
+	grid_width = 32
+	grid_height = 32
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK|ITEM_SLOT_BELT
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
@@ -135,6 +137,8 @@
 	desc = "Metal chains designed to interlock and apply the harshest confinement on the villainous."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "chain"
+	grid_width = 32
+	grid_height = 32
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	force = 10
 	blade_dulling = DULLING_BASHCHOP
@@ -170,6 +174,8 @@
 	force = 10
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 64
 	icon_state = "net"
 	breakouttime = 3.5 SECONDS //easy to apply, easy to break out of
 	gender = NEUTER
