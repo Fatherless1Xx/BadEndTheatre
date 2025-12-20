@@ -20,7 +20,7 @@
 	glows = TRUE
 	// sit below pants/stockings so clothing hides it
 	layer = LEG_DAMAGE_LAYER
-	relevant_layers = list(LEG_DAMAGE_LAYER)
+	relevant_layers = null
 
 /datum/sprite_accessory/brand/indentured_womb/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	// push lower toward the groin

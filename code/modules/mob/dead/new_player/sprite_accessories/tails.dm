@@ -332,6 +332,19 @@
 	color_key_defaults = list(KEY_SKIN_COLOR)
 	can_wag = TRUE
 
+/datum/sprite_accessory/tail/tiefling/heartmaw
+	name = "Succubus (Maw)"
+	icon = 'icons/mob/sprite_accessory/tails/tiefling.dmi'
+	icon_state = "hearttail"
+	color_key_defaults = list(KEY_SKIN_COLOR)
+	can_wag = TRUE
+
+/datum/sprite_accessory/tail/tiefling/spade
+	name = "Spade"
+	icon = 'icons/mob/sprite_accessory/tails/tails.dmi'
+	icon_state = "spade"
+	color_key_defaults = list(KEY_SKIN_COLOR)
+
 /datum/sprite_accessory/tail/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"
@@ -340,11 +353,12 @@
 	can_wag = TRUE
 
 /datum/sprite_accessory/tail/tiefling
-	icon = 'icons/roguetown/mob/bodies/attachments.dmi'
+	icon = 'icons/mob/sprite_accessory/tails/tiefling.dmi'
 	name = "TiebTail"
 	icon_state = "tiebtail"
 	specuse = list(SPEC_ID_TIEFLING)
 	color_key_defaults = list(KEY_SKIN_COLOR)
+	can_wag = TRUE
 
 /datum/sprite_accessory/tail/triton
 	name = "Triton Bell"
