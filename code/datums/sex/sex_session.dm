@@ -387,6 +387,10 @@
 	var/list/dat = list()
 	var/list/arousal_data = list()
 	SEND_SIGNAL(user, COMSIG_SEX_GET_AROUSAL, arousal_data)
+	var/datum/component/bellyriding/belly_comp = get_bellyriding_component()
+	var/show_bellyriding_tab = (belly_comp != null)
+	if(!show_bellyriding_tab && selected_tab == "bellyriding")
+		selected_tab = "interactions"
 
 	// CSS styling to match the dark red/brown color scheme
 	dat += "<style>"
@@ -536,6 +540,8 @@
 
 	dat += "<div class='tabs'>"
 	dat += "<a href='?src=[REF(src)];task=tab;tab=interactions' class='tab [selected_tab == "interactions" ? "active" : ""]'>Interactions</a>"
+	if(show_bellyriding_tab)
+		dat += "<a href='?src=[REF(src)];task=tab;tab=bellyriding' class='tab [selected_tab == "bellyriding" ? "active" : ""]'>Bellyriding</a>"
 	dat += "<a href='?src=[REF(src)];task=tab;tab=genital' class='tab [selected_tab == "genital" ? "active" : ""]'>Controls</a>"
 	dat += "<a href='?src=[REF(src)];task=tab;tab=session' class='tab [selected_tab == "session" ? "active" : ""]'>Session</a>"
 	dat += "<a href='?src=[REF(src)];task=tab;tab=preferences' class='tab [selected_tab == "preferences" ? "active" : ""]'>Preferences</a>"
@@ -577,6 +583,51 @@
 		dat += "</div>"
 	dat += "</div>"
 	dat += "</div>"
+
+	// Bellyriding Tab
+	if(show_bellyriding_tab)
+		dat += "<div class='tab-content [selected_tab == "bellyriding" ? "active" : ""]' id='bellyriding-tab'>"
+		dat += "<div class='action-list'>"
+		if(belly_comp)
+			var/toggle_label = belly_comp.enable_interactions ? "Disable Bellyriding Interactions" : "Enable Bellyriding Interactions"
+			var/toggle_class = belly_comp.enable_interactions ? "action-button linkOn" : "action-button linkOff"
+			dat += "<div class='action-item'>"
+			dat += "<a class='[toggle_class]' href='?src=[REF(src)];task=bellyriding_toggle;tab=[selected_tab]'>[toggle_label]</a>"
+			dat += "</div>"
+			dat += "<div class='action-item'>"
+			dat += "<a class='action-button' href='?src=[REF(src)];task=bellyriding_release;tab=[selected_tab]'>Release From Harness</a>"
+			dat += "</div>"
+
+		var/list/bellyriding_actions = list(
+			/datum/sex_action/bellyriding/groin_rub,
+			/datum/sex_action/bellyriding/frot,
+			/datum/sex_action/bellyriding/vaginal,
+			/datum/sex_action/bellyriding/anal
+		)
+		for(var/action_type in bellyriding_actions)
+			var/datum/sex_action/action = SEX_ACTION(action_type)
+			if(!action)
+				continue
+
+			dat += "<div class='action-item'>"
+			var/button_class = "action-button"
+			var/is_current = (current_action == action_type)
+			var/can_perform = can_perform_action(action_type)
+
+			if(!can_perform)
+				button_class += " linkOff"
+			if(is_current)
+				button_class += " active"
+
+			dat += "<a class='[button_class]' href='?src=[REF(src)];task=action;action_type=[action_type];tab=[selected_tab]'>[action.name]</a>"
+
+			dat += "<div class='action-icons'>"
+			if(is_current)
+				dat += "<a href='?src=[REF(src)];task=stop;tab=[selected_tab]' class='icon-btn stop'></a>"
+			dat += "</div>"
+			dat += "</div>"
+		dat += "</div>"
+		dat += "</div>"
 
 	// Controls Tab
 	dat += "<div class='tab-content [selected_tab == "genital" ? "active" : ""]' id='genital-tab'>"
@@ -939,6 +990,14 @@
 
 		if("toggle_subtle")
 			collective.toggle_subtle()
+		if("bellyriding_toggle")
+			var/datum/component/bellyriding/belly_comp = get_bellyriding_component()
+			if(belly_comp)
+				belly_comp.enable_interactions = !belly_comp.enable_interactions
+		if("bellyriding_release")
+			var/datum/component/bellyriding/belly_comp = get_bellyriding_component()
+			if(belly_comp)
+				belly_comp.unbuckle_victim()
 
 		// Generic preference handler - delegates to the preference datum
 		if("handle_pref")
@@ -1022,6 +1081,17 @@
 					to_chat(user, "<span class='warning'>Note not found.</span>")
 
 	show_ui(selected_tab)
+
+/datum/sex_session/proc/get_bellyriding_component()
+	if(!user || !target)
+		return null
+	var/datum/component/bellyriding/belly_comp = user.GetComponent(/datum/component/bellyriding)
+	if(belly_comp && belly_comp.current_victim == target)
+		return belly_comp
+	belly_comp = target.GetComponent(/datum/component/bellyriding)
+	if(belly_comp && belly_comp.current_victim == user)
+		return belly_comp
+	return null
 
 /datum/sex_session/proc/get_sex_session_header()
 	if(user == target)

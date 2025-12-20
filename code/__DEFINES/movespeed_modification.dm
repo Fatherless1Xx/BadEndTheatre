@@ -72,6 +72,7 @@
 #define MOVESPEED_ID_SHOVE                              "SHOVE"
 #define MOVESPEED_ID_BULKY_DRAGGING                     "BULKY_DRAG"
 #define MOVESPEED_ID_HUMAN_CARRYING                     "HUMAN_CARRY"
+#define MOVESPEED_ID_BELLYRIDE                          "BELLYRIDE"
 #define MOVESPEED_ID_SHRINK_RAY							"SHRUNKEN_SPEED_MODIFIER"
 #define MOVESPEED_ID_PEPPER_SPRAY                       "PEPPER_SPRAYED"
 #define MOVESPEED_ID_FAT                                "FAT"
