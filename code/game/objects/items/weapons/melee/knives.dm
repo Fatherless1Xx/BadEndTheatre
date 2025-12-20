@@ -710,6 +710,7 @@
 /obj/item/weapon/knife/throwingknife/throwcard
 	name = "Calling Card"
 	desc = "A thin sheet of pig-iron stamped into a calling card, too thin and useless to be smelted. You've been had. From Heartfelt with love."
+	icon = 'icons/roguetown/weapons/32/knives.dmi'
 	icon_state = "throwcard"
 	throw_speed = 5
 	max_integrity = INTEGRITY_WORST - 50 // It's not about how effective it is, it's about sending a message.
