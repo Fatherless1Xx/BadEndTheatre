@@ -721,6 +721,11 @@
 	var/river_processing
 	var/river_processes = TRUE
 
+/turf/open/water/river/get_slowdown(mob/user)
+	if(isseelie(user))
+		return 0
+	return ..()
+
 /turf/open/water/river/get_heuristic_slowdown(mob/traverser, travel_dir)
 	. = ..()
 	if(travel_dir & dir) // downriver
@@ -803,6 +808,11 @@
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/salty
 	fishing_datum = /datum/fish_source/ocean
+
+/turf/open/water/ocean/get_slowdown(mob/user)
+	if(isseelie(user))
+		return 0
+	return ..()
 
 /turf/open/water/ocean/deep
 	name = "salt water"

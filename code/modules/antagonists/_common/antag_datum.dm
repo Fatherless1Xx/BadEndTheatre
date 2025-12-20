@@ -53,6 +53,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/datum/mind/tested = new_owner || owner
 	if(tested.has_antag_datum(type))
 		return FALSE
+	if(tested.current && isogre(tested.current) && !istype(src, /datum/antagonist/wretch))
+		return FALSE
 	for(var/i in tested.antag_datums)
 		var/datum/antagonist/A = i
 		if(is_type_in_typecache(src, A.typecache_datum_blacklist))
