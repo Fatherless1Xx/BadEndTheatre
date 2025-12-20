@@ -45,9 +45,7 @@
 		head = /obj/item/clothing/head/maidband
 	beltl = /obj/item/storage/keyring/manorguard
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1)
-	if(H.gender != MALE)
-		backpack_contents += list(/obj/item/rope/chain = 2)
+	backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2)
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

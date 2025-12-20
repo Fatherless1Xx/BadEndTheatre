@@ -46,7 +46,8 @@
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/weapon/knife/villager = 1,
-		/obj/item/servant_bell/lord = 1
+		/obj/item/servant_bell/lord = 1,
+		/obj/item/rope/chain = 2
 	)
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
