@@ -6,6 +6,9 @@
 	var/final_pixel_y = pixel_y
 	var/final_dir = dir
 	var/changed = 0
+	var/desired_scale = 1
+	if(isseelie(src))
+		desired_scale = 0.6
 	if(lying_angle != lying_prev && rotate_on_lying)
 		changed++
 		ntransform.TurnTo(lying_prev , lying_angle)
@@ -21,6 +24,13 @@
 		changed++
 		ntransform.Scale(resize)
 		resize = RESIZE_DEFAULT_SIZE
+	if(desired_scale != 1)
+		var/current_scale = sqrt(ntransform.a * ntransform.a + ntransform.b * ntransform.b)
+		if(current_scale <= 0)
+			current_scale = 1
+		if(abs(current_scale - desired_scale) >= 0.001)
+			ntransform.Scale(desired_scale / current_scale)
+			changed++
 
 	if(changed)
 		ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, UPDATE_TRANSFORM_TRAIT)
@@ -28,6 +38,8 @@
 		pixel_x = get_standard_pixel_x_offset()
 		pixel_y = final_pixel_y
 		animate(src, transform = ntransform, time = (lying_prev == 0 || !resting) ? 2 : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
+		if(desired_scale != 1)
+			transform = ntransform
 		client?.pixel_x = pixel_x
 		client?.pixel_y = pixel_y
 		dir = final_dir

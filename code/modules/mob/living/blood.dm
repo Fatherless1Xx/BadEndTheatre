@@ -170,6 +170,8 @@
 /mob/living/proc/bleed(amt)
 	if(!iscarbon(src) && !HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 		return
+	if(surrendering)
+		return FALSE
 	if(blood_volume <= 0)
 		return
 
