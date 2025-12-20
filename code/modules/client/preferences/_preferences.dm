@@ -274,6 +274,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			return
 	//we couldn't load character data so just randomize the character appearance + name
 	randomise_appearance_prefs(include_patreon = patreon)		//let's create a random character then - rather than a fat, bald and naked man.
+	customizer_entries = list()
+	validate_customizer_entries()
+	reset_all_customizer_accessory_colors()
+	randomize_all_customizer_accessories()
 	if(!charflaw)
 		charflaw = pick(GLOB.character_flaws)
 		charflaw = GLOB.character_flaws[charflaw]

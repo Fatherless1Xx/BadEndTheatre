@@ -55,6 +55,9 @@ SUBSYSTEM_DEF(indentured_trait)
 /datum/controller/subsystem/indentured_trait/proc/apply_indentured(mob/living/carbon/human/pet)
 	if(!pet || QDELETED(pet))
 		return
+	if(istype(pet, /mob/living/carbon/human/dummy))
+		ensure_brand(pet)
+		return
 	add_indentured_ref(pet)
 	ensure_brand(pet)
 	RegisterSignal(pet, COMSIG_PARENT_QDELETING, PROC_REF(on_pet_deleted))
