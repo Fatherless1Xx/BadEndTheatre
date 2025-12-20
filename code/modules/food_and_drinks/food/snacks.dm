@@ -532,6 +532,7 @@ All foods are distributed among various categories. Use common sense.
 			var/obj/item/reagent_containers/food/snacks/customizable/C = new custom_food_type(get_turf(src))
 			C.initialize_custom_food(src, S, user)
 			return 0
+*/
 	if(user.used_intent.blade_class == slice_bclass && W.wlength == WLENGTH_SHORT)
 		if(slice_bclass == BCLASS_CHOP)
 			//	RTD meat chopping noise  The 66% random bit is just annoying
@@ -543,7 +544,7 @@ All foods are distributed among various categories. Use common sense.
 				slice(W, user)
 			return 1
 		else if(slice(W, user))
-			return 1*/
+			return 1
 	..()
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list)
