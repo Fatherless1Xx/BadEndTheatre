@@ -119,6 +119,7 @@
 	. = ..()
 	RegisterSignal(C, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(handle_client_login))
 	C.pass_flags |= (PASSTABLE | PASSMOB)
+	C.rotate_on_lying = FALSE
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		H.seelie_apply_scale(0.6)
@@ -152,6 +153,7 @@
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_CLIENT_LOGIN)
 	C.pass_flags &= ~(PASSTABLE | PASSMOB)
+	C.rotate_on_lying = initial(C.rotate_on_lying)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		H.seelie_apply_scale(1)
