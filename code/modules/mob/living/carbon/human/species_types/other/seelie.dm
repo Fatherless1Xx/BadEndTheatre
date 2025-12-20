@@ -101,7 +101,16 @@
 /mob/living/carbon/human/proc/seelie_ensure_scale()
 	if(!isseelie(src))
 		return
-	var/matrix/mat = matrix() * 0.6
+	seelie_apply_scale(0.6)
+
+/mob/living/carbon/human/proc/seelie_apply_scale(target_scale)
+	var/matrix/mat = matrix(transform)
+	var/current_scale = sqrt(mat.a * mat.a + mat.b * mat.b)
+	if(current_scale <= 0)
+		current_scale = 1
+	if(abs(current_scale - target_scale) < 0.001)
+		return
+	mat.Scale(target_scale / current_scale)
 	if(transform != mat)
 		transform = mat
 		update_transform()
@@ -109,8 +118,9 @@
 /datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
 	C.pass_flags |= (PASSTABLE | PASSMOB)
-	C.transform = matrix() * 0.6
-	C.update_transform()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.seelie_apply_scale(0.6)
 	C.add_movespeed_modifier("seelie_move", override = TRUE, multiplicative_slowdown = 0.5)
 	ADD_TRAIT(C, TRAIT_PACIFISM, "[type]")
 	ADD_TRAIT(C, TRAIT_MOVE_FLOATING, "[type]")
@@ -140,8 +150,9 @@
 /datum/species/seelie/on_species_loss(mob/living/carbon/C)
 	. = ..()
 	C.pass_flags &= ~(PASSTABLE | PASSMOB)
-	C.transform = matrix()
-	C.update_transform()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.seelie_apply_scale(1)
 	REMOVE_TRAIT(C, TRAIT_MOVE_FLOATING, "[type]")
 	REMOVE_TRAIT(C, TRAIT_PACIFISM, "[type]")
 	C.remove_movespeed_modifier("seelie_move")
@@ -168,8 +179,12 @@
 		"Velvet Violet" = SKIN_COLOR_JACKPOISON,
 	))
 
-/mob/living/carbon/human/proc/seelie_perch_on(atom/target)
+/mob/living/carbon/human/proc/seelie_perch_on(atom/target, mob/user)
 	if(!isseelie(src) || QDELETED(target))
+		return FALSE
+	if(user && user != src)
+		return FALSE
+	if(!istype(rmb_intent, /datum/rmb_intent/weak))
 		return FALSE
 	if(get_dist(src, target) > 1)
 		return FALSE
@@ -362,7 +377,7 @@
 
 /mob/living/carbon/human/MouseDrop_T(atom/over_object, src_location, over_location, src_control, over_control, params)
 	if(isseelie(src))
-		if(seelie_perch_on(over_object))
+		if(seelie_perch_on(over_object, usr))
 			return
 		if(seelie_enter_container(over_object))
 			return

@@ -100,7 +100,7 @@
 	I.pixel_y = 0
 	client.images += I
 	client.hidden_images += I
-	I.appearance_flags = KEEP_TOGETHER
+	I.appearance_flags |= KEEP_TOGETHER
 
 /*	if(hud_used && hud_used.fov_blocker)
 		fov_blocker
