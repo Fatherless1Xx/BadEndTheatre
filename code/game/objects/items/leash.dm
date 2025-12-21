@@ -426,6 +426,7 @@
 	name = "cowbell"
 	desc = "A small jingly cowbell"
 	icon_state = "cowbell"
+	dropshrink = 0.75
 
 /obj/item/catbell/attack_self(mob/living/user)
 	if(world.time < last_ring + 15)

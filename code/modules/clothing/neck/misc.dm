@@ -228,6 +228,12 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = list(SFX_COLLARJINGLE))
 	if(bellsound)
 		AddComponent(/datum/component/squeak, list(SFX_COLLARJINGLE), 50, 100, 1)
+
+/obj/item/clothing/neck/bellcollar/cowbell
+	name = "cowbell collar"
+	desc = "A leather collar with a jingly cowbell attached."
+	icon_state = "cowbellcollar"
+	item_state = "cowbellcollar"
 //..................................................................................................................................
 /*---------------\
 |			 	 |

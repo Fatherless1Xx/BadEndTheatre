@@ -221,6 +221,10 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Bell Collar"
 	item_path = /obj/item/clothing/neck/bellcollar
 
+/datum/loadout_item/cowbell_collar
+	name = "Cowbell Collar"
+	item_path = /obj/item/clothing/neck/bellcollar/cowbell
+
 /datum/loadout_item/leash
 	name = "Leash"
 	item_path = /obj/item/leash/leather
@@ -229,13 +233,29 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Catbell"
 	item_path = /obj/item/catbell
 
-/datum/loadout_item/cowbell
-	name = "Cowbell"
-	item_path = /obj/item/catbell/cow
-
 /datum/loadout_item/cursed_collar
 	name = "Cursed Collar"
 	item_path = /obj/item/clothing/neck/roguetown/cursed_collar
+
+/datum/loadout_item/collar_of_servitude
+	name = "Collar of Servitude"
+	item_path = /obj/item/clothing/neck/gorget/explosive
+
+/datum/loadout_item/black_collar
+	name = "Black Collar"
+	item_path = /obj/item/clothing/neck/highcollier/iron/renegadecollar
+
+/datum/loadout_item/feld_collar
+	name = "Feldsher's Collar"
+	item_path = /obj/item/clothing/neck/feld
+
+/datum/loadout_item/phys_collar
+	name = "Physicker's Collar"
+	item_path = /obj/item/clothing/neck/phys
+
+/datum/loadout_item/courtphys_collar
+	name = "Court Physician's Collar"
+	item_path = /obj/item/clothing/neck/courtphysician
 
 /datum/loadout_item/chaperon
 	name = "Chaperon (Normal)"
