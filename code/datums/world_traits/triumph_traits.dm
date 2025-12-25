@@ -5,3 +5,7 @@
 /datum/world_trait/longer_week
 	name = "Longer Week"
 	desc = "Working week has been extended by 2 daes! Rejoice!"
+
+/datum/world_trait/exotic_tastes
+	name = "Exotic Tastes"
+	desc = "Everyone has random culinary desires."

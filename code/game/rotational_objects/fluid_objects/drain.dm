@@ -42,8 +42,6 @@
 	else
 		visible_message(span_warning("[src] needs to be placed on or near a water pipe!"))
 
-	update_appearance()
-
 /obj/structure/fluid_drain/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(connected_pipe && current_providing_reagent)
@@ -82,8 +80,6 @@
 			connected_pipe.remove_provider(current_providing_reagent, 0)
 			current_providing_reagent = null
 			visible_message(span_notice("[src] runs out of fluid to provide."))
-
-	update_appearance()
 
 /obj/structure/fluid_drain/proc/drain_nearby_liquids()
 	if(processes < processes_required)

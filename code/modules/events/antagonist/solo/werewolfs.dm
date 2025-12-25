@@ -5,7 +5,6 @@
 		TAG_GRAGGAR,
 		TAG_COMBAT,
 		TAG_HAUNTED,
-		TAG_VILLIAN,
 	)
 	roundstart = TRUE
 	antag_flag = ROLE_WEREWOLF

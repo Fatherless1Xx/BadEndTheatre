@@ -349,6 +349,22 @@
 	taste_description = "salty milk"
 
 
+/***************** Mushrooms *****************/
+
+/obj/item/reagent_containers/food/snacks/waddle_dried
+	name = "dried waddle"
+	desc = "A waddle mushroom that has been dried for use in tea. Not pleasant to eat in this state."
+	icon_state = "driedwaddle"
+	dropshrink = 1
+	bitesize = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	w_class = WEIGHT_CLASS_TINY
+	tastes = list("woody" = 1,"bitter" = 1)
+	foodtype = MUSHROOM
+	faretype = FARE_POOR
+	eat_effect = /datum/status_effect/debuff/uncookedfood
+
+
 
 /*-------\
 | Butter |

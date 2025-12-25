@@ -115,6 +115,7 @@
 	var/list/possible_offhand_intents = list()//Living
 	var/list/possible_rmb_intents = list()
 	var/list/base_intents = list(INTENT_HARM) //bare hand intents
+	var/monitor_key
 	var/l_index = 1
 	var/r_index = 1
 	var/r_ua_index = 1

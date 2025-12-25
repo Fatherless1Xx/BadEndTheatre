@@ -66,6 +66,8 @@
 	/// Do not set directly on /area use the index
 	var/list/ambientsounds
 	var/ambient_index
+	var/has_gravity = null
+	var/noteleport = FALSE
 	/// A list of sounds to pick but at night
 	/// Do not set directly on /area use the index
 	var/list/ambientnight
@@ -323,13 +325,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 //			weather_icon = TRUE
 //	if(!weather_icon)
 //		icon_state = null
-	return ..()
-
-/**
- * Update the icon of the area (overridden to always be null for space
- */
-/area/space/update_icon_state()
-	icon_state = null
 	return ..()
 
 /**

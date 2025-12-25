@@ -95,8 +95,10 @@ Sunlight System
 	for(T in view(CEILING(GLOBAL_LIGHT_RANGE, 1), source_turf))
 		if(T.opacity) /* get_corners used to do opacity checks for arse */
 			continue
-		if (!T.lighting_corners_initialised)
+		if(!T.lighting_corners_initialised)
 			T.lighting_build_overlay()
+		if(!length(T.corners))
+			continue
 		corners |= T.corners
 		turfs += T
 

@@ -31,6 +31,11 @@
 	armor = ARMOR_PADDED_BAD
 	prevent_crits = MINOR_CRITICALS
 
+/obj/item/clothing/armor/gambeson/light/steppe
+	name = "steppe robes"
+	desc = "Loose wind resistant robes worn by nomads of the steppes, designed for comfort and protection in harsh climates."
+	icon_state = "chargah"
+
 /obj/item/clothing/armor/gambeson/light/colored
 	misc_flags = CRAFTING_TEST_EXCLUDE
 

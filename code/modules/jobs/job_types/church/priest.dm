@@ -4,18 +4,16 @@
 	tutorial = "You are a devoted follower of Astrata. \
 	The divine is all that matters in an immoral world. \
 	The Sun Queen and her pantheon rule over all, and you will preach their wisdom to Vanderlin. \
-	It is up to you to shephard the flock into a Ten-fearing future."
+	It is up to you to shepherd the flock into a Ten-fearing future."
 	department_flag = CHURCHMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_PRIEST
 	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
-	min_pq = 20
 	bypass_lastclass = TRUE
 	selection_color = "#c2a45d"
 	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
-
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/priest
@@ -26,10 +24,17 @@
 		/datum/action/cooldown/spell/undirected/call_bird/priest,
 	)
 
+	exp_type = list(EXP_TYPE_CHURCH)
+	exp_types_granted = list(EXP_TYPE_CHURCH, EXP_TYPE_CLERIC, EXP_TYPE_LEADERSHIP)
+	exp_requirements = list(
+		EXP_TYPE_CHURCH = 900,
+	)
+
+
+
 /datum/outfit/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
-	ADD_TRAIT(H, TRAIT_RITUALIST, JOB_TRAIT)
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	H.verbs |= /mob/living/carbon/human/proc/churchcurse
@@ -102,7 +107,7 @@
 	set category = "Priest"
 	if(!mind)
 		return
-	if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+	if(!istype(get_area(src), /area/indoors/town/church/chapel))
 		to_chat(src, span_warning("I need to do this in my Chapel."))
 		return FALSE
 
@@ -157,7 +162,7 @@
 		return
 	var/inputty = input("Excommunicate someone, cutting off their connection to the Ten. (excommunicate them again to remove it)", "Sinner Name") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		if(!istype(get_area(src), /area/indoors/town/church/chapel))
 			to_chat(src, span_warning("I need to do this from the chapel."))
 			return FALSE
 		if(inputty in GLOB.excommunicated_players)
@@ -188,7 +193,7 @@
 		return
 	var/inputty = input("Curse someone as a heretic. (curse them again to remove it)", "Sinner Name") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		if(!istype(get_area(src), /area/indoors/town/church/chapel))
 			to_chat(src, "<span class='warning'>I need to do this from the chapel.</span>")
 			return FALSE
 		if(inputty in GLOB.heretical_players)
@@ -219,7 +224,7 @@
 		return
 	var/inputty = input("Make an announcement", "VANDERLIN") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		if(!istype(get_area(src), /area/indoors/town/church/chapel))
 			to_chat(src, "<span class='warning'>I need to do this from the chapel.</span>")
 			return FALSE
 		priority_announce("[inputty]", title = "The [get_role_title()] Speaks", sound = 'sound/misc/bell.ogg')

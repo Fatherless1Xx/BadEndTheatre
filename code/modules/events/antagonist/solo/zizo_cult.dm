@@ -3,7 +3,6 @@
 	tags = list(
 		TAG_ZIZO,
 		TAG_COMBAT,
-		TAG_VILLIAN,
 	)
 	roundstart = TRUE
 	antag_flag = ROLE_ZIZOIDCULTIST

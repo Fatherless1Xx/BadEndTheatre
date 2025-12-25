@@ -13,3 +13,6 @@
 #define HIDDEN_AREA (1 << 5)
 /// If false, loading multiple maps with this area type will create multiple instances.
 #define UNIQUE_AREA (1 << 6)
+
+// Standard gravity override for area.has_gravity
+#define STANDARD_GRAVITY 1

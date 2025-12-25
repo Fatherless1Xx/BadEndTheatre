@@ -12,7 +12,6 @@
 		TAG_GRAGGAR,
 		TAG_HAUNTED,
 		TAG_COMBAT,
-		TAG_VILLIAN,
 	)
 
 /datum/round_event_control/antagonist/migrant_wave/maniac/canSpawnEvent(players_amt, gamemode, fake_check)

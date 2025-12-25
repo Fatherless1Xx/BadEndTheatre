@@ -124,9 +124,9 @@
 			var/datum/wound/r = temp_recipe
 			category = r.category
 		else if(ispath(path, /datum/chimeric_node))
-			category = "Chimeric Node"
+			category = "Humors"
 		else if(ispath(path, /datum/chimeric_table))
-			category = "Chimeric Dossier"
+			category = "Humor Dossier"
 		else if(ispath(path, /obj/item/reagent_containers/food/snacks/fish))
 			category = "Fish"
 
@@ -812,7 +812,7 @@
 
 /obj/item/recipe_book/underworld
 	name = "The Smuggler’s Guide: A Treatise on Elixirs of the Guild"
-	desc = "Penned by Thorne Ashveil, Thieves Guild's Alchemist, Second Generation."
+	desc = "Penned by Thorne Ashveil, Thieves' Guild's Alchemist, Second Generation."
 	icon_state ="book4_0"
 	base_icon_state = "book4"
 	can_spawn = FALSE
@@ -947,6 +947,7 @@
 		/datum/repeatable_crafting_recipe/bee_treatment/miticide,
 		/datum/repeatable_crafting_recipe/bee_treatment/insecticide,
 		/datum/blueprint_recipe/carpentry/apiary,
+		/datum/repeatable_crafting_recipe/survival/mushmound,
 	)
 
 /obj/item/recipe_book/medical

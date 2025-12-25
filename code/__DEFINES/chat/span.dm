@@ -84,6 +84,7 @@
 #define span_linkoff(str) ("<span class='linkOff'>" + str + "</span>")
 #define span_linkoffbad(str) ("<span class='linkoffbad'>" + str + "</span>")
 #define span_linkon(str) ("<span class='linkon'>" + str + "</span>")
+#define span_looc(str) ("<span class='looc'>" + str + "</span>")
 #define span_marooned(str) ("<span class='marooned'>" + str + "</span>")
 #define span_medal(str) ("<span class='medal'>" + str + "</span>")
 #define span_medradio(str) ("<span class='medradio'>" + str + "</span>")

@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			new_baseturfs = new_baseturfs[1]
 
 		if(turf_type == /turf/open/transparent/openspace)
-			var/turf/below = get_step_multiz(src, DOWN)
+			var/turf/below = GET_TURF_BELOW(src)
 			if(!below) //We are at the LOWEST z-level.
 				turf_type = /turf/open/floor/naturalstone
 			else
@@ -181,7 +181,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 //		else
 //			if(istype(turf_type, /turf/open) && istype(src, /turf/closed))
 //				var/turf/closed/CL = src
-//				var/turf/above = get_step_multiz(src, UP)
+//				var/turf/above = GET_TURF_ABOVE(src)
 //				if(above)
 //					if(istype(above, CL.above_floor))
 //						above.ChangeTurf(/turf/open/transparent/openspace, list(/turf/open/transparent/openspace), flags)
@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/used_type = baseturfs
 
 	if(baseturfs == /turf/open/transparent/openspace)
-		var/turf/below = get_step_multiz(src, DOWN)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(!below) //We are at the LOWEST z-level.
 			used_type = /turf/open/floor/naturalstone
 		else
@@ -335,9 +335,11 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 //	new /obj/structure/lattice(locate(x, y, z))
 
 
-/turf/open/proc/try_respawn_mined_chunks(chance = 150, list/weighted_rocks)
+/turf/open/proc/try_respawn_mined_chunks(chance = 100, list/weighted_rocks)
 	if(!prob(chance))
-		return
+		return FALSE
+	if(!istype(src, /turf/open/floor/naturalstone))
+		return FALSE
 
 	var/turf/closed/mineral/random/picked = pickweight(weighted_rocks)
 	GLOB.mined_resource_loc -= src
@@ -350,6 +352,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			continue
 		if(!(turf in GLOB.mined_resource_loc))
 			continue
-		try_respawn_mined_chunks(chance-25, list(picked = 10))
+		turf.try_respawn_mined_chunks(chance - 25, list(picked = 10))
 		if(!prob(chance))
-			return
+			return TRUE
+	return TRUE

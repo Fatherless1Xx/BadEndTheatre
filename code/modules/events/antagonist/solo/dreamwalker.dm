@@ -4,7 +4,6 @@
 		TAG_ABYSSOR,
 		TAG_COMBAT,
 		TAG_HAUNTED,
-		TAG_VILLIAN,
 	)
 	roundstart = TRUE
 	antag_flag = ROLE_DREAMWALKER

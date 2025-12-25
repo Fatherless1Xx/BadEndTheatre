@@ -34,7 +34,7 @@
 #define SHRINK_ENCHANT			(1<<13)
 #define ITEM_ONLY_BREAK 		(1<<14)
 // Dream-crafted items from Abyssor's realm.
-#define DREAM_ITEM				(1<<15)
+#define DREAM_ITEM		(1<<15)
 
 // Flags for the clothing_flags var on /obj/item/clothing
 

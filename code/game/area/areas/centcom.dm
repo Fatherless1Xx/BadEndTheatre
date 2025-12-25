@@ -5,6 +5,8 @@
 	name = "CentCom"
 	icon_state = "centcom"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	has_gravity = STANDARD_GRAVITY
+	noteleport = TRUE
 	flags_1 = NONE
 
 /area/centcom/control
@@ -56,6 +58,7 @@
 	name = "Thunderdome"
 	icon_state = "yellow"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
 /area/tdome/arena
@@ -92,19 +95,26 @@
 	name = "Wizard's Den"
 	icon_state = "yellow"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	has_gravity = STANDARD_GRAVITY
+	noteleport = TRUE
 	flags_1 = NONE
 
 //Abductors
 /area/abductor_ship
 	name = "Abductor Ship"
 	icon_state = "yellow"
+	noteleport = TRUE
+	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
 //Syndicates
 /area/syndicate_mothership
 	name = "Syndicate Mothership"
 	icon_state = "syndie-ship"
+	has_gravity = STANDARD_GRAVITY
+	noteleport = TRUE
 	flags_1 = NONE
+	ambient_index = AMBIENCE_GENERIC
 
 /area/syndicate_mothership/control
 	name = "Syndicate Control Room"
@@ -120,6 +130,7 @@
 /area/ctf
 	name = "Capture the Flag"
 	icon_state = "yellow"
+	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
 /area/ctf/control_room
