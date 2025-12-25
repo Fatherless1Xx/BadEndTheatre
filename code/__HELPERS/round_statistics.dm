@@ -6,7 +6,6 @@
 #define STATS_ALIVE_RAKSHARI "alive_rakshari"
 #define STATS_ALIVE_AASIMAR "alive_aasimar"
 #define STATS_ALIVE_HOLLOWKINS "alive_hollowkins"
-#define STATS_ALIVE_MEDICATORS "alive_medicators"
 #define STATS_VAMPIRES "vampires"
 #define STATS_ALIVE_GARRISON "alive_garrison"
 #define STATS_ALIVE_CLERGY "alive_clergy"
