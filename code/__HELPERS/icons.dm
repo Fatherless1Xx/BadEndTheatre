@@ -1033,6 +1033,15 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	if(outfit)
 		body.equipOutfit(outfit, TRUE)
 
+	var/scale_x = 1
+	var/scale_y = 1
+	if(ishuman(body))
+		var/mob/living/carbon/human/H = body
+		var/datum/species/species = H.dna?.species
+		if(species)
+			scale_x = species.default_scale_x
+			scale_y = species.default_scale_y
+
 	body.update_inv_hands(hide_experimental = TRUE)
 	body.update_inv_belt(hide_experimental = TRUE)
 	body.update_inv_back(hide_experimental = TRUE)
@@ -1042,6 +1051,18 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	for(var/D in showDirs)
 		body.setDir(D)
 		var/icon/partial = getFlatIcon(body, defdir=D)
+		if(scale_x != 1 || scale_y != 1)
+			var/original_w = partial.Width()
+			var/original_h = partial.Height()
+			var/new_w = max(1, round(original_w * scale_x))
+			var/new_h = max(1, round(original_h * scale_y))
+			partial.Scale(new_w, new_h)
+			var/icon/canvas = icon('icons/blanks/32x32.dmi', "nothing")
+			canvas.Scale(original_w, original_h)
+			var/offset_x = round((original_w - new_w) / 2)
+			var/offset_y = round((original_h - new_h) / 2)
+			canvas.Blend(partial, ICON_OVERLAY, offset_x + 1, offset_y + 1)
+			partial = canvas
 		out_icon.Insert(partial,dir=D)
 
 	body.update_inv_hands()

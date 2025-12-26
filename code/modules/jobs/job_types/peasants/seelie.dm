@@ -6,7 +6,7 @@
 	display_order = JDO_SEELIE
 	faction = FACTION_TOWN
 	total_positions = 6
-	spawn_positions = 1
+	spawn_positions = 0
 	bypass_lastclass = TRUE
 	magic_user = TRUE
 
