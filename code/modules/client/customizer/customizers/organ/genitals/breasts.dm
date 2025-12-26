@@ -12,7 +12,7 @@
 	abstract_type = /datum/customizer_choice/organ/genitals/breasts
 	name = "Breasts"
 	customizer_entry_type = /datum/customizer_entry/organ/genitals/breasts
-	organ_type = /obj/item/organ/genitals/breasts
+	organ_type = /obj/item/organ/genitals/filling_organ/breasts
 	organ_slot = ORGAN_SLOT_BREASTS
 	organ_dna_type = /datum/organ_dna/breasts
 

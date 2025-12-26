@@ -59,6 +59,7 @@
 #define BODYPART_FEATURE_FACE_DETAIL "facedetail"
 #define BODYPART_FEATURE_BRAND "brand"
 #define BODYPART_FEATURE_LEGWEAR "legwear"
+#define BODYPART_FEATURE_UNDERWEAR "underwear"
 
 //flags for requirements for a surgery step
 #define SURGERY_BLOODY (1<<0)

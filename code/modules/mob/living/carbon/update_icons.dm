@@ -48,6 +48,8 @@
 		animate(src, time = 0.2 SECONDS, pixel_x = get_standard_pixel_x_offset(), pixel_y = get_standard_pixel_y_offset())
 		client?.pixel_x = pixel_x
 		client?.pixel_y = pixel_y
+	var/is_opposite_angle = REVERSE_ANGLE(lying_angle) == lying_prev
+	SEND_SIGNAL(src, COMSIG_LIVING_POST_UPDATE_TRANSFORM, resize, lying_angle, is_opposite_angle)
 
 /mob/living
 	var/list/overlays_standing[TOTAL_LAYERS]
@@ -57,6 +59,7 @@
 		add_overlay(.)
 	if(client)
 		update_vision_cone()
+	SEND_SIGNAL(src, COMSIG_LIVING_APPLY_OVERLAY, cache_index, .)
 
 /mob/living/proc/remove_overlay(cache_index)
 	var/I = overlays_standing[cache_index]
@@ -65,6 +68,7 @@
 		overlays_standing[cache_index] = null
 	if(client)
 		update_vision_cone()
+	SEND_SIGNAL(src, COMSIG_LIVING_REMOVE_OVERLAY, cache_index, I)
 
 /mob/living/carbon/regenerate_icons()
 	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))

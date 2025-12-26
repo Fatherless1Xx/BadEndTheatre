@@ -28,7 +28,7 @@
 	name = "werewolf"
 	id = "werewolf"
 
-	species_traits = list(NO_UNDERWEAR, NOEYESPRITES)
+	species_traits = list(NOEYESPRITES)
 	inherent_traits = list(
 		TRAIT_NOSTAMINA,
 		TRAIT_RESISTCOLD,

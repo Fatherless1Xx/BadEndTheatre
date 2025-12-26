@@ -18,7 +18,7 @@
 /datum/customizer_choice/organ/genitals/testicles
 	abstract_type = /datum/customizer_choice/organ/genitals/testicles
 	name = "Testicles"
-	organ_type = /obj/item/organ/genitals/testicles
+	organ_type = /obj/item/organ/genitals/filling_organ/testicles
 	customizer_entry_type = /datum/customizer_entry/organ/genitals/testicles
 	organ_slot = ORGAN_SLOT_TESTICLES
 	organ_dna_type = /datum/organ_dna/testicles
@@ -83,7 +83,7 @@
 
 /datum/customizer_choice/organ/genitals/testicles/internal
 	name = "Internal testicles"
-	organ_type = /obj/item/organ/genitals/testicles/internal
+	organ_type = /obj/item/organ/genitals/filling_organ/testicles/internal
 	sprite_accessories = null
 	can_customize_size = FALSE
 

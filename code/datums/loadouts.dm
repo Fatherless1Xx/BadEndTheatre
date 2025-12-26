@@ -31,6 +31,14 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Calendula Bouquet"
 	item_path = /obj/item/bouquet/calendula
 
+/datum/loadout_item/wood_dildo
+	name = "Wooden Dildo"
+	item_path = /obj/item/dildo/wood
+
+/datum/loadout_item/wood_plug
+	name = "Wooden Plug"
+	item_path = /obj/item/dildo/plug/wood
+
 //HATS
 /datum/loadout_item/zalad
 	name = "Keffiyeh"

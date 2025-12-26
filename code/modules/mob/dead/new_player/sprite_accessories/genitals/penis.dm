@@ -23,9 +23,9 @@
 				else
 					return "slit_2"
 	if(penis.erect_state == ERECT_STATE_HARD)
-		return "[icon_state]_[min(3,penis.penis_size+1)]"
+		return "[icon_state]_[min(3,penis.organ_size+1)]"
 	else
-		return "[icon_state]_[penis.penis_size]"
+		return "[icon_state]_[penis.organ_size]"
 
 /datum/sprite_accessory/genitals/penis/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/human/owner)
 	/*

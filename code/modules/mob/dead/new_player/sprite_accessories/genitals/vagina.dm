@@ -25,6 +25,11 @@
 	name = "Hairy"
 	color_key_defaults = list(KEY_HAIR_COLOR)
 
+/datum/sprite_accessory/genitals/vagina/trimmed
+	icon_state = "trimmed"
+	name = "Trimmed"
+	color_key_defaults = list(KEY_HAIR_COLOR)
+
 /datum/sprite_accessory/genitals/vagina/spade
 	icon_state = "spade"
 	name = "Spade"

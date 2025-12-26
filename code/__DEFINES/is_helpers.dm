@@ -92,6 +92,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
 
+#define issimple(A) (istype(A, /mob/living/simple_animal))
+
 #define isshade(A) (istype(A, /mob/living/simple_animal/shade))
 
 #define ismouse(A) (istype(A, /mob/living/simple_animal/mouse))

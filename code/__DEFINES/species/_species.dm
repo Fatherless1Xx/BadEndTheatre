@@ -47,41 +47,11 @@
 	SPEC_ID_HUMAN_SPACE,\
 )
 
-/// Species where females get underwear, no underwear for kobold, rakshari, medicator and triton, dwarves handled seperately
-#define RACES_UNDERWEAR_FEMALE list(\
-	SPEC_ID_HUMEN,\
-	SPEC_ID_ELF,\
-	SPEC_ID_HALF_ELF,\
-	SPEC_ID_DROW,\
-	SPEC_ID_HALF_DROW,\
-	SPEC_ID_HOLLOWKIN,\
-	SPEC_ID_HARPY,\
-	SPEC_ID_TIEFLING,\
-	SPEC_ID_AASIMAR,\
-	SPEC_ID_HALF_ORC,\
-	SPEC_ID_ORC,\
-	SPEC_ID_ZIZOMBIE,\
-	SPEC_ID_HUMAN_SPACE,\
-	SPEC_ID_OGRE,\
-	SPEC_ID_SEELIE,\
-)
+/// Species where females get underwear.
+#define RACES_UNDERWEAR_FEMALE ALL_RACES_LIST
 
-/// Species where males get underwear, identical to above, elves handled seperately
-#define RACES_UNDERWEAR_MALE list(\
-	SPEC_ID_HUMEN,\
-	SPEC_ID_HOLLOWKIN,\
-	SPEC_ID_HARPY,\
-	SPEC_ID_TIEFLING,\
-	SPEC_ID_AASIMAR,\
-	SPEC_ID_HALF_ORC,\
-	SPEC_ID_HALF_ELF,\
-	SPEC_ID_HALF_DROW,\
-	SPEC_ID_ORC,\
-	SPEC_ID_ZIZOMBIE,\
-	SPEC_ID_HUMAN_SPACE,\
-	SPEC_ID_OGRE,\
-	SPEC_ID_SEELIE,\
-)
+/// Species where males get underwear.
+#define RACES_UNDERWEAR_MALE ALL_RACES_LIST
 
 // ============ USING NAME
 /// All playable species from character selection menu.

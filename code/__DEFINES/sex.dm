@@ -10,11 +10,13 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_HOLE_TRY_FIT "hole_try_fit"                    // (obj/item/item, hole_id, mob/user, silent) - Try to fit an item into a specific hole
 #define COMSIG_HOLE_RETURN_INVENTORY "hole_return_inventory"   // (hole_id, mob/user) - Open/show the inventory of a specific hole to a user
 #define COMSIG_HOLE_RETURN_ITEM_LIST "hole_return_item_list"  // () - Return a simple list of all items across all holes
+#define COMSIG_HOLE_RETURN_ITEM_LIST_SINGLE "hole_return_item_list_single"  // () - Return a simple list of all items in ONE hole
 #define COMSIG_HOLE_ADD_HOLE "hole_add_hole"                  // (hole_id, hole_name, storage_type) - Add a new hole with storage capability
 #define COMSIG_HOLE_REMOVE_HOLE "hole_remove_hole"            // (hole_id) - Remove a hole and its storage
 #define COMSIG_HOLE_MODIFY_HOLE "hole_modify_hole"            // (hole_id, new_size) - Modify existing hole storage properties
 #define COMSIG_HOLE_GET_FULLNESS "hole_get_fullness"          // (hole_id) - Get fullness information for a specific hole
 #define COMSIG_HOLE_REMOVE_ITEM "hole_remove_item"			  // (hole_id, item) -  Removes a specific item from a hole
+#define COMSIG_HOLE_REMOVE_RANDOM_ITEM "hole_remove_random_item"	// (hole_id, number) -  Removes a random item from a hole
 
 #define COMSIG_SEX_ADJUST_AROUSAL "sex_adjust_arousal"                  // (amount) - Adjust arousal level
 #define COMSIG_SEX_SET_AROUSAL "sex_set_arousal"                        // (amount) - Set arousal to specific value
@@ -23,6 +25,14 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_SEX_GET_AROUSAL "sex_get_arousal"                        // () - Get current arousal info
 #define COMSIG_SEX_CLIMAX "sex_climax"                                  // (type, target) - Handle climax event
 #define COMSIG_SEX_RECEIVE_ACTION "sex_receive_action"                  // (arousal_amt, pain_amt, giving, force, speed) - Receive action effects
+#define COMSIG_SEX_ADJUST_EDGING "sex_adjust_edging"                 	// (amount) - Adjust edging level
+#define COMSIG_SEX_SET_EDGING "sex_set_edging"                        	// (amount) - Set edging to specific value
+#define COMSIG_SEX_EDGING_CHANGED "sex_edging_change"					// fires to the parent about a change
+#define COMSIG_SEX_SET_HOLDING "sex_set_holding"						// (level) - Sets the holding/resisting pleasure level
+#define COMSIG_SEX_HOLE_BEFORE_INSERT "sex_hole_before_insert"			// fires when we insert an object into a *hole*
+#define COMSIG_SEX_HOLE_AFTER_INSERT "sex_hole_after_insert"			// fires when we insert an object into a *hole*
+#define COMSIG_SEX_HOLE_BEFORE_REMOVE "sex_hole_before_remove"			// fires when we remove an object from a *hole*
+#define COMSIG_SEX_HOLE_AFTER_REMOVE "sex_hole_after_remove"			// fires when we remove an object from a *hole*
 
 // Knotting Component Signals
 /// Attempts to knot a target. Args: (target, force_level)
@@ -81,6 +91,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define SEX_MAX_CHARGE 300
 #define CHARGE_FOR_CLIMAX 100
 #define AROUSAL_HARD_ON_THRESHOLD 20
+#define VISIBLE_AROUSAL_THRESHOLD 20
 #define CHARGE_RECHARGE_RATE (CHARGE_FOR_CLIMAX / (2 MINUTES))
 #define AROUSAL_TIME_TO_UNHORNY (5 SECONDS)
 #define SPENT_AROUSAL_RATE (3 / (1 SECONDS))
@@ -89,9 +100,37 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define MOAN_COOLDOWN 3 SECONDS
 #define PAIN_COOLDOWN 6 SECONDS
 
+#define LOW_ORGASM_THRESHOLD_GAIN 3
+#define MED_ORGASM_THRESHOLD_GAIN 5
+#define HIGH_ORGASM_THRESHOLD_GAIN 10
+#define OVER_THE_TOP_ORGASM_THRESHOLD_GAIN 15
+
+#define LOW_ORGASM_THRESHOLD_LOSS 1
+#define MED_ORGASM_THRESHOLD_LOSS 2
+#define HIGH_ORGASM_THRESHOLD_LOSS 4
+#define OVER_THE_TOP_ORGASM_THRESHOLD_LOSS 5
+
+#define ORGASM_RESET_TIME (1 MINUTES)
+#define ORGASM_COOLDOWN_TIME (10 SECONDS)
+#define AROUSAL_EDGING_THRESHOLD 65
+#define MAX_EDGING 90
+
+#define RESIST_NONE 1
+#define RESIST_LOW 2
+#define RESIST_MEDIUM 3
+#define RESIST_HIGH 4
+
+#define AROUSAL_HIGH_UNHORNY_RATE (1.5 / (1 SECONDS))
+#define AROUSAL_MID_UNHORNY_RATE (0.4 / (1 SECONDS))
+#define AROUSAL_LOW_UNHORNY_RATE (0.2 / (1 SECONDS))
+
+#define LOINHURT_GAIN_THRESHOLD 25
+#define LOINHURT_LOSE_THRESHOLD 20
+
 #define MIN_PENIS_SIZE 1
 #define DEFAULT_PENIS_SIZE 2
 #define MAX_PENIS_SIZE 3
+#define TOTAL_PENIS_SIZE 3
 
 #define PENIS_SIZES list(\
 	MIN_PENIS_SIZE,\
@@ -126,6 +165,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define MIN_TESTICLES_SIZE 1
 #define DEFAULT_TESTICLES_SIZE 2
 #define MAX_TESTICLES_SIZE 3
+#define TOTAL_TESTICLES_SIZE 3
 
 #define TESTICLE_SIZES list(\
 	MIN_TESTICLES_SIZE,\
@@ -155,6 +195,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define MIN_BREASTS_SIZE BREAST_SIZE_FLAT
 #define DEFAULT_BREASTS_SIZE BREAST_SIZE_NORMAL
 #define MAX_BREASTS_SIZE BREAST_SIZE_ENORMOUS
+#define TOTAL_BREASTS_SIZE 8
 
 #define BREAST_SIZES list(\
 	BREAST_SIZE_FLAT,\

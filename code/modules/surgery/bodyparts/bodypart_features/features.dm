@@ -109,6 +109,31 @@
 		legwear_item.legwears_feature = src
 		legwear_item.color = accessory_colors
 
+/datum/bodypart_feature/underwear
+	name = "Underwear"
+	feature_slot = BODYPART_FEATURE_UNDERWEAR
+	body_zone = BODY_ZONE_CHEST
+
+/datum/bodypart_feature/underwear/set_accessory_type(new_accessory_type, colors, mob/living/carbon/owner)
+	accessory_type = new_accessory_type
+	var/datum/sprite_accessory/underwear/accessory = SPRITE_ACCESSORY(accessory_type)
+	if(!isnull(colors))
+		accessory_colors = colors
+	else
+		accessory_colors = accessory.get_default_colors(color_key_source_list_from_carbon(owner))
+	accessory_colors = accessory.validate_color_keys_for_owner(owner, colors)
+	if(!owner)
+		return
+	var/mob/living/carbon/human/H = owner
+	if(!istype(H))
+		return
+	H.underwear = accessory.name
+	if(!accessory.use_static)
+		H.underwear_color = accessory_colors
+
+/datum/bodypart_feature/underwear/get_bodypart_overlay(obj/item/bodypart/bodypart)
+	return
+
 /datum/bodypart_feature/vamprire_seal
 	name = "Vampiric Seal"
 	feature_slot = BODYPART_FEATURE_BRAND

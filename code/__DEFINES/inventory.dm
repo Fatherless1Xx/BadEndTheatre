@@ -89,7 +89,6 @@
 #define HIDEUNDIESBOT (1<<15)
 /// Don't show either
 #define HIDEUNDIES (HIDEUNDIESTOP | HIDEUNDIESBOT)
-
 //blocking_behavior var on clothing items
 #define BLOCKBOOTS		(1<<0)
 #define BLOCKGLOVES		(1<<1)

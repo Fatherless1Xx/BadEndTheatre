@@ -136,14 +136,14 @@
 			var/obj/item/organ/genitals/penis/P = new /obj/item/organ/genitals/penis()
 			P.Insert(C, TRUE, TRUE)
 		if(!C.getorganslot(ORGAN_SLOT_TESTICLES))
-			var/obj/item/organ/genitals/testicles/T = new /obj/item/organ/genitals/testicles()
+			var/obj/item/organ/genitals/filling_organ/testicles/T = new /obj/item/organ/genitals/filling_organ/testicles()
 			T.Insert(C, TRUE, TRUE)
 	else
 		if(!C.getorganslot(ORGAN_SLOT_VAGINA))
-			var/obj/item/organ/genitals/vagina/V = new /obj/item/organ/genitals/vagina()
+			var/obj/item/organ/genitals/filling_organ/vagina/V = new /obj/item/organ/genitals/filling_organ/vagina()
 			V.Insert(C, TRUE, TRUE)
 	if(!C.getorganslot(ORGAN_SLOT_BREASTS))
-		var/obj/item/organ/genitals/breasts/B = new /obj/item/organ/genitals/breasts()
+		var/obj/item/organ/genitals/filling_organ/breasts/B = new /obj/item/organ/genitals/filling_organ/breasts()
 		B.Insert(C, TRUE, TRUE)
 	C.verbs |= list(
 		/mob/living/carbon/human/proc/seelie_exit_container

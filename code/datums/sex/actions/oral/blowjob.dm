@@ -7,7 +7,16 @@
 	stored_item_name = "receiving member"
 	require_grab = FALSE
 	check_same_tile = FALSE
+	requires_hole_storage = FALSE
+	gags_user = TRUE
 	target_priority = 100
+
+/datum/sex_action/crotch_nuzzle/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(user == target)
+		return FALSE
+	if(!target.getorganslot(ORGAN_SLOT_PENIS))
+		return FALSE
+	return TRUE
 
 /datum/sex_action/blowjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
@@ -50,4 +59,4 @@
 
 /datum/sex_action/blowjob/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	target.visible_message(span_love("[target] cums into [user]'s mouth!"))
-	return "into"
+	return "oral"

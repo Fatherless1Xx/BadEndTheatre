@@ -158,12 +158,12 @@
 	if(!reagents)
 		return TRUE
 
-	var/obj/item/organ/genitals/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
+	var/obj/item/organ/genitals/filling_organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
 	if(!breasts)
 		to_chat(user, span_warning("[target] doesn't have anything to milk."))
 		return TRUE
 
-	if(!breasts.lactating)
+	if(!breasts.refilling)
 		to_chat(user, span_warning("[target] isn't lactating."))
 		return TRUE
 
@@ -171,7 +171,7 @@
 		to_chat(user, span_warning("[target]'s chest must be exposed before I can milk them!"))
 		return TRUE
 
-	if(breasts.milk_stored <= 0)
+	if(!breasts.reagents || breasts.reagents.total_volume <= 0)
 		to_chat(user, span_warning("[target] is out of milk!"))
 		return TRUE
 
@@ -180,15 +180,14 @@
 		return TRUE
 
 	var/free_space = reagents.maximum_volume - reagents.total_volume
-	var/milk_to_take = min(breasts.milk_stored, max(breasts.breast_size * 2, 1), free_space)
+	var/milk_to_take = min(breasts.reagents.total_volume, max(breasts.organ_size * 2, 1), free_space)
 	if(milk_to_take <= 0)
 		return TRUE
 
 	if(!do_after(user, 2 SECONDS, target))
 		return TRUE
 
-	reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_take)
-	breasts.milk_stored = max(breasts.milk_stored - milk_to_take, 0)
+	breasts.reagents.trans_to(src, milk_to_take, transfered_by = user)
 	user.visible_message(span_notice("[user] milks [target] using [src]."), span_notice("I milk [target] using [src]."))
 	playsound(target, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 50, TRUE, -1)
 	SEND_SIGNAL(target, COMSIG_SEX_ADJUST_AROUSAL, 5)

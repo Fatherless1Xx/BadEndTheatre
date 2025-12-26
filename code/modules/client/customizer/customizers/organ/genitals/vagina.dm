@@ -13,7 +13,7 @@
 	abstract_type = /datum/customizer_choice/organ/genitals/vagina
 	name = "Vagina"
 	customizer_entry_type = /datum/customizer_entry/organ/genitals/vagina
-	organ_type = /obj/item/organ/genitals/vagina
+	organ_type = /obj/item/organ/genitals/filling_organ/vagina
 	organ_slot = ORGAN_SLOT_VAGINA
 	organ_dna_type = /datum/organ_dna/vagina
 
@@ -47,6 +47,7 @@
 		/datum/sprite_accessory/genitals/vagina/human,
 		/datum/sprite_accessory/genitals/vagina/gaping,
 		/datum/sprite_accessory/genitals/vagina/hairy,
+		/datum/sprite_accessory/genitals/vagina/trimmed,
 		)
 	allows_accessory_color_customization = FALSE
 
@@ -58,6 +59,7 @@
 		/datum/sprite_accessory/genitals/vagina/human,
 		/datum/sprite_accessory/genitals/vagina/gaping,
 		/datum/sprite_accessory/genitals/vagina/hairy,
+		/datum/sprite_accessory/genitals/vagina/trimmed,
 		)
 	allows_accessory_color_customization = TRUE
 
@@ -69,6 +71,7 @@
 		/datum/sprite_accessory/genitals/vagina/human,
 		/datum/sprite_accessory/genitals/vagina/gaping,
 		/datum/sprite_accessory/genitals/vagina/hairy,
+		/datum/sprite_accessory/genitals/vagina/trimmed,
 		/datum/sprite_accessory/genitals/vagina/spade,
 		/datum/sprite_accessory/genitals/vagina/furred,
 		)
@@ -81,6 +84,7 @@
 		/datum/sprite_accessory/genitals/vagina/human,
 		/datum/sprite_accessory/genitals/vagina/gaping,
 		/datum/sprite_accessory/genitals/vagina/hairy,
+		/datum/sprite_accessory/genitals/vagina/trimmed,
 		/datum/sprite_accessory/genitals/vagina/spade,
 		/datum/sprite_accessory/genitals/vagina/furred,
 		/datum/sprite_accessory/genitals/vagina/cloaca,
