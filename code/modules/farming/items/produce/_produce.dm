@@ -698,6 +698,24 @@
 	dropshrink = 0.8
 	rotprocess = SHELFLIFE_DECENT
 
+/obj/item/reagent_containers/food/snacks/produce/mushroom/zizo_bane
+	name = "Zizo's bane"
+	desc = "A small purple mushroom that has been growing in areas of rot."
+	icon_state = "zizo_bane"
+	filling_color = "#772681"
+	bitesize = 1
+	foodtype = VEGETABLES
+	tastes = list("sweet" = 1, "bitterness" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/medicine/soporpot = 5)
+	grind_results = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/medicine/soporpot = 5)
+	rotprocess = 30 MINUTES
+	sellprice = 5
+
+/obj/item/reagent_containers/food/snacks/produce/mushroom/zizo_bane/on_consume(mob/living/eater)
+	. = ..()
+	eater?.emote("cough")
+	eater?.Sleeping(200)
+
 /* /obj/item/reagent_containers/food/snacks/produce/mushroom/chanterelle // Removing for now to expand upon later
 	name = "chanterelle"
 	desc =

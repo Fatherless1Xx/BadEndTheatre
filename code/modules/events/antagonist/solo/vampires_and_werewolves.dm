@@ -21,11 +21,11 @@
 	typepath = /datum/round_event/antagonist/solo/vampires_and_werewolves
 
 	restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Hand",
 		"Captain",
-		"Prince",
+		"Heir",
 		"Priest",
 		"Merchant",
 		"Forest Warden",

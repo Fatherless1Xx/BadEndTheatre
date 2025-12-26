@@ -25,7 +25,13 @@
 
 	neck = /obj/item/clothing/neck/mercator
 	backr = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich = 1, /obj/item/merctoken = 1)
+	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/musket
+	backpack_contents = list(
+		/obj/item/storage/belt/pouch/coins/veryrich = 1,
+		/obj/item/merctoken = 1,
+		/obj/item/ammo_holder/bullet = 1,
+		/obj/item/reagent_containers/glass/bottle/aflask = 1
+	)
 	beltr = /obj/item/weapon/sword/rapier
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/storage/keyring/merchant
@@ -50,6 +56,7 @@
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/firearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 6, TRUE)

@@ -48,10 +48,10 @@
 
 	if(H.gender == MALE)
 		shirt = /obj/item/clothing/shirt/dress/royal/prince
-		H.job = "Disowned Prince"
+		H.job = "Disowned Heir"
 	if(H.gender == FEMALE)
 		shirt = /obj/item/clothing/shirt/dress/royal/princess
-		H.job = "Disowned Princess"
+		H.job = "Disowned Heiress"
 
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)

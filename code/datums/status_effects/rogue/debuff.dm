@@ -408,6 +408,15 @@
 	desc = "<span class='warning'>I have returned from oblivion.. but the fatigue of death still affects me.</span>\n"
 	icon_state = "muscles"
 
+/datum/status_effect/debuff/revived
+	parent_type = /datum/status_effect/debuff/revive
+	id = "revived"
+
+/datum/status_effect/debuff/rotted_zombie
+	id = "rotted_zombie"
+	alert_type = null
+	duration = -1
+
 /datum/status_effect/debuff/viciousmockery
 	id = "viciousmockery"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/viciousmockery
@@ -614,3 +623,52 @@
 	name = "Rites Complete"
 	desc = "It will be a short period before I can perform another rite."
 	icon_state = "ritesexpended"
+
+/datum/status_effect/debuff/devitalised
+	id = "devitalised"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/devitalised
+	effectedstats = list(STATKEY_STR = -1, STATKEY_END = -1, STATKEY_CON = -1, STATKEY_SPD = -1, STATKEY_LCK = -1)
+	duration = 15 MINUTES
+
+/datum/status_effect/debuff/devitalised/lesser
+	effectedstats = list(STATKEY_STR = -1, STATKEY_END = -1, STATKEY_CON = -1, STATKEY_SPD = -1, STATKEY_LCK = -1)
+	duration = 5 MINUTES
+
+/atom/movable/screen/alert/status_effect/debuff/devitalised
+	name = "Devitalised"
+	desc = "Something has been taken from me, and it will take time to recover."
+
+/datum/status_effect/debuff/ritualdefiled
+	id = "ritualdefiled"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/ritualdefiled
+	effectedstats = list(STATKEY_STR = -1, STATKEY_END = -1, STATKEY_CON = -1, STATKEY_SPD = -1, STATKEY_LCK = -1)
+	duration = 1 HOURS
+
+/atom/movable/screen/alert/status_effect/debuff/ritualdefiled
+	name = "Tainted Lux"
+	desc = "My Lux has been tainted in a vile heretic ritual."
+
+/datum/status_effect/debuff/joybringer_druqks
+	id = "joybringer_druqks"
+	effectedstats = list(STATKEY_LCK = -2)
+	duration = 3 SECONDS
+	alert_type = null
+
+/datum/status_effect/debuff/joybringer_druqks/on_apply()
+	. = ..()
+	owner.overlay_fullscreen("joybringer_weeds", /atom/movable/screen/fullscreen/weedsm)
+	owner.overlay_fullscreen("joybringer_druqks", /atom/movable/screen/fullscreen/druqks)
+	ADD_TRAIT(owner, TRAIT_DRUQK, src)
+
+/datum/status_effect/debuff/joybringer_druqks/on_remove()
+	. = ..()
+	owner.clear_fullscreen("joybringer_druqks")
+	owner.clear_fullscreen("joybringer_weeds")
+	REMOVE_TRAIT(owner, TRAIT_DRUQK, src)
+
+/datum/status_effect/debuff/joybringer_druqks/tick()
+	if(prob(25))
+		handle_maniac_hallucinations(owner)
+	owner.Jitter(1)
+	if(prob(10))
+		owner.emote(pick("chuckle", "giggle"))

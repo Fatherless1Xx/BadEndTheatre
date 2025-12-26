@@ -1177,6 +1177,7 @@
 #include "code\datums\migrants\waves\rockhill_wave.dm"
 #include "code\datums\migrants\waves\sweetshare.dm"
 #include "code\datums\migrants\waves\urchin_wave.dm"
+#include "code\datums\migrants\waves\slaver_wave.dm"
 #include "code\datums\migrants\waves\zalad_wave.dm"
 #include "code\datums\migrants\waves\advclass\advclass.dm"
 #include "code\datums\migrants\waves\antagonist\basic_antag.dm"

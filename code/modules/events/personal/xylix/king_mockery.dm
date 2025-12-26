@@ -1,5 +1,5 @@
 /datum/round_event_control/xylix_mocking
-	name = "Mockery (Monarch)"
+	name = "Mockery (Baron)"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/xylix_mocking
 	weight = 7
@@ -50,7 +50,7 @@
 
 	bordered_message(chosen_one, list(
 		span_userdanger("YOU ARE XYLIX'S CHOSEN!"),
-		span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"),
+		span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the baron to prove your devotion and earn Xylix's favor!"),
 	))
 	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/xylix_omen_male_female.ogg', 100)
 

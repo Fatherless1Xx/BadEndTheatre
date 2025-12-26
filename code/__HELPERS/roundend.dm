@@ -209,9 +209,9 @@
 	var/end_reason
 
 	if(!check_for_lord(TRUE)) //TRUE forces the check, otherwise it will autofail.
-		end_reason = pick("Without a Monarch, the forces of Zizo grew ever bolder.",
-						"Without a Monarch, the settlement fell into turmoil.",
-						"Without a Monarch, some jealous rival reigned in tyranny.")
+		end_reason = pick("Without a Baron, the forces of Zizo grew ever bolder.",
+						"Without a Baron, the settlement fell into turmoil.",
+						"Without a Baron, some jealous rival reigned in tyranny.")
 
 	if(vampire_werewolf() == "vampire")
 		end_reason = "When the Vampires finished sucking the town dry, they moved on to the next one."

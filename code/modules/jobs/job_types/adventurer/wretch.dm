@@ -47,6 +47,8 @@
 
 
 /datum/outfit/wretch/proc/wretch_select_bounty(mob/living/carbon/human/H)
+	if(!H?.client)
+		return
 	var/bounty_poster = browser_input_list(H, "Who placed a bounty on you?", "Filthy Criminal", list("The Divine Pantheon", "Kingsfield Expanse"))
 	if(bounty_poster == "Kingsfield Expanse")
 		GLOB.outlawed_players += H.real_name

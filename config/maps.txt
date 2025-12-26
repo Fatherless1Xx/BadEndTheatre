@@ -14,23 +14,20 @@ Format:
 endmap
 
 map vanderlin
-	default
-	votable
 endmap
 
 map rosewood
 	minplayers 90
-	votable
 endmap
 
 map daftmarsh
 	maxplayers 75
+	default
 	votable
 endmap
 
 map whitepalacepass
 	maxplayers 0
-	votable
 endmap
 
 map voyager

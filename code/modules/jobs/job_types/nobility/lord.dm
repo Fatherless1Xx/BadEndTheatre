@@ -2,8 +2,8 @@ GLOBAL_VAR(lordsurname)
 GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/lord
-	title = "Monarch"
-	var/ruler_title = "Monarch"
+	title = "Baron"
+	var/ruler_title = "Baron"
 	tutorial = "Elevated to your throne through a web of intrigue, political maneuvering, and divine sanction, you are the \
 	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now \
 	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and \
@@ -32,6 +32,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	can_have_apprentices = FALSE
 
 	job_bitflag = BITFLAG_ROYALTY
+	allowed_sexes = list(MALE)
 
 /datum/job/lord/get_informed_title(mob/mob, change_title = FALSE, new_title)
 	if(change_title)
@@ -131,7 +132,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/job/exlord //just used to change the lords title
-	title = "Ex-Monarch"
+	title = "Ex-Baron"
 	department_flag = NOBLEMEN
 	faction = FACTION_TOWN
 	total_positions = 0

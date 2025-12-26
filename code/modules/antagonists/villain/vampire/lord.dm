@@ -29,11 +29,11 @@
 		return
 
 	var/list/restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Hand",
 		"Captain",
-		"Prince",
+		"Heir",
 		"Priest",
 		"Merchant",
 		"Forest Warden",

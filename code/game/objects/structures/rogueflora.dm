@@ -35,15 +35,7 @@
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	if(user.mind && isliving(user))
-		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = browser_input_list(user, "What will I take?", "STASH", user.mind.special_items)
-			if(item)
-				if(user.Adjacent(src))
-					if(user.mind.special_items[item])
-						var/path2item = user.mind.special_items[item]
-						user.mind.special_items -= item
-						var/obj/item/I = new path2item(user.loc)
-						user.put_in_hands(I)
+		user.mind.handle_special_items_retrieval(user, src)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/flora/tree/attacked_by(obj/item/I, mob/living/user)
@@ -601,15 +593,7 @@
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	if(user.mind && isliving(user))
-		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = browser_input_list(user, "What will I take?", "STASH", user.mind.special_items)
-			if(item)
-				if(user.Adjacent(src))
-					if(user.mind.special_items[item])
-						var/path2item = user.mind.special_items[item]
-						user.mind.special_items -= item
-						var/obj/item/I = new path2item(user.loc)
-						user.put_in_hands(I)
+		user.mind.handle_special_items_retrieval(user, src)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/flora/shroom_tree/Initialize()
@@ -900,6 +884,44 @@
 		shroom_color = turf.mushroom_color
 
 	icon_state = "[pick(list("l", "r", "t"))]_mushroom_[shroom_color]1"
+
+/obj/structure/zizo_bane
+	name = "Zizo's bane"
+	desc = "A small purple mushroom that has been growing in areas of rot."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "zizo_bane"
+	density = FALSE
+	anchored = TRUE
+	var/time_delay = 0
+
+/obj/structure/zizo_bane/Initialize()
+	. = ..()
+	var/matrix/M = matrix()
+	M.Scale(0.6, 0.6)
+	transform = M
+
+/obj/structure/zizo_bane/Crossed(atom/movable/arrived)
+	if(time_delay >= world.time)
+		return
+	if(!isliving(arrived))
+		return
+	make_gas()
+	time_delay = world.time + 20 SECONDS
+
+/obj/structure/zizo_bane/proc/make_gas()
+	visible_message(span_warning("A cloud of spores bursts up from \the [src]!"))
+	var/datum/effect_system/smoke_spread/zizosleep/S = new
+	playsound(get_turf(src), "plantcross", 100)
+	S.set_up(2, loc)
+	S.start()
+
+/obj/structure/zizo_bane/attack_hand(mob/living/carbon/human/user)
+	playsound(src.loc, "plantcross", 80, FALSE, -1)
+	user.visible_message(span_warning("[user] starts plucking \the [src] from the earth."))
+	if(do_after(user, 3 SECONDS, target = src))
+		var/obj/item/reagent_containers/food/snacks/produce/mushroom/zizo_bane/Z = new(get_turf(src))
+		user.put_in_active_hand(Z)
+		qdel(src)
 
 /obj/structure/flora/tree/dead_bush
 	name = "dead brush"

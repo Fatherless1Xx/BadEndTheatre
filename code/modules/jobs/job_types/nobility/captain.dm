@@ -32,6 +32,8 @@
 		honorary = "Dame"
 	H.real_name = "[honorary] [prev_real_name]"
 	H.name = "[honorary] [prev_name]"
+	if(H.gender == FEMALE)
+		H.set_flaw(/datum/charflaw/indentured)
 
 /datum/outfit/captain/pre_equip(mob/living/carbon/human/H)
 	..()

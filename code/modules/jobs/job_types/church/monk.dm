@@ -32,7 +32,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	beltl = /obj/item/key/church
 	backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
-	backpack_contents = list(/obj/item/needle)
+	backpack_contents = list(/obj/item/needle, /obj/item/ritechalk)
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/roguehood/astrata
@@ -102,7 +102,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
-			backpack_contents = list(/obj/item/needle/blessed)
+			backpack_contents = list(/obj/item/needle/blessed, /obj/item/ritechalk)
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/padded/briarthorns
 			neck = /obj/item/clothing/neck/psycross/silver/dendor

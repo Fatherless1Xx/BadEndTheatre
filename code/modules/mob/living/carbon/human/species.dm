@@ -18,6 +18,10 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	var/default_color = "#FFF"
 	/// List of ages that can be selected in prefs for this species
 	var/list/possible_ages = ALL_AGES_LIST_CHILD
+	/// Default scale on the X axis for this species, applied via transform.
+	var/default_scale_x = 1
+	/// Default scale on the Y axis for this species, applied via transform.
+	var/default_scale_y = 1
 	/// Whether or not this species has sexual characteristics
 	var/sexes = TRUE
 	/// Whether this species a requires patreon subscription to access, we removed all patreon restrictions for species, but it's here if we ever want to reenable them or smth.
@@ -841,6 +845,12 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	else
 		apply_customizers_to_character(C)
 
+	if(default_scale_x != 1 || default_scale_y != 1)
+		var/matrix/mat = matrix(C.transform)
+		mat.Scale(default_scale_x, default_scale_y)
+		C.transform = mat
+		C.update_transform()
+
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
 
 
@@ -858,6 +868,12 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			C.faction -= i
 
 	C.remove_movespeed_modifier(MOVESPEED_ID_SPECIES)
+
+	if(default_scale_x != 1 || default_scale_y != 1)
+		var/matrix/mat = matrix(C.transform)
+		mat.Scale(1 / default_scale_x, 1 / default_scale_y)
+		C.transform = mat
+		C.update_transform()
 
 	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
@@ -988,6 +1004,9 @@ GLOBAL_LIST_EMPTY(patreon_races)
 
 	if((H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
 		H.adjustBruteLoss(1)
+
+/datum/species/proc/is_floor_hazard_immune(mob/living/carbon/human/H)
+	return FALSE
 
 /datum/species/proc/spec_death(gibbed, mob/living/carbon/human/H)
 	return

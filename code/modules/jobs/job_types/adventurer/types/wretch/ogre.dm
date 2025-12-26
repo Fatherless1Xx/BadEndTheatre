@@ -43,9 +43,12 @@
 		"Axe" = /obj/item/weapon/greataxe/steel/doublehead/graggar/ogre,
 		"Sword" = /obj/item/weapon/sword/long/greatsword/zwei/ogre
 	)
-	var/weaponchoice = input(H, "Choose your weapon.", "Weapon Selection") as anything in weapons
-	if(weaponchoice)
-		r_hand = weapons[weaponchoice]
+	var/weaponchoice
+	if(H?.client)
+		weaponchoice = input(H, "Choose your weapon.", "Weapon Selection") as anything in weapons
+	if(!weaponchoice)
+		weaponchoice = "Mace"
+	r_hand = weapons[weaponchoice]
 	if(H)
 		ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)

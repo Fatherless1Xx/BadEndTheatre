@@ -270,6 +270,15 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 /datum/preferences/proc/_load_loadouts(S)
 	for(var/i in 1 to 3)
 		S["loadout[i]"]	>> vars["loadout[i]"]
+	S["loadout1_hex"] >> loadout_1_hex
+	S["loadout2_hex"] >> loadout_2_hex
+	S["loadout3_hex"] >> loadout_3_hex
+	if(loadout_1_hex)
+		loadout_1_hex = sanitize_hexcolor(loadout_1_hex, 6, TRUE)
+	if(loadout_2_hex)
+		loadout_2_hex = sanitize_hexcolor(loadout_2_hex, 6, TRUE)
+	if(loadout_3_hex)
+		loadout_3_hex = sanitize_hexcolor(loadout_3_hex, 6, TRUE)
 	validate_loadouts()
 
 /datum/preferences/proc/validate_loadouts()
@@ -277,11 +286,20 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		loadout1 = null
 		loadout2 = null
 		loadout3 = null
+		loadout_1_hex = null
+		loadout_2_hex = null
+		loadout_3_hex = null
 		return FALSE
 
 	for(var/i in 1 to 3)
 		if(!(vars["loadout[i]"] in GLOB.loadout_items)) // bite me
 			vars["loadout[i]"] = null
+	if(!loadout1)
+		loadout_1_hex = null
+	if(!loadout2)
+		loadout_2_hex = null
+	if(!loadout3)
+		loadout_3_hex = null
 
 /datum/preferences/proc/_load_culinary_preferences(S)
 	var/list/loaded_culinary_preferences
@@ -480,6 +498,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["loadout1"]		, loadout1)
 	WRITE_FILE(S["loadout2"]		, loadout2)
 	WRITE_FILE(S["loadout3"]		, loadout3)
+	WRITE_FILE(S["loadout1_hex"]		, loadout_1_hex)
+	WRITE_FILE(S["loadout2_hex"]		, loadout_2_hex)
+	WRITE_FILE(S["loadout3_hex"]		, loadout_3_hex)
 	WRITE_FILE(S["culinary_preferences"], culinary_preferences)
 	WRITE_FILE(S["family"]			, 	family)
 	WRITE_FILE(S["gender_choice"]			, 	gender_choice)

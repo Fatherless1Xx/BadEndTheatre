@@ -103,14 +103,14 @@
 //................ Princess Dress ............... //
 /obj/item/clothing/shirt/dress/royal/princess
 	name = "pristine dress"
-	desc = "A flowy, intricate dress made by the finest tailors in the land for the monarch's children."
+	desc = "A flowy, intricate dress made by the finest tailors in the land for the baron's children."
 	icon_state = "princess"
 	detail_color = CLOTHING_BERRY_BLUE
 
 //................ Prince Shirt   ............... //
 /obj/item/clothing/shirt/dress/royal/prince
 	name = "gilded dress shirt"
-	desc = "A gold-embroidered dress shirt specially tailored for the monarch's children."
+	desc = "A gold-embroidered dress shirt specially tailored for the baron's children."
 	icon_state = "prince"
 	detail_color = CLOTHING_ROYAL_MAJENTA
 

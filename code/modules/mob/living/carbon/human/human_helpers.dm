@@ -80,6 +80,10 @@
 
 	return ..()
 
+/mob/living/carbon/human/is_floor_hazard_immune()
+	var/datum/species/species = dna?.species
+	return !!(species && species.is_floor_hazard_immune(src))
+
 /mob/living/carbon/human/can_use_guns(obj/item/G)
 	. = ..()
 	if(G.trigger_guard == TRIGGER_GUARD_NORMAL)

@@ -23,8 +23,10 @@
 
 	allowed_pronouns = PRONOUNS_LIST_NO_IT
 
-	possible_ages = ALL_AGES_LIST
+	possible_ages = NORMAL_AGES_LIST
 	use_skintones = TRUE
+	default_scale_x = 0.5
+	default_scale_y = 0.5
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/f/fm.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'
@@ -64,11 +66,6 @@
 		/datum/customizer/organ/genitals/testicles/human,
 	)
 
-/datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species)
-	..()
-	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
-	C.grant_language(/datum/language/common)
-
 /datum/species/seelie/spec_life(mob/living/carbon/human/C)
 	. = ..()
 	enforce_wing_requirement(C)
@@ -76,8 +73,10 @@
 	if(!C.getorganslot(ORGAN_SLOT_WINGS) && C.body_position != LYING_DOWN)
 		C.set_body_position(LYING_DOWN)
 		C.set_resting(TRUE, silent = TRUE)
-	// Keep the smaller scale consistent
 	C.seelie_ensure_scale()
+	handle_mobility_update(C)
+	if(is_seelie_floating(C))
+		fairy_hover(C)
 	// Keep the innate movement penalty applied
 	if(!C.has_movespeed_modifier("seelie_move"))
 		C.add_movespeed_modifier("seelie_move", override = TRUE, multiplicative_slowdown = 0.5)
@@ -85,12 +84,14 @@
 /datum/species/seelie/proc/enforce_wing_requirement(mob/living/carbon/human/C)
 	if(!C)
 		return
-	var/has_wings = C.getorganslot(ORGAN_SLOT_WINGS)
+	var/has_wings = has_wings(C)
 	if(has_wings)
 		REMOVE_TRAIT(C, TRAIT_FLOORED, SEELIE_WING_TRAIT)
 		C.mobility_flags |= MOBILITY_STAND
 		if(C.body_position == LYING_DOWN && !C.resting)
 			C.set_body_position(STANDING_UP)
+		if(C.body_position == STANDING_UP && C.lying_angle)
+			C.set_lying_angle(0)
 	else
 		ADD_TRAIT(C, TRAIT_FLOORED, SEELIE_WING_TRAIT)
 		C.mobility_flags &= ~MOBILITY_STAND
@@ -101,7 +102,9 @@
 /mob/living/carbon/human/proc/seelie_ensure_scale()
 	if(!isseelie(src))
 		return
-	seelie_apply_scale(0.6)
+	var/datum/species/species = dna?.species
+	var/target_scale = species?.default_scale_x || 1
+	seelie_apply_scale(target_scale)
 
 /mob/living/carbon/human/proc/seelie_apply_scale(target_scale)
 	var/matrix/mat = matrix(transform)
@@ -117,15 +120,18 @@
 
 /datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
 	RegisterSignal(C, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(handle_client_login))
+	RegisterSignal(C, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(handle_mobility_update))
+	RegisterSignal(C, COMSIG_LIVING_SET_RESTING, PROC_REF(handle_mobility_update))
+	RegisterSignal(C, COMSIG_LIVING_SET_BUCKLED, PROC_REF(handle_mobility_update))
 	C.pass_flags |= (PASSTABLE | PASSMOB)
-	C.rotate_on_lying = FALSE
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		H.seelie_apply_scale(0.6)
+		H.seelie_ensure_scale()
 	C.add_movespeed_modifier("seelie_move", override = TRUE, multiplicative_slowdown = 0.5)
 	ADD_TRAIT(C, TRAIT_PACIFISM, "[type]")
-	ADD_TRAIT(C, TRAIT_MOVE_FLOATING, "[type]")
 	var/obj/item/organ/wings/W = C.getorganslot(ORGAN_SLOT_WINGS)
 	if(!W)
 		W = new /obj/item/organ/wings/anthro/seelie()
@@ -148,16 +154,22 @@
 	C.verbs |= list(
 		/mob/living/carbon/human/proc/seelie_exit_container
 	)
+	handle_mobility_update(C)
 
 /datum/species/seelie/on_species_loss(mob/living/carbon/C)
 	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
 	UnregisterSignal(C, COMSIG_MOB_CLIENT_LOGIN)
+	UnregisterSignal(C, COMSIG_LIVING_SET_BODY_POSITION)
+	UnregisterSignal(C, COMSIG_LIVING_SET_RESTING)
+	UnregisterSignal(C, COMSIG_LIVING_SET_BUCKLED)
+	if(C?.mob_offsets && C.mob_offsets["pixie_hover"])
+		C.reset_offsets("pixie_hover")
 	C.pass_flags &= ~(PASSTABLE | PASSMOB)
 	C.rotate_on_lying = initial(C.rotate_on_lying)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		H.seelie_apply_scale(1)
-	REMOVE_TRAIT(C, TRAIT_MOVE_FLOATING, "[type]")
+		H.update_transform()
 	REMOVE_TRAIT(C, TRAIT_PACIFISM, "[type]")
 	C.remove_movespeed_modifier("seelie_move")
 	C.verbs -= list(
@@ -169,8 +181,36 @@
 	if(!ishuman(C))
 		return
 	var/mob/living/carbon/human/H = C
-	H.seelie_apply_scale(0.6)
-	H.update_transform()
+	H.seelie_ensure_scale()
+	handle_mobility_update(H)
+
+/datum/species/seelie/proc/has_wings(mob/living/carbon/human/C)
+	return !!C?.getorganslot(ORGAN_SLOT_WINGS)
+
+/datum/species/seelie/proc/is_seelie_floating(mob/living/carbon/human/C)
+	return !C.incapacitated(IGNORE_RESTRAINTS) && (C.mobility_flags & MOBILITY_STAND) && has_wings(C) && !C.buckled
+
+/datum/species/seelie/is_floor_hazard_immune(mob/living/carbon/human/C)
+	return is_seelie_floating(C)
+
+/// Apply the Seelie hovering animation.
+/datum/species/seelie/proc/fairy_hover(mob/living/carbon/human/C)
+	if(!C.resting && !C.wallpressed)
+		animate(C, pixel_y = C.pixel_y + 2, time = 0.5 SECONDS, loop = -1)
+	sleep(0.5 SECONDS)
+	if(!C.resting && !C.wallpressed)
+		animate(C, pixel_y = C.pixel_y - 2, time = 0.5 SECONDS, loop = -1)
+
+/datum/species/seelie/proc/handle_mobility_update(mob/living/carbon/human/C)
+	SIGNAL_HANDLER
+	if(!C)
+		return
+	if(is_seelie_floating(C))
+		if(!C.mob_offsets || !C.mob_offsets["pixie_hover"])
+			C.set_mob_offsets("pixie_hover", _x = 0, _y = 10)
+	else
+		if(C.mob_offsets && C.mob_offsets["pixie_hover"])
+			C.reset_offsets("pixie_hover")
 
 /datum/species/seelie/check_roundstart_eligible()
 	return TRUE

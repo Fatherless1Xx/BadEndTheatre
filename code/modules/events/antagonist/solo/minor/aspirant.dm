@@ -12,7 +12,7 @@
 	needed_job = list(
 		"Consort",
 		"Hand",
-		"Prince",
+		"Heir",
 		"Captain",
 		"Steward",
 		"Court Magician",
@@ -48,7 +48,7 @@
 /datum/round_event/antagonist/solo/aspirant/start()
 	. = ..()
 
-	var/list/helping = list("Consort", "Hand", "Prince", "Captain", "Steward", "Court Magician", "Court Physician", "Archivist", "Noble", "Jester", "Dungeoneer", "Men-at-arms", "Gatemaster", "Butler", "Servant")
+	var/list/helping = list("Consort", "Hand", "Heir", "Captain", "Steward", "Court Magician", "Court Physician", "Archivist", "Noble", "Jester", "Dungeoneer", "Men-at-arms", "Gatemaster", "Butler", "Servant")
 	var/list/possible_helpers = list()
 
 	for(var/mob/living/living in GLOB.human_list)

@@ -8,7 +8,7 @@
 	var/changed = 0
 	var/desired_scale = 1
 	if(isseelie(src))
-		desired_scale = 0.6
+		desired_scale = 0.5
 	if(lying_angle != lying_prev && rotate_on_lying)
 		changed++
 		ntransform.TurnTo(lying_prev , lying_angle)
@@ -45,7 +45,11 @@
 		dir = final_dir
 		update_vision_cone()
 	else
-		animate(src, time = 0.2 SECONDS, pixel_x = get_standard_pixel_x_offset(), pixel_y = get_standard_pixel_y_offset())
+		if(desired_scale != 1)
+			animate(src, time = 0.2 SECONDS, pixel_x = get_standard_pixel_x_offset(), pixel_y = get_standard_pixel_y_offset(), transform = ntransform)
+			transform = ntransform
+		else
+			animate(src, time = 0.2 SECONDS, pixel_x = get_standard_pixel_x_offset(), pixel_y = get_standard_pixel_y_offset())
 		client?.pixel_x = pixel_x
 		client?.pixel_y = pixel_y
 	var/is_opposite_angle = REVERSE_ANGLE(lying_angle) == lying_prev

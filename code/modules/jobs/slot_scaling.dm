@@ -12,4 +12,4 @@
 	return floor(clamp((town_count/factor)+c, min, max))
 
 /proc/adventurer_slot_formula(playercount)
-	return job_slot_formula(playercount,7,2,3,14)
+	return job_slot_formula(playercount,7,2,3,30)

@@ -180,6 +180,35 @@
 	effect_type = /obj/effect/particle_effect/smoke/sleeping
 
 /////////////////////////////////////////////
+// Zizo bane sleep spores
+/////////////////////////////////////////////
+
+/datum/effect_system/smoke_spread/zizosleep
+	effect_type = /obj/effect/particle_effect/smoke/zizosleep
+
+/obj/effect/particle_effect/smoke/zizosleep/smoke_mob(mob/living/carbon/M)
+	if(..())
+		M.emote("cough")
+		M.Sleeping(200)
+		return 1
+
+/obj/effect/particle_effect/smoke/zizosleep
+	name = "sleep spores"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "sleep"
+	SET_BASE_PIXEL(0, 0)
+	opacity = FALSE
+	layer = FLY_LAYER
+	plane = GAME_PLANE_UPPER
+	anchored = TRUE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	animate_movement = 0
+	amount = 4
+	lifetime = 8
+	density = FALSE
+	opaque = FALSE
+
+/////////////////////////////////////////////
 // Chem smoke
 /////////////////////////////////////////////
 

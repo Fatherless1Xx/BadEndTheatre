@@ -1703,6 +1703,7 @@
 				_y = _y + mob_offsets[o]["y"]
 	return _y + body_position_pixel_y_offset
 
+
 /mob/living/cancel_camera()
 	..()
 	cameraFollow = null

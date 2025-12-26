@@ -21,11 +21,11 @@
 	weight = 4
 
 	restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Hand",
 		"Captain",
-		"Prince",
+		"Heir",
 		"Priest",
 		"Inquisitor",
 		"Absolver",

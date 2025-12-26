@@ -63,6 +63,67 @@
 	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
+/datum/emote/living/carbon/human/feel
+	key = "feel"
+	emote_type = EMOTE_VISIBLE
+	nomsg = TRUE
+
+/datum/emote/living/carbon/human/feel/run_emote(mob/user, params, type_override, intentional, targetted, forced)
+	if(!can_run_emote(user, !forced, intentional))
+		return FALSE
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	var/list/options = list("Desire", "Dread")
+	var/choice = input(H, "What feeling do you want to express?", "Feel") as null|anything in options
+	if(!choice)
+		return FALSE
+
+	var/list/degrees = list("mild", "moderate", "strong")
+	var/degree = input(H, "Select degree:", "Degree") as null|anything in degrees
+	if(!degree)
+		return FALSE
+
+	if(choice == "Desire")
+		var/desire = input(H, "What is the desire?", "Desire") as null|text
+		if(isnull(desire))
+			return FALSE
+		var/strength_word = "strongly"
+		if(degree == "mild")
+			strength_word = "slightly"
+		else if(degree == "moderate")
+			strength_word = "moderately"
+		var/message = "You [strength_word] want to help [H.real_name] fulfil their wish to [desire]"
+		if(!length(message) || copytext(message, length(message)) != ".")
+			message += "."
+		for(var/mob/living/carbon/human/receiver in viewers(H, null))
+			if(HAS_TRAIT(receiver, TRAIT_EMPATH))
+				to_chat(receiver, "<span style='color: white; font-style: italic; text-shadow: 0 0 6px #fff, 0 0 12px #fff;'>[message]</span>")
+		to_chat(H, "You desire [desire].")
+		return TRUE
+
+	if(choice == "Dread")
+		var/dread = input(H, "What are you dreading?", "Dread") as null|text
+		if(isnull(dread))
+			return FALSE
+		var/degree_adverb = "[degree]ly"
+		var/message = "You feel [degree_adverb] negatively preoccupied with the prospect of [dread]."
+		if(!length(message) || copytext(message, length(message)) != ".")
+			message += "."
+		for(var/mob/living/carbon/human/receiver in viewers(H, null))
+			if(HAS_TRAIT(receiver, TRAIT_EMPATH))
+				to_chat(receiver, "<span style='color: #ff4444; font-weight: bold;'>[message]</span>")
+		to_chat(H, "You become preoccupied with [dread].")
+		return TRUE
+
+	return TRUE
+
+/mob/living/carbon/human/verb/emote_feel()
+	set name = "Feel (Desire/Dread)"
+	set category = "Emotes"
+
+	emote("feel", intentional = TRUE)
+
 
 /datum/emote/living/carbon/human/mumble
 	key = "mumble"
