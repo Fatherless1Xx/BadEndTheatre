@@ -18,7 +18,7 @@
 	name = "Underwear"
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/underwear)
 	allows_disabling = TRUE
-	default_disabled = FALSE
+	default_disabled = TRUE
 
 /datum/customizer_choice/bodypart_feature/underwear
 	name = "Underwear"
