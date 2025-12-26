@@ -39,15 +39,19 @@
 	sex_session.perform_sex_action(target, 1, 3, TRUE)
 	sex_session.handle_passive_ejaculation(target)
 
-	/*
-	var/obj/item/organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
-	var/milk_to_add = min(max(breasts.breast_size, 1), breasts.milk_stored)
-	if(breasts.lactating && milk_to_add > 0 && prob(25))
-		user.reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_add)
-		breasts.milk_stored -= milk_to_add
+	var/obj/item/organ/genitals/filling_organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
+	if(!breasts || !breasts.refilling || !breasts.reagents || !user.reagents)
+		return
+	if(breasts.reagents.total_volume <= 0 || user.reagents.holder_full())
+		return
+	var/free_space = user.reagents.maximum_volume - user.reagents.total_volume
+	var/milk_to_add = min(max(breasts.organ_size, 1), breasts.reagents.total_volume, free_space)
+	if(milk_to_add <= 0)
+		return
+	breasts.reagents.trans_to(user, milk_to_add, transfered_by = user, method = INGEST, show_message = FALSE)
+	if(prob(35))
 		to_chat(user, span_notice("I can taste milk."))
 		to_chat(target, span_notice("I can feel milk leak from my buds."))
-	*/
 
 /datum/sex_action/suck_nipples/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
@@ -55,4 +59,3 @@
 
 /datum/sex_action/suck_nipples/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	sex_locks |= new /datum/sex_session_lock(user, BODY_ZONE_PRECISE_MOUTH)
-
