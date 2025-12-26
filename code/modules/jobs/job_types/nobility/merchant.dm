@@ -29,7 +29,8 @@
 	backpack_contents = list(
 		/obj/item/storage/belt/pouch/coins/veryrich = 1,
 		/obj/item/merctoken = 1,
-		/obj/item/ammo_holder/bullet = 1
+		/obj/item/ammo_holder/bullet = 1,
+		/obj/item/reagent_containers/glass/bottle/aflask = 1
 	)
 	beltr = /obj/item/weapon/sword/rapier
 	belt = /obj/item/storage/belt/leather/plaquesilver

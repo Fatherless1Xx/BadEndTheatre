@@ -286,3 +286,120 @@
 /obj/item/riddleofsteel/Initialize()
 	. = ..()
 	set_light(2, 2, 1, l_color = "#ff0d0d")
+
+/obj/item/necro_relics/necro_crystal
+	name = "dark crystal"
+	desc = "It feels cold in your hands. You shouldn't be holding this."
+	icon = 'icons/roguetown/items/gems.dmi'
+	icon_state = "necro_crystal"
+	hitsound = 'sound/blank.ogg'
+	dropshrink = 0.6
+	var/last_use_time = 0
+	var/use_cooldown = 300
+	var/list/active_skeletons = list()
+	var/max_summons = 2
+	var/max_charges = 2
+	var/current_charges = 2
+	grid_height = 32
+	grid_width = 32
+
+/obj/item/necro_relics/necro_crystal/examine(mob/user)
+	. = ..()
+	if(current_charges > 0)
+		. += span_notice("The crystal radiates with dark, brimming power.")
+	else
+		. += span_danger("The crystal lies hollow and inert, its magic drained.")
+
+/obj/item/necro_relics/necro_crystal/Initialize()
+	. = ..()
+	set_light(2, 2, 1, l_color = "#551c1c")
+
+/obj/item/necro_relics/necro_crystal/proc/prune_skeletons()
+	if(!length(active_skeletons))
+		return
+	for(var/datum/weakref/W as anything in active_skeletons)
+		if(!W?.resolve())
+			active_skeletons -= W
+
+/obj/item/necro_relics/necro_crystal/proc/recharge(obj/item/reagent_containers/lux/L, mob/user)
+	if(current_charges >= max_charges)
+		to_chat(user, span_notice("The crystal is already brimming with power."))
+		return FALSE
+	qdel(L)
+	current_charges = min(current_charges + 1, max_charges)
+	to_chat(user, span_notice("The crystal hums as it drinks in the lyfe essence."))
+	playsound(src, 'sound/magic/churn.ogg', 70, TRUE)
+	return TRUE
+
+/obj/item/necro_relics/necro_crystal/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/lux))
+		return recharge(I, user)
+	return ..()
+
+/obj/item/necro_relics/necro_crystal/attack_self(mob/living/user)
+	. = ..()
+	if(!user)
+		return FALSE
+	prune_skeletons()
+	if(length(active_skeletons) >= max_summons)
+		to_chat(user, span_warning("The crystal emits an ominous thrumming. The power within is too strained to conjure another skeleton right now."))
+		return FALSE
+	if(world.time - src.last_use_time < src.use_cooldown)
+		to_chat(user, span_warning("The crystal thrums under your touch, but remains inert."))
+		return FALSE
+	if(current_charges <= 0)
+		to_chat(user, span_warning("The crystal feels hollow. It hungers for lux."))
+		return FALSE
+
+	var/tasks = list("TOIL", "FIGHT", "GUARD", "SEEK")
+	var/tasks_choice = input(user, "WHAT IS THY BIDDING?", "IN HER NAME") as null|anything in tasks
+	if(!tasks_choice)
+		to_chat(user, span_warning("You must assign a task for your skeleton!"))
+		return FALSE
+
+	src.last_use_time = world.time
+	if(!do_after(user, 60, src))
+		to_chat(user, span_warning("You lose your concentration."))
+		return FALSE
+	if(!HAS_TRAIT(user, TRAIT_CABAL))
+		to_chat(user, span_warning("The crystal rejects you! It shatters within your grasp!"))
+		user.flash_fullscreen("redflash1")
+		new /obj/item/natural/glass/shard(get_turf(src))
+		playsound(src, "glassbreak", 70, TRUE)
+		qdel(src)
+		return FALSE
+
+	var/turf/T = get_step(user, user.dir)
+	if(!isopenturf(T))
+		to_chat(user, span_warning("The targeted location is blocked. My summon fails to come forth."))
+		return FALSE
+
+	var/necro_name = user.real_name ? user.real_name : user.name
+	var/list/candidates = pollGhostCandidates("The veil splits! A hand reaches forth! Serve [necro_name] in undeath as a Greater Skeleton? YOU WILL [tasks_choice]", ROLE_NECRO_SKELETON, null, null, 10 SECONDS, POLL_IGNORE_NECROMANCER_SKELETON)
+	if(!LAZYLEN(candidates))
+		to_chat(user, span_warning("The depths are hollow."))
+		return FALSE
+
+	var/mob/C = pick(candidates)
+	if(!C || !istype(C, /mob/dead))
+		return FALSE
+	if(istype(C, /mob/dead/new_player))
+		var/mob/dead/new_player/N = C
+		N.close_spawn_windows()
+
+	var/mob/living/carbon/human/species/skeleton/no_equipment/target = new /mob/living/carbon/human/species/skeleton/no_equipment(T)
+	target.key = C.key
+	current_charges--
+	target.equipOutfit(/datum/outfit/greater_skeleton)
+	target.visible_message(span_warning("[target]'s eyes light up with an eerie glow!"))
+	active_skeletons += WEAKREF(target)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "GREATER SKELETON"), 3 SECONDS)
+
+	if(current_charges <= 0)
+		to_chat(user, span_notice("The crystal dims, its power spent."))
+	else
+		to_chat(user, span_notice("The crystal's glow lessens. [current_charges] uses remain."))
+
+	user.flash_fullscreen("redflash1")
+	playsound(src, "shatter", 50, TRUE)
+	return TRUE

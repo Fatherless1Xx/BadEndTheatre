@@ -184,6 +184,11 @@
 	cost = 50
 	contains = /obj/item/reagent_containers/glass/bottle/manapot
 
+/datum/supply_pack/tools/medical/zizo_bane
+	name = "Zizo's Bane"
+	cost = 20
+	contains = /obj/item/reagent_containers/food/snacks/produce/mushroom/zizo_bane
+
 /datum/supply_pack/tools/medical/surgerybag
 	name = "Set of Surgical Tools"
 	cost = 60

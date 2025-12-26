@@ -1383,6 +1383,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	return FALSE
 
+/mob/proc/is_floor_hazard_immune()
+	return FALSE
+
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O, silent = FALSE)
 	if(isobserver(src))

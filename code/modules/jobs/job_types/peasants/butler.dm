@@ -41,6 +41,7 @@
 	belt = /obj/item/storage/belt/leather/suspenders
 	pants = /obj/item/clothing/pants/trou/formal
 	shoes = /obj/item/clothing/shoes/nobleboot
+	neck = /obj/item/clothing/neck/leathercollar
 	beltr = /obj/item/storage/keyring/captain
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	backr = /obj/item/storage/backpack/satchel
@@ -75,6 +76,7 @@
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 
 /datum/job/butler/proc/offer_weapon_choice(mob/living/carbon/human/H)
 	if(!H || QDELETED(H) || !H.client)

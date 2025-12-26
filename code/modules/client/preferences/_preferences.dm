@@ -223,6 +223,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/datum/loadout_item/loadout1
 	var/datum/loadout_item/loadout2
 	var/datum/loadout_item/loadout3
+	var/loadout_1_hex
+	var/loadout_2_hex
+	var/loadout_3_hex
 
 	var/list/preference_message_list = list()
 
@@ -467,8 +470,20 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<br><a href='?_src_=prefs;preference=ooc_preview;task=input' style='margin: 0; padding: 0;'><b>Preview Examine</b></a>"
 
 	dat += "<br><b>Loadout Item I:</b> <a href='?_src_=prefs;preference=loadout_item;loadout_number=1;task=input'>[loadout1 ? loadout1.name : "None"]</a>"
+	if(loadout_1_hex)
+		dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_1_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+	else
+		dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'>(C)</a>"
 	dat += "<br><b>Loadout Item II:</b> <a href='?_src_=prefs;preference=loadout_item;loadout_number=2;task=input'>[loadout2 ? loadout2.name : "None"]</a>"
+	if(loadout_2_hex)
+		dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_2_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+	else
+		dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'>(C)</a>"
 	dat += "<br><b>Loadout Item III:</b> <a href='?_src_=prefs;preference=loadout_item;loadout_number=3;task=input'>[loadout3 ? loadout3.name : "None"]</a>"
+	if(loadout_3_hex)
+		dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_3_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+	else
+		dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(C)</a>"
 
 	dat += "<br></td>"
 
@@ -1325,6 +1340,37 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 					set_loadout(user, loadout_number, loadouts_available[loadout_input])
 
+				if("loadout1hex")
+					var/choice = input(user, "Choose a color.", "Loadout Item One Color") as null|anything in CLOTHING_COLOR_NAMES
+					var/new_color = choice ? clothing_color2hex(choice) : null
+					if(new_color)
+						loadout_1_hex = new_color
+						if(loadout1)
+							to_chat(user, "The color for your [loadout1.name] has been set to <b>[choice]</b>.")
+					else
+						loadout_1_hex = null
+						to_chat(user, "The color for your <b>first</b> loadout item has been cleared.")
+				if("loadout2hex")
+					var/choice = input(user, "Choose a color.", "Loadout Item Two Color") as null|anything in CLOTHING_COLOR_NAMES
+					var/new_color = choice ? clothing_color2hex(choice) : null
+					if(new_color)
+						loadout_2_hex = new_color
+						if(loadout2)
+							to_chat(user, "The color for your [loadout2.name] has been set to <b>[choice]</b>.")
+					else
+						loadout_2_hex = null
+						to_chat(user, "The color for your <b>second</b> loadout item has been cleared.")
+				if("loadout3hex")
+					var/choice = input(user, "Choose a color.", "Loadout Item Three Color") as null|anything in CLOTHING_COLOR_NAMES
+					var/new_color = choice ? clothing_color2hex(choice) : null
+					if(new_color)
+						loadout_3_hex = new_color
+						if(loadout3)
+							to_chat(user, "The color for your [loadout3.name] has been set to <b>[choice]</b>.")
+					else
+						loadout_3_hex = null
+						to_chat(user, "The color for your <b>third</b> loadout item has been cleared.")
+
 				if("species")
 					selected_accent = ACCENT_DEFAULT
 					var/list/selectable = get_selectable_species(patreon)
@@ -2103,3 +2149,12 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		to_chat(user, span_notice("[loadout.name]"))
 		if(loadout.description)
 			to_chat(user, "[loadout.description]")
+
+/datum/preferences/proc/resolve_loadout_to_color(item_path)
+	if(loadout1 && (item_path == loadout1.item_path) && loadout_1_hex)
+		return loadout_1_hex
+	if(loadout2 && (item_path == loadout2.item_path) && loadout_2_hex)
+		return loadout_2_hex
+	if(loadout3 && (item_path == loadout3.item_path) && loadout_3_hex)
+		return loadout_3_hex
+	return null

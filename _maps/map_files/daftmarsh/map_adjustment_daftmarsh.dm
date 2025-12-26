@@ -19,7 +19,7 @@
 	slot_adjust = list(
 		/datum/job/feldsher = 1,
 		/datum/job/cook = 1,
-		/datum/job/servant = 2,
+		/datum/job/servant = 6,
 		/datum/job/carpenter = 2, //Towner roles don't need nearly as many, here.
 		/datum/job/hunter = 2,
 		/datum/job/bard = 3,
@@ -28,9 +28,9 @@
 		/datum/job/farmer = 4, //Not like this would ever be filled ANYWAYS.
 		/datum/job/vagrant = 6, //Beggars and orphans don't need to be nearly so populated.
 		/datum/job/orphan = 6,
-		/datum/job/men_at_arms = 3, //Combat roles overall tuned town a bit.
-		/datum/job/guardsman = 6,
-		/datum/job/adventurer = 8, //Not sure on this one but I generally want to cut down on the non-town roles.
+		/datum/job/men_at_arms = 0, //Combat roles overall tuned town a bit.
+		/datum/job/guardsman = 0,
+		/datum/job/adventurer = 30, //Not sure on this one but I generally want to cut down on the non-town roles.
 		/datum/job/pilgrim = 15,
 		/datum/job/adept = 1,
 		/datum/job/clinicapprentice = 2,

@@ -40,6 +40,7 @@
 		ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_INDENTURED, JOB_TRAIT)
 		ADD_TRAIT(H, TRAIT_GOODLOVER, JOB_TRAIT)
+		ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 
 /datum/job/courtesan/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()

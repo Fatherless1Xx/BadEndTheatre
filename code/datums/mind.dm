@@ -215,6 +215,34 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			if(name == P)
 				return TRUE
 
+/datum/mind/proc/apply_loadout_color(mob/user, obj/item/I, item_path)
+	if(!user || !I)
+		return
+	var/datum/preferences/prefs = user.client?.prefs
+	if(!prefs)
+		return
+	var/hex = prefs.resolve_loadout_to_color(item_path)
+	if(!hex)
+		return
+	if(istype(I, /obj/item/clothing))
+		I.add_atom_colour(hex, FIXED_COLOUR_PRIORITY)
+
+/datum/mind/proc/handle_special_items_retrieval(mob/user, atom/source, prompt = "What will I take?", title = "STASH")
+	if(!user || !special_items || !special_items.len)
+		return
+	var/item = browser_input_list(user, prompt, title, special_items)
+	if(!item)
+		return
+	if(source && !user.Adjacent(source))
+		return
+	var/path2item = special_items[item]
+	if(!path2item)
+		return
+	special_items -= item
+	var/obj/item/I = new path2item(user.loc)
+	apply_loadout_color(user, I, path2item)
+	user.put_in_hands(I)
+
 /// we are removed from X's known people
 /datum/mind/proc/become_unknown_to(person)
 	if(!person)

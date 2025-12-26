@@ -363,6 +363,8 @@
 			cloth.wet.add_water(20, dirty_water_turf)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
+		if(L.is_floor_hazard_immune())
+			return
 		if(L.body_position == LYING_DOWN || water_level == 3)
 			L.SoakMob(FULL_BODY, dirty_water_turf)
 		else if(water_level == 2)
@@ -511,6 +513,8 @@
 		O.extinguish()
 
 /turf/open/water/get_slowdown(mob/user)
+	if(user?.is_floor_hazard_immune())
+		return 0
 	if(water_volume < 10 || HAS_TRAIT(user, TRAIT_GOOD_SWIM))
 		return 0
 	var/returned = slowdown
@@ -547,6 +551,8 @@
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/living = AM
+		if(living.is_floor_hazard_immune())
+			return
 		var/chance = 3
 		if(living.m_intent == MOVE_INTENT_RUN)
 			chance *= 2
@@ -594,6 +600,8 @@
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/living = AM
+		if(living.is_floor_hazard_immune())
+			return
 		var/chance = 3
 		if(living.m_intent == MOVE_INTENT_RUN)
 			chance *= 2
@@ -628,6 +636,8 @@
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/living = AM
+		if(living.is_floor_hazard_immune())
+			return
 		var/chance = 8
 		if(living.m_intent == MOVE_INTENT_RUN)
 			chance *= 2
@@ -726,7 +736,7 @@
 	var/river_processes = TRUE
 
 /turf/open/water/river/get_slowdown(mob/user)
-	if(isseelie(user))
+	if(user?.is_floor_hazard_immune())
 		return 0
 	return ..()
 
@@ -814,7 +824,7 @@
 	fishing_datum = /datum/fish_source/ocean
 
 /turf/open/water/ocean/get_slowdown(mob/user)
-	if(isseelie(user))
+	if(user?.is_floor_hazard_immune())
 		return 0
 	return ..()
 

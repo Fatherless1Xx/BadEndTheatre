@@ -731,6 +731,11 @@
 	stress_change = 1
 	desc = span_red("The horrid wails of the dead call for relief! I can ENDURE such calls...")
 
+/datum/stress_event/necrarevive
+	timer = 15 MINUTES
+	stress_change = 8
+	desc = span_red("I clawed my way back from death. My soul aches.")
+
 /datum/stress_event/wet_cloth
 	stress_change = 1
 	desc = span_red("I am wearing wet clothes.. ugh.")
