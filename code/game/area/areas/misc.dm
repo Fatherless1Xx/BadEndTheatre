@@ -6,3 +6,8 @@
 /area/misc/testroom
 	name = "Test Room"
 	icon_state = "test_room"
+
+/area/space
+	name = "space"
+	icon_state = "space"
+	outdoors = TRUE

@@ -64,6 +64,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/inquisitive_ghost = 1
 	var/allow_midround_antag = 1
 	var/preferred_map = null
+	var/multi_char_ready = FALSE
 
 	var/uses_glasses_colour = 0
 

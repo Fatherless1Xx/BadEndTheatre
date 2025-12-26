@@ -116,7 +116,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.set_stat_modifier("[type]", STATKEY_END, extra_endurance)
 			combat_music_loop = new /datum/looping_sound/maniac_theme_song(dreamer, FALSE)
 			dreamer.verbs += /mob/living/carbon/human/proc/toggle_maniac_music
-			dreamer.verbs += /mob/living/carbon/human/proc/set_custom_music
+			dreamer.verbs += /mob/living/carbon/human/proc/set_maniac_custom_music
 			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
 			dreamer.remove_stat_modifier("innate_age")
 			if(heart) // clear any inscryptions, in case of being made maniac midround
@@ -159,7 +159,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")
 		owner.current.verbs -= /mob/living/carbon/human/proc/toggle_maniac_music
-		owner.current.verbs -= /mob/living/carbon/human/proc/set_custom_music
+		owner.current.verbs -= /mob/living/carbon/human/proc/set_maniac_custom_music
 	QDEL_LIST(wonders_made)
 	wonders_made = null
 	owner.learned_recipes -= recipe_progression
@@ -418,7 +418,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		dreamer.combat_music_loop.stop()
 		to_chat(src, span_notice("Theme Song disabled."))
 
-/mob/living/carbon/human/proc/set_custom_music()
+/mob/living/carbon/human/proc/set_maniac_custom_music()
 	set name = "Set Custom Theme Music"
 	set category = "MANIAC"
 

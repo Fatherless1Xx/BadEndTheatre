@@ -63,7 +63,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(M.force_escaped)
 		return TRUE
 	var/area/A = get_area(M.current)
-	if(istype(A, /area/rogue/indoors/town/cell))
+	if(istype(A, /area/indoors/town/cell))
 		return FALSE
 	return TRUE
 

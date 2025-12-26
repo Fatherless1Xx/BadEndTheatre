@@ -25,8 +25,8 @@
 /datum/repeatable_crafting_recipe/dendor/sacrifice_stinging
 	name = "yellow sacrifice to Dendor (unique)"
 	attacked_atom = /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
-	starting_atom = /obj/item/reagent_containers/food/snacks/fish
-	requirements = list(/obj/item/reagent_containers/food/snacks/fish = 1,
+	starting_atom = /obj/item/reagent_containers/food/snacks/fish/eel
+	requirements = list(/obj/item/reagent_containers/food/snacks/fish/eel = 1,
 				/obj/item/reagent_containers/food/snacks/produce/westleach = 1,
 				/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1)
 	output = /obj/item/dendor_blessing/stinging

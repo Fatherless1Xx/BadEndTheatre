@@ -169,29 +169,6 @@
 				/obj/item/natural/fibers = 1)
 	category = "Pants"
 
-/datum/repeatable_crafting_recipe/sewing/stockings
-	name = "stockings"
-	output = /obj/item/legwears/white
-	requirements = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 3
-	category = "Pants"
-
-/datum/repeatable_crafting_recipe/sewing/stockings_silk
-	name = "silk stockings"
-	output = /obj/item/legwears/silk/white
-	requirements = list(/obj/item/natural/silk = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 5
-	category = "Pants"
-
-/datum/repeatable_crafting_recipe/sewing/stockings_fishnet
-	name = "fishnet stockings"
-	output = /obj/item/legwears/fishnet/white
-	requirements = list(/obj/item/natural/fibers = 2)
-	craftdiff = 3
-	category = "Pants"
-
 /datum/repeatable_crafting_recipe/sewing/lakkarikilt
 	name = "padded kilt"
 	output = /obj/item/clothing/pants/trou/leather/quiltedkilt
@@ -426,6 +403,14 @@
 /datum/repeatable_crafting_recipe/sewing/lgambeson
 	name = "light gambeson"
 	output = /obj/item/clothing/armor/gambeson/light
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 1
+	category = "Armor"
+
+/datum/repeatable_crafting_recipe/sewing/stepperobe
+	name = "steppe robes"
+	output = /obj/item/clothing/armor/gambeson/light/steppe
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
@@ -1365,6 +1350,16 @@
 	craftdiff = 3
 	category = "Armor"
 
+/datum/repeatable_crafting_recipe/sewing/spellcasterhat
+	name = "spellsinger Hat"
+	output = /obj/item/clothing/head/spellcasterhat
+	requirements = list(
+		/obj/item/natural/cloth = 3,
+		/obj/item/natural/hide/cured = 1
+	)
+	craftdiff = 2
+	category = "Hat"
+
 /datum/repeatable_crafting_recipe/sewing/spellcasterrobe
 	name = "spellsinger robes"
 	output = /obj/item/clothing/shirt/robe/spellcasterrobe
@@ -1657,7 +1652,7 @@
 	name = "pearl amulet"
 	output = /obj/item/clothing/neck/psycross/pearl
 	requirements = list(
-		/obj/item/natural/stone = 3, // Representing pearls
+		/obj/item/gem/turq = 3, // Representing pearls
 		/obj/item/natural/fibers = 1
 	)
 	craftdiff = 2
@@ -1668,7 +1663,7 @@
 	name = "blue pearl amulet"
 	output = /obj/item/clothing/neck/psycross/bpearl
 	requirements = list(
-		/obj/item/natural/stone = 5, // Rare blue pearls
+		/obj/item/gem/turq = 5, // Rare blue pearls
 		/obj/item/natural/fibers = 1
 	)
 	craftdiff = 3
@@ -1690,32 +1685,12 @@
 	name = "shell bracelet"
 	output = /obj/item/clothing/neck/psycross/shell/bracelet
 	requirements = list(
-		/obj/item/natural/stone = 1,
+		/obj/item/carvedgem/shell/rawshell = 1,
 		/obj/item/natural/fibers = 1
 	)
 	craftdiff = 0
 	attacked_atom = /obj/item/natural/fibers
 	category = "Accessories"
-
-/datum/repeatable_crafting_recipe/sewing/naledi
-	name = "sojourner's wrappings"
-	output = /obj/item/clothing/wrists/bracers/naledi
-	requirements = list(
-		/obj/item/natural/cloth = 2,
-		/obj/item/natural/fibers = 1
-	)
-	craftdiff = 2
-	category = "Gloves"
-
-/datum/repeatable_crafting_recipe/sewing/naledi
-	name = "sojourner's wrappings"
-	output = /obj/item/clothing/wrists/bracers/naledi
-	requirements = list(
-		/obj/item/natural/cloth = 2,
-		/obj/item/natural/fibers = 1
-	)
-	craftdiff = 2
-	category = "Gloves"
 
 /datum/repeatable_crafting_recipe/sewing/psy_sack
 	name = "psydonian sack mask"

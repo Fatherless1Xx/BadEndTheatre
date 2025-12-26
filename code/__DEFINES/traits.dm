@@ -113,6 +113,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_EMOTEMUTE			"emotemute"
 #define TRAIT_DEAF				"deaf"
 #define TRAIT_NEARSIGHT			"nearsighted"
+#define TRAIT_BLINDFIGHTING		"Sixth-Sense"
 #define TRAIT_HUSK				"husk"
 #define TRAIT_CHUNKYFINGERS		"chunkyfingers" //means that you can't use weapons with normal trigger guards.
 #define TRAIT_DUMB				"dumb"
@@ -202,6 +203,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_CLAN_LEADER "clan_leader"
 #define TRAIT_BLUEPRINT_VISION "blueprint_vision"
 #define TRAIT_WEREWOLF_RAGE "ww_rage"
+#define TRAIT_PUTRID "Putrid"
 /// Receives echolocation images.
 #define TRAIT_ECHOLOCATION_RECEIVER "echolocation_receiver"
 /// Echolocation has a higher range.
@@ -345,6 +347,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PSYDONITE "Psydonite's Devotion" // Anti-Miracles on a selective basis, anastasis / cure rot still apply. Slow passive wound healing while you have blood.
 #define TRAIT_BLACKBAGGER "Apprehension Techniques" // Capable of using Garrotes and Blackbags. Apprehension techniques.
 #define TRAIT_LYCANRESILENCE "Werewolf Resilence"
+#define TRAIT_EVASIVE		"Evasive"
 
 #define TRAIT_WEBWALK 					"Webwalker"
 #define TRAIT_BRUSHWALK					"Brushwalker"

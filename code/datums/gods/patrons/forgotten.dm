@@ -27,6 +27,18 @@
 	to_chat(follower, span_danger("I can not talk to Him... I need His cross!"))
 	return FALSE
 
+/datum/patron/psydon/extremist
+	display_name = "Extremist Psydonite"
+	desc = "The Ten are conmen, false prophets, and heathens. The acts of the Tennite church are all tricks to beguile the mind and dissuade you from following the true path of Psydon. My actions prove my faith and His strength. Psydon lives, and you cannot convince me otherwise."
+	flaws = "Stubborn, Fanatical, Spiteful"
+	worshippers = "Fanatics, Misinformed Fools"
+	sins = "Blasphemy, False Prophets, Trickery"
+	confess_lines = list(
+		"THERE IS ONLY ONE GOD!",
+		"YOUR FALSE TEN ARE LIES!",
+		"PSYDON LIVES!",
+	)
+
 /datum/patron/psydon/progressive
 	display_name = "Progressive Psydonite"
 	desc = "Necra divided His body in an act of mercy to create The Ten, and since they are inheritors of His will, it's as if He's still here, right?"

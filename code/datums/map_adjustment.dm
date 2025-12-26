@@ -21,6 +21,8 @@
 	var/list/sexes_adjust
 	/// Jobs that have age adjustments /datum/job = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	var/list/ages_adjust
+	/// Migrant waves that are disallowed on this map
+	var/list/migrant_blacklist
 
 /// called on map config is loaded.
 /// You need to change things manually here.

@@ -122,7 +122,6 @@
 	var/turf/open/floor/W = ..()
 	W.icon_regular_floor = old_icon
 	W.setDir(old_dir)
-	W.update_appearance()
 	return W
 
 /turf/open/floor/attackby(obj/item/C, mob/user, params)

@@ -88,6 +88,9 @@ Sunlight System
 	var/list/tempMasterList = list() /* to mimimize double ups */
 	var/list/corners = list() /* corners we are currently affecting */
 
+	if(!isturf(source_turf) || QDELETED(source_turf))
+		return
+
 	//Set lum so we can see things
 	var/oldLum = luminosity
 	luminosity = GLOBAL_LIGHT_RANGE
@@ -95,8 +98,10 @@ Sunlight System
 	for(T in view(CEILING(GLOBAL_LIGHT_RANGE, 1), source_turf))
 		if(T.opacity) /* get_corners used to do opacity checks for arse */
 			continue
-		if (!T.lighting_corners_initialised)
+		if(!T.lighting_corners_initialised)
 			T.lighting_build_overlay()
+		if(!length(T.corners))
+			continue
 		corners |= T.corners
 		turfs += T
 
@@ -109,6 +114,8 @@ Sunlight System
 	var/list/L = corners - affecting_corners
 	affecting_corners += L
 	for(var/datum/lighting_corner/C as anything in L)
+		if(!C || QDELETED(C))
+			continue
 		LAZYSET(C.sunlight_objects, src, SUN_FALLOFF(C, source_turf))
 		if(C.sunlight_objects[src] > C.sunFalloff) /* if are closer than current dist, update the corner */
 			C.sunFalloff = C.sunlight_objects[src]
@@ -117,6 +124,8 @@ Sunlight System
 	L = affecting_corners - corners // Now-gone corners, remove us from the affecting.
 	affecting_corners -= L
 	for(var/datum/lighting_corner/C as anything in L)
+		if(!C || QDELETED(C))
+			continue
 		LAZYREMOVE(C.sunlight_objects, src)
 		C.get_sunlight_falloff()
 		tempMasterList |= C.masters

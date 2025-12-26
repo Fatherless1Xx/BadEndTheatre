@@ -3,7 +3,6 @@
 	tags = list(
 		TAG_ZIZO,
 		TAG_GRAGGAR,
-		TAG_VILLIAN,
 		TAG_HAUNTED
 	)
 	antag_datum = /datum/antagonist/maniac

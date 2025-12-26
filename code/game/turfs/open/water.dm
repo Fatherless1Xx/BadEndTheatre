@@ -14,12 +14,12 @@
 /turf/open/water
 	gender = PLURAL
 	name = "water"
-	desc = "It's.. well, water."
+	desc = "It's... well, water."
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = "together"
 	baseturfs = /turf/open/water
 	slowdown = 20
-	turf_flags = NONE
+	turf_flags = TURF_WEATHER_PROOF
 	var/obj/effect/overlay/water/water_overlay
 	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE
@@ -57,6 +57,7 @@
 
 	/// Fishing element for this specific water tile
 	var/datum/fish_source/fishing_datum = /datum/fish_source/ocean
+	flags_1 = CONDUCT_1
 
 /turf/open/water/proc/set_watervolume(volume)
 	water_volume = volume
@@ -350,8 +351,11 @@
 		dirty_water_turf = TRUE
 	if(istype(AM, /obj/item/reagent_containers/food/snacks/fish))
 		var/obj/item/reagent_containers/food/snacks/fish/F = AM
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.rarity_rank)
-		F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F)
+		if(!F.status != FISH_DEAD)
+			F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		else
+			F.visible_message("<span class='warning'>[F] slowly sinks motionlessly into \the [src] and disappears...</span>")
 		qdel(F)
 	if(istype(AM, /obj/item/clothing))
 		var/obj/item/clothing/cloth = AM
@@ -710,7 +714,7 @@
 
 /turf/open/water/river
 	name = "water"
-	desc = "Crystal clear water! Flowing swiflty along the river."
+	desc = "Crystal clear water! Flowing swiftly along the river."
 	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
 	water_level = 3
 	slowdown = 20

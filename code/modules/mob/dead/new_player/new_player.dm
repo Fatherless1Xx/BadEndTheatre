@@ -12,6 +12,10 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 	var/spawning = FALSE
 	/// For instant transfer once the round is set up
 	var/mob/living/new_character
+	/// Multi-character ready mode data (stubbed unless enabled)
+	var/list/multi_ready_characters = list()
+	var/multi_ready_index = 0
+	var/multi_ready_assigned_slot = null
 	/// Used to make sure someone doesn't get spammed with messages if they're ineligible for roles
 	var/ineligible_for_roles = FALSE
 
@@ -45,6 +49,14 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 				client.lobbyooc(message)
 
 /mob/dead/new_player/prepare_huds()
+	return
+
+/mob/dead/new_player/proc/cache_multi_ready_characters()
+	multi_ready_characters = list()
+	multi_ready_index = 0
+	multi_ready_assigned_slot = null
+
+/mob/dead/new_player/proc/apply_multi_ready_character(char_index)
 	return
 
 /mob/dead/new_player/proc/new_player_panel()

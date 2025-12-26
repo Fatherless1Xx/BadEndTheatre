@@ -11,7 +11,6 @@
 		TAG_DENDOR,
 		TAG_GRAGGAR,
 		TAG_HAUNTED,
-		TAG_VILLIAN,
 		TAG_COMBAT,
 	)
 
@@ -27,5 +26,4 @@
 	tags = list(
 		TAG_HAUNTED,
 		TAG_COMBAT,
-		TAG_VILLIAN,
 	)
