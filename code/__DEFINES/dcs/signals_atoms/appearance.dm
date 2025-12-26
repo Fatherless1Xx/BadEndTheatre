@@ -22,3 +22,8 @@
 #define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"
 ///from base of [/atom/update_icon]: (signalOut, did_anything)
 #define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
+///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
+#define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
+#define COMSIG_LIVING_APPLY_OVERLAY "living_apply_overlay"		//from /mob/living/apply_overlay(cache_index) : (cache_index)
+#define COMSIG_LIVING_REMOVE_OVERLAY "living_remove_overlay"	//from /mob/living/remove_overlay(cache_index) : (cache_index)
+#define COMSIG_LIVING_POST_UPDATE_TRANSFORM "living_post_update_transform" ///from base of mob/update_transform()

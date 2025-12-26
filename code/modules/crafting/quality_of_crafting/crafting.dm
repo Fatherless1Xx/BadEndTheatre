@@ -2123,3 +2123,45 @@
 	name = "opaloise knife"
 	output = /obj/item/weapon/knife/stone/opal
 	craftdiff = 5
+
+/datum/repeatable_crafting_recipe/crafting/wood_dildo
+	name = "wooden dildo"
+	requirements = list(
+		/obj/item/grown/log/tree/small = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/grown/log/tree/small
+	starting_atom = /obj/item/weapon/knife
+	allow_inverse_start = FALSE
+	output = /obj/item/dildo/wood
+	craft_time = 5 SECONDS
+
+/datum/repeatable_crafting_recipe/crafting/wood_plug
+	name = "wooden plug"
+	requirements = list(
+		/obj/item/grown/log/tree/small = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/grown/log/tree/small
+	starting_atom = /obj/item/weapon/knife
+	allow_inverse_start = FALSE
+	output = /obj/item/dildo/plug/wood
+	craft_time = 5 SECONDS
+
+/datum/repeatable_crafting_recipe/crafting/stone_plug
+	name = "stone plug"
+	requirements = list(
+		/obj/item/natural/stone = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to carve"), span_notice("start to carve"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/weapon/knife
+	allow_inverse_start = FALSE
+	output = /obj/item/dildo/plug/stone
+	craft_time = 5 SECONDS

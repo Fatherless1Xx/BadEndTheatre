@@ -16,3 +16,6 @@
 /* Directions */
 ///All the cardinal direction bitflags.
 #define ALL_CARDINALS (NORTH|SOUTH|EAST|WEST)
+
+// 180s an angle
+#define REVERSE_ANGLE(degrees) (SIMPLIFY_DEGREES(degrees + 180))

@@ -142,6 +142,15 @@
 	trait = TRAIT_BAOTHA_CURSE
 
 //////////////////////
+///	MISC CURSES	 ///
+//////////////////////
+
+/datum/curse/nympho
+	name = "Nymph's Curse"
+	description = "I'm in a constant state of arousal, and I cannot control my urges, even clothes get me off..."
+	trait = TRAIT_NYMPHO_CURSE
+
+//////////////////////
 /// ON GAIN / LOSS ///
 //////////////////////
 /datum/curse/atheism/on_gain(mob/living/carbon/human/owner)
@@ -174,6 +183,36 @@
 //////////////////////
 ///    ON LIFE     ///
 //////////////////////
+/datum/curse/nympho/on_life(mob/living/carbon/human/owner)
+	. = ..()
+
+	if(!MOBTIMER_FINISHED(owner, "nympho_curse_passive", rand(2,10) SECONDS)) //this isn't how mob timers work
+		return
+	MOBTIMER_SET(owner, "nympho_curse_passive")
+
+	var/datum/component/arousal/owner_arousal = owner.GetComponent(/datum/component/arousal)
+
+	if(owner.wear_pants)
+		if(owner.wear_pants.flags_inv & HIDEUNDIESBOT && !owner.wear_pants.genitalaccess)
+			owner_arousal?.arousal += 1
+
+	if(!MOBTIMER_FINISHED(owner, "nympho_curse", rand(15,90) SECONDS)) //this isn't how mob timers work
+		return
+	MOBTIMER_SET(owner, "nympho_curse")
+
+	if(owner.underwear)
+		to_chat(owner, span_love("UNDIE"))
+		if(rand(5))
+			to_chat(owner, span_love("I feel my [owner.underwear] rub against me..."))
+		owner_arousal?.arousal += rand(15,60)
+
+	else if(owner.wear_pants)
+		if(owner.wear_pants.flags_inv & HIDEUNDIESBOT && !owner.wear_pants.genitalaccess)
+			to_chat(owner, span_love("PANT"))
+			if(rand(5))
+				to_chat(owner, span_love("I feel my [owner.wear_pants] rub against me..."))
+			owner_arousal?.arousal += rand(5,50)
+
 /datum/curse/pestra/on_life(mob/living/carbon/human/owner)
 	. = ..()
 	if(!MOBTIMER_FINISHED(owner, MT_CURSE_PESTRA, rand(120, 480) SECONDS)) //this isn't how mob timers work
@@ -201,6 +240,9 @@
 		return
 
 	MOBTIMER_SET(owner, MT_CURSE_BAOTHA)
+
+	var/datum/component/arousal/owner_arousal = owner.GetComponent(/datum/component/arousal)
+	owner_arousal?.arousal += rand(10,50)
 
 	owner.reagents.add_reagent(/datum/reagent/druqks, 3)
 

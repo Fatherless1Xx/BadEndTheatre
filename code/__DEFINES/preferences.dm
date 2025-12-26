@@ -174,6 +174,14 @@
 #define VOICE_TYPES_MASCANDRO list(VOICE_TYPE_MASC, VOICE_TYPE_ANDRO)
 #define VOICE_TYPES_FEMANDRO list(VOICE_TYPE_FEM, VOICE_TYPE_ANDRO)
 
+// Moan types
+
+#define MOANPACK_TYPE_MALE "Male"
+#define MOANPACK_TYPE_FEMALE "Female"
+#define MOANPACK_TYPE_DEF "Default"
+
+GLOBAL_LIST_INIT(moanpack_types_list, list(MOANPACK_TYPE_DEF, MOANPACK_TYPE_MALE, MOANPACK_TYPE_FEMALE))
+
 //alignment
 #define ALIGNMENT_LG		"Lawful Good"
 #define ALIGNMENT_NG		"Neutral Good"

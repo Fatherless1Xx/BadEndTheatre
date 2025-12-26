@@ -83,6 +83,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	/// The type of voice soundpack the mob should use.
 	var/voice_type = VOICE_TYPE_MASC
+	/// The type of moans the mob should use.
+	var/moan_selection = MOANPACK_TYPE_DEF
 
 	/// Age of character.
 	var/age = AGE_ADULT
@@ -443,7 +445,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE]'>[(randomise[RANDOM_SKIN_TONE]) ? "Lock" : "Unlock"]</A>"
 
 	dat += "<br>"
-	dat += "<b>Voice Type:</b> <a href='?_src_=prefs;preference=voicetype;task=input'>[voice_type]</a>"
+	dat += "<b>Voice Type:</b> <a href='?_src_=prefs;preference=voicetype;task=input'>[voice_type]</a><BR>"
+	dat += "<b>Moan Type</b>: <a href='?_src_=prefs;preference=moanselection;task=input'>[moan_selection]</a>"
 	dat += "<br><b>Voice Color:</b> <a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
 	dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
 	dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
@@ -1192,6 +1195,23 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						if(voicetype_input == VOICE_TYPE_ANDRO)
 							to_chat(user, span_warning("This will use the feminine voicepack pitched down a bit to achieve a more androgynous sound."))
 						to_chat(user, span_warning("Your character will now vocalize with a [lowertext(voice_type)] affect."))
+				if ("moanselection")
+					to_chat(user, "<font color='yellow'>This option allows you to customize your character's moanpack, dependant on the voice type. Leave it on 'default' or click 'cancel' to automatically use your voice type and species' moanpack.</font>")
+					generate_selectable_moanpacks()
+					if(voice_type == VOICE_TYPE_MASC)
+						var moanpack_sel_input = input(user, "Choose your character's moanpack", "Moanpack") as null|anything in GLOB.selectable_moanpacks_male
+						if(moanpack_sel_input)
+							moan_selection = moanpack_sel_input
+							to_chat(user, "<font color='red'>Your character will now use the '[lowertext(moanpack_sel_input)]' moanpack.</font>")
+						else
+							moan_selection = MOANPACK_TYPE_DEF
+					else
+						var moanpack_sel_input = input(user, "Choose your character's moanpack", "Moanpack") as null|anything in GLOB.selectable_moanpacks_female
+						if(moanpack_sel_input)
+							moan_selection = moanpack_sel_input
+							to_chat(user, "<font color='red'>Your character will now use the '[lowertext(moanpack_sel_input)]' moanpack.</font>")
+						else
+							moan_selection = MOANPACK_TYPE_DEF
 				if("faith")
 					var/list/faiths_named = list()
 					for(var/path as anything in GLOB.preference_faiths)
@@ -1833,7 +1853,22 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		organ_eyes.old_eye_color = eye_color
 
 	character.skin_tone = skin_tone
-	character.underwear = underwear
+	var/datum/customizer_entry/underwear_entry = get_customizer_entry_for_customizer_type(/datum/customizer/bodypart_feature/underwear)
+	if(underwear_entry)
+		if(underwear_entry.disabled)
+			character.underwear = "Nude"
+			character.underwear_color = null
+		else
+			var/datum/sprite_accessory/underwear/underwear_accessory = SPRITE_ACCESSORY(underwear_entry.accessory_type)
+			if(underwear_accessory)
+				character.underwear = underwear_accessory.name
+				character.underwear_color = underwear_entry.accessory_colors
+			else
+				character.underwear = underwear
+				character.underwear_color = underwear_color
+	else
+		character.underwear = underwear
+		character.underwear_color = underwear_color
 	character.undershirt = undershirt
 	character.detail = detail
 	character.socks = socks
@@ -1850,6 +1885,15 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.ooc_extra = ooc_extra
 	character.pronouns = pronouns
 	character.voice_type = voice_type
+	//RMH Edit
+	generate_selectable_moanpacks()
+	if(moan_selection == MOANPACK_TYPE_DEF)
+		if(voice_type == VOICE_TYPE_MASC)
+			character.moan_selection = GLOB.selectable_moanpacks["MALE DEFAULT"]
+		else
+			character.moan_selection = GLOB.selectable_moanpacks["FEMALE DEFAULT"]
+	else
+		character.moan_selection = GLOB.selectable_moanpacks[moan_selection]
 
 	character.domhand = domhand
 	character.voice_color = voice_color

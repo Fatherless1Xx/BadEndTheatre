@@ -347,6 +347,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PSYDONITE "Psydonite's Devotion" // Anti-Miracles on a selective basis, anastasis / cure rot still apply. Slow passive wound healing while you have blood.
 #define TRAIT_BLACKBAGGER "Apprehension Techniques" // Capable of using Garrotes and Blackbags. Apprehension techniques.
 #define TRAIT_LYCANRESILENCE "Werewolf Resilence"
+#define TRAIT_WOUNDREGEN "Wound Regeneration"
+#define TRAIT_ABOMINATION "Abomination"
 #define TRAIT_EVASIVE		"Evasive"
 
 #define TRAIT_WEBWALK 					"Webwalker"
@@ -609,3 +611,4 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_DENDOR_DEVOURING "trait_dendor_devouring"
 #define TRAIT_DENDOR_LORDING "trait_dendor_lording"
 
+#define TRAIT_NYMPHO_CURSE "Nymphs Curse"

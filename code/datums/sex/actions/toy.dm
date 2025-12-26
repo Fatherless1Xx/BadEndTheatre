@@ -1,10 +1,24 @@
 
 /datum/sex_action/insert_toy
-	name = "Insert Toy"
+	name = "Use Toy"
 	requires_hole_storage = TRUE
 	hole_id = ORGAN_SLOT_VAGINA
 	stored_item_type = /obj/item/toy
 	continous = FALSE
+
+/datum/sex_action/insert_toy/proc/get_held_toy(mob/living/carbon/human/user)
+	var/obj/item/held_item = user.get_active_held_item()
+	if(istype(held_item, /obj/item/toy))
+		return held_item
+	held_item = user.get_inactive_held_item()
+	if(istype(held_item, /obj/item/toy))
+		return held_item
+	return null
+
+/datum/sex_action/insert_toy/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!get_held_toy(user))
+		return FALSE
+	return TRUE
 
 /datum/sex_action/insert_toy/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
@@ -12,8 +26,7 @@
 		return FALSE
 
 	// Check if user has a toy in hand
-	var/obj/item/held_item = user.get_active_held_item()
-	if(!held_item || !istype(held_item, /obj/item/toy))
+	if(!get_held_toy(user))
 		return FALSE
 
 	return TRUE
@@ -21,7 +34,7 @@
 /datum/sex_action/insert_toy/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	// Get the actual toy from user's hand instead of creating a new one
-	var/obj/item/held_toy = user.get_active_held_item()
+	var/obj/item/held_toy = get_held_toy(user)
 	if(!held_toy)
 		return FALSE
 

@@ -35,16 +35,14 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(mindparent?.current)
 		mindparent.current.verbs += list(
 			/mob/proc/collar_master_control_menu,
-			/mob/proc/collar_master_help,
-			/mob/proc/collar_master_releaseall
+			/mob/proc/collar_master_help
 		)
 
 /datum/component/collar_master/_RemoveFromParent()
 	if(mindparent?.current)
 		mindparent.current.verbs -= list(
 			/mob/proc/collar_master_control_menu,
-			/mob/proc/collar_master_help,
-			/mob/proc/collar_master_releaseall
+			/mob/proc/collar_master_help
 		)
 	. = ..()
 

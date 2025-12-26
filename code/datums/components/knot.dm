@@ -214,7 +214,7 @@
 		var/obj/item/organ/genitals/penis/penis = top.getorganslot(ORGAN_SLOT_PENIS)
 		var/datum/sex_session/session = get_sex_session(top, btm)
 		if(session)
-			session.perform_sex_action(btm, penis?.penis_size > DEFAULT_PENIS_SIZE ? 6.0 : 3.0, 2, FALSE)
+			session.perform_sex_action(btm, penis?.organ_size > DEFAULT_PENIS_SIZE ? 6.0 : 3.0, 2, FALSE)
 			var/datum/component/arousal/btm_arousal = btm.GetComponent(/datum/component/arousal)
 			btm_arousal?.try_ejaculate()
 		if(prob(50))

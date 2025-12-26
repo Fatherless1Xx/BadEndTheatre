@@ -19,6 +19,43 @@
 	. = ..()
 	if(icon_state == "mirror_broke" && !obj_broken)
 		atom_break(null, TRUE, mapload)
+	if(icon_state == "mirror")
+		var/static/list/reflection_filter = alpha_mask_filter(icon = icon('modular_rmh/icons/obj/mirror_masks.dmi', "mirror_mask"))
+		var/static/matrix/reflection_matrix = matrix(0.75, 0, 0, 0, 0.75, 0)
+		AddComponent(/datum/component/reflection, \
+			reflection_filter = reflection_filter, \
+			reflection_matrix = reflection_matrix, \
+			can_reflect = CALLBACK(src, PROC_REF(can_reflect)), \
+			update_signals = list(COMSIG_ATOM_BREAK), \
+			check_reflect_signals = list(SIGNAL_ADDTRAIT(TRAIT_NO_REFLECTION), SIGNAL_REMOVETRAIT(TRAIT_NO_REFLECTION)), \
+		)
+
+/obj/structure/mirror/fancy/Initialize(mapload)
+	. = ..()
+	if(icon_state == "fancymirror1" && !obj_broken)
+		atom_break(null, TRUE, mapload)
+	if(icon_state == "fancymirror")
+		var/static/list/reflection_filter_fancymirror = alpha_mask_filter(icon = icon('modular_rmh/icons/obj/mirror_masks.dmi', "fancymirror_mask"))
+		var/static/matrix/reflection_matrix_fancymirror = matrix(0.75, 0, 0, 0, 0.75, 0)
+		AddComponent(/datum/component/reflection, \
+			reflection_filter = reflection_filter_fancymirror, \
+			reflection_matrix = reflection_matrix_fancymirror, \
+			can_reflect = CALLBACK(src, PROC_REF(can_reflect)), \
+			update_signals = list(COMSIG_ATOM_BREAK), \
+			check_reflect_signals = list(SIGNAL_ADDTRAIT(TRAIT_NO_REFLECTION), SIGNAL_REMOVETRAIT(TRAIT_NO_REFLECTION)), \
+		)
+
+/obj/structure/mirror/proc/can_reflect(atom/movable/target)
+	///I'm doing it this way too, because the signal is sent before the broken variable is set to TRUE.
+	if(atom_integrity <= integrity_failure * max_integrity)
+		return FALSE
+	if(obj_broken || !isliving(target) || HAS_TRAIT(target, TRAIT_NO_REFLECTION))
+		return FALSE
+	if(ishuman(target))
+		var/mob/living/carbon/human/h_target = target
+		if(!h_target.has_reflection)
+			return FALSE
+	return TRUE
 
 /obj/structure/mirror/attack_hand(mob/user)
 	. = ..()

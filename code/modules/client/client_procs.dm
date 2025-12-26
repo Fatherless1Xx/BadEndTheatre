@@ -1289,7 +1289,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(prefs && prefs.chat_toggles & CHAT_PULLR)
 		to_chat(src, announcement)
 
-/client/proc/show_character_previews(mutable_appearance/MA)
+/client/proc/show_character_previews(atom/movable/preview_source)
+	if(!preview_source)
+		return
+	var/original_dir = preview_source.dir
 	var/pos = 0
 	for(var/D in GLOB.cardinals)
 		pos++
@@ -1301,7 +1304,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		O = new
 		LAZYSET(char_render_holders, "[D]", O)
 		screen += O
-		O.appearance = MA
+		preview_source.dir = D
+		O.appearance = new /mutable_appearance(preview_source)
 		O.dir = D
 		switch(pos)
 			if(1)
@@ -1312,6 +1316,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				O.screen_loc = "character_preview_map:1:2,0:10"
 			if(4)
 				O.screen_loc = "character_preview_map:0:2,0:10"
+	preview_source.dir = original_dir
 
 /client/proc/clear_character_previews()
 	for(var/atom/movable/screen/S in char_render_holders)

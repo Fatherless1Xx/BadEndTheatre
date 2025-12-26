@@ -2,6 +2,8 @@
 	name = "Fuck their throat"
 	hole_id = BODY_ZONE_PRECISE_MOUTH
 	stamina_cost = 1.0
+	gags_target = TRUE
+	requires_hole_storage = FALSE
 
 /datum/sex_action/sex/throat/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -42,13 +44,15 @@
 	if(sex_session.considered_limp(user))
 		sex_session.perform_sex_action(target, 0, 2, FALSE)
 	else
+		var/oxyloss = 1.3
 		sex_session.perform_sex_action(target, 0, 7, FALSE)
+		sex_session.perform_deepthroat_oxyloss(target, oxyloss)
 	sex_session.handle_passive_ejaculation()
 
 /datum/sex_action/sex/throat/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_love("[user] cums into [target]'s throat!"))
 	user.virginity = FALSE
-	return "into"
+	return "oral"
 
 
 /datum/sex_action/sex/throat/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

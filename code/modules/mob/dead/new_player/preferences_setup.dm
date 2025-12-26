@@ -146,7 +146,7 @@
 		mannequin.job = previewJob.title
 		mannequin.dress_up_as_job(previewJob, TRUE)
 
-	parent.show_character_previews(new /mutable_appearance(mannequin))
+	parent.show_character_previews(mannequin)
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 
 

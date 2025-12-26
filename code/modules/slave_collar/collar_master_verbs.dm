@@ -297,22 +297,28 @@
 		to_chat(src, span_warning("The collar is still cooling down!"))
 		return
 
+	var/list/releasing = list()
+	var/list/releasable = list()
+	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+		if(!pet || !(pet in CM.my_pets))
+			continue
+		releasing += pet
+		if(!HAS_TRAIT(pet, TRAIT_INDENTURED))
+			releasable += pet
+
+	if(!length(releasable))
+		to_chat(src, span_warning("This one can never be freed."))
+		return
+
 	var/confirm = alert("Release selected pets?", "Release Confirmation", "Yes", "No")
 	if(confirm != "Yes")
 		return
 
 	CM.last_command_time = world.time
 
-	var/list/releasing = CM.temp_selected_pets.Copy()
-	var/blocked_any = FALSE
+	var/blocked_any = (length(releasing) != length(releasable))
 
-	for(var/mob/living/carbon/human/pet in releasing)
-		if(!pet || !(pet in CM.my_pets))
-			continue
-
-		if(HAS_TRAIT(pet, TRAIT_INDENTURED))
-			blocked_any = TRUE
-			continue
+	for(var/mob/living/carbon/human/pet in releasable)
 
 		var/obj/item/clothing/neck/roguetown/cursed_collar/collar = pet.get_item_by_slot(ITEM_SLOT_NECK)
 		if(istype(collar))
@@ -322,7 +328,7 @@
 		CM.cleanup_pet(pet)
 
 	CM.temp_selected_pets.Cut()
-	CM.log_collar_action(src, "Release Pet", releasing)
+	CM.log_collar_action(src, "Release Pet", releasable)
 
 	if(blocked_any)
 		to_chat(src, span_warning("This one can never be freed."))

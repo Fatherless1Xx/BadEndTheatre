@@ -5,8 +5,8 @@
 	abstract_type = /datum/sprite_accessory/genitals/testicles
 
 /datum/sprite_accessory/genitals/testicles/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	var/obj/item/organ/genitals/testicles/testes = organ
-	var/fuck = "[icon_state]_[testes.ball_size]"
+	var/obj/item/organ/genitals/filling_organ/testicles/testes = organ
+	var/fuck = "[icon_state]_[testes.organ_size]"
 	return fuck
 
 /datum/sprite_accessory/genitals/testicles/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)

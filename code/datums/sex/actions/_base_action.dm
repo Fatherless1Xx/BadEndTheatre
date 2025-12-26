@@ -59,6 +59,10 @@
 	var/require_grab = FALSE
 	/// Minimum grab state required
 	var/required_grab_state = GRAB_PASSIVE
+	/// Whether this action gags the user
+	var/gags_user = FALSE
+	/// Whether this action gags the target
+	var/gags_target = FALSE
 	/// Whether aggressive grab bypasses same tile requirement
 	var/aggro_grab_instead_same_tile = FALSE
 	/// Whether this action requires hole storage integration

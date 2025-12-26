@@ -80,6 +80,12 @@
 	created_item = /obj/item/plate/copper
 	createditem_extra = 1
 
+/datum/anvil_recipe/tools/copper/plug
+	name = "3x Plugs (copper)"
+	recipe_name = "three copper plugs"
+	created_item = /obj/item/dildo/plug/copper
+	createditem_extra = 2
+
 // --------- BRONZE -----------
 
 /datum/anvil_recipe/tools/bronze
@@ -289,6 +295,18 @@
 	additional_items = list(/obj/item/ingot/iron)
 	created_item = /obj/item/surgeontoolspawner
 
+/datum/anvil_recipe/tools/iron/dildo
+	name = "Dildo, Iron (x3)"
+	recipe_name = "three iron dildos"
+	created_item = /obj/item/dildo/iron
+	createditem_extra = 2
+
+/datum/anvil_recipe/tools/iron/plug
+	name = "Plug, Iron (x3)"
+	recipe_name = "three iron plugs"
+	created_item = /obj/item/dildo/plug/iron
+	createditem_extra = 2
+
 // --------- STEEL -----------
 
 /datum/anvil_recipe/tools/steel
@@ -328,6 +346,18 @@
 	created_item = /obj/item/weapon/chisel
 	craftdiff = 1
 
+/datum/anvil_recipe/tools/steel/dildo
+	name = "Dildo, Steel (x3)"
+	recipe_name = "three steel dildos"
+	created_item = /obj/item/dildo/steel
+	createditem_extra = 2
+
+/datum/anvil_recipe/tools/steel/plug
+	name = "Plug, Steel (x3)"
+	recipe_name = "three steel plugs"
+	created_item = /obj/item/dildo/plug/steel
+	createditem_extra = 2
+
 // --------- SILVER -----------
 
 /datum/anvil_recipe/tools/silver
@@ -359,6 +389,18 @@
 	createditem_extra = 2
 	craftdiff = 3
 
+/datum/anvil_recipe/tools/silver/dildo
+	name = "Dildo, Silver (x3)"
+	recipe_name = "three silver dildos"
+	created_item = /obj/item/dildo/silver
+	createditem_extra = 2
+
+/datum/anvil_recipe/tools/silver/plug
+	name = "Plug, Silver (x3)"
+	recipe_name = "three silver plugs"
+	created_item = /obj/item/dildo/plug/silver
+	createditem_extra = 2
+
 
 // --------- GOLD -----------
 
@@ -384,3 +426,15 @@
 	name = "2x Platters (gold)"
 	created_item = /obj/item/plate/gold
 	craftdiff = 2
+
+/datum/anvil_recipe/tools/gold/dildo
+	name = "Dildo, Gold (x3)"
+	recipe_name = "three golden dildos"
+	created_item = /obj/item/dildo/gold
+	createditem_extra = 2
+
+/datum/anvil_recipe/tools/gold/plug
+	name = "Plug, Gold (x3)"
+	recipe_name = "three golden plugs"
+	created_item = /obj/item/dildo/plug/gold
+	createditem_extra = 2

@@ -436,6 +436,13 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	if(!limbs_id)	//if we havent set a limbs id to use, just use our own id
 		limbs_id = name
 	..()
+	if(!(NO_UNDERWEAR in species_traits))
+		if(customizers)
+			customizers = customizers.Copy()
+		else
+			customizers = list()
+		if(!(/datum/customizer/bodypart_feature/underwear in customizers))
+			customizers += /datum/customizer/bodypart_feature/underwear
 
 /datum/species/proc/after_creation(mob/living/carbon/human/H)
 	if(H.mind)
@@ -568,6 +575,21 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		var/list/organ_dna_list = pref_load.get_organ_dna_list()
 		for(var/organ_slot in organ_dna_list)
 			C.dna.organ_dna[organ_slot] = organ_dna_list[organ_slot]
+
+	// Ensure gender-default genitals persist across species swaps.
+	if(C?.dna)
+		if(!islist(C.dna.organ_dna))
+			C.dna.organ_dna = list()
+		if(C.gender == MALE)
+			if(!C.dna.organ_dna[ORGAN_SLOT_PENIS])
+				C.dna.organ_dna[ORGAN_SLOT_PENIS] = new /datum/organ_dna/penis
+			if(!C.dna.organ_dna[ORGAN_SLOT_TESTICLES])
+				C.dna.organ_dna[ORGAN_SLOT_TESTICLES] = new /datum/organ_dna/testicles
+		else if(C.gender == FEMALE)
+			if(!C.dna.organ_dna[ORGAN_SLOT_VAGINA])
+				C.dna.organ_dna[ORGAN_SLOT_VAGINA] = new /datum/organ_dna/vagina
+			if(!C.dna.organ_dna[ORGAN_SLOT_BREASTS])
+				C.dna.organ_dna[ORGAN_SLOT_BREASTS] = new /datum/organ_dna/breasts
 
 	//what should be put in if there is no mutantorgan (brains handled seperately)
 	var/list/slot_mutantorgans = organs
@@ -907,51 +929,49 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				hide_top = FALSE
 				hide_bottom = FALSE
 
-				if(H.gender == FEMALE)
-					H.underwear = "FemYoungling"
-				else
-					H.underwear = "Youngling"
-
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
 
 			if(underwear)
-				var/mutable_appearance/underwear_overlay
-				var/mutable_appearance/underwear_emissive
-				if(!hide_bottom)
-					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-					if(LAZYACCESS(offsets, OFFSET_UNDIES))
-						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
-					if(!underwear.use_static)
-						if(H.underwear_color)
-							underwear_overlay.color = H.underwear_color
-						else //default undies are brown
-							H.underwear_color = "#755f46"
-							underwear_overlay.color = "#755f46"
-					standing += underwear_overlay
-					if(!istype(H, /mob/living/carbon/human/dummy))
-						underwear_emissive = emissive_blocker(underwear.icon, underwear.icon_state, -BODY_LAYER)
-						underwear_emissive.pixel_y = underwear_overlay.pixel_y
-						underwear_emissive.pixel_x = underwear_overlay.pixel_x
-						standing += underwear_emissive
+				var/underwear_state = underwear.get_icon_state(null, null, H)
+				if(underwear_state)
+					var/mutable_appearance/underwear_overlay
+					var/mutable_appearance/underwear_emissive
+					if(!hide_bottom)
+						underwear_overlay = mutable_appearance(underwear.icon, underwear_state, -BODY_LAYER)
+						if(LAZYACCESS(offsets, OFFSET_UNDIES))
+							underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+							underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
+						if(!underwear.use_static)
+							if(H.underwear_color)
+								underwear_overlay.color = H.underwear_color
+							else //default undies are brown
+								H.underwear_color = "#755f46"
+								underwear_overlay.color = "#755f46"
+						standing += underwear_overlay
+						if(!istype(H, /mob/living/carbon/human/dummy))
+							underwear_emissive = emissive_blocker(underwear.icon, underwear_state, -BODY_LAYER)
+							underwear_emissive.pixel_y = underwear_overlay.pixel_y
+							underwear_emissive.pixel_x = underwear_overlay.pixel_x
+							standing += underwear_emissive
 
-				if(!hide_top && H.gender == FEMALE)
-					underwear_overlay = mutable_appearance(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
-					if(LAZYACCESS(offsets, OFFSET_UNDIES))
-						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
-					if(!underwear.use_static)
-						if(H.underwear_color)
-							underwear_overlay.color = H.underwear_color
-						else
-							H.underwear_color = "#755f46"
-							underwear_overlay.color = "#755f46"
-					standing += underwear_overlay
-					if(!istype(H, /mob/living/carbon/human/dummy))
-						underwear_emissive = emissive_blocker(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
-						underwear_emissive.pixel_y = underwear_overlay.pixel_y
-						underwear_emissive.pixel_x = underwear_overlay.pixel_x
-						standing += underwear_emissive
+					var/boob_state = "[underwear_state]_boob"
+					if(!hide_top && H.gender == FEMALE && icon_exists(underwear.icon, boob_state))
+						underwear_overlay = mutable_appearance(underwear.icon, boob_state, -BODY_LAYER)
+						if(LAZYACCESS(offsets, OFFSET_UNDIES))
+							underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+							underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
+						if(!underwear.use_static)
+							if(H.underwear_color)
+								underwear_overlay.color = H.underwear_color
+							else
+								H.underwear_color = "#755f46"
+								underwear_overlay.color = "#755f46"
+						standing += underwear_overlay
+						if(!istype(H, /mob/living/carbon/human/dummy))
+							underwear_emissive = emissive_blocker(underwear.icon, boob_state, -BODY_LAYER)
+							underwear_emissive.pixel_y = underwear_overlay.pixel_y
+							underwear_emissive.pixel_x = underwear_overlay.pixel_x
+							standing += underwear_emissive
 
 	if(length(standing))
 		H.overlays_standing[BODY_LAYER] = standing
@@ -1259,17 +1279,6 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				H.apply_status_effect(/datum/status_effect/debuff/hungryt4)
 			if(prob(3))
 				playsound(get_turf(H), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
-
-	var/obj/item/organ/genitals/breasts/breasts = H.getorganslot(ORGAN_SLOT_BREASTS)
-	if(breasts)
-		if(H.nutrition > NUTRITION_LEVEL_HUNGRY && breasts.lactating && breasts.milk_max > breasts.milk_stored)
-			var/milk_to_make = min(nutrition_hunger_rate, breasts.milk_max - breasts.milk_stored)
-			breasts.milk_stored += milk_to_make
-			H.adjust_nutrition(-milk_to_make)
-		else if(H.nutrition < NUTRITION_LEVEL_STARVING && breasts.lactating && breasts.milk_stored > 0)
-			var/milk_to_take = min(nutrition_hunger_rate, breasts.milk_stored)
-			breasts.milk_stored -= milk_to_take
-			H.adjust_nutrition(milk_to_take)
 
 	switch(H.hydration)
 		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
