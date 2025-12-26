@@ -1533,6 +1533,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						accessory = "Nothing"
 						detail = "Nothing"
 						apply_gender_customizer_defaults()
+						to_chat(user, span_notice("In this land, men enjoy many rights women do not.<br>Women are considered property of either their husbands or fathers, and slavers tend to target those with neither, as the law is unlikely to protect them.<br>It is normal for noblewomen to be branded, sometimes to protect them with scrying, sometimes to keep them in line."))
 				if("domhand")
 					if(domhand == 1)
 						domhand = 2

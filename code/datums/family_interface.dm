@@ -1159,9 +1159,9 @@
 	var/female_names = list()
 
 	switch(gen_num)
-		if(1) // Princes and Princesses
-			male_titles = list("Prince")
-			female_titles = list("Princess")
+		if(1) // Heirs and Heiresses
+			male_titles = list("Heir")
+			female_titles = list("Heiress")
 			male_names = list("Alexander", "William", "Edward", "Henry", "Charles", "Richard", "George", "Frederick")
 			female_names = list("Elizabeth", "Margaret", "Anne", "Victoria", "Catherine", "Mary", "Charlotte", "Sophia")
 

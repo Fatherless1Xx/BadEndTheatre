@@ -1,7 +1,7 @@
 /datum/job/minor_noble
 	title = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
-	still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
+	still exist in spite of the Baron. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	display_order = JDO_MINOR_NOBLE
 	department_flag = NOBLEMEN
@@ -26,6 +26,12 @@
 	)
 
 	job_bitflag = BITFLAG_ROYALTY
+
+/datum/job/minor_noble/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	var/mob/living/carbon/human/H = spawned
+	if(H.gender == FEMALE)
+		H.set_flaw(/datum/charflaw/indentured)
 
 /datum/outfit/noble/pre_equip(mob/living/carbon/human/H)
 	..()

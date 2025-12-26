@@ -287,10 +287,10 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/checkreqroles()
 	var/list/readied_jobs = list()
-	var/list/required_jobs = list("Monarch")
+	var/list/required_jobs = list("Baron")
 #ifdef TESTING
 	required_jobs = list()
-	readied_jobs = list("Monarch")
+	readied_jobs = list("Baron")
 #endif
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
@@ -306,7 +306,7 @@ SUBSYSTEM_DEF(ticker)
 					readied_jobs.Add(V)
 
 	if(CONFIG_GET(flag/ruler_required))
-		if(!(("Monarch" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
+		if(!(("Baron" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 			to_chat(world, span_purple("[pick(no_ruler_lines)]"))
 			return FALSE
 

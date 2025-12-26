@@ -30,6 +30,9 @@
 	. = ..()
 	if(!.)
 		return
+	if(!SSticker.HasRoundStarted())
+		if(SSgamemode.get_correct_popcount() < 20)
+			return FALSE
 	var/antag_amt = get_antag_amount()
 	var/list/candidates = get_candidates()
 	if(length(candidates) < antag_amt)

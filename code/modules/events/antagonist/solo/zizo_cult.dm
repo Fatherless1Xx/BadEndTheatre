@@ -19,11 +19,11 @@
 	antag_datum = /datum/antagonist/zizocultist
 
 	restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Hand",
 		"Captain",
-		"Prince",
+		"Heir",
 		"Priest",
 		"Merchant",
 		"Forest Warden",

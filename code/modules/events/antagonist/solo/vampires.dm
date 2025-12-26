@@ -21,7 +21,7 @@
 	antag_datum = /datum/antagonist/vampire/lord
 
 	restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Priest",
 	)

@@ -428,7 +428,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	possible_positions += GLOB.peasant_positions
 	possible_positions += GLOB.apprentices_positions
 	possible_positions += GLOB.allmig_positions
-	possible_positions -= "Monarch"
+	possible_positions -= "Baron"
 	var/new_pos = input(user, "Select their new position", src, null) as anything in possible_positions
 	if(isnull(victim))
 		return

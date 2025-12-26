@@ -19,25 +19,25 @@
 	SIGNAL_HANDLER
 	return
 
-/// Monarch variant
+/// Baron variant
 /datum/objective/personal/mock/monarch
-	name = "Mock Monarch"
+	name = "Mock Baron"
 	immediate_effects = list("Gained an ability to viciously mock others")
 
 /datum/objective/personal/mock/monarch/on_mock_used(datum/source, mob/living/victim)
 	. = ..()
-	if((istype(victim.mind?.assigned_role, /datum/job/lord) || victim.job == "Monarch") && (source == owner.current))
+	if((istype(victim.mind?.assigned_role, /datum/job/lord) || victim.job == "Baron") && (source == owner.current))
 		complete_objective()
 
 /datum/objective/personal/mock/monarch/complete_objective()
 	. = ..()
-	to_chat(owner.current, span_greentext("You have mocked the monarch and completed the objective!"))
+	to_chat(owner.current, span_greentext("You have mocked the baron and completed the objective!"))
 	adjust_storyteller_influence(XYLIX, 20)
 	UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 
 /datum/objective/personal/mock/monarch/update_explanation_text()
 	. = ..()
-	explanation_text = "Viciously mock the monarch for Xylix!"
+	explanation_text = "Viciously mock the baron for Xylix!"
 
 /// Noble variant
 /datum/objective/personal/mock/noble

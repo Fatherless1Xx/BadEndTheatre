@@ -616,8 +616,8 @@
 //job specials
 /datum/special_trait/punkprincess //I think everyone will like the Rebellous Prince-Like Princess. I'd love to do one for the prince as well that gives him princess loadout, but, up to you!
 	name = "Rebellous Daughter"
-	greet_text = span_notice("I am quite rebellious for a princess. Screw Noble Customs!")
-	req_text = "Be a princess"
+	greet_text = span_notice("I am quite rebellious for an heiress. Screw Noble Customs!")
+	req_text = "Be an heiress"
 	allowed_sexes = list(FEMALE)
 	allowed_jobs = list(/datum/job/prince)
 	weight = 50
@@ -701,7 +701,7 @@
 	greet_text = span_notice("Physique, Endurance, Constitution. \
 	The trinity of what builds a great leader and an even greater kingdom... \
 	or whatever those nimrods were yapping about! <b>I cast FIREBALL!!!</b>")
-	req_text = "Monarch, worship Noc or Zizo"
+	req_text = "Baron, worship Noc or Zizo"
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 	allowed_jobs = list(/datum/job/lord)
 	weight = 25 //Should be fine.
@@ -905,7 +905,7 @@
 	name = "The Glutton"
 	greet_text = span_notice("Baotha has cursed my entire bloodline, demanding that we indulge in luxuries and dine in decadance.")
 	weight = 20
-	req_text = "Monarch"
+	req_text = "Baron"
 	allowed_jobs = list(/datum/job/lord)
 
 /datum/special_trait/glutton/on_apply(mob/living/carbon/human/character, silent)

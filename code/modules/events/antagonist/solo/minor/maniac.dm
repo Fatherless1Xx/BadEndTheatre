@@ -12,7 +12,7 @@
 	minor_roleset = TRUE
 
 	restricted_roles = list(
-		"Monarch",
+		"Baron",
 		"Consort",
 		"Priest",
 		"Captain",

@@ -1,7 +1,7 @@
 /datum/job/archivist
 	title = "Archivist"
 	tutorial = "A well-traveled and well-learned seeker of wisdom, the Archivist bears the mark of Noc's influence.\
-	Tasked with recording the court's events and educating the ungrateful whelps the monarch calls heirs.\
+	Tasked with recording the court's events and educating the ungrateful whelps the baron calls heirs.\
 	Your work may go unappreciated now, but one dae historians will sing of your dedication and insight."
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

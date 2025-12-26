@@ -201,7 +201,7 @@ SUBSYSTEM_DEF(familytree)
 			if(existing_monarch)
 				ruling_family.MarryMembers(existing_monarch, member)
 
-		if(FAMILY_PROGENY)  // Prince/Princess
+		if(FAMILY_PROGENY)  // Heir/Heiress
 			// Children of the current monarch
 			var/datum/family_member/monarch = GetCurrentMonarch()
 			if(monarch)
@@ -219,7 +219,7 @@ SUBSYSTEM_DEF(familytree)
 /datum/controller/subsystem/familytree/proc/GetCurrentMonarch()
 	// Find the monarch at generation 12 (current ruling generation)
 	for(var/datum/family_member/member in ruling_family.members)
-		if(member.generation == 12 && member.person.job == "Monarch")
+	if(member.generation == 12 && member.person.job == "Baron")
 			return member
 	return null
 
@@ -230,7 +230,7 @@ SUBSYSTEM_DEF(familytree)
 
 	hand_member.generation = monarch.generation
 
-	// Make the hand a sibling of the monarch (so uncle/aunt to any princes/princesses)
+	// Make the hand a sibling of the monarch (so uncle/aunt to any heirs)
 	if(monarch.parents.len)
 		var/datum/family_member/monarch_parent = monarch.parents[1]
 		var/datum/family_member/monarch_parent_second = monarch.parents[2]
@@ -311,20 +311,20 @@ SUBSYSTEM_DEF(familytree)
 /datum/controller/subsystem/familytree/proc/GenerateRoyalName(gender, generation)
 	var/list/male_names = list(
 		"King" = list("Alexander", "William", "Edward", "Henry", "Richard", "George"),
-		"Prince" = list("Charles", "Philip", "Arthur", "Frederick", "Edmund")
+		"Heir" = list("Charles", "Philip", "Arthur", "Frederick", "Edmund")
 	)
 	var/list/female_names = list(
 		"Queen" = list("Victoria", "Elizabeth", "Mary", "Anne", "Catherine"),
-		"Princess" = list("Margaret", "Charlotte", "Sophia", "Alexandra")
+		"Heiress" = list("Margaret", "Charlotte", "Sophia", "Alexandra")
 	)
 
 	var/title
 	var/list/names
 	if(gender == MALE)
-		title = generation > 2 ? "King" : "Prince"
+		title = generation > 2 ? "King" : "Heir"
 		names = male_names[title]
 	else
-		title = generation > 2 ? "Queen" : "Princess"
+		title = generation > 2 ? "Queen" : "Heiress"
 		names = female_names[title]
 
 	var/list/roman_numerals = list("I", "II", "III", "IV", "V")

@@ -103,7 +103,7 @@
 	..()
 
 /datum/antagonist/aspirant/supporter/greet()
-	to_chat(owner, span_redtextbig("Long live the Monarch! But not this one. I have been approached by an Aspirant and swayed to their cause. I must ensure they take the throne."))
+	to_chat(owner, span_redtextbig("Long live the Baron! But not this one. I have been approached by an Aspirant and swayed to their cause. I must ensure they take the throne."))
 	addtimer(CALLBACK(src, PROC_REF(show_aspirant_to_supporter)), 10 SECONDS) // this is ass but I can't think of anything else rn, it's 22:00
 
 /datum/antagonist/aspirant/ruler/greet() // No alert for the ruler to always keep them guessing.
@@ -151,7 +151,7 @@
 
 /datum/objective/aspirant/coup/one
 	name = "Take the throne"
-	explanation_text = "I must ensure that I am crowned as the Monarch."
+	explanation_text = "I must ensure that I am crowned as the Baron."
 	triumph_count = 5
 
 /datum/objective/aspirant/coup/one/check_completion()

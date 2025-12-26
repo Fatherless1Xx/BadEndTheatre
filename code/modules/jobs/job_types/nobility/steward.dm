@@ -1,7 +1,7 @@
 /datum/job/steward
 	title = "Steward"
 	tutorial = "Coin, Coin, Coin! Oh beautiful coin: \
-	You're addicted to it, and you hold the position as the King's personal treasurer of both coin and information. \
+	You're addicted to it, and you hold the position as the Baron's personal treasurer of both coin and information. \
 	You know the power silver and gold has on a man's mortal soul, \
 	and you know just what lengths they'll go to in order to get even more. Keep your festering economy and your rats alive, theyre the only two things you can weigh any trust into anymore."
 	department_flag = NOBLEMEN
@@ -21,6 +21,12 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 	job_bitflag = BITFLAG_ROYALTY
+
+/datum/job/steward/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	var/mob/living/carbon/human/H = spawned
+	if(H.gender == FEMALE)
+		H.set_flaw(/datum/charflaw/indentured)
 
 /datum/outfit/steward/pre_equip(mob/living/carbon/human/H)
 	..()

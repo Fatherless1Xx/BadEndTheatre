@@ -433,7 +433,7 @@ GLOBAL_LIST_INIT(badomens, list())
 			)
 			sound = 'sound/misc/gods/zizo_omen.ogg'
 		if(OMEN_NOLORD)
-			used = "The Monarch is dead! We need a new ruler."
+			used = "The Baron is dead! We need a new ruler."
 		if(OMEN_NOPRIEST)
 			used = "The High Priest is dead!"
 		if(OMEN_NOBLEDEATH)

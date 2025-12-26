@@ -1,7 +1,7 @@
 /datum/job/consort
 	title = "Consort"
 	tutorial = "Yours was a marriage of political convenience rather than love, \
-	yet you have remained the ruling monarch's good friend and confidant throughout your marriage. \
+	yet you have remained the ruling baron's good friend and confidant throughout your marriage. \
 	But your love and loyalty will be tested, for daggers are equally pointed at your throat."
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
@@ -30,6 +30,8 @@
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 5 SECONDS)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	if(H.gender == FEMALE)
+		H.set_flaw(/datum/charflaw/indentured)
 
 /datum/outfit/consort // Default equipment regardless of class.
 	head = /obj/item/clothing/head/crown/nyle/consortcrown
@@ -46,6 +48,11 @@
 */
 /datum/job/advclass/consort
 	inherit_parent_title = TRUE
+
+/datum/job/advclass/consort/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	if(spawned.gender == FEMALE)
+		spawned.set_flaw(/datum/charflaw/indentured)
 
 /datum/job/advclass/consort/highborn
 	title = "Highborn Consort"
@@ -178,7 +185,7 @@
 
 /datum/job/advclass/consort/courtesan/night_spy
 	title = "Night-Mother's Spy Consort"
-	tutorial = "Raised by the guild to report on all the Monarch's action. Using your honeyed words and charm have brought you right to being a ruler's beloved consort."
+	tutorial = "Raised by the guild to report on all the Baron's actions. Using your honeyed words and charm have brought you right to being a ruler's beloved consort."
 	outfit = /datum/outfit/consort/courtesan/spy
 
 	category_tags = list(CTAG_CONSORT)

@@ -47,7 +47,7 @@
 	if(H.dna?.species.id == SPEC_ID_HUMEN)
 		H.dna.species.native_language = "Old Psydonic"
 		H.dna.species.accent_language = H.dna.species.get_accent(H.dna.species.native_language)
-	var/weapons = list("Zweihander", "Musket",)
+	var/weapons = list("Zweihander")
 	var/weapon_choice = input(H,"CHOOSE YOUR WEAPON.", "GO EARN SOME COIN.") as anything in weapons
 	switch(weapon_choice)
 		if("Zweihander")
@@ -58,12 +58,3 @@
 			H.change_stat(STATKEY_CON, 2)
 			H.adjust_skillrank(/datum/skill/combat/axesmaces, pick(2,3), TRUE) // Equal chance between skilled and average, can use a cudgel to beat less dangerous targets into submission
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		if("Musket")
-			H.equip_to_slot_or_del(new /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/musket, ITEM_SLOT_BACK_R, TRUE)
-			H.equip_to_slot_or_del(new /obj/item/ammo_holder/bullet, ITEM_SLOT_BELT_R, TRUE)
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/musketeer, ITEM_SLOT_BACK_L, TRUE)
-			H.equip_to_slot_or_del(new /obj/item/weapon/sword/sabre/dec, ITEM_SLOT_BELT_L, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/firearms, 4, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-			if(H.age == AGE_OLD)
-				H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)

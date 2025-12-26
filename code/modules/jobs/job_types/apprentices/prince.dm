@@ -1,6 +1,6 @@
 /datum/job/prince
-	title = "Prince"
-	f_title = "Princess"
+	title = "Heir"
+	f_title = "Heiress"
 	tutorial = "You’ve never felt the gnawing of the winter, \
 	never known the bite of hunger and certainly have never known a honest day's work. \
 	You are as free as any bird in the sky, \
@@ -35,11 +35,18 @@
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 5 SECONDS)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	if(H.gender == FEMALE)
+		H.set_flaw(/datum/charflaw/indentured)
 
 /datum/job/advclass/heir
 	inherit_parent_title = TRUE
 	allowed_ages = list(AGE_ADULT, AGE_CHILD)
 	allowed_races = RACES_PLAYER_ROYALTY
+
+/datum/job/advclass/heir/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	if(spawned.gender == FEMALE)
+		spawned.set_flaw(/datum/charflaw/indentured)
 
 /datum/job/advclass/heir/daring
 	title = "Daring Twit"

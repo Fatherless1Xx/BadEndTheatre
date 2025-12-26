@@ -1,11 +1,11 @@
 /datum/migrant_role/rockhill/mayor
 	name = "Mayor of Rockhill"
-	greet_text = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Monarch."
+	greet_text = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Baron."
 	migrant_job = /datum/job/migrant/rockhill/mayor
 
 /datum/job/migrant/rockhill/mayor
 	title = "Mayor of Rockhill"
-	tutorial = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Monarch."
+	tutorial = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Baron."
 	outfit = /datum/outfit/rockhill/mayor
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED

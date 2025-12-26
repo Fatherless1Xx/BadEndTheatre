@@ -15,6 +15,7 @@
 	selection_color = "#c2a45d"
 	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_sexes = list(MALE)
 
 	outfit = /datum/outfit/priest
 	spells = list(
@@ -137,8 +138,8 @@
 			if(is_lord_job(HL.mind.assigned_role) || is_consort_job(HL.mind.assigned_role))
 				HL.mind.set_assigned_role(SSjob.GetJobType(/datum/job/villager))
 		//would be better to change their title directly, but that's not possible since the title comes from the job datum
-		if(HL.job == "Monarch")
-			HL.job = "Ex-Monarch"
+		if(HL.job == "Baron")
+			HL.job = "Ex-Baron"
 			lord_job?.remove_spells(HL)
 		if(HL.job == "Consort")
 			HL.job = "Ex-Consort"
@@ -147,7 +148,7 @@
 	var/new_title = (coronated.gender == MALE) ? SSmapping.config.monarch_title : SSmapping.config.monarch_title_f
 	coronated.mind.set_assigned_role(/datum/job/lord)
 	lord_job?.get_informed_title(coronated, TRUE, new_title)
-	coronated.job = "Monarch" //Monarch is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
+	coronated.job = "Baron" //Baron is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
 	GLOB.badomens -= OMEN_NOLORD

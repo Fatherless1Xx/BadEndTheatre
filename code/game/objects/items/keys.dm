@@ -267,13 +267,13 @@
 
 /obj/item/key/hand
 	name = "hand's key"
-	desc = "This regal key belongs to the Monarch's Right Hand."
+	desc = "This regal key belongs to the Baron's Right Hand."
 	icon_state = "cheesekey"
 	lockids = list(ACCESS_HAND)
 
 /obj/item/key/steward
 	name = "steward's key"
-	desc = "This key belongs to the Monarch's greedy Steward."
+	desc = "This key belongs to the Baron's greedy Steward."
 	icon_state = "cheesekey"
 	lockids = list(ACCESS_STEWARD)
 
@@ -315,7 +315,7 @@
 
 /obj/item/key/atarms
 	name = "keep garrison key"
-	desc = "A key given to the Monarch's men-at-arms."
+	desc = "A key given to the Baron's men-at-arms."
 	icon_state = "spikekey"
 	lockids = list(ACCESS_AT_ARMS)
 

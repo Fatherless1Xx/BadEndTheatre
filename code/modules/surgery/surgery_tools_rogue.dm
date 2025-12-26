@@ -203,6 +203,8 @@
 			if(!incision.is_sewn())
 				to_chat(user, span_warning("The incision on their groin prevents the brand from taking."))
 				return TRUE
+	if(!do_after(user, 10 SECONDS, target))
+		return TRUE
 
 	var/branded = FALSE
 	if(!HAS_TRAIT(target, TRAIT_INDENTURED))
