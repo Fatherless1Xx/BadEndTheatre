@@ -30,7 +30,15 @@
 	. = ..()
 	if(!.)
 		return
-	if(!SSticker.HasRoundStarted())
+	if(roundstart)
+		var/ready_count = SSgamemode.ready_players
+		if(!ready_count)
+			ready_count = SSticker.totalPlayersReady
+		if(!ready_count && SSticker.HasRoundStarted())
+			ready_count = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
+		if(ready_count < 20)
+			return FALSE
+	else if(!SSticker.HasRoundStarted())
 		if(SSgamemode.get_correct_popcount() < 20)
 			return FALSE
 	var/antag_amt = get_antag_amount()
