@@ -32,7 +32,7 @@
 		return
 
 	var/mob/living/carbon/human/H = spawned
-	addtimer(CALLBACK(src, PROC_REF(offer_weapon_choice), H), 1)
+	addtimer(CALLBACK(src, PROC_REF(offer_weapon_choice), H, player_client), 1)
 
 /datum/outfit/butler/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -78,12 +78,13 @@
 	ADD_TRAIT(H, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 
-/datum/job/butler/proc/offer_weapon_choice(mob/living/carbon/human/H)
-	if(!H || QDELETED(H) || !H.client)
+/datum/job/butler/proc/offer_weapon_choice(mob/living/carbon/human/H, client/player_client)
+	var/client/chooser = player_client || H?.client
+	if(!H || QDELETED(H) || !chooser)
 		return
 
 	var/list/weapons = list("Pikeman", "Fencer", "Longsword", "Sabre", "Knife")
-	var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as null|anything in weapons
+	var/weapon_choice = input(chooser, "Choose your weapon.", "TAKE UP ARMS") as null|anything in weapons
 
 	if(!weapon_choice)
 		return

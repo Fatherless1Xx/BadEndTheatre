@@ -15,7 +15,8 @@
 	"other_z": [
 		"map_files/vanderlin/vanderlin_forest",
 		"map_files/vanderlin/vanderlin_mountain",
-		"map_files/vanderlin/vanderlin_bog"
+		"map_files/vanderlin/vanderlin_bog",
+		"map_files/shared/underworld"
 	],
 	"minetype": null,
 	"space_empty_levels": 0,

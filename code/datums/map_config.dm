@@ -47,27 +47,37 @@
 
 #define CHECK_EXISTS(X) if(!istext(json[X])) { log_world("[##X] missing from json!"); return; }
 /datum/map_config/proc/LoadConfig(filename, error_if_missing)
-	if(!fexists(filename))
+	var/actual_filename = filename
+	if(!fexists(actual_filename))
+		if(!findtextEx(actual_filename, ".json"))
+			if(fexists("[actual_filename].json"))
+				actual_filename = "[actual_filename].json"
+	if(!fexists(actual_filename))
+		if(fexists("_maps/[filename]"))
+			actual_filename = "_maps/[filename]"
+		else if(!findtextEx(filename, ".json") && fexists("_maps/[filename].json"))
+			actual_filename = "_maps/[filename].json"
+	if(!fexists(actual_filename))
 		if(error_if_missing)
 			log_world("map_config not found: [filename]")
 		return
 
-	var/json = file(filename)
+	var/json = file(actual_filename)
 	if(!json)
-		log_world("Could not open map_config: [filename]")
+		log_world("Could not open map_config: [actual_filename]")
 		return
 
 	json = file2text(json)
 	if(!json)
-		log_world("map_config is not text: [filename]")
+		log_world("map_config is not text: [actual_filename]")
 		return
 
 	json = json_decode(json)
 	if(!json)
-		log_world("map_config is not json: [filename]")
+		log_world("map_config is not json: [actual_filename]")
 		return
 
-	config_filename = filename
+	config_filename = actual_filename
 
 	CHECK_EXISTS("map_name")
 	map_name = json["map_name"]
