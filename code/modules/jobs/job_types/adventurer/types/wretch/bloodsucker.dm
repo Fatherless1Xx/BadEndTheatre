@@ -137,6 +137,6 @@
 	H.change_stat(STATKEY_STR, pick(-1,1,2,3))
 	H.change_stat(STATKEY_INT, pick(-2,-1,1,2))
 	H.change_stat(STATKEY_SPD, pick(-2,-1,1,2))
-	H.add_spell(/datum/action/cooldown/spell/undirected/shapeshift/rat_vampire) // seems funny, rat powers, sewer lurker
+	//H.add_spell(/datum/action/cooldown/spell/undirected/shapeshift/rat_vampire) // This is absurdly powerful and needs tweaks
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
