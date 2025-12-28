@@ -1,16 +1,19 @@
 /datum/job/consort
 	title = "Consort"
-	tutorial = "Yours was a marriage of political convenience rather than love, \
-	yet you have remained the ruling baron's good friend and confidant throughout your marriage. \
-	But your love and loyalty will be tested, for daggers are equally pointed at your throat."
+	tutorial = "You were wed to the baron not for love but as a pawn in political games, \
+	Though you hold exalted title and place in court, \
+	you know the bitter truth: you are his possession, \
+	And now the blades that seek his life \
+	threaten yours just as surely."
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CONSORT
 	faction = FACTION_TOWN
-	total_positions = 0
+	total_positions = 1
 	spawn_positions = 1
 	min_pq = 6
 	bypass_lastclass = TRUE
+	allowed_sexes = list(FEMALE)
 
 	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/servant)
 	allowed_races = RACES_PLAYER_ROYALTY
