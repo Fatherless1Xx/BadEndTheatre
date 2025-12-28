@@ -8,7 +8,7 @@
 /obj/item/natural/human_tooth/Initialize()
 	. = ..()
 	var/static/list/tooth_sprites = list(
-		"tooth1",
+		"tooth",
 		"tooth2",
 		"tooth3"
 		)
