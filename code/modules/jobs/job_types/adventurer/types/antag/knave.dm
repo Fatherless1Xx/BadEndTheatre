@@ -29,6 +29,7 @@
 	H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	//H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	belt = /obj/item/storage/belt/leather
+	backpack_contents = list(/obj/item/key/bandit = 1)
 	pants = /obj/item/clothing/pants/trou/leather
 	shirt = /obj/item/clothing/shirt/shortshirt/colored/random
 	shoes = /obj/item/clothing/shoes/boots

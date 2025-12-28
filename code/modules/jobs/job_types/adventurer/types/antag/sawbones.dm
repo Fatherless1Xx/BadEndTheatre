@@ -17,7 +17,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	backpack_contents = list(/obj/item/natural/worms/leech = 1, /obj/item/natural/cloth = 2,)
+	backpack_contents = list(/obj/item/natural/worms/leech = 1, /obj/item/natural/cloth = 2, /obj/item/key/bandit = 1)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
