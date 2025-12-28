@@ -49,16 +49,17 @@
 		spawned.set_flaw(/datum/charflaw/indentured)
 
 /datum/job/advclass/heir/daring
-	title = "Daring Twit"
+	title = "Heir"
 	tutorial = "You're a somebody, someone important. It only makes sense you want to make a name for yourself, to gain your own glory so people see how great you really are beyond your bloodline. Plus, if you're beloved by the people for your exploits you'll be chosen! Probably. Shame you're as useful and talented as a squire, despite your delusions to the contrary."
 	outfit = /datum/outfit/heir/daring
 	category_tags = list(CTAG_HEIR)
+	allowed_sexes = (MALE)
 
 /datum/outfit/heir/daring/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights
-	shirt = /obj/item/clothing/shirt/undershirt/colored/guard
-	armor = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/shirt/dress/royal/prince
+	belt = /obj/item/storage/belt/leather
 	shoes = /obj/item/clothing/shoes/nobleboot
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/sword
@@ -87,15 +88,18 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 /datum/job/advclass/heir/aristocrat
-	title = "Sheltered Aristocrat"
-	tutorial = "Life has been kind to you; you've an entire keep at your disposal, servants to wait on you, and a whole retinue of guards to guard you. You've nothing to prove; just live the good life and you'll be a lord someday, too. A lack of ambition translates into a lacking skillset beyond schooling, though, and your breaks from boredom consist of being a damsel or court gossip."
+	title = "Noble Woman"
+	tutorial = "You were born into comfort. Servants attend you without question. \
+				Unfortunately, The presence of any male relative erases your claim before it can form. \
+				Your future is decided for you. Marriage awaits as a political exchange meant to secure alliances."
+
 	outfit = /datum/outfit/heir/aristocrat
 	category_tags = list(CTAG_HEIR)
-
+	allowed_sexes = (FEMALE)
 /datum/outfit/heir/aristocrat/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/key/manor
@@ -112,8 +116,6 @@
 		shoes = /obj/item/clothing/shoes/shortboots
 		pants = /obj/item/clothing/pants/tights/colored/random
 		H.virginity = TRUE
-	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
