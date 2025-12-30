@@ -344,6 +344,15 @@
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
+		if(istype(wear_neck, /obj/item/clothing/neck/gorget/slave_gorget)) //control collar
+			var/obj/item/clothing/neck/gorget/slave_gorget/G = wear_neck
+
+			if(lowertext(user.job) == "town master" || lowertext(user.job) == "consort")
+				. += span_userdanger("You notice three engraved phrases on the gorget:")
+				. += "<br><b>Lust:</b> \"[G.pleasure_phrase]\""
+				. += "<br><b>Submission:</b> \"[G.submission_phrase]\""
+				. += "<br><b>Freedom:</b> \"[G.freedom_phrase]\""
+
 	if(get_eye_color() == BLOODCULT_EYE)
 		. += span_warning("<B>[capitalize(m2)] eyes are glowing an unnatural red!</B>")
 

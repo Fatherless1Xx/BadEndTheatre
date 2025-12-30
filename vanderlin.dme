@@ -3768,6 +3768,8 @@
 #include "modular_rmh\modular\helpers\lewd_helpers.dm"
 #include "modular_rmh\modular\selectable_moanpacks\emote.dm"
 #include "modular_rmh\modular\selectable_moanpacks\moanpacks_defs.dm"
+#include "modular_rmh\code\modules\clothing\control_collar.dm"
+#include "modular_rmh\code\modules\clothing\control_ring.dm"
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
