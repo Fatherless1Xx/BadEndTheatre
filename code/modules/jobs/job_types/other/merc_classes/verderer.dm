@@ -32,7 +32,7 @@
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
 		H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)

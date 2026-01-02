@@ -2,7 +2,7 @@
 	title = "Sword Dancer"
 	tutorial = "You were a former bard, but when times got tough you picked up a blade to defend yourself. \
 	Now you travel the lands of Psydonia, selling your sword and your songs to the highest bidder."
-	allowed_races = list(SPEC_ID_TIEFLING)
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/mercenary/sworddancer
 	category_tags = list(CTAG_MERCENARY)
 
@@ -25,7 +25,7 @@
 
 /datum/outfit/mercenary/sworddancer/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)

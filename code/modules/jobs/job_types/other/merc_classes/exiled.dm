@@ -19,7 +19,7 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE) // Cut those trees #Morbiussweep
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Cut those trees #Morbiussweep
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)

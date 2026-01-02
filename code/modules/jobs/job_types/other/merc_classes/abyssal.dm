@@ -27,7 +27,7 @@
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 
 	H.merctype = 10
@@ -39,7 +39,7 @@
 		backr = /obj/item/weapon/polearm/spear/hoplite/abyssal
 		beltr = /obj/item/weapon/shield/tower/buckleriron
 		H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 
 		H.change_stat(STATKEY_STR, 1)
