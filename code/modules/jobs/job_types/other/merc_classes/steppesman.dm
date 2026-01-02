@@ -32,7 +32,7 @@
 	scabbards = list(/obj/item/weapon/scabbard/sword)
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1)
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)

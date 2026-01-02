@@ -26,7 +26,7 @@
 
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Swords / Nonlethal.
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE) // Swords / Nonlethal.
 		H.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE) // For jumping off roofs. Don't lower.

@@ -29,7 +29,7 @@
 		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
-		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)

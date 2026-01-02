@@ -50,14 +50,14 @@
 
 	if(H.dna.species.id == SPEC_ID_DWARF)
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/bombs, 4, TRUE) // Dwarves get to make bombs.
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		beltl = /obj/item/weapon/pick/paxe // Dorfs get a pick as their primary weapon and axes/maces to use it
 		backr = /obj/item/weapon/shield/wood
 	else // No miner's helm for Delves or kobolds as they haven nitevision now.
-		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 
 		beltl = /obj/item/weapon/sword/sabre // Dark elves get a sabre as their primary weapon and swords skill, who woulda thought
 		head = /obj/item/clothing/head/helmet/leather//similar to the miner helm, except not as cool of course
